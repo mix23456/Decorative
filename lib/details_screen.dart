@@ -372,54 +372,118 @@ class _DetailScreenState extends State<DetailScreen> {
               children: [
                 Text('จำนวน : ',
                     style: GoogleFonts.kanit(color: Colors.black54)),
-                SizedBox(
-                  width: 40,
-                  height: 32,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          side: const BorderSide(color: Colors.grey),
-                          primary: Colors.white,
-                          elevation: 0),
-                      onPressed: () {
-                        if (numOfItem > 1) {
-                          setState(() {
-                            numOfItem--;
-                          });
-                        }
-                      },
-                      child: const Icon(
-                        Icons.remove,
+                Container(
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(4)),
+                  height: 20,
+                  width: 100,
+                  child: Row(
+                    children: [
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            if (numOfItem > 1) {
+                              setState(() {
+                                numOfItem--;
+                              });
+                            }
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.only(left: 4),
+                            width: 15,
+                            child: Icon(
+                              Icons.remove,
+                              color: numOfItem == 1 ? Colors.grey : Colors.grey,
+                              size: 10,
+                            ),
+                          ),
+                        ),
+                      ),
+                      VerticalDivider(
+                        color: Colors.black,
+                      ),
+                      Container(
+                        width: 25,
+                        decoration: BoxDecoration(color: Colors.white),
+                        child: Text(numOfItem.toString(),
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.kanit(
+                                fontSize: 10, color: Colors.grey)),
+                      ),
+                      VerticalDivider(
                         color: Colors.grey,
-                      )),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            numOfItem++;
+                          });
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          margin: EdgeInsets.only(right: 4),
+                          width: 15,
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.grey,
+                            size: 10,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(width: 10),
-                Text(numOfItem.toString().padLeft(2, "0"),
-                    style: GoogleFonts.kanit(color: Colors.black26)),
-                const SizedBox(width: 10),
-                SizedBox(
-                  width: 40,
-                  height: 32,
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.zero,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)),
-                          side: const BorderSide(color: Colors.grey),
-                          primary: Colors.black38,
-                          elevation: 0),
-                      onPressed: () {
-                        setState(() {
-                          numOfItem++;
-                        });
-                      },
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                      )),
-                ),
+                // SizedBox(
+                //   width: 40,
+                //   height: 32,
+                //   child: ElevatedButton(
+                //       style: ElevatedButton.styleFrom(
+                //           padding: EdgeInsets.zero,
+                //           shape: RoundedRectangleBorder(
+                //               borderRadius: BorderRadius.circular(5)),
+                //           side: const BorderSide(color: Colors.grey),
+                //           primary: Colors.white,
+                //           elevation: 0),
+                //       onPressed: () {
+                //         if (numOfItem > 1) {
+                //           setState(() {
+                //             numOfItem--;
+                //           });
+                //         }
+                //       },
+                //       child: const Icon(
+                //         Icons.remove,
+                //         color: Colors.grey,
+                //       )),
+                // ),
+                // const SizedBox(width: 10),
+                // Text(numOfItem.toString().padLeft(2, "0"),
+                //     style: GoogleFonts.kanit(color: Colors.black26)),
+                // const SizedBox(width: 10),
+                // SizedBox(
+                //   width: 40,
+                //   height: 32,
+                //   child: ElevatedButton(
+                //       style: ElevatedButton.styleFrom(
+                //           padding: EdgeInsets.zero,
+                //           shape: RoundedRectangleBorder(
+                //               borderRadius: BorderRadius.circular(5)),
+                //           side: const BorderSide(color: Colors.grey),
+                //           primary: Colors.black38,
+                //           elevation: 0),
+                //       onPressed: () {
+                //         setState(() {
+                //           numOfItem++;
+                //         });
+                //       },
+                //       child: const Icon(
+                //         Icons.add,
+                //         color: Colors.white,
+                //       )),
+                // ),
               ],
             ),
             const SizedBox(height: 5),
