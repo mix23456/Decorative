@@ -347,177 +347,328 @@ class _ProductScreenState extends State<ProductScreen> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: <Widget>[
-                                        Align(
-                                          alignment: Alignment.center,
-                                          child: Text("ตัวกรอง",
-                                              style: GoogleFonts.kanit(
-                                                  fontSize: 20)),
-                                        ),
+                                        Text("ตัวกรอง",
+                                            style: GoogleFonts.kanit(
+                                                fontSize: 20)),
                                         // SizedBox(height: 5),
                                         const Divider(
                                             thickness: 5, color: Colors.black),
                                         const SizedBox(height: 15),
-                                        Text('หมวดหมู่: ผ้าม่าน',
-                                            style: GoogleFonts.kanit()),
-                                        CheckboxListTile(
-                                          value: curtain1,
-                                          title: Text("ผ้าม่านสองชั้น",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              curtain1 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        CheckboxListTile(
-                                          value: curtain2,
-                                          title: Text("ม่านพับ",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              curtain2 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        CheckboxListTile(
-                                          value: curtain3,
-                                          title: Text("ม่านม้วน",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              curtain3 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        CheckboxListTile(
-                                          value: curtain4,
-                                          title: Text("ม่านจีบ",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              curtain4 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        CheckboxListTile(
-                                          value: curtain5,
-                                          title: Text("ม่านโปร่งแสง",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              curtain5 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        CheckboxListTile(
-                                          value: curtain6,
-                                          title: Text("ม่านตาไก่",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              curtain6 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        CheckboxListTile(
-                                          value: curtain7,
-                                          title: Text("ม่านลายริ้ว",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              curtain7 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        Text('หมวดหมู่: มู่ลี่',
-                                            style: GoogleFonts.kanit()),
-                                        CheckboxListTile(
-                                          value: chick1,
-                                          title: Text("มุ่ลี่",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              chick1 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        CheckboxListTile(
-                                          value: chick2,
-                                          title: Text("มู่ลี่ไม้",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              chick2 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(
-                                          height: 10,
-                                        ),
-                                        CheckboxListTile(
-                                          value: chick3,
-                                          title: Text("มู่ลี่อลูมิเนียม",
-                                              style: GoogleFonts.kanit()),
-                                          onChanged: (value) {
-                                            setState(() {
-                                              chick3 = value;
-                                            });
-                                          },
-                                        ),
-                                        const Divider(height: 10),
-                                        const SizedBox(height: 5),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: <Widget>[
-                                            Material(
-                                              elevation: 5.0,
-                                              color: Colors.blue[900],
-                                              child: MaterialButton(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 5,
-                                                        horizontal: 10),
-                                                onPressed: () {},
-                                                child: Text("Save",
-                                                    textAlign: TextAlign.center,
-                                                    style: GoogleFonts.kanit(
-                                                      color: Colors.white,
-                                                      fontSize: 15,
-                                                    )),
-                                              ),
+                                        Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            'หมวดหมู่: ผ้าม่าน',
+                                            style: GoogleFonts.kanit(
+                                              fontWeight: FontWeight.w600,
                                             ),
-                                            Material(
-                                              elevation: 5.0,
-                                              color: Colors.blue[900],
-                                              child: MaterialButton(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        vertical: 5,
-                                                        horizontal: 10),
-                                                onPressed: () {
-                                                  // setState(() {
-                                                  //   Navigator.of(context).pop();
-                                                  // });
-                                                },
-                                                child: Text("Cancel",
-                                                    textAlign: TextAlign.center,
-                                                    style: GoogleFonts.kanit(
-                                                      color: Colors.white,
-                                                      fontSize: 15,
-                                                    )),
+                                          ),
+                                        ),
+                                        SingleChildScrollView(
+                                          child: Column(
+                                            children: [
+                                              SizedBox(
+                                                height: 250,
+                                                child: CustomScrollView(
+                                                  shrinkWrap: true,
+                                                  slivers: [
+                                                    SliverPadding(
+                                                      padding: EdgeInsets.zero,
+                                                      sliver: SliverList(
+                                                        delegate:
+                                                            SliverChildListDelegate(
+                                                          <Widget>[
+                                                            CheckboxListTile(
+                                                              controlAffinity:
+                                                                  ListTileControlAffinity
+                                                                      .leading,
+                                                              value: curtain1,
+                                                              title: Text(
+                                                                  "ผ้าม่านสองชั้น",
+                                                                  style: GoogleFonts
+                                                                      .kanit()),
+                                                              onChanged:
+                                                                  (value) {
+                                                                setState(() {
+                                                                  curtain1 =
+                                                                      value;
+                                                                });
+                                                              },
+                                                            ),
+                                                            const Divider(
+                                                                height: 10),
+                                                            CheckboxListTile(
+                                                              controlAffinity:
+                                                                  ListTileControlAffinity
+                                                                      .leading,
+                                                              value: curtain2,
+                                                              title: Text(
+                                                                  "ผ้าม่านพับ",
+                                                                  style: GoogleFonts
+                                                                      .kanit()),
+                                                              onChanged:
+                                                                  (value) {
+                                                                setState(() {
+                                                                  curtain2 =
+                                                                      value;
+                                                                });
+                                                              },
+                                                            ),
+                                                            const Divider(
+                                                                height: 10),
+                                                            CheckboxListTile(
+                                                              controlAffinity:
+                                                                  ListTileControlAffinity
+                                                                      .leading,
+                                                              value: curtain3,
+                                                              title: Text(
+                                                                  "ผ้าม่านม้วน",
+                                                                  style: GoogleFonts
+                                                                      .kanit()),
+                                                              onChanged:
+                                                                  (value) {
+                                                                setState(() {
+                                                                  curtain3 =
+                                                                      value;
+                                                                });
+                                                              },
+                                                            ),
+                                                            const Divider(
+                                                                height: 10),
+                                                            CheckboxListTile(
+                                                              controlAffinity:
+                                                                  ListTileControlAffinity
+                                                                      .leading,
+                                                              value: curtain4,
+                                                              title: Text(
+                                                                  "ผ้าม่านจีบ",
+                                                                  style: GoogleFonts
+                                                                      .kanit()),
+                                                              onChanged:
+                                                                  (value) {
+                                                                setState(() {
+                                                                  curtain4 =
+                                                                      value;
+                                                                });
+                                                              },
+                                                            ),
+                                                            const Divider(
+                                                                height: 10),
+                                                            CheckboxListTile(
+                                                              controlAffinity:
+                                                                  ListTileControlAffinity
+                                                                      .leading,
+                                                              value: curtain5,
+                                                              title: Text(
+                                                                  "ผ้าม่านโปร่งแสง",
+                                                                  style: GoogleFonts
+                                                                      .kanit()),
+                                                              onChanged:
+                                                                  (value) {
+                                                                setState(() {
+                                                                  curtain5 =
+                                                                      value;
+                                                                });
+                                                              },
+                                                            ),
+                                                            const Divider(
+                                                                height: 10),
+                                                            CheckboxListTile(
+                                                              controlAffinity:
+                                                                  ListTileControlAffinity
+                                                                      .leading,
+                                                              value: curtain6,
+                                                              title: Text(
+                                                                  "ผ้าม่านตาไก่",
+                                                                  style: GoogleFonts
+                                                                      .kanit()),
+                                                              onChanged:
+                                                                  (value) {
+                                                                setState(() {
+                                                                  curtain6 =
+                                                                      value;
+                                                                });
+                                                              },
+                                                            ),
+                                                            const Divider(
+                                                                height: 10),
+                                                            CheckboxListTile(
+                                                              controlAffinity:
+                                                                  ListTileControlAffinity
+                                                                      .leading,
+                                                              value: curtain7,
+                                                              title: Text(
+                                                                  "ผ้าม่านลายริ้ว",
+                                                                  style: GoogleFonts
+                                                                      .kanit()),
+                                                              onChanged:
+                                                                  (value) {
+                                                                setState(() {
+                                                                  curtain7 =
+                                                                      value;
+                                                                });
+                                                              },
+                                                            ),
+                                                            const Divider(
+                                                                height: 10),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          ],
-                                        )
+                                              SingleChildScrollView(
+                                                child: Column(
+                                                  children: [
+                                                    SizedBox(
+                                                      height: 250,
+                                                      child: CustomScrollView(
+                                                        shrinkWrap: true,
+                                                        slivers: [
+                                                          SliverPadding(
+                                                            padding:
+                                                                EdgeInsets.zero,
+                                                            sliver: SliverList(
+                                                              delegate:
+                                                                  SliverChildListDelegate(
+                                                                <Widget>[
+                                                                  Text(
+                                                                      'หมวดหมู่: มู่ลี่',
+                                                                      style: GoogleFonts.kanit(
+                                                                          fontWeight:
+                                                                              FontWeight.w600)),
+                                                                  CheckboxListTile(
+                                                                    controlAffinity:
+                                                                        ListTileControlAffinity
+                                                                            .leading,
+                                                                    value:
+                                                                        chick1,
+                                                                    title: Text(
+                                                                        "มู่ลี่",
+                                                                        style: GoogleFonts
+                                                                            .kanit()),
+                                                                    onChanged:
+                                                                        (value) {
+                                                                      setState(
+                                                                          () {
+                                                                        chick1 =
+                                                                            value;
+                                                                      });
+                                                                    },
+                                                                  ),
+                                                                  const Divider(
+                                                                      height:
+                                                                          10),
+                                                                  CheckboxListTile(
+                                                                    controlAffinity:
+                                                                        ListTileControlAffinity
+                                                                            .leading,
+                                                                    value:
+                                                                        chick2,
+                                                                    title: Text(
+                                                                        "มู่ลี่ไม้",
+                                                                        style: GoogleFonts
+                                                                            .kanit()),
+                                                                    onChanged:
+                                                                        (value) {
+                                                                      setState(
+                                                                          () {
+                                                                        chick2 =
+                                                                            value;
+                                                                      });
+                                                                    },
+                                                                  ),
+                                                                  const Divider(
+                                                                      height:
+                                                                          10),
+                                                                  CheckboxListTile(
+                                                                    controlAffinity:
+                                                                        ListTileControlAffinity
+                                                                            .leading,
+                                                                    value:
+                                                                        chick3,
+                                                                    title: Text(
+                                                                        "มู่ลี่อลูมิเนียม",
+                                                                        style: GoogleFonts
+                                                                            .kanit()),
+                                                                    onChanged:
+                                                                        (value) {
+                                                                      setState(
+                                                                          () {
+                                                                        chick3 =
+                                                                            value;
+                                                                      });
+                                                                    },
+                                                                  ),
+                                                                  const Divider(
+                                                                      height:
+                                                                          10),
+                                                                  const SizedBox(
+                                                                      height:
+                                                                          5),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: <Widget>[
+                                                  Material(
+                                                    elevation: 5.0,
+                                                    color: Colors.blue[900],
+                                                    child: MaterialButton(
+                                                      padding: const EdgeInsets
+                                                              .symmetric(
+                                                          vertical: 5,
+                                                          horizontal: 10),
+                                                      onPressed: () {},
+                                                      child: Text("Save",
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style:
+                                                              GoogleFonts.kanit(
+                                                            color: Colors.white,
+                                                            fontSize: 15,
+                                                          )),
+                                                    ),
+                                                  ),
+                                                  Material(
+                                                    elevation: 5.0,
+                                                    color: Colors.blue[900],
+                                                    child: MaterialButton(
+                                                      padding: const EdgeInsets
+                                                              .symmetric(
+                                                          vertical: 5,
+                                                          horizontal: 10),
+                                                      onPressed: () {
+                                                        setState(() {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        });
+                                                      },
+                                                      child: Text("Cancel",
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style:
+                                                              GoogleFonts.kanit(
+                                                            color: Colors.white,
+                                                            fontSize: 15,
+                                                          )),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
