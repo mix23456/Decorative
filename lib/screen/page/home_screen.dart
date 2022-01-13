@@ -27,33 +27,6 @@ final List<Widget> imageSliders = imgList
               child: Stack(
                 children: <Widget>[
                   Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                  // Positioned(
-                  //   bottom: 0.0,
-                  //   left: 0.0,
-                  //   right: 0.0,
-                  //   child: Container(
-                  //       // decoration: const BoxDecoration(
-                  //       //   gradient: LinearGradient(
-                  //       //     colors: [
-                  //       //       Color.fromARGB(200, 0, 0, 0),
-                  //       //       Color.fromARGB(0, 0, 0, 0)
-                  //       //     ],
-                  //       //     begin: Alignment.bottomCenter,
-                  //       //     end: Alignment.topCenter,
-                  //       //   ),
-                  //       // ),
-                  //       // padding: const EdgeInsets.symmetric(
-                  //       //     vertical: 10.0, horizontal: 20.0),
-                  //       // child: Text(
-                  //       //   'No. ${imgList.indexOf(item)} image',
-                  //       //   style: const TextStyle(
-                  //       //     color: Colors.white,
-                  //       //     fontSize: 20.0,
-                  //       //     fontWeight: FontWeight.bold,
-                  //       //   ),
-                  //       // ),
-                  //       ),
-                  // ),
                 ],
               )),
         ))
@@ -338,96 +311,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   const Padding(padding: EdgeInsets.all(10)),
-                  Container(
-                    padding: const EdgeInsets.only(left: 40),
-                    child: Stack(
-                      clipBehavior: Clip.none,
-                      alignment: Alignment.topCenter,
-                      children: [
-                        Positioned(
-                          top: -5,
-                          left: 55,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: const Color(0xFF00ac40),
-                            ),
-                            width: 20,
-                            height: 20,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 60,
-                          width: 300,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.all(16),
-                              primary: Colors.grey[300],
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                            ),
-                            onPressed: () {},
-                            child: Text(
-                              '035-8-097103-5',
-                              style: GoogleFonts.kanit(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: -40,
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 1,
-                                ),
-                              ],
-                              color: Color(0xFF00ac40),
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15),
-                                bottomLeft: Radius.circular(30),
-                              ),
-                            ),
-                            height: MediaQuery.of(context).size.height * 0.10,
-                            width: MediaQuery.of(context).size.width * 0.20,
-                            child: SizedBox(
-                              width: 35,
-                              height: 35,
-                              child: Image.asset(
-                                'assets/logos/kbank.png',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          top: -5,
-                          left: 60,
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 140,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: const Color(0xFF00ac40),
-                            ),
-                            child: Text(
-                              'DK DEcorative',
-                              style: GoogleFonts.kanit(
-                                  color: Colors.white, fontSize: 12),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                   const SizedBox(height: 20),
                   Container(
                     padding: const EdgeInsets.only(left: 40),
