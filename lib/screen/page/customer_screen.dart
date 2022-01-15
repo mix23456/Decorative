@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/screen/customer/add_customer.dart';
-import 'package:project_curtain/screen/constants/constants.dart';
+import 'package:project_curtain/add_customer.dart';
 
 class CustomerScreen extends StatefulWidget {
   const CustomerScreen({Key? key}) : super(key: key);
@@ -14,40 +13,52 @@ class _CustomerScreenState extends State<CustomerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          'CUSTOMER',
+          style: GoogleFonts.kanit(color: Colors.black),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+            color: Colors.black,
+          )
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('จัดการข้อมูลลูกค้า',
-                      style: GoogleFonts.kanit(fontSize: 30)),
-                  const SizedBox(
-                    width: defaultPadding,
+                  Text(
+                    'จัดการข้อมูลลูกค้า',
+                    style: GoogleFonts.kanit(fontSize: 24),
                   ),
-                  ElevatedButton(
+                  ElevatedButton.icon(
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const AddCustomer()),
+                          builder: (context) => AddCustomer(),
+                        ),
                       );
                     },
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'เพิ่มลูกค้า',
-                            style: GoogleFonts.kanit(),
-                          ),
-                          const WidgetSpan(
-                            child: Icon(Icons.add, size: 18),
-                          ),
-                        ],
+                    icon: const Icon(Icons.add),
+                    label: Text(
+                      'เพิ่ม',
+                      style: GoogleFonts.kanit(),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28),
                       ),
                     ),
                   ),
@@ -55,41 +66,57 @@ class _CustomerScreenState extends State<CustomerScreen> {
               ),
             ),
             Container(
-              width: double.infinity,
-              padding: EdgeInsets.zero,
-              child: Card(
-                color: Colors.white,
-                shadowColor: Colors.black,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: defaultPadding / 2),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+              color: Colors.grey[200],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "คุณ :",
-                        style: GoogleFonts.kanit(
-                          fontSize: 25,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: defaultPadding / 4,
-                      ),
-                      Text(
-                        "ที่อยู่ :",
+                        'คุณ',
                         style: GoogleFonts.kanit(),
                       ),
-                      Text(
-                        "อีเมล :",
-                        style: GoogleFonts.kanit(),
-                      ),
-                      Text(
-                        "เบอร์ติดต่อ :",
-                        style: GoogleFonts.kanit(),
+                      Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey)),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.edit),
+                            ),
+                          ),
+                          Container(
+                            color: Colors.grey,
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.delete_outline),
+                              color: Colors.white,
+                            ),
+                          )
+                        ],
                       ),
                     ],
                   ),
-                ),
+                  Divider(),
+                  Text(
+                    'เลขผู้ที่เสียภาษี',
+                    style: GoogleFonts.kanit(),
+                  ),
+                  Text(
+                    'บริษัท / สถานที่ทำงาน',
+                    style: GoogleFonts.kanit(),
+                  ),
+                  Text(
+                    'ที่อยู่',
+                    style: GoogleFonts.kanit(),
+                  ),
+                  Text(
+                    'อีเมล',
+                    style: GoogleFonts.kanit(),
+                  )
+                ],
               ),
             ),
           ],
