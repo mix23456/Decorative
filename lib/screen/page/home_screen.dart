@@ -63,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     alignment: Alignment.centerLeft,
                     child: IconButton(
                       onPressed: previous,
-                      icon: const Icon(Icons.arrow_back),
+                      icon: const Icon(Icons.arrow_back_ios),
                       // color: Colors.black,
                     ),
                   ),
@@ -71,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     alignment: Alignment.centerRight,
                     child: IconButton(
                       onPressed: next,
-                      icon: const Icon(Icons.arrow_forward),
+                      icon: const Icon(Icons.arrow_forward_ios),
                     ),
                   ),
                 ],

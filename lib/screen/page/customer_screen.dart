@@ -46,7 +46,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AddCustomer(),
+                          builder: (context) => const AddCustomer(),
                         ),
                       );
                     },
@@ -58,7 +58,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(28),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
@@ -66,6 +66,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
               ),
             ),
             Container(
+              padding: const EdgeInsets.all(8),
               color: Colors.grey[200],
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,47 +75,117 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'คุณ',
+                        'คุณ แก้ว มาลูน',
                         style: GoogleFonts.kanit(),
                       ),
                       Row(
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                                border: Border.all(color: Colors.grey)),
+                              color: Colors.grey[200],
+                              boxShadow: const [
+                                BoxShadow(color: Colors.black, blurRadius: 0.5),
+                              ],
+                              border: Border.all(color: Colors.grey),
+                            ),
                             child: IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.edit),
+                              icon: const Icon(Icons.edit),
+                              color: Colors.grey,
                             ),
                           ),
                           Container(
-                            color: Colors.grey,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              color: Colors.grey,
+                              boxShadow: const [
+                                BoxShadow(color: Colors.black, blurRadius: 0.5),
+                              ],
+                            ),
                             child: IconButton(
                               onPressed: () {},
-                              icon: Icon(Icons.delete_outline),
+                              icon: const Icon(Icons.delete_outline),
                               color: Colors.white,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ],
                   ),
-                  Divider(),
-                  Text(
-                    'เลขผู้ที่เสียภาษี',
-                    style: GoogleFonts.kanit(),
+                  const Divider(
+                    color: Color(0xFF707070),
+                    height: 0,
+                    thickness: 1,
+                    endIndent: 110,
                   ),
-                  Text(
-                    'บริษัท / สถานที่ทำงาน',
-                    style: GoogleFonts.kanit(),
+                  const SizedBox(
+                    height: 10,
                   ),
-                  Text(
-                    'ที่อยู่',
-                    style: GoogleFonts.kanit(),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'เลขที่ผู้เสียภาษี ',
+                          style: GoogleFonts.kanit(color: Colors.grey[600]),
+                        ),
+                        TextSpan(
+                          text: '3101908008',
+                          style: GoogleFonts.kanit(color: Colors.grey[500]),
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    'อีเมล',
-                    style: GoogleFonts.kanit(),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'บริษัท/สถานที่ทำงาน ',
+                          style: GoogleFonts.kanit(color: Colors.grey[600]),
+                        ),
+                        TextSpan(
+                          text: 'ไท',
+                          style: GoogleFonts.kanit(color: Colors.grey[500]),
+                        ),
+                      ],
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'ที่อยู่ ',
+                          style: GoogleFonts.kanit(color: Colors.grey[600]),
+                        ),
+                        TextSpan(
+                          text:
+                              '12/3 ถนนระแกง ตำบลช้างคลาน อำเภอเมือง จังหวัดเชียงใหม่ 50100 ',
+                          style: GoogleFonts.kanit(color: Colors.grey[500]),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'อีเมล ',
+                              style: GoogleFonts.kanit(color: Colors.grey[600]),
+                            ),
+                            TextSpan(
+                              text: '123@gmail.com',
+                              style: GoogleFonts.kanit(color: Colors.grey[500]),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Text(
+                        'เบอร์ติดต่อ 023456789',
+                        style: GoogleFonts.kanit(color: Colors.grey[600]),
+                      )
+                    ],
                   )
                 ],
               ),

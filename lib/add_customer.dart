@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:project_curtain/screen/customer/map/map.dart';
 
 class AddCustomer extends StatefulWidget {
   const AddCustomer({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class _AddCustomerState extends State<AddCustomer> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
           color: Colors.black,
         ),
         centerTitle: true,
@@ -266,6 +267,16 @@ class _AddCustomerState extends State<AddCustomer> {
                       onMapCreated: (controller) =>
                           _googleMapController = controller,
                     ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Map(),
+                          ));
+                    },
+                    child: Text('data'),
                   )
                 ],
               ),

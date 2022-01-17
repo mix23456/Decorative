@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Map extends StatefulWidget {
@@ -27,20 +28,20 @@ class _MapState extends State<Map> {
     });
   }
 
-  void _onAddMarkerButtonPressed() {
-    setState(() {
-      _markers.add(Marker(
-        // This marker id can be anything that uniquely identifies each marker.
-        markerId: MarkerId(_lastMapPosition.toString()),
-        position: _lastMapPosition,
-        infoWindow: const InfoWindow(
-          title: 'Really cool place',
-          snippet: '5 Star Rating',
-        ),
-        icon: BitmapDescriptor.defaultMarker,
-      ));
-    });
-  }
+  // void _onAddMarkerButtonPressed() {
+  //   setState(() {
+  //     _markers.add(Marker(
+  //       // This marker id can be anything that uniquely identifies each marker.
+  //       markerId: MarkerId(_lastMapPosition.toString()),
+  //       position: _lastMapPosition,
+  //       infoWindow: const InfoWindow(
+  //         title: 'Really cool place',
+  //         snippet: '5 Star Rating',
+  //       ),
+  //       icon: BitmapDescriptor.defaultMarker,
+  //     ));
+  //   });
+  // }
 
   void _onCameraMove(CameraPosition position) {
     _lastMapPosition = position.target;
@@ -48,6 +49,7 @@ class _MapState extends State<Map> {
 
   void _onMapCreated(GoogleMapController controller) {
     // _controller.complete(controller);
+    // userLocation =  Geolocator.getCurrentPosition();
   }
 
   @override
@@ -57,12 +59,9 @@ class _MapState extends State<Map> {
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
-                // Navigator.pop(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => const SelectedCustomer()));
+                Navigator.pop(context);
               },
-              icon: const Icon(Icons.arrow_back)),
+              icon: const Icon(Icons.arrow_back_ios)),
           title: const Text('Map'),
           backgroundColor: Colors.green[700],
           centerTitle: true,
@@ -75,36 +74,37 @@ class _MapState extends State<Map> {
                 target: _center,
                 zoom: 15.0,
               ),
-              mapType: _currentMapType,
-              markers: _markers,
+              // mapType: _currentMapType,
+              // markers: _markers,
               onCameraMove: _onCameraMove,
               myLocationEnabled: true,
+              mapType: MapType.normal,
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Align(
-                alignment: Alignment.topRight,
-                child: Column(
-                  children: <Widget>[
-                    FloatingActionButton(
-                      heroTag: null,
-                      onPressed: _onMapTypeButtonPressed,
-                      materialTapTargetSize: MaterialTapTargetSize.padded,
-                      backgroundColor: Colors.green,
-                      child: const Icon(Icons.map, size: 36.0),
-                    ),
-                    const SizedBox(height: 16.0),
-                    FloatingActionButton(
-                      heroTag: null,
-                      onPressed: _onAddMarkerButtonPressed,
-                      materialTapTargetSize: MaterialTapTargetSize.padded,
-                      backgroundColor: Colors.green,
-                      child: const Icon(Icons.add_location, size: 36.0),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(16.0),
+            //   child: Align(
+            //     alignment: Alignment.topRight,
+            //     child: Column(
+            //       children: <Widget>[
+            //         FloatingActionButton(
+            //           heroTag: null,
+            //           onPressed: _onMapTypeButtonPressed,
+            //           materialTapTargetSize: MaterialTapTargetSize.padded,
+            //           backgroundColor: Colors.green,
+            //           child: const Icon(Icons.map, size: 36.0),
+            //         ),
+            //         const SizedBox(height: 16.0),
+            //         FloatingActionButton(
+            //           heroTag: null,
+            //           onPressed: _onAddMarkerButtonPressed,
+            //           materialTapTargetSize: MaterialTapTargetSize.padded,
+            //           backgroundColor: Colors.green,
+            //           child: const Icon(Icons.add_location, size: 36.0),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
