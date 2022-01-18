@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             SizedBox(
               // width: 450,
-              height: 200,
+              height: MediaQuery.of(context).size.height * 0.4,
               child: Stack(
                 children: [
                   CarouselSlider(
@@ -372,8 +372,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 bottomLeft: Radius.circular(30),
                               ),
                             ),
-                            height: MediaQuery.of(context).size.height * 0.10,
-                            width: MediaQuery.of(context).size.width * 0.20,
+                            height: MediaQuery.of(context).size.height * 0.05,
+                            width: MediaQuery.of(context).size.width * 0.10,
                             child: SizedBox(
                               width: 35,
                               height: 35,
