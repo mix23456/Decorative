@@ -79,32 +79,50 @@ class _IndexScreenState extends State<IndexScreen> {
             currentIndex: currenIndex,
             items: const [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(
+                  Icons.home,
+                  size: 24,
+                ),
                 label: "หน้าแรก",
                 backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.all_inbox),
+                icon: Icon(
+                  Icons.all_inbox,
+                  size: 24,
+                ),
                 label: "สินค้า",
                 backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.people),
+                icon: Icon(
+                  Icons.people,
+                  size: 24,
+                ),
                 label: "ลูกค้า",
                 backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.receipt),
+                icon: Icon(
+                  Icons.receipt,
+                  size: 24,
+                ),
                 label: "ออเดอร์",
                 backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.receipt_long),
+                icon: Icon(
+                  Icons.receipt_long,
+                  size: 24,
+                ),
                 label: "ใบเสร็จ",
                 backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
+                icon: Icon(
+                  Icons.settings,
+                  size: 24,
+                ),
                 label: "ตั้งค่า",
                 backgroundColor: Colors.blue,
               ),
