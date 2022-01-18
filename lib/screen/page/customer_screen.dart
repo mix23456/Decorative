@@ -58,7 +58,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(28),
                       ),
                     ),
                   ),
