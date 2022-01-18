@@ -23,16 +23,16 @@ class _AddCustomerState extends State<AddCustomer> {
   //   return userLocation;
   // }
 
-  static const _initialCameraPosition = CameraPosition(
-    target: LatLng(37.77972, -122.431297),
-    zoom: 11.5,
-  );
-  late GoogleMapController _googleMapController;
-  @override
-  void dispose() {
-    _googleMapController.dispose();
-    super.dispose();
-  }
+  // static const _initialCameraPosition = CameraPosition(
+  //   target: LatLng(37.77972, -122.431297),
+  //   zoom: 11.5,
+  // );
+  // late GoogleMapController _googleMapController;
+  // @override
+  // void dispose() {
+  //   _googleMapController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -256,28 +256,45 @@ class _AddCustomerState extends State<AddCustomer> {
                   ),
                   const SizedBox(height: 10),
                   // GoogleMap(initialCameraPosition: ),
-                  SizedBox(
-                    height: 300,
-                    width: double.infinity,
-                    child: GoogleMap(
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
-                      zoomControlsEnabled: true,
-                      initialCameraPosition: _initialCameraPosition,
-                      onMapCreated: (controller) =>
-                          _googleMapController = controller,
+                  // SizedBox(
+                  //   height: 300,
+                  //   width: double.infinity,
+                  //   child: GoogleMap(
+                  //     myLocationEnabled: true,
+                  //     myLocationButtonEnabled: true,
+                  //     zoomControlsEnabled: true,
+                  //     initialCameraPosition: _initialCameraPosition,
+                  //     onMapCreated: (controller) =>
+                  //         _googleMapController = controller,
+                  //   ),
+                  // ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.20,
+                      height: MediaQuery.of(context).size.height * 0.04,
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          primary: const Color(0xFF707070),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(28),
+                          ),
+                        ),
+                        onPressed: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //       builder: (context) => Map(),
+                          //     ));
+                        },
+                        icon: const Icon(Icons.save),
+                        label: Text(
+                          'บันทึก',
+                          style: GoogleFonts.kanit(fontSize: 16),
+                        ),
+                      ),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => Map(),
-                      //     ));
-                    },
-                    child: Text('map'),
-                  )
                 ],
               ),
             ],
