@@ -30,7 +30,7 @@ class _ProductScreenState extends State<ProductScreen> {
         centerTitle: true,
         title: Text(
           'PRODUCTS',
-          style: GoogleFonts.kanit(color: Colors.black),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: 24),
         ),
         actions: [
           IconButton(
@@ -53,7 +53,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   children: [
                     Expanded(
                       child: Container(
-                        height: 200,
+                        height: MediaQuery.of(context).size.height * 0.25,
                         color: Colors.transparent,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
@@ -93,7 +93,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     const SizedBox(width: defaultPadding / 2),
                     Expanded(
                       child: Container(
-                        height: 200,
+                        height: MediaQuery.of(context).size.height * 0.25,
                         color: Colors.transparent,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
@@ -132,7 +132,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   children: [
                     Expanded(
                       child: Container(
-                        height: 200,
+                        height: MediaQuery.of(context).size.height * 0.25,
                         color: Colors.transparent,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
@@ -163,7 +163,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     const SizedBox(width: defaultPadding / 2),
                     Expanded(
                       child: Container(
-                        height: 200,
+                        height: MediaQuery.of(context).size.height * 0.25,
                         color: Colors.transparent,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
@@ -328,8 +328,8 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
               const SizedBox(height: defaultPadding / 2),
               Container(
-                width: 80,
-                height: 30,
+                width: MediaQuery.of(context).size.width * 0.1,
+                height: MediaQuery.of(context).size.height * 0.03,
                 child: ElevatedButton(
                   onPressed: () {
                     showDialog(
@@ -342,6 +342,8 @@ class _ProductScreenState extends State<ProductScreen> {
                               child: AlertDialog(
                                 actions: <Widget>[
                                   SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.55,
                                     width: 400,
                                     child: Column(
                                       crossAxisAlignment:
