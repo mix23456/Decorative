@@ -59,19 +59,38 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                         }),
                   ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: IconButton(
-                      onPressed: previous,
-                      icon: const Icon(Icons.arrow_back_ios),
-                      // color: Colors.black,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[600],
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        child: IconButton(
+                          onPressed: previous,
+                          icon: const Icon(Icons.arrow_back_ios_new),
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                      onPressed: next,
-                      icon: const Icon(Icons.arrow_forward_ios),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey[600],
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        child: IconButton(
+                          onPressed: next,
+                          icon: const Icon(Icons.arrow_forward_ios_outlined),
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ],
