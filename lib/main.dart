@@ -65,7 +65,7 @@ class _IndexScreenState extends State<IndexScreen> {
                 onPressed: () {},
                 child: Text(
                   'ช่องทางการติดต่อ',
-                  style: GoogleFonts.kanit(color: Colors.grey),
+                  style: GoogleFonts.kanit(color: Colors.grey, fontSize: 16),
                 ),
               ),
             ],
