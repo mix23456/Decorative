@@ -18,7 +18,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
         centerTitle: true,
         title: Text(
           'CUSTOMER',
-          style: GoogleFonts.kanit(color: Colors.black),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: 24),
         ),
         actions: [
           IconButton(
@@ -53,7 +53,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     icon: const Icon(Icons.add),
                     label: Text(
                       'เพิ่ม',
-                      style: GoogleFonts.kanit(),
+                      style: GoogleFonts.kanit(fontSize: 16),
                     ),
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black,
@@ -66,7 +66,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               color: Colors.grey[200],
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,19 +74,23 @@ class _CustomerScreenState extends State<CustomerScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'คุณ แก้ว มาลูน',
-                        style: GoogleFonts.kanit(),
+                      Container(
+                        // color: Colors.amber,
+                        child: Text(
+                          'คุณ แก้ว มาลูน',
+                          style: GoogleFonts.kanit(fontSize: 16),
+                        ),
                       ),
                       Row(
                         children: [
                           Container(
+                            // padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                               color: Colors.grey[200],
                               boxShadow: const [
                                 BoxShadow(color: Colors.black, blurRadius: 0.5),
                               ],
-                              border: Border.all(color: Colors.grey),
+                              // border: Border.all(color: Colors.grey),
                             ),
                             child: IconButton(
                               onPressed: () {},
@@ -95,9 +99,10 @@ class _CustomerScreenState extends State<CustomerScreen> {
                             ),
                           ),
                           Container(
+                            // padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey),
-                              color: Colors.grey,
+                              // border: Border.all(color: Colors.grey),
+                              color: Colors.grey[600],
                               boxShadow: const [
                                 BoxShadow(color: Colors.black, blurRadius: 0.5),
                               ],
@@ -126,11 +131,13 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       children: [
                         TextSpan(
                           text: 'เลขที่ผู้เสียภาษี ',
-                          style: GoogleFonts.kanit(color: Colors.grey[600]),
+                          style: GoogleFonts.kanit(
+                              color: Colors.grey[600], fontSize: 16),
                         ),
                         TextSpan(
                           text: '3101908008',
-                          style: GoogleFonts.kanit(color: Colors.grey[500]),
+                          style: GoogleFonts.kanit(
+                              color: Colors.grey[500], fontSize: 16),
                         ),
                       ],
                     ),
@@ -140,11 +147,13 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       children: [
                         TextSpan(
                           text: 'บริษัท/สถานที่ทำงาน ',
-                          style: GoogleFonts.kanit(color: Colors.grey[600]),
+                          style: GoogleFonts.kanit(
+                              color: Colors.grey[600], fontSize: 16),
                         ),
                         TextSpan(
                           text: 'ไท',
-                          style: GoogleFonts.kanit(color: Colors.grey[500]),
+                          style: GoogleFonts.kanit(
+                              color: Colors.grey[500], fontSize: 16),
                         ),
                       ],
                     ),
@@ -154,12 +163,14 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       children: [
                         TextSpan(
                           text: 'ที่อยู่ ',
-                          style: GoogleFonts.kanit(color: Colors.grey[600]),
+                          style: GoogleFonts.kanit(
+                              color: Colors.grey[600], fontSize: 16),
                         ),
                         TextSpan(
                           text:
                               '12/3 ถนนระแกง ตำบลช้างคลาน อำเภอเมือง จังหวัดเชียงใหม่ 50100 ',
-                          style: GoogleFonts.kanit(color: Colors.grey[500]),
+                          style: GoogleFonts.kanit(
+                              color: Colors.grey[500], fontSize: 16),
                         ),
                       ],
                     ),
@@ -172,18 +183,21 @@ class _CustomerScreenState extends State<CustomerScreen> {
                           children: [
                             TextSpan(
                               text: 'อีเมล ',
-                              style: GoogleFonts.kanit(color: Colors.grey[600]),
+                              style: GoogleFonts.kanit(
+                                  color: Colors.grey[600], fontSize: 16),
                             ),
                             TextSpan(
                               text: '123@gmail.com',
-                              style: GoogleFonts.kanit(color: Colors.grey[500]),
+                              style: GoogleFonts.kanit(
+                                  color: Colors.grey[500], fontSize: 16),
                             ),
                           ],
                         ),
                       ),
                       Text(
                         'เบอร์ติดต่อ 023456789',
-                        style: GoogleFonts.kanit(color: Colors.grey[600]),
+                        style: GoogleFonts.kanit(
+                            color: Colors.grey[600], fontSize: 16),
                       )
                     ],
                   )

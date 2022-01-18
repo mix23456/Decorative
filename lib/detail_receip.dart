@@ -41,7 +41,9 @@ class _DetailReceipState extends State<DetailReceip> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
                   child: Text(
                     'ใบเสร็จ',
                     style: GoogleFonts.kanit(fontSize: 24),

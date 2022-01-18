@@ -43,6 +43,7 @@ dependencies:
   google_fonts: ^2.1.0
   google_maps_flutter: ^2.1.1
   intl: ^0.17.0
+  location: ^4.3.0
   number_inc_dec: ^0.8.0
   numberpicker: ^2.1.1
   pattern_formatter: ^2.0.0

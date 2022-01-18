@@ -270,13 +270,13 @@ class _AddCustomerState extends State<AddCustomer> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Map(),
-                          ));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => Map(),
+                      //     ));
                     },
-                    child: Text('data'),
+                    child: Text('map'),
                   )
                 ],
               ),
