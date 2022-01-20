@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_curtain/screen/constants/constants.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({Key? key}) : super(key: key);
@@ -32,6 +33,7 @@ int _current = 0;
 final CarouselController _controller = CarouselController();
 int numOfItem = 1;
 int selectImage = 0;
+bool isCheck = false;
 
 class _DetailScreenState extends State<DetailScreen> {
   @override
@@ -45,21 +47,19 @@ class _DetailScreenState extends State<DetailScreen> {
                     Navigator.pop(context);
                   });
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios,
                   color: Colors.black,
                 )),
             centerTitle: true,
             title: Text(
               'PRODUCT',
-              style: GoogleFonts.kanit(
-                color: Colors.black,
-              ),
+              style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitel),
             ),
             actions: [
               IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.search,
                     color: Colors.black,
                   ))
@@ -69,7 +69,7 @@ class _DetailScreenState extends State<DetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(children: [
             SizedBox(
-              width: 238,
+              width: 453,
               child: AspectRatio(
                 aspectRatio: 1,
                 child: Image.network(
@@ -80,9 +80,37 @@ class _DetailScreenState extends State<DetailScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: IconButton(
+                      onPressed: previous,
+                      icon: const Icon(Icons.arrow_back_ios_new),
+                      color: colortext1,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: defaultPadding,
+                ),
                 ...List.generate(
                   imgList.length,
                   (index) => buildSmallPreview(index),
+                ),
+                const SizedBox(
+                  width: defaultPadding,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      onPressed: next,
+                      icon: const Icon(Icons.arrow_forward_ios_outlined),
+                      color: colortext1,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -158,200 +186,152 @@ class _DetailScreenState extends State<DetailScreen> {
             //     );
             //   }).toList(),
             // ),
-            const SizedBox(height: 10),
+            const SizedBox(height: defaultPadding),
             Text(
               'ม่านสองชั้น',
-              style: GoogleFonts.kanit(fontSize: 24),
+              style: GoogleFonts.kanit(fontSize: subtitel),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: defaultPadding),
             Row(
               children: [
                 Text('ชนิดผ้า : ',
-                    style: GoogleFonts.kanit(color: Colors.black54)),
+                    style: GoogleFonts.kanit(
+                        color: colortext1, fontSize: bodytext)),
                 Text('ผ้าหน้าทึบแคบ Acacia',
-                    style: GoogleFonts.kanit(color: Colors.black26)),
+                    style: GoogleFonts.kanit(
+                        color: colortext2, fontSize: bodytext)),
               ],
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: defaultPadding),
             Row(
               children: [
                 Text('รหัสสี : ',
-                    style: GoogleFonts.kanit(color: Colors.black54)),
+                    style: GoogleFonts.kanit(
+                        color: colortext1, fontSize: bodytext)),
                 Text('#ABAAAC',
-                    style: GoogleFonts.kanit(color: Colors.black26)),
+                    style: GoogleFonts.kanit(
+                        color: colortext2, fontSize: bodytext)),
               ],
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: defaultPadding),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Text(
+                  'ขนาด (กว้าง x สูง) :',
+                  style:
+                      GoogleFonts.kanit(color: colortext1, fontSize: bodytext),
+                ),
+                const SizedBox(width: defaultPadding),
+                Expanded(
+                  flex: 1,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: defaultPadding),
+                Text(
+                  'x',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                ),
+                const SizedBox(width: defaultPadding),
+                Expanded(
+                  flex: 1,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: defaultPadding),
+                Text(
+                  'นิ้ว',
+                  style:
+                      GoogleFonts.kanit(color: colortext2, fontSize: bodytext),
+                )
+              ],
+            ),
+            const SizedBox(height: defaultPadding),
             Row(
               children: [
                 Text('ราคา / ชิ้น : ',
-                    style: GoogleFonts.kanit(color: Colors.black54)),
+                    style: GoogleFonts.kanit(
+                        color: colortext1, fontSize: bodytext)),
                 Text('฿ 400.00',
-                    style: GoogleFonts.kanit(color: Colors.black26)),
+                    style: GoogleFonts.kanit(
+                        color: colortext2, fontSize: bodytext)),
               ],
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: defaultPadding),
+            CheckboxListTile(
+              controlAffinity: ListTileControlAffinity.leading,
+              value: isCheck,
+              title: Text("สลับหน้าผ้า",
+                  style:
+                      GoogleFonts.kanit(color: colortext2, fontSize: bodytext)),
+              onChanged: (bool? value) {
+                setState(() {
+                  isCheck = value!;
+                });
+              },
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('จำนวน : ',
-                    style: GoogleFonts.kanit(color: Colors.black54)),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(4)),
-                  height: 20,
-                  width: 100,
-                  child: Row(
-                    children: [
-                      Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            if (numOfItem > 1) {
-                              setState(() {
-                                numOfItem--;
-                              });
-                            }
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            margin: const EdgeInsets.only(left: 4),
-                            width: 15,
-                            child: Icon(
-                              Icons.remove,
-                              color: numOfItem == 1 ? Colors.grey : Colors.grey,
-                              size: 10,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const VerticalDivider(
-                        color: Colors.black,
-                      ),
-                      Container(
-                        width: 25,
-                        decoration: const BoxDecoration(color: Colors.white),
-                        child: Text(numOfItem.toString(),
-                            textAlign: TextAlign.center,
-                            style: GoogleFonts.kanit(
-                                fontSize: 10, color: Colors.grey)),
-                      ),
-                      const VerticalDivider(
-                        color: Colors.grey,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            numOfItem++;
-                          });
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-                          margin: const EdgeInsets.only(right: 4),
-                          width: 15,
-                          child: const Icon(
-                            Icons.add,
-                            color: Colors.grey,
-                            size: 10,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                SizedBox(
+                  width: 150,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          primary: colorbtn1,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30))),
+                      onPressed: () {},
+                      child: Text(
+                        'คำนวณราคา',
+                        style: GoogleFonts.kanit(
+                            color: colortext1, fontSize: bodytext),
+                      )),
                 ),
-                // SizedBox(
-                //   width: 40,
-                //   height: 32,
-                //   child: ElevatedButton(
-                //       style: ElevatedButton.styleFrom(
-                //           padding: EdgeInsets.zero,
-                //           shape: RoundedRectangleBorder(
-                //               borderRadius: BorderRadius.circular(5)),
-                //           side: const BorderSide(color: Colors.grey),
-                //           primary: Colors.white,
-                //           elevation: 0),
-                //       onPressed: () {
-                //         if (numOfItem > 1) {
-                //           setState(() {
-                //             numOfItem--;
-                //           });
-                //         }
-                //       },
-                //       child: const Icon(
-                //         Icons.remove,
-                //         color: Colors.grey,
-                //       )),
-                // ),
-                // const SizedBox(width: 10),
-                // Text(numOfItem.toString().padLeft(2, "0"),
-                //     style: GoogleFonts.kanit(color: Colors.black26)),
-                // const SizedBox(width: 10),
-                // SizedBox(
-                //   width: 40,
-                //   height: 32,
-                //   child: ElevatedButton(
-                //       style: ElevatedButton.styleFrom(
-                //           padding: EdgeInsets.zero,
-                //           shape: RoundedRectangleBorder(
-                //               borderRadius: BorderRadius.circular(5)),
-                //           side: const BorderSide(color: Colors.grey),
-                //           primary: Colors.black38,
-                //           elevation: 0),
-                //       onPressed: () {
-                //         setState(() {
-                //           numOfItem++;
-                //         });
-                //       },
-                //       child: const Icon(
-                //         Icons.add,
-                //         color: Colors.white,
-                //       )),
-                // ),
               ],
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: defaultPadding),
             Row(
               children: [
                 Text('ราคารวม : ',
-                    style: GoogleFonts.kanit(color: Colors.black54)),
+                    style: GoogleFonts.kanit(
+                        color: colortext1, fontSize: bodytext)),
                 Text('฿ 400.00',
-                    style: GoogleFonts.kanit(color: Colors.black26)),
+                    style: GoogleFonts.kanit(
+                        color: colortext2, fontSize: bodytext)),
               ],
             ),
+            const SizedBox(height: defaultPadding),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
                   width: 150,
                   child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
-                          primary: Colors.black12,
+                          primary: colortext1,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30))),
                       onPressed: () {},
                       icon: const Icon(
-                        Icons.edit,
-                        color: Colors.grey,
+                        Icons.shopping_cart,
+                        color: colorwhite,
                       ),
                       label: Text(
-                        'แก้ไขสินค้า',
-                        style: GoogleFonts.kanit(color: Colors.black54),
-                      )),
-                ),
-                SizedBox(
-                  width: 150,
-                  child: ElevatedButton.icon(
-                      style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          primary: Colors.grey,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30))),
-                      onPressed: () {},
-                      icon: const Icon(Icons.shopping_cart),
-                      label: Text(
                         'เพิ่มเข้าออเดอร์',
-                        style: GoogleFonts.kanit(),
+                        style: GoogleFonts.kanit(color: colorwhite),
                       )),
                 ),
               ],
@@ -368,16 +348,17 @@ class _DetailScreenState extends State<DetailScreen> {
         });
       },
       child: Container(
-        margin: EdgeInsets.only(right: 15),
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.only(right: 15),
+        padding: const EdgeInsets.all(10),
         height: 48,
         width: 48,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(18),
           border: Border.all(
-            color:
-                selectImage == index ? Color(0xFFFF7643) : Colors.transparent,
+            color: selectImage == index
+                ? const Color(0xFFFF7643)
+                : Colors.transparent,
           ),
         ),
         child: Image.network(
