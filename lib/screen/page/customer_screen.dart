@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_customer.dart';
+import 'package:project_curtain/edit_customer.dart';
 
 class CustomerScreen extends StatefulWidget {
   const CustomerScreen({Key? key}) : super(key: key);
@@ -93,7 +94,14 @@ class _CustomerScreenState extends State<CustomerScreen> {
                               // border: Border.all(color: Colors.grey),
                             ),
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const EditCustomer(),
+                                  ),
+                                );
+                              },
                               icon: const Icon(Icons.edit),
                               color: Colors.grey,
                             ),
