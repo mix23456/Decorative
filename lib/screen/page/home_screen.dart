@@ -391,8 +391,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 bottomLeft: Radius.circular(30),
                               ),
                             ),
-                            height: MediaQuery.of(context).size.height * 0.05,
-                            width: MediaQuery.of(context).size.width * 0.10,
+                            height: 70,
+                            width: 70,
+                            // height: MediaQuery.of(context).size.height * 0.05,
+                            // width: MediaQuery.of(context).size.width * 0.10,
                             child: SizedBox(
                               width: 35,
                               height: 35,
