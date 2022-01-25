@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_curtain/add_customer.dart';
 // import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
 import 'package:project_curtain/format.dart';
@@ -48,7 +49,6 @@ final TextEditingController widthController = TextEditingController();
 final TextEditingController priceController = TextEditingController();
 final TextEditingController heightController = TextEditingController();
 final CarouselController _controller = CarouselController();
-bool _switchValue = true;
 
 class _DetailScreenState extends State<DetailScreen> {
   @override
@@ -604,7 +604,173 @@ class _DetailScreenState extends State<DetailScreen> {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(28),
                             )),
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return Dialog(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: SingleChildScrollView(
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 28,
+                                          horizontal: defaultPadding),
+                                      width: MediaQuery.of(context).size.width *
+                                          0.4,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.19,
+                                      child: Column(
+                                        children: [
+                                          Text('เจ้าของออเดอร์',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext)),
+                                          const SizedBox(
+                                              height: defaultPadding),
+                                          Row(
+                                            children: [
+                                              Expanded(
+                                                child: TextField(
+                                                  decoration: InputDecoration(
+                                                    hintText: 'ชื่อลูกค้า',
+                                                    hintStyle:
+                                                        GoogleFonts.kanit(
+                                                            color: Colors.grey,
+                                                            fontSize: bodytext),
+                                                    border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              const SizedBox(
+                                                  width: defaultPadding),
+                                              ElevatedButton.icon(
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              AddCustomer()));
+                                                },
+                                                icon: const Icon(Icons.add),
+                                                label: Text(
+                                                  'เพิ่ม',
+                                                  style: GoogleFonts.kanit(
+                                                      fontSize: 16),
+                                                ),
+                                                style: ElevatedButton.styleFrom(
+                                                  primary: Colors.black,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                              height: defaultPadding),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              SizedBox(
+                                                width: 150,
+                                                child: ElevatedButton(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              28),
+                                                    ),
+                                                    primary:
+                                                        const Color(0xFFD4D4D4),
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text(
+                                                    'ยกเลิก',
+                                                    style: GoogleFonts.kanit(
+                                                        fontSize: bodytext,
+                                                        color: colortext1),
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 150,
+                                                child: ElevatedButton(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              28),
+                                                    ),
+                                                    primary: colortext1,
+                                                  ),
+                                                  onPressed: () {
+                                                    showDialog(
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return Dialog(
+                                                            child: Container(
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                width: MediaQuery
+                                                                            .of(
+                                                                                context)
+                                                                        .size
+                                                                        .width *
+                                                                    0.25,
+                                                                height: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height *
+                                                                    0.1,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20),
+                                                                ),
+                                                                child: Text(
+                                                                  'เพิ่มออเดอร์สำเร็จ',
+                                                                  style: GoogleFonts.kanit(
+                                                                      fontSize:
+                                                                          bodytext),
+                                                                )),
+                                                          );
+                                                        });
+                                                  },
+                                                  child: Text(
+                                                    'ยืนยัน',
+                                                    style: GoogleFonts.kanit(
+                                                        fontSize: bodytext,
+                                                        color: colorWhite),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              });
+                        },
                         icon: const Icon(Icons.shopping_cart_outlined),
                         label: Text(
                           'เพิ่มเข้าออเดอร์',
