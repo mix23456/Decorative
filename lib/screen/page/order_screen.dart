@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_curtain/cart_order.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
 
 class OrderScreen extends StatefulWidget {
@@ -166,201 +167,198 @@ class _OrderScreenState extends State<OrderScreen> {
                               ),
                             ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              children: [
-                                Checkbox(
-                                  value: checkProd,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      checkProd = !checkProd;
-                                    });
-                                  },
+                          Row(
+                            children: [
+                              Checkbox(
+                                value: checkProd,
+                                onChanged: (value) {
+                                  setState(() {
+                                    checkProd = !checkProd;
+                                  });
+                                },
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Table(
+                                  children: [
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          color: Colors.amber,
+                                          width: 100,
+                                          height: 120,
+                                          // child: Image.asset(
+                                          //     'assets/images/img_1.png'),
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Table(
-                                    children: [
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            color: Colors.amber,
-                                            width: 100,
-                                            height: 120,
-                                            // child: Image.asset(
-                                            //     'assets/images/img_1.png'),
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Table(
+                                  children: [
+                                    TableRow(
+                                      children: [
+                                        Table(
+                                          children: [
+                                            TableRow(
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 16,
+                                                          right: 16,
+                                                          top: 16),
+                                                  child: Text(
+                                                    'ม่านสองชั้น ผ้าทึบหน้าแคบ Acacia',
+                                                    style: GoogleFonts.kanit(
+                                                        color: colortext1,
+                                                        fontSize: 16),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            TableRow(
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 16),
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        'รหัสสินค้า ',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize: 16),
+                                                      ),
+                                                      Text(
+                                                        'A01CY04',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize: 16),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            TableRow(
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 16),
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        'สี ',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize: 16),
+                                                      ),
+                                                      Text(
+                                                        'CY 228/01',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize: 16),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            TableRow(
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 16),
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        'ขนาด ',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize: 16),
+                                                      ),
+                                                      Text(
+                                                        '100 x 200 นิ้ว',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize: 16),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            TableRow(
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 16),
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        'แบบเย็บ ',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize: 16),
+                                                      ),
+                                                      Text(
+                                                        'ม่านตาไก่',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize: 16),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            TableRow(
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 16),
+                                                  child: Text(
+                                                    '฿ 400.00',
+                                                    style: GoogleFonts.kanit(
+                                                        color: Colors.black,
+                                                        fontSize: 16),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )
+                                  ],
                                 ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Table(
-                                    children: [
-                                      TableRow(
-                                        children: [
-                                          Table(
-                                            children: [
-                                              TableRow(
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            left: 16,
-                                                            right: 16,
-                                                            top: 16),
-                                                    child: Text(
-                                                      'ม่านสองชั้น ผ้าทึบหน้าแคบ Acacia',
-                                                      style: GoogleFonts.kanit(
-                                                          color: colortext1,
-                                                          fontSize: 16),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              TableRow(
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 16),
-                                                    child: Row(
-                                                      children: [
-                                                        Text(
-                                                          'รหัสสินค้า ',
-                                                          style:
-                                                              GoogleFonts.kanit(
-                                                                  color:
-                                                                      colortext1,
-                                                                  fontSize: 16),
-                                                        ),
-                                                        Text(
-                                                          'A01CY04',
-                                                          style:
-                                                              GoogleFonts.kanit(
-                                                                  color:
-                                                                      colortext1,
-                                                                  fontSize: 16),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              TableRow(
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 16),
-                                                    child: Row(
-                                                      children: [
-                                                        Text(
-                                                          'สี ',
-                                                          style:
-                                                              GoogleFonts.kanit(
-                                                                  color:
-                                                                      colortext1,
-                                                                  fontSize: 16),
-                                                        ),
-                                                        Text(
-                                                          'CY 228/01',
-                                                          style:
-                                                              GoogleFonts.kanit(
-                                                                  color:
-                                                                      colortext1,
-                                                                  fontSize: 16),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              TableRow(
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 16),
-                                                    child: Row(
-                                                      children: [
-                                                        Text(
-                                                          'ขนาด ',
-                                                          style:
-                                                              GoogleFonts.kanit(
-                                                                  color:
-                                                                      colortext1,
-                                                                  fontSize: 16),
-                                                        ),
-                                                        Text(
-                                                          '100 x 200 นิ้ว',
-                                                          style:
-                                                              GoogleFonts.kanit(
-                                                                  color:
-                                                                      colortext1,
-                                                                  fontSize: 16),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              TableRow(
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 16),
-                                                    child: Row(
-                                                      children: [
-                                                        Text(
-                                                          'แบบเย็บ ',
-                                                          style:
-                                                              GoogleFonts.kanit(
-                                                                  color:
-                                                                      colortext1,
-                                                                  fontSize: 16),
-                                                        ),
-                                                        Text(
-                                                          'ม่านตาไก่',
-                                                          style:
-                                                              GoogleFonts.kanit(
-                                                                  color:
-                                                                      colortext1,
-                                                                  fontSize: 16),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              TableRow(
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                            .symmetric(
-                                                        horizontal: 16),
-                                                    child: Text(
-                                                      '฿ 400.00',
-                                                      style: GoogleFonts.kanit(
-                                                          color: Colors.black,
-                                                          fontSize: 16),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -373,78 +371,80 @@ class _OrderScreenState extends State<OrderScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        // color: Colors.amber,
-        child: Row(
-          children: [
-            Expanded(
-              child: Row(
-                children: [
-                  Checkbox(
-                    value: checkAll,
-                    onChanged: (value) {
-                      setState(() {
-                        checkAll = !checkAll;
-                      });
-                    },
-                  ),
-                  Text(
-                    'ทั้งหมด',
-                    style: GoogleFonts.kanit(
-                      fontSize: bodytext,
-                      color: colortext1,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'ราคาทั้งหมด',
-                    style: GoogleFonts.kanit(
-                        fontSize: bodytext, color: colortext1),
-                  ),
-                  Text(
-                    '฿ 1,600',
-                    style: GoogleFonts.kanit(
-                        fontSize: bodytext, color: colorBlack),
-                  ),
-                  const SizedBox(width: defaultPadding),
-                  Material(
+      bottomNavigationBar: Row(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Checkbox(
+                  value: checkAll,
+                  onChanged: (value) {
+                    setState(() {
+                      checkAll = !checkAll;
+                    });
+                  },
+                ),
+                Text(
+                  'ทั้งหมด',
+                  style: GoogleFonts.kanit(
+                    fontSize: bodytext,
                     color: colortext1,
-                    child: InkWell(
-                      onTap: () {
-                        //print('called on tap');
-                      },
-                      child: SizedBox(
-                        height: kToolbarHeight,
-                        width: 100,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'ชำระเงิน',
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.kanit(color: colorWhite),
-                            ),
-                            Text(
-                              '(4)',
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.kanit(color: colorWhite),
-                            )
-                          ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'ราคาทั้งหมด',
+                  style:
+                      GoogleFonts.kanit(fontSize: bodytext, color: colortext1),
+                ),
+                Text(
+                  '฿ 1,600',
+                  style:
+                      GoogleFonts.kanit(fontSize: bodytext, color: colorBlack),
+                ),
+                const SizedBox(width: defaultPadding),
+                Material(
+                  color: colortext1,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CartOrder(),
                         ),
+                      );
+                    },
+                    child: SizedBox(
+                      height: kToolbarHeight,
+                      width: 100,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'ชำระเงิน',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.kanit(color: colorWhite),
+                          ),
+                          Text(
+                            '(4)',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.kanit(color: colorWhite),
+                          )
+                        ],
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

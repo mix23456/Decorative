@@ -24,16 +24,16 @@ class _AddCustomerState extends State<AddCustomer> {
   //   return userLocation;
   // }
 
-  // static const _initialCameraPosition = CameraPosition(
-  //   target: LatLng(37.77972, -122.431297),
-  //   zoom: 11.5,
-  // );
-  // late GoogleMapController _googleMapController;
-  // @override
-  // void dispose() {
-  //   _googleMapController.dispose();
-  //   super.dispose();
-  // }
+  static const _initialCameraPosition = CameraPosition(
+    target: LatLng(37.77972, -122.431297),
+    zoom: 11.5,
+  );
+  late GoogleMapController _googleMapController;
+  @override
+  void dispose() {
+    _googleMapController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class _AddCustomerState extends State<AddCustomer> {
             Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios),
-          color: Colors.black,
+          color: colorBlack,
         ),
         centerTitle: true,
         title: Text(
@@ -416,20 +416,7 @@ class _AddCustomerState extends State<AddCustomer> {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
-              // GoogleMap(initialCameraPosition: ),
-              // SizedBox(
-              //   height: 300,
-              //   width: double.infinity,
-              //   child: GoogleMap(
-              //     myLocationEnabled: true,
-              //     myLocationButtonEnabled: true,
-              //     zoomControlsEnabled: true,
-              //     initialCameraPosition: _initialCameraPosition,
-              //     onMapCreated: (controller) =>
-              //         _googleMapController = controller,
-              //   ),
-              // ),
+              const SizedBox(height: defaultPadding),
               Align(
                 alignment: Alignment.center,
                 child: SizedBox(
@@ -455,6 +442,20 @@ class _AddCustomerState extends State<AddCustomer> {
                       style: GoogleFonts.kanit(fontSize: bodytext),
                     ),
                   ),
+                ),
+              ),
+              const SizedBox(height: defaultPadding),
+              // GoogleMap(initialCameraPosition: ),
+              SizedBox(
+                height: 300,
+                width: double.infinity,
+                child: GoogleMap(
+                  myLocationEnabled: true,
+                  myLocationButtonEnabled: true,
+                  zoomControlsEnabled: true,
+                  initialCameraPosition: _initialCameraPosition,
+                  onMapCreated: (controller) =>
+                      _googleMapController = controller,
                 ),
               ),
             ],

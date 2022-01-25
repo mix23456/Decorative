@@ -6,6 +6,7 @@ import 'package:project_curtain/screen/page/home_screen.dart';
 import 'package:project_curtain/screen/page/order_screen.dart';
 import 'package:project_curtain/screen/page/product_screen.dart';
 import 'package:project_curtain/screen/page/receipt_screen.dart';
+import 'package:project_curtain/screen/page/setting_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,7 +46,7 @@ class _IndexScreenState extends State<IndexScreen> {
     const CustomerScreen(),
     const OrderScreen(),
     const ReceiptScreen(),
-    const Center(child: Text('ตั้งค่า', style: TextStyle(fontSize: 40))),
+    const SettingScreen(),
   ];
 
   @override

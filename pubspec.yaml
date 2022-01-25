@@ -29,12 +29,15 @@ environment:
 dependencies:
   carousel_slider: ^4.0.0
   cupertino_icons: ^1.0.4
+  dotted_border: ^2.0.0+2
+  expansion_tile_card: ^2.0.0
   flutter:
     sdk: flutter
   flutter_elegant_number_button: ^0.0.6
   flutter_image_slideshow: ^0.1.2
   flutter_masked_text: ^0.8.0
   flutter_material_pickers: ^3.1.2
+  flutter_multi_formatter: ^2.5.1
   flutter_staggered_grid_view: ^0.4.1
   flutter_svg: ^1.0.0
   flutter_swipe_action_cell: ^2.1.5
@@ -49,8 +52,13 @@ dependencies:
   pattern_formatter: ^2.0.0
   provider: ^6.0.1
   searchfield: ^0.5.6
+  simple_animations: ^2.2.3
   smooth_page_indicator: ^1.0.0+2
+  supercharged: ^1.11.1
+  syncfusion_flutter_core: ^19.4.43+1
+  syncfusion_flutter_sliders: ^19.4.43
   url_launcher: ^6.0.15
+  webview_flutter: ^3.0.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0

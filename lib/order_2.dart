@@ -33,35 +33,35 @@
 //                 child: Text('รายการสินค้า',
 //                     style: GoogleFonts.kanit(fontSize: 30)),
 //               ),
-//               Row(
-//                 mainAxisAlignment: MainAxisAlignment.end,
-//                 children: [
-//                   Radio(
-//                       value: 1,
-//                       groupValue: val1,
-//                       onChanged: (value) {
-//                         setState(() {
-//                           val1 = value;
-//                         });
-//                       }),
-//                   Text(
-//                     'ประมูล',
-//                     style: GoogleFonts.kanit(),
-//                   ),
-//                   Radio(
-//                       value: 2,
-//                       groupValue: val1,
-//                       onChanged: (value) {
-//                         setState(() {
-//                           val1 = value;
-//                         });
-//                       }),
-//                   Text(
-//                     'ไม่ประมูล',
-//                     style: GoogleFonts.kanit(),
-//                   ),
-//                 ],
-//               ),
+  //               Row(
+  //                 mainAxisAlignment: MainAxisAlignment.end,
+  //                 children: [
+  //                   Radio(
+  //                       value: 1,
+  //                       groupValue: val1,
+  //                       onChanged: (value) {
+  //                         setState(() {
+  //                           val1 = value;
+  //                         });
+  //                       }),
+  //                   Text(
+  //                     'ประมูล',
+  //                     style: GoogleFonts.kanit(),
+  //                   ),
+  //                   Radio(
+  //                       value: 2,
+  //                       groupValue: val1,
+  //                       onChanged: (value) {
+  //                         setState(() {
+  //                           val1 = value;
+  //                         });
+  //                       }),
+  //                   Text(
+  //                     'ไม่ประมูล',
+  //                     style: GoogleFonts.kanit(),
+  //                   ),
+  //                 ],
+  //               ),
 
 //               SizedBox(
 //                 width: double.maxFinite,

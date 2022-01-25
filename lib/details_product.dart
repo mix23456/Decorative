@@ -1,9 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+// import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
-import 'package:flutter_multi_formatter/formatters/money_input_formatter.dart';
 import 'package:project_curtain/format.dart';
+import 'package:syncfusion_flutter_core/theme.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({Key? key}) : super(key: key);
@@ -31,23 +34,21 @@ final List<Widget> imageSliders = imgList
               )),
         ))
     .toList();
-int _current = 0;
-final CarouselController _controller = CarouselController();
+var curtain = ['ผ้าม่านตาไก่', 'ผ้าม่านจับ', 'ผ้าม่านลอน'];
 int numOfItem = 1;
 int selectImage = 0;
-bool isCheck = false;
-
-var curtain = ['ผ้าม่านตาไก่', 'ผ้าม่านจับ', 'ผ้าม่านลอน'];
 String? dropdownValue;
-double check = 2.8;
+double check = 1;
 double result = 0;
-double height = 0;
 bool isChecked = false;
-dynamic _cloth = 1;
-int a = 0;
+double heightCurtain = 0;
+double widthCurtain = 0;
+double priceCurtain = 0;
 final TextEditingController widthController = TextEditingController();
 final TextEditingController priceController = TextEditingController();
 final TextEditingController heightController = TextEditingController();
+final CarouselController _controller = CarouselController();
+bool _switchValue = true;
 
 class _DetailScreenState extends State<DetailScreen> {
   @override
@@ -129,288 +130,488 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                 ],
               ),
-              // SizedBox(
-              //   // width: 450,
-              //   // height: 200,
-              //   child: Column(
-              //     children: [
-              //       Stack(
-              //         children: [
-              //           CarouselSlider(
-              //             items: imageSliders,
-              //             carouselController: _controller,
-              //             options: CarouselOptions(
-              //                 autoPlay: true,
-              //                 enlargeCenterPage: true,
-              //                 aspectRatio: 2.0,
-              //                 onPageChanged: (index, reason) {
-              //                   setState(() {
-              //                     _current = index;
-              //                   });
-              //                 }),
-              //           ),
-              //           Align(
-              //             alignment: Alignment.centerLeft,
-              //             child: IconButton(
-              //               onPressed: previous,
-              //               icon: const Icon(Icons.arrow_back),
-              //               // color: Colors.black,
-              //             ),
-              //           ),
-              //           Align(
-              //             alignment: Alignment.centerRight,
-              //             child: IconButton(
-              //               onPressed: next,
-              //               icon: const Icon(Icons.arrow_forward),
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ],
-              //   ),
-              // ),
-
-              // Container(
-              //     child: CarouselSlider(
-              //   options: CarouselOptions(
-              //     aspectRatio: 2.0,
-              //     enlargeCenterPage: true,
-              //     enableInfiniteScroll: false,
-              //     initialPage: 2,
-              //     autoPlay: true,
-              //   ),
-              //   items: imageSliders,
-              // )),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: imgList.asMap().entries.map((entry) {
-              //     return GestureDetector(
-              //       onTap: () => _controller.animateToPage(entry.key),
-              //       child: Container(
-              //         width: 12.0,
-              //         height: 12.0,
-              //         margin: const EdgeInsets.symmetric(
-              //             vertical: 8.0, horizontal: 4.0),
-              //         decoration: BoxDecoration(
-              //             shape: BoxShape.circle,
-              //             color: (Theme.of(context).brightness == Brightness.dark
-              //                     ? Colors.white
-              //                     : Colors.black)
-              //                 .withOpacity(_current == entry.key ? 0.9 : 0.4)),
-              //       ),
-              //     );
-              //   }).toList(),
-              // ),
               const SizedBox(height: defaultPadding),
-              Text(
-                'ม่านสองชั้น',
-                style: GoogleFonts.kanit(fontSize: subtitel),
-              ),
+              Text('ม่านสองชั้น', style: GoogleFonts.kanit(fontSize: subtitel)),
               const SizedBox(height: defaultPadding),
               Container(
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Text('เลือกชนิดผ้าม่าน', style: GoogleFonts.kanit(fontSize: bodytext)),
-                    // const SizedBox(height: defaultPadding / 2),
-                    // DropdownButtonHideUnderline(
-                    //   child: DropdownButtonFormField(
-                    //     icon: const Icon(Icons.arrow_drop_down),
-                    //     decoration: InputDecoration(
-                    //       // hintText: 'โปรดเลือก',
-                    //       // hintStyle: GoogleFonts.kanit(color: Colors.black),
-                    //       enabledBorder: OutlineInputBorder(
-                    //           borderSide: const BorderSide(color: Colors.black),
-                    //           borderRadius: BorderRadius.circular(30)),
-                    //     ),
-                    //     onChanged: (String? newValue) {
-                    //       setState(() {
-                    //         dropdownValue = newValue!;
-                    //       });
-                    //     },
-                    //     items: curtain.map((String item) {
-                    //       return DropdownMenuItem(
-                    //         value: item,
-                    //         child: Text(item, style: GoogleFonts.kanit()),
-                    //       );
-                    //     }).toList(),
-                    //   ),
-                    // ),
-                    // const SizedBox(height: defaultPadding / 2),
-                    // Text('เลือกหน้าผ้า',
-                    //     style: GoogleFonts.kanit(fontSize: bodytext)),
-                    // const SizedBox(height: defaultPadding / 2),
-                    // DropdownButtonHideUnderline(
-                    //   child: DropdownButtonFormField(
-                    //     decoration: InputDecoration(
-                    //         hintText: 'โปรดเลือก',
-                    //         hintStyle: GoogleFonts.kanit(color: Colors.black),
-                    //         enabledBorder: OutlineInputBorder(
-                    //             borderSide:
-                    //                 const BorderSide(color: Colors.black),
-                    //             borderRadius: BorderRadius.circular(30))),
-                    //     value: _cloth,
-                    //     onChanged: (value) {
-                    //       setState(() {
-                    //         _cloth = value;
-                    //       });
-                    //     },
-                    //     items: [
-                    //       DropdownMenuItem(
-                    //         value: 1,
-                    //         child: Text('ผ้าหน้ากว้าง',
-                    //             style: GoogleFonts.kanit()),
-                    //       ),
-                    //       DropdownMenuItem(
-                    //         value: 2,
-                    //         child:
-                    //             Text('ผ้าหน้าแคบ', style: GoogleFonts.kanit()),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    const SizedBox(height: defaultPadding / 2),
-                    Text('ความสูงผ้าม่าน (เมตร)',
-                        style: GoogleFonts.kanit(fontSize: bodytext)),
-                    const SizedBox(height: defaultPadding / 2),
-                    TextField(
-                      controller: heightController,
-                      onChanged: (value) {
-                        if (double.tryParse(value) != null &&
-                            int.parse(value.replaceAll('.', '')) <= 26) {
-                          setState(() {
-                            height = 2.8;
-                          });
-                        } else {
-                          setState(() {
-                            height = 3.2;
-                          });
-                        }
-                      },
-                      keyboardType: TextInputType.number,
-                      textInputAction: TextInputAction.next,
-                      inputFormatters: [MoneyInputFormatter()],
-                      // inputFormatters: [ThousandsFormatter(allowFraction: true)],
-                      decoration: InputDecoration(
-                        // errorText: _height.text.replaceAll('.', ''),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: defaultPadding / 2),
-                    Text('ความกว้างผ้าม่าน (เมตร)',
-                        style: GoogleFonts.kanit(fontSize: bodytext)),
-                    const SizedBox(height: defaultPadding / 2),
-                    TextField(
-                      textInputAction: TextInputAction.next,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [MoneyInputFormatter()],
-                      // inputFormatters: [ThousandsFormatter(allowFraction: true)],
-                      controller: widthController,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: defaultPadding / 2),
-                    Text('ราคาผ้าม่าน (บาท)',
-                        style: GoogleFonts.kanit(fontSize: bodytext)),
-                    const SizedBox(height: defaultPadding / 2),
-                    TextField(
-                      keyboardType: TextInputType.number,
-                      textInputAction: TextInputAction.done,
-                      inputFormatters: [MoneyInputFormatter()],
-                      // inputFormatters: [ThousandsFormatter(allowFraction: true)],
-                      controller: priceController,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: defaultPadding / 2),
-                    CheckboxListTile(
-                      title: Text('สลับหน้าผ้า ', style: GoogleFonts.kanit()),
-                      controlAffinity: ListTileControlAffinity.leading,
-                      activeColor: Colors.black,
-                      value: isChecked,
-                      // tristate: false,
-                      // checkColor: Colors.black,
-                      onChanged: (bool? value) {
-                        if (isChecked) {
-                          setState(() {
-                            isChecked = false;
-                            check = 2.8;
-                          });
-                        } else {
-                          setState(() {
-                            isChecked = true;
-                            check = 3.2;
-                          });
-                        }
-                      },
-                    ),
-                    const SizedBox(height: defaultPadding / 2),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('ชนิดผ้า :',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext1, fontSize: bodytext))
+                            ],
                           ),
                         ),
-                        onPressed: () {
-                          double width =
-                              double.parse(widthController.value.text);
-                          double price =
-                              double.parse(priceController.value.text);
-                          double _height =
-                              double.parse(heightController.value.text);
-                          calculate(width, price, _height);
-                        },
-                        child: Text(
-                          'คำนวณราคา',
-                          style: GoogleFonts.kanit(fontSize: 20),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    const Divider(
-                      color: Colors.black,
-                      thickness: 3,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'ราคาทั้งหมด ',
-                          style: GoogleFonts.kanit(
-                              fontSize: 18, color: Colors.blue),
-                        ),
-                        Text(
-                          '${GoogleSignInApi.formatNumber(result)}',
-                          style: GoogleFonts.kanit(
-                              fontSize: 24, color: Colors.blue),
-                        ),
-                        Text(
-                          'บาท ',
-                          style: GoogleFonts.kanit(
-                              fontSize: 18, color: Colors.blue),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(' ผ้าหน้าทึบ',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext2, fontSize: bodytext)),
+                            ],
+                          ),
                         ),
                       ],
+                    ),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('รหัสสินค้า :',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext1, fontSize: bodytext))
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(' ผ้าหน้าทึบ',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext2, fontSize: bodytext)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('เลือกสี :',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext1, fontSize: bodytext))
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(' ผ้าหน้าทึบ',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext2, fontSize: bodytext)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('ราคา/ชิ้น :',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext1, fontSize: bodytext))
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(' ผ้าหน้าทึบ',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext2, fontSize: bodytext)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('ความสูงผ้าม่าน (เมตร) :',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext1, fontSize: bodytext)),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 530,
+                                child: SfSliderTheme(
+                                  data: SfSliderThemeData(
+                                    thumbStrokeWidth: 3,
+                                    thumbStrokeColor: colortext1,
+                                    thumbColor: Colors.white,
+                                  ),
+                                  child: SfSlider(
+                                    min: 0.0,
+                                    max: 100.0,
+                                    value: heightCurtain,
+                                    inactiveColor: colortext2,
+                                    onChanged: (dynamic newValue) {
+                                      setState(() {
+                                        heightCurtain = newValue;
+                                        valueChange();
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Text(
+                                '${heightCurtain.toStringAsFixed(2)}',
+                                style: GoogleFonts.kanit(
+                                    color: colortext2, fontSize: bodytext),
+                              ),
+                              const SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Text(
+                                'เมตร',
+                                style: GoogleFonts.kanit(
+                                    color: colortext2, fontSize: bodytext),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding / 2),
+                    // TextField(
+                    //   controller: heightController,
+                    //   onChanged: (value) {
+                    //     valueChancg();
+                    //   },
+                    //   keyboardType: TextInputType.number,
+                    //   textInputAction: TextInputAction.next,
+                    //   inputFormatters: [MoneyInputFormatter()],
+                    //   // inputFormatters: [ThousandsFormatter(allowFraction: true)],
+                    //   decoration: InputDecoration(
+                    //     // errorText: _height.text.replaceAll('.', ''),
+                    //     focusedBorder: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(30),
+                    //     ),
+                    //     enabledBorder: OutlineInputBorder(
+                    //       borderRadius: BorderRadius.circular(30),
+                    //     ),
+                    //   ),
+                    // ),
+                    const SizedBox(height: defaultPadding / 2),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('ความกว้างผ้าม่าน (เมตร) :',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext1, fontSize: bodytext)),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 530,
+                                child: SfSliderTheme(
+                                  data: SfSliderThemeData(
+                                    thumbStrokeWidth: 3,
+                                    thumbStrokeColor: colortext1,
+                                    thumbColor: Colors.white,
+                                  ),
+                                  child: SfSlider(
+                                    min: 0.0,
+                                    max: 100.0,
+                                    value: widthCurtain,
+                                    inactiveColor: colortext2,
+                                    onChanged: (dynamic newValue) {
+                                      setState(() {
+                                        widthCurtain = newValue;
+                                        valueChange();
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Text(
+                                '${widthCurtain.toStringAsFixed(2)}',
+                                style: GoogleFonts.kanit(
+                                    color: colortext2, fontSize: bodytext),
+                              ),
+                              const SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Text(
+                                'เมตร',
+                                style: GoogleFonts.kanit(
+                                    color: colortext2, fontSize: bodytext),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding / 2),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('ราคาผ้าม่าน (บาท) :',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext1, fontSize: bodytext)),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 530,
+                                child: SfSliderTheme(
+                                  data: SfSliderThemeData(
+                                    thumbStrokeWidth: 3,
+                                    thumbStrokeColor: colortext1,
+                                    thumbColor: Colors.white,
+                                  ),
+                                  child: SfSlider(
+                                    min: 0.0,
+                                    max: 100.0,
+                                    value: priceCurtain,
+                                    inactiveColor: colortext2,
+                                    onChanged: (dynamic newValue) {
+                                      setState(() {
+                                        priceCurtain = newValue;
+                                        valueChange();
+                                      });
+                                    },
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Text(
+                                '${priceCurtain.toStringAsFixed(2)}',
+                                style: GoogleFonts.kanit(
+                                    color: colortext2, fontSize: bodytext),
+                              ),
+                              const SizedBox(
+                                width: defaultPadding,
+                              ),
+                              Text(
+                                'บาท',
+                                style: GoogleFonts.kanit(
+                                    color: colortext2, fontSize: bodytext),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding / 2),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('แบบเย็บ :',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext1, fontSize: bodytext))
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(' ผ้าหน้าทึบ',
+                                  style: GoogleFonts.kanit(
+                                      color: colortext2, fontSize: bodytext)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'สลับหน้าผ้า ',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext1),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CupertinoSwitch(
+                                thumbColor: colorWhite,
+                                // trackColor: colortext1,
+                                activeColor: colortext1,
+                                value: isChecked,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isChecked = !isChecked;
+                                    valueChange();
+                                  });
+                                },
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding / 2),
+                    // CheckboxListTile(
+                    //   title: Text('สลับหน้าผ้า ', style: GoogleFonts.kanit()),
+                    //   controlAffinity: ListTileControlAffinity.leading,
+                    //   activeColor: Colors.black,
+                    //   value: isChecked,
+                    //   onChanged: (bool? value) {
+                    //     setState(() {
+                    //       // isChecked = !isChecked;
+                    //       // valueChange();
+                    //     });
+                    //   },
+                    // ),
+                    // const SizedBox(height: defaultPadding / 2),
+
+                    // SizedBox(
+                    //   width: double.infinity,
+                    //   child: ElevatedButton(
+                    //     style: ElevatedButton.styleFrom(
+                    //       primary: Colors.black,
+                    //       shape: RoundedRectangleBorder(
+                    //         borderRadius: BorderRadius.circular(30),
+                    //       ),
+                    //     ),
+                    //     onPressed: () {
+                    //       double width =
+                    //           double.parse(widthController.value.text);
+                    //       double price =
+                    //           double.parse(priceController.value.text);
+                    //       double _height =
+                    //           double.parse(heightController.value.text);
+                    //       calculate(width, price, _height);
+                    //     },
+                    //     child: Text(
+                    //       'คำนวณราคา',
+                    //       style: GoogleFonts.kanit(fontSize: 20),
+                    //     ),
+                    //   ),
+                    // ),
+
+                    // const SizedBox(height: 10),
+                    Row(
+                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'ราคารวม : ',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext1),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                '${GoogleSignInApi.formatNumber(result)}',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext2),
+                              ),
+                              Text(
+                                ' บาท',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext2),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding / 2),
+                    Container(
+                      alignment: Alignment.center,
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                            primary: colortext1,
+                            padding: const EdgeInsets.only(
+                                left: 18, right: 18, top: 12, bottom: 12),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            )),
+                        onPressed: () {},
+                        icon: const Icon(Icons.shopping_cart_outlined),
+                        label: Text(
+                          'เพิ่มเข้าออเดอร์',
+                          style: GoogleFonts.kanit(
+                              color: colorWhite, fontSize: bodytext),
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -431,7 +632,7 @@ class _DetailScreenState extends State<DetailScreen> {
   // 		- สูงเกิน 2.5 เมตร
   // 		 ไม่สลับหน้าผ้า ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.2)/2.8)/0.9)*ราคาผ้า
   // 		 สลับหน้าผ้า   ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.2)/2.8)/0.9)*ราคาผ้า
-
+  //
   // (ผ้าหน้าแคบ)
   // - สูงไม่เกิน 2.5 เมตร
   //   ไม่สลับหน้าผ้า ((0.35+สูงที่ติดตั้ง)*(กว้าง*2.8)/0.9)*ราคาผ้า
@@ -441,21 +642,33 @@ class _DetailScreenState extends State<DetailScreen> {
   //   ไม่สลับหน้าผ้า
   //   สลับหน้าผ้า   (((0.35+สูงที่ติดตั้ง)*(กว้าง*2.6)/1.4)/0.9)*ราคาผ้า
 
-  void calculate(double width, double price, double _height) {
-    //// double total = (((width * height) / check) * _cloth) * price;
-    ///ม่านตาไก่
-    //สูงไม่เกิน 2.5เมตร
-    // double total = ((0.35 + _height) * ((width * 2.2) / check) / 0.9) * price;
-
-    //สูงเกิน 2.5 เมตร
-    // double total = ((0.35 + _height) * ((width * 2.2) / 1.4) / 0.9) * price;
-
-    // ม่านจับ
-    //
-    // ผ้าหน้ากว้าง
-    double total = check;
+  // void calculate(double width, double price, double _height) {
+  //   print('width');
+  //   print(width);
+  //   print('_height');
+  //   print(_height);
+  //   print('price');
+  //   print(price);
+  //   double total1 = (((1) * (width * 2.2) / 1) / 0.9) * price;
+  //   double total2 = (((0.35 + _height) * (width * 2.2) / 1.4) / 0.9) * price;
+  //   setState(() {
+  //     result = isChecked ? total2 : total1;
+  //   });
+  // }
+  void calculate(
+      double widthCurtain, double priceCurtain, double heightCurtain) {
+    // print('widthCurtain');
+    // print(widthCurtain);
+    // print('heightCurtain');
+    // print(heightCurtain);
+    // print('priceCurtain');
+    // print(priceCurtain);
+    double total1 = (((1) * (widthCurtain * 2.2) / 1) / 0.9) * priceCurtain;
+    double total2 =
+        (((0.35 + heightCurtain) * (widthCurtain * 2.2) / 1.4) / 0.9) *
+            priceCurtain;
     setState(() {
-      result = total;
+      result = isChecked ? total2 : total1;
     });
   }
 
@@ -491,6 +704,17 @@ class _DetailScreenState extends State<DetailScreen> {
       _controller.nextPage(duration: const Duration(milliseconds: 500));
   void previous() =>
       _controller.previousPage(duration: const Duration(milliseconds: 500));
+
+  void valueChange() {
+    widthCurtain;
+    heightCurtain;
+    priceCurtain;
+    calculate(widthCurtain, priceCurtain, heightCurtain);
+    // double width = double.parse(widthController.value.text);
+    // double price = double.parse(priceController.value.text);
+    // double _height = double.parse(heightController.value.text);
+    // calculate(width, price, _height);
+  }
 }
 
 // ม่านตาไก่ //
