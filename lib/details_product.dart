@@ -6,6 +6,12 @@ import 'package:project_curtain/add_customer.dart';
 // import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
 import 'package:project_curtain/format.dart';
+import 'package:project_curtain/screen/page/customer_screen.dart';
+import 'package:project_curtain/screen/page/home_screen.dart';
+import 'package:project_curtain/screen/page/order_screen.dart';
+import 'package:project_curtain/screen/page/product_screen.dart';
+import 'package:project_curtain/screen/page/receipt_screen.dart';
+import 'package:project_curtain/screen/page/setting_screen.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
@@ -49,6 +55,15 @@ final TextEditingController widthController = TextEditingController();
 final TextEditingController priceController = TextEditingController();
 final TextEditingController heightController = TextEditingController();
 final CarouselController _controller = CarouselController();
+int currenIndex = 0;
+final screens = [
+  const HomeScreen(),
+  const ProductScreen(),
+  const CustomerScreen(),
+  const OrderScreen(),
+  const ReceiptScreen(),
+  const SettingScreen(),
+];
 
 class _DetailScreenState extends State<DetailScreen> {
   @override
@@ -786,6 +801,59 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ),
       ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   type: BottomNavigationBarType.fixed,
+      //   backgroundColor: Colors.grey[300],
+      //   selectedItemColor: Colors.black,
+      //   onTap: (index) => setState(() => currenIndex = index),
+      //   currentIndex: currenIndex,
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.home,
+      //         size: 24,
+      //       ),
+      //       label: "หน้าแรก",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.all_inbox,
+      //         size: 24,
+      //       ),
+      //       label: "สินค้า",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.people,
+      //         size: 24,
+      //       ),
+      //       label: "ลูกค้า",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.receipt,
+      //         size: 24,
+      //       ),
+      //       label: "ออเดอร์",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.receipt_long,
+      //         size: 24,
+      //       ),
+      //       label: "ใบเสร็จ",
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(
+      //         Icons.settings,
+      //         size: 24,
+      //       ),
+      //       label: "ตั้งค่า",
+      //     ),
+      //   ],
+      //   selectedLabelStyle: GoogleFonts.kanit(),
+      //   unselectedLabelStyle: GoogleFonts.kanit(),
+      // ),
     );
   }
 

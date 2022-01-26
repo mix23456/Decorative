@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/contack.dart';
@@ -65,7 +63,7 @@ class _IndexScreenState extends State<IndexScreen> {
               TextButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Contack()));
+                      MaterialPageRoute(builder: (context) => const Contack()));
                 },
                 child: Text(
                   'ช่องทางการติดต่อ',
@@ -88,7 +86,6 @@ class _IndexScreenState extends State<IndexScreen> {
                   size: 24,
                 ),
                 label: "หน้าแรก",
-                backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -96,7 +93,6 @@ class _IndexScreenState extends State<IndexScreen> {
                   size: 24,
                 ),
                 label: "สินค้า",
-                backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -104,7 +100,6 @@ class _IndexScreenState extends State<IndexScreen> {
                   size: 24,
                 ),
                 label: "ลูกค้า",
-                backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -112,7 +107,6 @@ class _IndexScreenState extends State<IndexScreen> {
                   size: 24,
                 ),
                 label: "ออเดอร์",
-                backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -120,7 +114,6 @@ class _IndexScreenState extends State<IndexScreen> {
                   size: 24,
                 ),
                 label: "ใบเสร็จ",
-                backgroundColor: Colors.blue,
               ),
               BottomNavigationBarItem(
                 icon: Icon(
@@ -128,7 +121,6 @@ class _IndexScreenState extends State<IndexScreen> {
                   size: 24,
                 ),
                 label: "ตั้งค่า",
-                backgroundColor: Colors.blue,
               ),
             ],
             selectedLabelStyle: GoogleFonts.kanit(),

@@ -12,6 +12,7 @@ const lightGray = Color(0xFFEDEDED);
 const colorWhite = Color(0xFFFFFFFF);
 const colorBlack = Color(0xFF000000);
 const colorContiner = Color(0xFFC4C4C4);
+const colorbgbtn = Color(0xFFEDEDED);
 
 const colorbtn1 = Color(0xFFEDEDED);
 const panelTransition = Duration(milliseconds: 500);
