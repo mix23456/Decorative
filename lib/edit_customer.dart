@@ -231,7 +231,7 @@ class _EditCustomer extends State<EditCustomer> {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: defaultPadding),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: Row(
