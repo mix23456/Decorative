@@ -260,6 +260,7 @@ class _AddCustomerState extends State<AddCustomer> {
                         ],
                       ),
                     ),
+                    const SizedBox(width: defaultPadding),
                     const Expanded(
                       flex: 1,
                       child: SizedBox(),
@@ -417,6 +418,20 @@ class _AddCustomerState extends State<AddCustomer> {
                 ),
               ),
               const SizedBox(height: defaultPadding),
+              // GoogleMap(initialCameraPosition: ),
+              SizedBox(
+                height: 300,
+                width: double.infinity,
+                child: GoogleMap(
+                  myLocationEnabled: true,
+                  myLocationButtonEnabled: true,
+                  zoomControlsEnabled: true,
+                  initialCameraPosition: _initialCameraPosition,
+                  onMapCreated: (controller) =>
+                      _googleMapController = controller,
+                ),
+              ),
+              const SizedBox(height: defaultPadding),
               Align(
                 alignment: Alignment.center,
                 child: SizedBox(
@@ -457,20 +472,6 @@ class _AddCustomerState extends State<AddCustomer> {
                       style: GoogleFonts.kanit(fontSize: bodytext),
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(height: defaultPadding),
-              // GoogleMap(initialCameraPosition: ),
-              SizedBox(
-                height: 300,
-                width: double.infinity,
-                child: GoogleMap(
-                  myLocationEnabled: true,
-                  myLocationButtonEnabled: true,
-                  zoomControlsEnabled: true,
-                  initialCameraPosition: _initialCameraPosition,
-                  onMapCreated: (controller) =>
-                      _googleMapController = controller,
                 ),
               ),
             ],
