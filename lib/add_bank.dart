@@ -36,7 +36,7 @@ class _AddBankState extends State<AddBank> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.all(defaultPadding),
         margin: EdgeInsets.all(defaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
