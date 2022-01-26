@@ -25,12 +25,22 @@ class _OrderScreenState extends State<OrderScreen> {
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
+          PopupMenuButton(
             icon: const Icon(
               Icons.search,
-              color: Colors.black,
+              color: colorBlack,
             ),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem<int>(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: 'ค้นหา',
+                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  ),
+                ),
+              ];
+            },
           ),
         ],
       ),

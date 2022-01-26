@@ -23,18 +23,18 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: Text(
           'SETTING',
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          PopupMenuButton<int>(
+          PopupMenuButton(
+            icon: const Icon(
+              Icons.search,
+              color: colorBlack,
+            ),
             itemBuilder: (context) {
               return [
                 PopupMenuItem<int>(
@@ -47,42 +47,12 @@ class _SettingScreenState extends State<SettingScreen> {
               ];
             },
           ),
-          // IconButton(
-          //   onPressed: () {
-          //     showDialog<bool>(
-          //       context: context,
-          //       builder: (context) {
-          //         return CupertinoAlertDialog(
-          //           title: Text('Tambah baru'),
-          //           content: Card(
-          //             color: Colors.transparent,
-          //             elevation: 0.0,
-          //             child: Column(
-          //               children: <Widget>[
-          //                 TextField(
-          //                   decoration: InputDecoration(
-          //                       labelText: "Nama",
-          //                       filled: true,
-          //                       fillColor: Colors.grey.shade50),
-          //                 ),
-          //               ],
-          //             ),
-          //           ),
-          //         );
-          //       },
-          //     );
-          //   },
-          //   icon: const Icon(
-          //     Icons.search,
-          //     color: Colors.black,
-          //   ),
-          // ),
         ],
       ),
       body: Container(
         // height: 230,
         // width: 768,
-        padding: EdgeInsets.all(defaultPadding),
+        padding: const EdgeInsets.all(defaultPadding),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: const Color(0xFFF5F5F5),
@@ -110,7 +80,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ContactInformation()));
+                              builder: (context) =>
+                                  const ContactInformation()));
                     },
                     icon: const Icon(Icons.edit_outlined),
                   )
@@ -134,8 +105,10 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => AddBank()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AddBank()));
                     },
                     icon: const Icon(Icons.add),
                   )
@@ -159,8 +132,10 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => AddUser()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AddUser()));
                     },
                     icon: const Icon(Icons.add),
                   )
@@ -184,8 +159,10 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Work()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Work()));
                     },
                     icon: const Icon(Icons.add),
                   )

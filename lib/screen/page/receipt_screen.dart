@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/detail_receip.dart';
 import 'package:project_curtain/details_product.dart';
+import 'package:project_curtain/screen/constants/constants.dart';
 
 class ReceiptScreen extends StatefulWidget {
   const ReceiptScreen({Key? key}) : super(key: key);
@@ -22,11 +23,23 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
           style: GoogleFonts.kanit(color: Colors.black, fontSize: 24),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-            color: Colors.black,
-          )
+          PopupMenuButton(
+            icon: const Icon(
+              Icons.search,
+              color: colorBlack,
+            ),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem<int>(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: 'ค้นหา',
+                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  ),
+                ),
+              ];
+            },
+          ),
         ],
       ),
       body: Container(
