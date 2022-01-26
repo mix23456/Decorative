@@ -1,3 +1,5 @@
+import 'package:dropdown_button2/custom_dropdown_button2.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/bank.dart';
@@ -14,7 +16,22 @@ class _AddBankState extends State<AddBank> {
   String? valueChoose;
 
   List listItem = ["A", "B", "C", "D", "E"];
+  String? selectedValue;
+  List<String> items = [
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
+    'Item5',
+    'Item6',
+    'Item7',
+    'Item8',
+  ];
 
+  final List<String> genderItems = [
+    'Male',
+    'Female',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,46 +58,49 @@ class _AddBankState extends State<AddBank> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Container(
-                  width: 700,
-                  child: Card(
-                    // elevation: 5.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton<String>(
-                        hint: Text(
-                          'เลือกธนาคาร',
-                          style: GoogleFonts.kanit(),
-                        ),
-                        dropdownColor: Colors.white,
-                        icon: const Icon(Icons.arrow_drop_down),
-                        iconSize: 40.0,
-                        style: GoogleFonts.kanit(
-                          fontSize: 18.0,
-                          color: Colors.black,
-                        ),
-                        value: valueChoose,
-                        onChanged: (newValue) {
-                          setState(() {
-                            valueChoose = newValue;
-                          });
-                        },
-                        items:
-                            listItem.map<DropdownMenuItem<String>>((valueItem) {
-                          return DropdownMenuItem(
-                            value: valueItem,
-                            child: Text(valueItem),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                  ),
+            DropdownButtonFormField2(
+              decoration: InputDecoration(
+                isDense: true,
+                contentPadding: EdgeInsets.zero,
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-              ],
+              ),
+              isExpanded: true,
+              hint: Text(
+                'เลือกธนาคาร',
+                style: GoogleFonts.kanit(fontSize: bodytext, color: colortext2),
+              ),
+              icon: const Icon(
+                Icons.arrow_drop_down,
+                color: Colors.black45,
+              ),
+              iconSize: 30,
+              buttonHeight: 60,
+              buttonPadding: const EdgeInsets.only(left: 20, right: 10),
+              dropdownDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              items: [],
+              // items: genderItems
+              //     .map((item) => DropdownMenuItem<String>(
+              //           value: item,
+              //           child: Text(
+              //             item,
+              //             style: const TextStyle(
+              //               fontSize: 14,
+              //             ),
+              //           ),
+              //         ))
+              //     .toList(),
+              // validator: (value) {
+              //   if (value == null) {
+              //     return 'Please select gender.';
+              //   }
+              // },
+              // onChanged: (value) {
+              //   //Do something when changing the item if you want.
+              // },
             ),
             const SizedBox(height: defaultPadding),
             TextField(
