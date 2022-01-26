@@ -35,19 +35,24 @@ class _ContactInformationState extends State<ContactInformation> {
           Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: Color(0xFFEDEDED),
+                color: const Color(0xFFEDEDED),
               ),
               borderRadius: BorderRadius.circular(10),
             ),
             padding: const EdgeInsets.all(defaultPadding),
-            margin: const EdgeInsets.all(defaultPadding),
+            margin: const EdgeInsets.only(
+                top: defaultPadding * 2,
+                bottom: defaultPadding,
+                left: defaultPadding * 5,
+                right: defaultPadding * 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Align(
                   alignment: Alignment.center,
                   child: Container(
-                    width: 250,
+                    alignment: Alignment.center,
+                    width: 576,
                     height: 250,
                     color: colorContiner,
                   ),
