@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,7 +33,12 @@ final List<Widget> imageSliders = imgList
         ))
     .toList();
 int _current = 0;
+
 final CarouselController _controller = CarouselController();
+final LatLng _kMapCenter = const LatLng(19.018255973653343, 72.84793849278007);
+
+final CameraPosition _kInitialPosition =
+    CameraPosition(target: _kMapCenter, zoom: 11.0, tilt: 0, bearing: 0);
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
@@ -117,9 +123,22 @@ class _HomeScreenState extends State<HomeScreen> {
               }).toList(),
             ),
             const SizedBox(height: defaultPadding / 2),
-            Text(
-              'Review',
-              style: GoogleFonts.kanit(fontSize: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(width: 32.0),
+                Text(
+                  "REVIEW",
+                  style: GoogleFonts.kanit(fontSize: 32),
+                ),
+                Text(
+                  'All Item',
+                  style: GoogleFonts.kanit(
+                      fontSize: bodytext,
+                      color: colortext2,
+                      decoration: TextDecoration.underline),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(defaultPadding / 2),
@@ -321,136 +340,616 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: defaultPadding / 2),
-            Text('PAYMENT', style: GoogleFonts.kanit(fontSize: 20)),
+            Text('PAYMENT', style: GoogleFonts.kanit(fontSize: 32)),
             const SizedBox(height: defaultPadding / 2),
             Container(
+              padding: EdgeInsets.symmetric(vertical: defaultPadding),
               color: Colors.grey[200],
-              height: 400,
+              height: 430,
               width: double.infinity,
-              child: Column(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  const Padding(padding: EdgeInsets.all(10)),
-                  const SizedBox(height: 20),
-                  Container(
-                    padding: const EdgeInsets.only(left: 40),
-                    child: Stack(
-                      clipBehavior: Clip.none,
-                      alignment: Alignment.topCenter,
-                      children: [
-                        Positioned(
-                          top: -5,
-                          left: 55,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: const Color(0xFF00ac40),
-                            ),
-                            width: 20,
-                            height: 20,
-                          ),
+                  Column(
+                    children: [
+                      Container(
+                        width: 296,
+                        height: 396,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: colorWhite,
                         ),
-                        Container(
-                          height: 60,
-                          width: 300,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.grey,
-                                offset: Offset(0.0, 1.5),
-                                blurRadius: 1,
-                              )
-                            ],
-                          ),
-                          child: Text(
-                            '035-8-097103-5',
-                            style: GoogleFonts.kanit(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          left: -40,
-                          child: Container(
-                            alignment: Alignment.center,
-                            decoration: const BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black54,
-                                  blurRadius: 1,
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 64,
+                                  height: 72,
+                                  child: Image.asset('assets/logos/kbank.png'),
+                                ),
+                                const SizedBox(width: defaultPadding),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'บัญชี : 254-2-63689-0',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext1),
+                                    ),
+                                    Text(
+                                      'ธนาคารกสิกรไทย',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext1),
+                                    ),
+                                    Text(
+                                      'สาขาช้างคลาน',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext1),
+                                    ),
+                                  ],
                                 ),
                               ],
-                              color: Color(0xFF00ac40),
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(15),
-                                topRight: Radius.circular(15),
-                                bottomLeft: Radius.circular(30),
-                              ),
                             ),
-                            height: 70,
-                            width: 70,
-                            // height: MediaQuery.of(context).size.height * 0.05,
-                            // width: MediaQuery.of(context).size.width * 0.10,
-                            child: SizedBox(
-                              width: 35,
-                              height: 35,
-                              child: Image.asset(
-                                'assets/logos/kbank.png',
-                                fit: BoxFit.cover,
-                              ),
+                            const Divider(
+                              thickness: 1,
+                              height: 20,
+                              indent: 20,
+                              endIndent: 20,
                             ),
-                          ),
+                            Column(
+                              children: [
+                                Text(
+                                  'PromptPay',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                                const SizedBox(height: defaultPadding),
+                                Container(
+                                  width: 100,
+                                  height: 100,
+                                  color: colorContiner,
+                                ),
+                                const SizedBox(height: defaultPadding),
+                                Text(
+                                  'แสกน QR เพื่อโอนเข้าบัญชี',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                                const SizedBox(height: defaultPadding),
+                                Text(
+                                  'ชื่อ :',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                                const SizedBox(height: defaultPadding),
+                                Text(
+                                  'เลขอ้างอิง :',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        Positioned(
-                          top: -5,
-                          left: 60,
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 140,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5),
-                              color: const Color(0xFF00ac40),
-                            ),
-                            child: Text(
-                              'DK DEcorative',
-                              style: GoogleFonts.kanit(
-                                  color: Colors.white, fontSize: 12),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: 10),
-                  Container(
-                    height: 200,
-                    width: 200,
-                    alignment: Alignment.center,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      // image: DecorationImage(
-                      //   image: AssetImage('assets/logos/kbank.png'),
-                      // ),
-                    ),
-                    child: Text('QR CODE'),
+                  Column(
+                    children: [
+                      Container(
+                        width: 296,
+                        height: 396,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: colorWhite,
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 64,
+                                  height: 72,
+                                  child:
+                                      Image.asset('assets/logos/krungthai.png'),
+                                ),
+                                const SizedBox(width: defaultPadding),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'บัญชี : 254-2-63689-0',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext1),
+                                    ),
+                                    Text(
+                                      'ธนาคารกรุงไทย',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext1),
+                                    ),
+                                    Text(
+                                      'สาขาช้างคลาน',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext1),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const Divider(
+                              thickness: 1,
+                              height: 20,
+                              indent: 20,
+                              endIndent: 20,
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  'PromptPay',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                                const SizedBox(height: defaultPadding),
+                                Container(
+                                  width: 100,
+                                  height: 100,
+                                  color: colorContiner,
+                                ),
+                                const SizedBox(height: defaultPadding),
+                                Text(
+                                  'แสกน QR เพื่อโอนเข้าบัญชี',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                                const SizedBox(height: defaultPadding),
+                                Text(
+                                  'ชื่อ :',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                                const SizedBox(height: defaultPadding),
+                                Text(
+                                  'เลขอ้างอิง :',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
             const SizedBox(height: defaultPadding / 2),
-            Text(
-              'CONTACK US',
-              style: GoogleFonts.kanit(fontSize: 20),
-            ),
+            Text('CONTACK US', style: GoogleFonts.kanit(fontSize: 32)),
             Container(
+              padding: const EdgeInsets.symmetric(
+                  vertical: defaultPadding, horizontal: defaultPadding * 5),
               color: Colors.grey[200],
-              height: 200,
+              // height: 200,
+              // child: Column(
+              //   crossAxisAlignment: CrossAxisAlignment.start,
+              //   children: [
+              //     Container(
+              //       padding: const EdgeInsets.all(defaultPadding),
+              //       child: Text(
+              //         'บริษัท DK decorative',
+              //         style: GoogleFonts.kanit(
+              //             fontSize: bodytext, color: colorBlack),
+              //       ),
+              //     ),
+              //     const SizedBox(height: defaultPadding * 3),
+              //     SizedBox(
+              //       child: Column(
+              //         children: [
+              //           Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             children: [
+              //               Row(
+              //                 children: [
+              //                   const Icon(
+              //                     Icons.email,
+              //                     color: colorBlack,
+              //                   ),
+              //                   const SizedBox(width: defaultPadding),
+              //                   Text(
+              //                     'dkdecorative@gmail.com',
+              //                     style: GoogleFonts.kanit(
+              //                         fontSize: bodytext, color: colortext1),
+              //                   ),
+              //                 ],
+              //               ),
+              //               Row(
+              //                 children: [
+              //                   const Icon(Icons.ios_share),
+              //                   const SizedBox(width: defaultPadding / 2),
+              //                   Text(
+              //                     'แชร์',
+              //                     style: GoogleFonts.kanit(
+              //                         fontSize: bodytext,
+              //                         color: colortext1,
+              //                         decoration: TextDecoration.underline),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ],
+              //           ),
+              //           const SizedBox(height: defaultPadding * 2.5),
+              //           Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             children: [
+              //               Row(
+              //                 children: [
+              //                   const Icon(
+              //                     Icons.phone,
+              //                     color: colorBlack,
+              //                   ),
+              //                   const SizedBox(width: defaultPadding),
+              //                   Text(
+              //                     '052 002620',
+              //                     style: GoogleFonts.kanit(
+              //                         fontSize: bodytext, color: colortext1),
+              //                   ),
+              //                 ],
+              //               ),
+              //               Row(
+              //                 children: [
+              //                   const Icon(Icons.ios_share),
+              //                   const SizedBox(width: defaultPadding / 2),
+              //                   Text(
+              //                     'แชร์',
+              //                     style: GoogleFonts.kanit(
+              //                         fontSize: bodytext,
+              //                         color: colortext1,
+              //                         decoration: TextDecoration.underline),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ],
+              //           ),
+              //           const SizedBox(height: defaultPadding * 2.5),
+              //           Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             children: [
+              //               Row(
+              //                 children: [
+              //                   const Icon(
+              //                     Icons.phone_iphone,
+              //                     color: colorBlack,
+              //                   ),
+              //                   const SizedBox(width: defaultPadding),
+              //                   Text(
+              //                     '0818846190',
+              //                     style: GoogleFonts.kanit(
+              //                         fontSize: bodytext, color: colortext1),
+              //                   ),
+              //                 ],
+              //               ),
+              //               Row(
+              //                 children: [
+              //                   const Icon(Icons.ios_share),
+              //                   const SizedBox(width: defaultPadding / 2),
+              //                   Text(
+              //                     'แชร์',
+              //                     style: GoogleFonts.kanit(
+              //                         fontSize: bodytext,
+              //                         color: colortext1,
+              //                         decoration: TextDecoration.underline),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ],
+              //           ),
+              //           const SizedBox(height: defaultPadding * 2.5),
+              //           Row(
+              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //             children: [
+              //               Row(
+              //                 children: [
+              //                   const Icon(
+              //                     Icons.location_on,
+              //                     color: colorBlack,
+              //                   ),
+              //                   const SizedBox(width: defaultPadding),
+              //                   Text(
+              //                     '188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
+              //                     style: GoogleFonts.kanit(
+              //                         fontSize: bodytext, color: colortext1),
+              //                   ),
+              //                 ],
+              //               ),
+              //               Row(
+              //                 children: [
+              //                   const Icon(Icons.ios_share),
+              //                   const SizedBox(width: defaultPadding / 2),
+              //                   Text(
+              //                     'แชร์',
+              //                     style: GoogleFonts.kanit(
+              //                         fontSize: bodytext,
+              //                         color: colortext1,
+              //                         decoration: TextDecoration.underline),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ],
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //     const SizedBox(height: defaultPadding * 2),
+              //     SizedBox(
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //         children: [
+              //           Row(
+              //             children: [
+              //               const Icon(Icons.facebook_sharp),
+              //               const SizedBox(width: defaultPadding),
+              //               Text(
+              //                 'DK decoration',
+              //                 style: GoogleFonts.kanit(
+              //                     fontSize: bodytext, color: colortext2),
+              //               ),
+              //             ],
+              //           ),
+              //           Row(
+              //             children: [
+              //               const Icon(Icons.facebook_sharp),
+              //               const SizedBox(width: defaultPadding),
+              //               Text(
+              //                 'DK decoration',
+              //                 style: GoogleFonts.kanit(
+              //                     fontSize: bodytext, color: colortext2),
+              //               ),
+              //             ],
+              //           ),
+              //           Row(
+              //             children: [
+              //               const Icon(Icons.facebook_sharp),
+              //               const SizedBox(width: defaultPadding),
+              //               Text(
+              //                 'DK decoration',
+              //                 style: GoogleFonts.kanit(
+              //                     fontSize: bodytext, color: colortext2),
+              //               ),
+              //             ],
+              //           ),
+              //           Row(
+              //             children: [
+              //               const Icon(Icons.facebook_sharp),
+              //               const SizedBox(width: defaultPadding),
+              //               Text(
+              //                 'DK decoration',
+              //                 style: GoogleFonts.kanit(
+              //                     fontSize: bodytext, color: colortext2),
+              //               ),
+              //             ],
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //     const SizedBox(height: defaultPadding * 2),
+              //     SizedBox(),
+              //   ],
+              // ),
+              child: Column(
+                children: [
+                  Table(
+                    children: [
+                      TableRow(
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
+                            color: colortext1),
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding / 2),
+                            height: 50,
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'บริษัท DK decorative',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colorWhite),
+                            ),
+                          ),
+                        ],
+                      ),
+                      TableRow(
+                        decoration: const BoxDecoration(color: colorWhite),
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding / 2),
+                            height: 50,
+                            alignment: Alignment.centerLeft,
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.email,
+                                  color: colortext1,
+                                ),
+                                const SizedBox(width: defaultPadding),
+                                Text(
+                                  'dkdecorative@gmail.com',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      TableRow(
+                        decoration: const BoxDecoration(color: colorWhite),
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding / 2),
+                            height: 50,
+                            alignment: Alignment.centerLeft,
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.phone,
+                                  color: colortext1,
+                                ),
+                                const SizedBox(width: defaultPadding),
+                                Text(
+                                  '052 002620',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      TableRow(
+                        decoration: const BoxDecoration(color: colorWhite),
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding / 2),
+                            height: 50,
+                            alignment: Alignment.centerLeft,
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.phone_iphone,
+                                  color: colortext1,
+                                ),
+                                const SizedBox(width: defaultPadding),
+                                Text(
+                                  '0818846190',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      TableRow(
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                            ),
+                            color: colorWhite),
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding / 2),
+                            height: 50,
+                            alignment: Alignment.centerLeft,
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.location_on,
+                                  color: colortext1,
+                                ),
+                                const SizedBox(width: defaultPadding),
+                                Text(
+                                  '188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      const Icon(
+                        Icons.ios_share,
+                        color: colortext1,
+                      ),
+                      const SizedBox(width: defaultPadding / 2),
+                      Text(
+                        'แชร์',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colortext1),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(Icons.facebook),
+                          const SizedBox(width: defaultPadding),
+                          Text(
+                            'DK decorative',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext2),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(Icons.facebook),
+                          const SizedBox(width: defaultPadding),
+                          Text(
+                            'DK decorative',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext2),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(Icons.facebook),
+                          const SizedBox(width: defaultPadding),
+                          Text(
+                            'DK decorative',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext2),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(Icons.facebook),
+                          const SizedBox(width: defaultPadding),
+                          Text(
+                            'DK decorative',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext2),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: 300,
+                    child: GoogleMap(
+                      initialCameraPosition: _kInitialPosition,
+                      myLocationButtonEnabled: true,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: defaultPadding / 2)
+            const SizedBox(height: defaultPadding / 2),
           ],
         ),
       ),

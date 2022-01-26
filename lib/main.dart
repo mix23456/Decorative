@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_curtain/contack.dart';
 import 'package:project_curtain/login_page.dart';
 import 'package:project_curtain/screen/page/customer_screen.dart';
 import 'package:project_curtain/screen/page/home_screen.dart';
@@ -57,13 +60,13 @@ class _IndexScreenState extends State<IndexScreen> {
           appBar: AppBar(
             elevation: 2,
             backgroundColor: Colors.grey[300],
-            leading: IconButton(
-              onPressed: () {},
-              icon: Image.asset('assets/logos/logo.png'),
-            ),
+            leading: Image.asset('assets/logos/logo.png'),
             actions: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Contack()));
+                },
                 child: Text(
                   'ช่องทางการติดต่อ',
                   style: GoogleFonts.kanit(color: Colors.grey, fontSize: 16),

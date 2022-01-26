@@ -62,7 +62,7 @@ class _EditCustomer extends State<EditCustomer> {
             children: [
               Text(
                 'แก้ไขชื่อลูกค้า',
-                style: GoogleFonts.kanit(fontSize: subtitel),
+                style: GoogleFonts.kanit(fontSize: subtitle),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
@@ -430,11 +430,26 @@ class _EditCustomer extends State<EditCustomer> {
                       ),
                     ),
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => Map(),
-                      //     ));
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return Dialog(
+                              child: Container(
+                                  alignment: Alignment.center,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.25,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.1,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Text(
+                                    'บันทึกข้อมูลสำเร็จ',
+                                    style:
+                                        GoogleFonts.kanit(fontSize: bodytext),
+                                  )),
+                            );
+                          });
                     },
                     icon: const Icon(Icons.save),
                     label: Text(

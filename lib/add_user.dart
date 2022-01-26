@@ -28,7 +28,7 @@ class _AddUserState extends State<AddUser> {
         ),
         title: Text(
           'เพิ่มผู้ใช้',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitel),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
       body: Container(
@@ -191,10 +191,22 @@ class _AddUserState extends State<AddUser> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'เบอร์โทรศัพท์',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colorBlack),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'เบอร์โทรศัพท์',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colorBlack),
+                            ),
+                            TextSpan(
+                              text: '*',
+                              style: GoogleFonts.kanit(
+                                color: const Color(0xFFFF0000),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       const SizedBox(height: defaultPadding / 2),
                       TextField(
@@ -231,11 +243,24 @@ class _AddUserState extends State<AddUser> {
                     ),
                   ),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => Map(),
-                    //     ));
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Dialog(
+                            child: Container(
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width * 0.25,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Text(
+                                  'บันทึกข้อมูลสำเร็จ',
+                                  style: GoogleFonts.kanit(fontSize: bodytext),
+                                )),
+                          );
+                        });
                   },
                   icon: const Icon(Icons.save),
                   label: Text(

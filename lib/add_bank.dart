@@ -32,7 +32,7 @@ class _AddBankState extends State<AddBank> {
         ),
         title: Text(
           'เพิ่มธนาคาร',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitel),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
       body: Container(
@@ -128,8 +128,26 @@ class _AddBankState extends State<AddBank> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Bank()));
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Dialog(
+                            child: Container(
+                                alignment: Alignment.center,
+                                width: MediaQuery.of(context).size.width * 0.25,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Text(
+                                  'บันทึกข้อมูลสำเร็จ',
+                                  style: GoogleFonts.kanit(fontSize: bodytext),
+                                )),
+                          );
+                        });
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => Bank()));
                   },
                   icon: const Icon(Icons.save),
                   label: Text(

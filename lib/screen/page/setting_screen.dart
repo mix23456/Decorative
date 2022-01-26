@@ -1,4 +1,5 @@
 import 'package:expansion_tile_card/expansion_tile_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_bank.dart';
@@ -22,20 +23,60 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         centerTitle: true,
         title: Text(
           'SETTING',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitel),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(
-              Icons.search,
-              color: Colors.black,
-            ),
+            icon: Icon(Icons.search),
           ),
+          PopupMenuButton<int>(
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem<int>(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: 'ค้นหา',
+                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  ),
+                ),
+              ];
+            },
+          ),
+          // IconButton(
+          //   onPressed: () {
+          //     showDialog<bool>(
+          //       context: context,
+          //       builder: (context) {
+          //         return CupertinoAlertDialog(
+          //           title: Text('Tambah baru'),
+          //           content: Card(
+          //             color: Colors.transparent,
+          //             elevation: 0.0,
+          //             child: Column(
+          //               children: <Widget>[
+          //                 TextField(
+          //                   decoration: InputDecoration(
+          //                       labelText: "Nama",
+          //                       filled: true,
+          //                       fillColor: Colors.grey.shade50),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //         );
+          //       },
+          //     );
+          //   },
+          //   icon: const Icon(
+          //     Icons.search,
+          //     color: Colors.black,
+          //   ),
+          // ),
         ],
       ),
       body: Container(

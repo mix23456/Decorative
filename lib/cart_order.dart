@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_curtain/detail_receip2.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
 
 class CartOrder extends StatefulWidget {
@@ -30,7 +31,7 @@ class _CartOrderState extends State<CartOrder> {
           'CART',
           style: GoogleFonts.kanit(
             color: colorBlack,
-            fontSize: subtitel,
+            fontSize: subtitle,
           ),
         ),
       ),
@@ -42,7 +43,7 @@ class _CartOrderState extends State<CartOrder> {
             Text(
               'ทำการสั่งซื้อ',
               style: GoogleFonts.kanit(
-                fontSize: subtitel,
+                fontSize: subtitle,
                 color: colorBlack,
               ),
             ),
@@ -413,25 +414,21 @@ class _CartOrderState extends State<CartOrder> {
                 color: colortext1,
                 child: InkWell(
                   onTap: () {
-                    //print('called on tap');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DetailReceip2()));
                   },
                   child: SizedBox(
                     height: kToolbarHeight,
                     width: 100,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'ชำระเงิน',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.kanit(color: colorWhite),
-                        ),
-                        Text(
-                          '(4)',
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.kanit(color: colorWhite),
-                        )
-                      ],
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'ออกใบเสร็จ',
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.kanit(color: colorWhite),
+                      ),
                     ),
                   ),
                 ),

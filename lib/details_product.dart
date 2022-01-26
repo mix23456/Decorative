@@ -69,7 +69,7 @@ class _DetailScreenState extends State<DetailScreen> {
           centerTitle: true,
           title: Text(
             'PRODUCT',
-            style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitel),
+            style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
           ),
           actions: [
             IconButton(
@@ -131,7 +131,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 ],
               ),
               const SizedBox(height: defaultPadding),
-              Text('ม่านสองชั้น', style: GoogleFonts.kanit(fontSize: subtitel)),
+              Text('ม่านสองชั้น', style: GoogleFonts.kanit(fontSize: subtitle)),
               const SizedBox(height: defaultPadding),
               Container(
                 padding: const EdgeInsets.all(10),

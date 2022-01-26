@@ -22,7 +22,7 @@ class _OrderScreenState extends State<OrderScreen> {
         centerTitle: true,
         title: Text(
           'ORDER',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitel),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
         actions: [
           IconButton(
@@ -44,7 +44,7 @@ class _OrderScreenState extends State<OrderScreen> {
                 child: Text(
                   'สินค้าในตะกร้า',
                   style:
-                      GoogleFonts.kanit(color: colortext1, fontSize: subtitel),
+                      GoogleFonts.kanit(color: colortext1, fontSize: subtitle),
                 ),
               ),
               Container(
@@ -98,7 +98,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                             child: Text(
                                               'คุณ แก้ว มาลูน',
                                               style: GoogleFonts.kanit(
-                                                  fontSize: subtitel),
+                                                  fontSize: subtitle),
                                             ),
                                           ),
                                         ),

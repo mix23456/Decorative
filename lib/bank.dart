@@ -27,7 +27,7 @@ class _BankState extends State<Bank> {
         ),
         title: Text(
           'ธนาคาร',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitel),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
       body: SingleChildScrollView(

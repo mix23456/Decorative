@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 const defaultPadding = 16.0;
 const cartBarHeight = 70.0;
 const headerHeight = 85.0;
-const subtitel = 24.0;
+const subtitle = 24.0;
 const bodytext = 16.0;
 
 const colortext1 = Color(0xFF707070);
