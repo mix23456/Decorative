@@ -99,49 +99,31 @@ class _DetailScreenState extends State<DetailScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              SizedBox(
-                width: 453,
-                child: AspectRatio(
-                  aspectRatio: 1,
-                  child: Image.network(
-                    'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const DetailScreen2();
+                  }));
+                },
+                child: SizedBox(
+                  width: 453,
+                  height: 214,
+                  child: Hero(
+                    tag: 'imageHero',
+                    child: Image.network(
+                      'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
+              const SizedBox(height: defaultPadding),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        onPressed: previous,
-                        icon: const Icon(Icons.arrow_back_ios_new),
-                        color: colortext1,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: defaultPadding,
-                  ),
                   ...List.generate(
                     imgList.length,
                     (index) => buildSmallPreview(index),
-                  ),
-                  const SizedBox(
-                    width: defaultPadding,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: IconButton(
-                        onPressed: next,
-                        icon: const Icon(Icons.arrow_forward_ios_outlined),
-                        color: colortext1,
-                      ),
-                    ),
                   ),
                 ],
               ),
@@ -326,7 +308,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     // TextField(
                     //   controller: heightController,
                     //   onChanged: (value) {
-                    //     valueChancg();
+                    //     valueChange();
                     //   },
                     //   keyboardType: TextInputType.number,
                     //   textInputAction: TextInputAction.next,
@@ -386,6 +368,27 @@ class _DetailScreenState extends State<DetailScreen> {
                               const SizedBox(
                                 width: defaultPadding,
                               ),
+                              // Expanded(
+                              //   child: TextField(
+                              //     controller: widthController,
+                              //     onChanged: (value) {
+                              //       valueChange();
+                              //     },
+                              //     keyboardType: TextInputType.number,
+                              //     textInputAction: TextInputAction.next,
+                              //     // inputFormatters: [MoneyInputFormatter()],
+                              //     // inputFormatters: [ThousandsFormatter(allowFraction: true)],
+                              //     decoration: InputDecoration(
+                              //       // errorText: _height.text.replaceAll('.', ''),
+                              //       focusedBorder: OutlineInputBorder(
+                              //         borderRadius: BorderRadius.circular(30),
+                              //       ),
+                              //       enabledBorder: OutlineInputBorder(
+                              //         borderRadius: BorderRadius.circular(30),
+                              //       ),
+                              //     ),
+                              //   ),
+                              // ),
                               Text(
                                 '${widthCurtain.toStringAsFixed(2)}',
                                 style: GoogleFonts.kanit(
@@ -531,7 +534,87 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: defaultPadding / 2),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                'หมายเหตุ :',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext1),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SizedBox(width: defaultPadding),
+                        Expanded(
+                          flex: 3,
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(defaultPadding),
+                      child: Column(
+                        children: [
+                          const Divider(
+                            indent: 50,
+                            height: defaultPadding,
+                            thickness: 1,
+                            color: Color(0xFF707070),
+                          ),
+                          const SizedBox(height: defaultPadding * 2),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Text(
+                                      'ราคารวม : ',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: subtitle,
+                                          color: colortext1),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      '฿ ',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: subtitle,
+                                          color: colorBlack),
+                                    ),
+                                    Text(
+                                      '${GoogleSignInApi.formatNumber(result)}',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: subtitle,
+                                          color: colorBlack),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                     // CheckboxListTile(
                     //   title: Text('สลับหน้าผ้า ', style: GoogleFonts.kanit()),
                     //   controlAffinity: ListTileControlAffinity.leading,
@@ -572,42 +655,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     // ),
 
                     // const SizedBox(height: 10),
-                    Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'ราคารวม : ',
-                                style: GoogleFonts.kanit(
-                                    fontSize: bodytext, color: colortext1),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                '${GoogleSignInApi.formatNumber(result)}',
-                                style: GoogleFonts.kanit(
-                                    fontSize: bodytext, color: colortext2),
-                              ),
-                              Text(
-                                ' บาท',
-                                style: GoogleFonts.kanit(
-                                    fontSize: bodytext, color: colortext2),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+
                     const SizedBox(height: defaultPadding / 2),
                     Container(
                       alignment: Alignment.center,
@@ -670,7 +718,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                                       context,
                                                       MaterialPageRoute(
                                                           builder: (context) =>
-                                                              AddCustomer()));
+                                                              const AddCustomer()));
                                                 },
                                                 icon: const Icon(Icons.add),
                                                 label: Text(
@@ -1008,3 +1056,32 @@ class _DetailScreenState extends State<DetailScreen> {
 //
 // ผ้าหน้าแคบ		(((0.35+สูงที่ติดตั้ง)*(กว้าง*3.0)/1.4)/0.9)*ราคาผ้า
 //             (((0.35 + _height) * (width * 3.0) / 1.4) / 0.9) * price
+
+class DetailScreen2 extends StatelessWidget {
+  const DetailScreen2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Center(
+          child: Container(
+            padding: const EdgeInsets.all(defaultPadding),
+            width: double.infinity,
+            height: 500,
+            child: Hero(
+              tag: 'imageHero',
+              child: Image.network(
+                'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
