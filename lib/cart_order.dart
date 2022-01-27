@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/detail_receip2.dart';
@@ -14,6 +15,7 @@ class _CartOrderState extends State<CartOrder> {
   dynamic address = 2;
   bool vat = false;
   dynamic _vat = 2;
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -334,123 +336,168 @@ class _CartOrderState extends State<CartOrder> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: defaultPadding),
-                  Container(
-                    alignment: Alignment.bottomCenter,
-                    padding: const EdgeInsets.all(defaultPadding),
-                    decoration:
-                        BoxDecoration(border: Border.all(color: Colors.black)),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              'หมายเหตุ',
-                              style: GoogleFonts.kanit(
-                                  fontSize: bodytext, color: colortext1),
-                            ),
-                            const SizedBox(width: defaultPadding),
-                            SizedBox(
-                              width: 659,
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: defaultPadding),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'ยอดชำระเงิน',
-                              style: GoogleFonts.kanit(),
-                            ),
-                            Text(
-                              '฿ 1,600',
-                              style: GoogleFonts.kanit(),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: defaultPadding),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                Radio(
-                                  value: 1,
-                                  groupValue: _vat,
-                                  onChanged: (value) {
-                                    setState(() {
-                                      _vat = value;
-                                    });
-                                  },
-                                ),
-                                Text(
-                                  'ภาษีมูลค่าเพิ่ม (7%)',
-                                  style: GoogleFonts.kanit(
-                                      fontSize: bodytext, color: colortext1),
-                                )
-                              ],
-                            ),
-                            Text(
-                              '฿ 112',
-                              style: GoogleFonts.kanit(
-                                  fontSize: bodytext, color: colortext2),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
+          Container(
+            alignment: Alignment.bottomCenter,
+            padding: const EdgeInsets.all(defaultPadding),
+            decoration: BoxDecoration(
+              color: colorWhite,
+              border: Border.all(color: const Color(0xFFF5F5F5)),
+              boxShadow: const [
+                BoxShadow(color: colorContiner),
+              ],
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'หมายเหตุ',
+                      style: GoogleFonts.kanit(
+                          fontSize: bodytext, color: colortext1),
+                    ),
+                    const SizedBox(width: defaultPadding),
+                    SizedBox(
+                      width: 659,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: defaultPadding),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'ยอดชำระเงิน',
+                      style: GoogleFonts.kanit(
+                          fontSize: bodytext, color: colortext1),
+                    ),
+                    Text(
+                      '฿ 1,600',
+                      style: GoogleFonts.kanit(
+                          fontSize: bodytext, color: colorBlack),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: defaultPadding),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        CupertinoSwitch(
+                          thumbColor: colorWhite,
+                          // trackColor: colortext1,
+                          activeColor: colortext1,
+                          value: isChecked,
+                          onChanged: (value) {
+                            setState(() {
+                              isChecked = !isChecked;
+                            });
+                          },
+                        ),
+                        Text(
+                          'ใช้ส่วนลด 0%',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext1),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      '฿ 10.00',
+                      style: GoogleFonts.kanit(
+                          fontSize: bodytext, color: colortext1),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: defaultPadding),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Radio(
+                          value: 1,
+                          groupValue: _vat,
+                          activeColor: colortext1,
+                          onChanged: (value) {
+                            setState(() {
+                              _vat = value;
+                            });
+                          },
+                        ),
+                        Text(
+                          'ภาษีมูลค่าเพิ่ม (7%)',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext1),
+                        )
+                      ],
+                    ),
+                    Text(
+                      '฿ 112',
+                      style: GoogleFonts.kanit(
+                          fontSize: bodytext, color: colortext2),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(
-                'ราคาทั้งหมด',
-                style: GoogleFonts.kanit(fontSize: bodytext, color: colortext1),
-              ),
-              Text(
-                '฿ 1,712',
-                style: GoogleFonts.kanit(fontSize: bodytext, color: colorBlack),
-              ),
-              const SizedBox(width: defaultPadding),
-              Material(
-                color: colortext1,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DetailReceip2()));
-                  },
-                  child: SizedBox(
-                    height: kToolbarHeight,
-                    width: 100,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'ออกใบเสร็จ',
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.kanit(color: colorWhite),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'ราคาทั้งหมด',
+                    style: GoogleFonts.kanit(
+                        fontSize: bodytext, color: colortext1),
+                  ),
+                  Text(
+                    '฿ 1,712',
+                    style: GoogleFonts.kanit(
+                        fontSize: bodytext, color: colorBlack),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Material(
+                    color: colortext1,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const DetailReceip2()));
+                      },
+                      child: SizedBox(
+                        height: kToolbarHeight,
+                        width: 100,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text(
+                            'ออกใบเสร็จ',
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.kanit(color: colorWhite),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
