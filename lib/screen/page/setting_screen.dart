@@ -1,5 +1,4 @@
 import 'package:expansion_tile_card/expansion_tile_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_bank.dart';
@@ -15,12 +14,35 @@ class SettingScreen extends StatefulWidget {
   _SettingScreenState createState() => _SettingScreenState();
 }
 
+class Item {
+  Item({
+    required this.id,
+    required this.expandedValue,
+    required this.headerValue,
+  });
+
+  int id;
+  String expandedValue;
+  String headerValue;
+}
+
+List<Item> generateItems(int numberOfItems) {
+  return List<Item>.generate(numberOfItems, (int index) {
+    return Item(
+      id: index,
+      headerValue: 'Panel $index',
+      expandedValue: 'This is item number $index',
+    );
+  });
+}
+
 class _SettingScreenState extends State<SettingScreen> {
   final GlobalKey<ExpansionTileCardState> cardA = GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardB = GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardC = GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardD = GlobalKey();
 
+  final List<Item> _data = generateItems(4);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,115 +84,30 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
         child: Column(
           children: [
-            GestureDetector(
-              onTap: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'ข้อมูลการติดต่อ',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext1),
-                      ),
-                      const Icon(Icons.keyboard_arrow_down)
-                    ],
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const ContactInformation()));
+            ExpansionPanelList.radio(
+              initialOpenPanelValue: 2,
+              children: _data.map<ExpansionPanelRadio>((Item item) {
+                return ExpansionPanelRadio(
+                    value: item.id,
+                    headerBuilder: (BuildContext context, bool isExpanded) {
+                      return ListTile(
+                        title: Text(item.headerValue),
+                      );
                     },
-                    icon: const Icon(Icons.edit_outlined),
-                  ),
-                ],
-              ),
+                    body: ListTile(
+                        title: Text(item.expandedValue),
+                        subtitle: const Text(
+                            'To delete this panel, tap the trash can icon'),
+                        trailing: const Icon(Icons.delete),
+                        onTap: () {
+                          setState(() {
+                            _data.removeWhere(
+                                (Item currentItem) => item == currentItem);
+                          });
+                        }));
+              }).toList(),
             ),
-            GestureDetector(
-              onTap: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'ธนาคาร',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext1),
-                      ),
-                      const Icon(Icons.keyboard_arrow_down)
-                    ],
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AddBank()));
-                    },
-                    icon: const Icon(Icons.add),
-                  ),
-                ],
-              ),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'ผู้ใช้',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext1),
-                      ),
-                      const Icon(Icons.keyboard_arrow_down)
-                    ],
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AddUser()));
-                    },
-                    icon: const Icon(Icons.add),
-                  ),
-                ],
-              ),
-            ),
-            GestureDetector(
-              onTap: () {},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        'ผลงาน',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext1),
-                      ),
-                      const Icon(Icons.keyboard_arrow_down)
-                    ],
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Work()));
-                    },
-                    icon: const Icon(Icons.add),
-                  ),
-                ],
-              ),
-            ),
+            const SizedBox(height: defaultPadding),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
