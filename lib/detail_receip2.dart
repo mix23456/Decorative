@@ -33,6 +33,46 @@ class _DetailReceipState2 extends State<DetailReceip2> {
           'Detail',
           style: GoogleFonts.kanit(color: Colors.black),
         ),
+        actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Dialog(
+                          child: Container(
+                              alignment: Alignment.center,
+                              width: MediaQuery.of(context).size.width * 0.25,
+                              height: MediaQuery.of(context).size.height * 0.1,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Text(
+                                'บันทึกรูปภาพสำเร็จ',
+                                style: GoogleFonts.kanit(fontSize: bodytext),
+                              )),
+                        );
+                      });
+                },
+                icon: const Icon(
+                  Icons.download,
+                  color: colortext2,
+                ),
+              ),
+              Text(
+                'บันทึกใบเสร็จ',
+                style: GoogleFonts.kanit(
+                    fontSize: bodytext,
+                    color: colortext2,
+                    decoration: TextDecoration.underline),
+              ),
+              SizedBox(width: defaultPadding)
+            ],
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -382,23 +422,6 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                       ),
                     ],
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    const Icon(
-                      Icons.download,
-                      color: colortext2,
-                    ),
-                    Text(
-                      'บันทึกใบเสร็จ',
-                      style: GoogleFonts.kanit(
-                          fontSize: bodytext,
-                          color: colortext2,
-                          decoration: TextDecoration.underline),
-                    ),
-                    SizedBox(width: defaultPadding)
-                  ],
                 ),
                 const SizedBox(height: defaultPadding),
                 Center(
