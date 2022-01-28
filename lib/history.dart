@@ -3,14 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/detail_receip.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
 
-class History extends StatefulWidget {
-  const History({Key? key}) : super(key: key);
+class HistoryScreen extends StatefulWidget {
+  const HistoryScreen({Key? key}) : super(key: key);
 
   @override
-  _HistoryState createState() => _HistoryState();
+  _HistoryScreenState createState() => _HistoryScreenState();
 }
 
-class _HistoryState extends State<History> {
+class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,146 +144,6 @@ class _HistoryState extends State<History> {
               ),
             ),
           ]))),
-
-      // body: Container(
-      //   margin: const EdgeInsets.only(
-      //       top: defaultPadding * 2,
-      //       left: defaultPadding * 5,
-      //       right: defaultPadding * 5,
-      //       bottom: defaultPadding * 5),
-      //   child: GestureDetector(
-      //     onTap: () {
-      //       Navigator.push(context,
-      //           MaterialPageRoute(builder: (context) => const DetailReceip()));
-      //     },
-      //     child: Container(
-      //       decoration: BoxDecoration(
-      //         border: Border.all(color: colorbgbtn),
-      //         borderRadius: BorderRadius.circular(10.0),
-      //       ),
-      //       // child: Column(
-      //       //   children: [
-      //       //     Table(
-      //       //       children: [
-      //       //         TableRow(children: [
-      //       //           Container(
-      //       //             padding: const EdgeInsets.only(
-      //       //                 left: defaultPadding,
-      //       //                 top: defaultPadding,
-      //       //                 bottom: defaultPadding),
-      //       //             decoration: const BoxDecoration(
-      //       //               borderRadius: BorderRadius.only(
-      //       //                 topLeft: Radius.circular(10),
-      //       //                 topRight: Radius.circular(10),
-      //       //               ),
-      //       //               color: colorBorder,
-      //       //             ),
-      //       //             child: Row(
-      //       //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //       //               children: [
-      //       //                 Text(
-      //       //                   'หมายเลขสั่งซื้อ : 211221-00162',
-      //       //                   style: GoogleFonts.kanit(fontSize: bodytext),
-      //       //                 ),
-      //       //                 Text(
-      //       //                   'สำเร็จแล้ว',
-      //       //                   style: GoogleFonts.kanit(
-      //       //                       color: colortext1, fontSize: bodytext),
-      //       //                 ),
-      //       //               ],
-      //       //             ),
-      //       //           ),
-      //       //         ]),
-      //       //       ],
-      //       //     ),
-      //       //     // Container(
-      //       //     //   padding: const EdgeInsets.all(defaultPadding),
-      //       //     //   decoration: BoxDecoration(
-      //       //     //     border: Border.all(width: 2, color: colorBorder),
-      //       //     //     borderRadius: const BorderRadius.only(
-      //       //     //       topLeft: Radius.circular(10),
-      //       //     //       topRight: Radius.circular(10),
-      //       //     //     ),
-      //       //     //   ),
-      //       //     //   child: Row(
-      //       //     //     crossAxisAlignment: CrossAxisAlignment.start,
-      //       //     //     children: [
-      //       //     //       Expanded(
-      //       //     //         child: Table(
-      //       //     //           children: [
-      //       //     //             TableRow(children: [
-      //       //     //               Container(
-      //       //     //                 color: colorBlack,
-      //       //     //                 alignment: Alignment.center,
-      //       //     //                 height: 50.0,
-      //       //     //               ),
-      //       //     //             ]),
-      //       //     //             TableRow(children: [
-      //       //     //               Container(
-      //       //     //                 height: 60,
-      //       //     //               ),
-      //       //     //             ]),
-      //       //     //             TableRow(
-      //       //     //                 decoration: const BoxDecoration(
-      //       //     //                     borderRadius: BorderRadius.only(
-      //       //     //                         topLeft: Radius.circular(10.0))),
-      //       //     //                 children: [
-      //       //     //                   Container(
-      //       //     //                       alignment: Alignment.centerLeft,
-      //       //     //                       height: 30.0,
-      //       //     //                       child: Text('4 ชิ้น',
-      //       //     //                           style: GoogleFonts.kanit(
-      //       //     //                               fontSize: bodytext,
-      //       //     //                               color: colortext1))),
-      //       //     //                 ]),
-      //       //     //           ],
-      //       //     //         ),
-      //       //     //       ),
-      //       //     //       Expanded(
-      //       //     //         child: Table(
-      //       //     //           children: [
-      //       //     //             TableRow(
-      //       //     //                 decoration: const BoxDecoration(
-      //       //     //                     borderRadius: BorderRadius.only(
-      //       //     //                         topRight: Radius.circular(10.0))),
-      //       //     //                 children: [
-      //       //     //                   Container(
-      //       //     //                       alignment: Alignment.centerLeft,
-      //       //     //                       height: 30.0,
-      //       //     //                       child: Text('ชื่อผลงาน :',
-      //       //     //                           style: GoogleFonts.kanit(
-      //       //     //                               fontSize: bodytext,
-      //       //     //                               color: colortext1)))
-      //       //     //                 ]),
-      //       //     //             TableRow(children: [
-      //       //     //               Container(
-      //       //     //                   alignment: Alignment.centerLeft,
-      //       //     //                   height: 30.0,
-      //       //     //                   child: Text('ที่อยู่งาน :',
-      //       //     //                       style: GoogleFonts.kanit(
-      //       //     //                           fontSize: bodytext,
-      //       //     //                           color: colortext1)))
-      //       //     //             ]),
-      //       //     //             TableRow(children: [
-      //       //     //               Container(
-      //       //     //                   alignment: Alignment.centerRight,
-      //       //     //                   height: 30.0,
-      //       //     //                   child: Text('฿ 5,855.00',
-      //       //     //                       style: GoogleFonts.kanit(
-      //       //     //                           fontSize: bodytext,
-      //       //     //                           color: colortext1)))
-      //       //     //             ]),
-      //       //     //           ],
-      //       //     //         ),
-      //       //     //       ),
-      //       //     //     ],
-      //       //     //   ),
-      //       //     // ),
-      //       //   ],
-      //       // ),
-      //     ),
-      //   ),
-      // ),
     );
   }
 }
