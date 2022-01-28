@@ -206,12 +206,14 @@ class _CartOrderState extends State<CartOrder> {
                                         children: [
                                           Padding(
                                             padding: const EdgeInsets.only(
-                                                left: 16, right: 16, top: 16),
+                                                left: defaultPadding,
+                                                right: defaultPadding,
+                                                top: defaultPadding),
                                             child: Text(
                                               'ม่านสองชั้น ผ้าทึบหน้าแคบ Acacia',
                                               style: GoogleFonts.kanit(
                                                   color: colortext1,
-                                                  fontSize: 16),
+                                                  fontSize: bodytext),
                                             ),
                                           ),
                                         ],
@@ -220,20 +222,20 @@ class _CartOrderState extends State<CartOrder> {
                                         children: [
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 16),
+                                                horizontal: defaultPadding),
                                             child: Row(
                                               children: [
                                                 Text(
                                                   'รหัสสินค้า ',
                                                   style: GoogleFonts.kanit(
                                                       color: colortext1,
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 ),
                                                 Text(
                                                   'A01CY04',
                                                   style: GoogleFonts.kanit(
                                                       color: colortext1,
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 )
                                               ],
                                             ),
@@ -244,20 +246,20 @@ class _CartOrderState extends State<CartOrder> {
                                         children: [
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 16),
+                                                horizontal: defaultPadding),
                                             child: Row(
                                               children: [
                                                 Text(
                                                   'สี ',
                                                   style: GoogleFonts.kanit(
                                                       color: colortext1,
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 ),
                                                 Text(
                                                   'CY 228/01',
                                                   style: GoogleFonts.kanit(
                                                       color: colortext1,
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 )
                                               ],
                                             ),
@@ -268,20 +270,20 @@ class _CartOrderState extends State<CartOrder> {
                                         children: [
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 16),
+                                                horizontal: defaultPadding),
                                             child: Row(
                                               children: [
                                                 Text(
                                                   'ขนาด ',
                                                   style: GoogleFonts.kanit(
                                                       color: colortext1,
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 ),
                                                 Text(
                                                   '100 x 200 นิ้ว',
                                                   style: GoogleFonts.kanit(
                                                       color: colortext1,
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 )
                                               ],
                                             ),
@@ -292,20 +294,20 @@ class _CartOrderState extends State<CartOrder> {
                                         children: [
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 16),
+                                                horizontal: defaultPadding),
                                             child: Row(
                                               children: [
                                                 Text(
                                                   'แบบเย็บ ',
                                                   style: GoogleFonts.kanit(
                                                       color: colortext1,
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 ),
                                                 Text(
                                                   'ม่านตาไก่',
                                                   style: GoogleFonts.kanit(
                                                       color: colortext1,
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 )
                                               ],
                                             ),
@@ -316,12 +318,12 @@ class _CartOrderState extends State<CartOrder> {
                                         children: [
                                           Padding(
                                             padding: const EdgeInsets.symmetric(
-                                                horizontal: 16),
+                                                horizontal: defaultPadding),
                                             child: Text(
                                               '฿ 400.00',
                                               style: GoogleFonts.kanit(
                                                   color: Colors.black,
-                                                  fontSize: 16),
+                                                  fontSize: bodytext),
                                             ),
                                           ),
                                         ],

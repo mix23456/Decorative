@@ -50,7 +50,7 @@ class _AddCustomerState extends State<AddCustomer> {
         centerTitle: true,
         title: Text(
           'ADD CUSTOMER',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: 24),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
       body: Container(
@@ -64,6 +64,7 @@ class _AddCustomerState extends State<AddCustomer> {
                 'เพิ่มรายชื่อลูกค้า',
                 style: GoogleFonts.kanit(fontSize: subtitle),
               ),
+              const SizedBox(height: defaultPadding),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: Row(

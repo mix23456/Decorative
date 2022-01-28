@@ -138,7 +138,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                                   icon: const Icon(
                                                     Icons.edit_outlined,
                                                     color: colortext1,
-                                                    size: 16,
+                                                    size: bodytext,
                                                   ),
                                                 ),
                                               ),
@@ -163,7 +163,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                                   icon: const Icon(
                                                     Icons.delete_outline,
                                                     color: colorWhite,
-                                                    size: 16,
+                                                    size: bodytext,
                                                   ),
                                                 ),
                                               ),
@@ -218,14 +218,14 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.only(
-                                                          left: 16,
-                                                          right: 16,
-                                                          top: 16),
+                                                          left: defaultPadding,
+                                                          right: defaultPadding,
+                                                          top: defaultPadding),
                                                   child: Text(
                                                     'ม่านสองชั้น ผ้าทึบหน้าแคบ Acacia',
                                                     style: GoogleFonts.kanit(
                                                         color: colortext1,
-                                                        fontSize: 16),
+                                                        fontSize: bodytext),
                                                   ),
                                                 ),
                                               ],
@@ -235,7 +235,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 Padding(
                                                   padding: const EdgeInsets
                                                           .symmetric(
-                                                      horizontal: 16),
+                                                      horizontal:
+                                                          defaultPadding),
                                                   child: Row(
                                                     children: [
                                                       Text(
@@ -244,7 +245,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                             GoogleFonts.kanit(
                                                                 color:
                                                                     colortext1,
-                                                                fontSize: 16),
+                                                                fontSize:
+                                                                    bodytext),
                                                       ),
                                                       Text(
                                                         'A01CY04',
@@ -252,7 +254,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                             GoogleFonts.kanit(
                                                                 color:
                                                                     colortext1,
-                                                                fontSize: 16),
+                                                                fontSize:
+                                                                    bodytext),
                                                       )
                                                     ],
                                                   ),
@@ -264,7 +267,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 Padding(
                                                   padding: const EdgeInsets
                                                           .symmetric(
-                                                      horizontal: 16),
+                                                      horizontal:
+                                                          defaultPadding),
                                                   child: Row(
                                                     children: [
                                                       Text(
@@ -273,7 +277,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                             GoogleFonts.kanit(
                                                                 color:
                                                                     colortext1,
-                                                                fontSize: 16),
+                                                                fontSize:
+                                                                    bodytext),
                                                       ),
                                                       Text(
                                                         'CY 228/01',
@@ -281,7 +286,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                             GoogleFonts.kanit(
                                                                 color:
                                                                     colortext1,
-                                                                fontSize: 16),
+                                                                fontSize:
+                                                                    bodytext),
                                                       )
                                                     ],
                                                   ),
@@ -293,7 +299,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 Padding(
                                                   padding: const EdgeInsets
                                                           .symmetric(
-                                                      horizontal: 16),
+                                                      horizontal:
+                                                          defaultPadding),
                                                   child: Row(
                                                     children: [
                                                       Text(
@@ -302,7 +309,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                             GoogleFonts.kanit(
                                                                 color:
                                                                     colortext1,
-                                                                fontSize: 16),
+                                                                fontSize:
+                                                                    bodytext),
                                                       ),
                                                       Text(
                                                         '100 x 200 นิ้ว',
@@ -310,7 +318,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                             GoogleFonts.kanit(
                                                                 color:
                                                                     colortext1,
-                                                                fontSize: 16),
+                                                                fontSize:
+                                                                    bodytext),
                                                       )
                                                     ],
                                                   ),
@@ -322,7 +331,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 Padding(
                                                   padding: const EdgeInsets
                                                           .symmetric(
-                                                      horizontal: 16),
+                                                      horizontal:
+                                                          defaultPadding),
                                                   child: Row(
                                                     children: [
                                                       Text(
@@ -331,7 +341,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                             GoogleFonts.kanit(
                                                                 color:
                                                                     colortext1,
-                                                                fontSize: 16),
+                                                                fontSize:
+                                                                    bodytext),
                                                       ),
                                                       Text(
                                                         'ม่านตาไก่',
@@ -339,7 +350,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                             GoogleFonts.kanit(
                                                                 color:
                                                                     colortext1,
-                                                                fontSize: 16),
+                                                                fontSize:
+                                                                    bodytext),
                                                       )
                                                     ],
                                                   ),
@@ -351,12 +363,13 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 Padding(
                                                   padding: const EdgeInsets
                                                           .symmetric(
-                                                      horizontal: 16),
+                                                      horizontal:
+                                                          defaultPadding),
                                                   child: Text(
                                                     '฿ 400.00',
                                                     style: GoogleFonts.kanit(
                                                         color: Colors.black,
-                                                        fontSize: 16),
+                                                        fontSize: bodytext),
                                                   ),
                                                 ),
                                               ],

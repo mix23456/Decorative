@@ -724,7 +724,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                                 label: Text(
                                                   'เพิ่ม',
                                                   style: GoogleFonts.kanit(
-                                                      fontSize: 16),
+                                                      fontSize: bodytext),
                                                 ),
                                                 style: ElevatedButton.styleFrom(
                                                   primary: Colors.black,

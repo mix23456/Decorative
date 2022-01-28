@@ -50,7 +50,7 @@ class _EditCustomer extends State<EditCustomer> {
         centerTitle: true,
         title: Text(
           'EDIT CUSTOMER',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: 24),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
       body: Padding(

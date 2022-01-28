@@ -34,7 +34,7 @@ class _ContackState extends State<Contack> {
             onPressed: () {},
             child: Text(
               'ช่องทางการติดต่อ',
-              style: GoogleFonts.kanit(color: Colors.grey, fontSize: 16),
+              style: GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
             ),
           ),
         ],

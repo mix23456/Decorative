@@ -46,7 +46,7 @@ class _DetailReceipState extends State<DetailReceip> {
                 ),
                 child: Text(
                   'ใบเสร็จ',
-                  style: GoogleFonts.kanit(fontSize: 24),
+                  style: GoogleFonts.kanit(fontSize: subtitle),
                 ),
               ),
               const SizedBox(height: defaultPadding),

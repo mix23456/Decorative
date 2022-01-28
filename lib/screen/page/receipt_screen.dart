@@ -20,7 +20,7 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
         centerTitle: true,
         title: Text(
           'CHECK',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: 24),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
         actions: [
           PopupMenuButton(
@@ -43,15 +43,16 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: defaultPadding, vertical: defaultPadding),
               child: Text(
                 'รายการใบเสร็จทั้งหมด',
-                style: GoogleFonts.kanit(fontSize: 24),
+                style: GoogleFonts.kanit(fontSize: subtitle),
               ),
             ),
             GestureDetector(
@@ -69,7 +70,9 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                     TableRow(children: [
                       Container(
                         padding: const EdgeInsets.only(
-                            left: 16, top: 16, bottom: 16),
+                            left: defaultPadding,
+                            top: defaultPadding,
+                            bottom: defaultPadding),
                         decoration: BoxDecoration(
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(9),
@@ -79,7 +82,7 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                         ),
                         child: Text(
                           'หมายเลขสั่งซื้อ : 211221-00162',
-                          style: GoogleFonts.kanit(fontSize: 16),
+                          style: GoogleFonts.kanit(fontSize: bodytext),
                         ),
                       ),
                     ]),
@@ -87,11 +90,13 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 16, right: 16, top: 16),
+                              left: defaultPadding,
+                              right: defaultPadding,
+                              top: defaultPadding),
                           child: Text(
                             'คุณ แก้ว มาลูน (test)',
                             style: GoogleFonts.kanit(
-                                color: Colors.grey, fontSize: 16),
+                                color: Colors.grey, fontSize: bodytext),
                           ),
                         ),
                       ],
@@ -99,11 +104,12 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: defaultPadding),
                           child: Text(
                             'บริษัท ไท',
                             style: GoogleFonts.kanit(
-                                color: Colors.grey, fontSize: 16),
+                                color: Colors.grey, fontSize: bodytext),
                           ),
                         ),
                       ],
@@ -111,11 +117,12 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: defaultPadding),
                           child: Text(
                             'จำนวนรายการทั้งหมด 2 รายการ',
                             style: GoogleFonts.kanit(
-                                color: Colors.grey, fontSize: 16),
+                                color: Colors.grey, fontSize: bodytext),
                           ),
                         ),
                       ],
@@ -123,11 +130,12 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 32),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: defaultPadding * 2),
                           child: Text(
                             '1.ผ้าทึบหน้าแคบ CHALEEYA (150) 100 x 200 580 บาท/ชิ้น\n2.ผ้าทึบหน้าแคบ CHALEEYA (150) 100 x 200 580 บาท/ชิ้น',
                             style: GoogleFonts.kanit(
-                                color: Colors.grey, fontSize: 16),
+                                color: Colors.grey, fontSize: bodytext),
                           ),
                         ),
                       ],
@@ -136,7 +144,9 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 16, right: 16, bottom: 16),
+                              left: defaultPadding,
+                              right: defaultPadding,
+                              bottom: defaultPadding),
                           child: RichText(
                             text: TextSpan(
                               children: [
@@ -144,19 +154,19 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                                   text: 'ราคารวม',
                                   style: GoogleFonts.kanit(
                                       color: const Color(0xFF707070),
-                                      fontSize: 16),
+                                      fontSize: bodytext),
                                 ),
                                 TextSpan(
                                   text: ' 1,160.00 ',
                                   style: GoogleFonts.kanit(
                                       color: const Color(0xFF3481f5),
-                                      fontSize: 16),
+                                      fontSize: bodytext),
                                 ),
                                 TextSpan(
                                   text: 'บาท',
                                   style: GoogleFonts.kanit(
                                       color: const Color(0xFF707070),
-                                      fontSize: 16),
+                                      fontSize: bodytext),
                                 ),
                               ],
                             ),
