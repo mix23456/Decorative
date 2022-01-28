@@ -49,7 +49,7 @@ class _DetailReceipState extends State<DetailReceip> {
                   style: GoogleFonts.kanit(fontSize: 24),
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: defaultPadding),
               Center(
                 child: Column(
                   children: <Widget>[
@@ -354,6 +354,7 @@ class _DetailReceipState extends State<DetailReceip> {
                         ]),
                       ],
                     ),
+                    const SizedBox(height: defaultPadding),
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(width: 2, color: colorBorder),
@@ -370,7 +371,15 @@ class _DetailReceipState extends State<DetailReceip> {
                               children: [
                                 TableRow(children: [
                                   Container(
-                                    height: 30,
+                                    padding:
+                                        EdgeInsets.only(top: defaultPadding),
+                                    height: 60,
+                                    child: Text(
+                                      'หมายเหตุ : จัดส่งวันที่ 27 ม.ค.2565',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext1),
+                                    ),
                                   )
                                 ]),
                               ],
