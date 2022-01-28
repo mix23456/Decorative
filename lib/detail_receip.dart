@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:project_curtain/screen/constants/constants.dart';
 
 class DetailReceip extends StatefulWidget {
   const DetailReceip({Key? key}) : super(key: key);
@@ -35,342 +36,530 @@ class _DetailReceipState extends State<DetailReceip> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  child: Text(
-                    'ใบเสร็จ',
-                    style: GoogleFonts.kanit(fontSize: 24),
-                  ),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  'ใบเสร็จที่ 1 หมายเลขสั่งซื้อ 211221-00162',
-                  style: GoogleFonts.kanit(color: Colors.grey),
+                child: Text(
+                  'ใบเสร็จ',
+                  style: GoogleFonts.kanit(fontSize: 24),
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Column(
+              ),
+              const SizedBox(height: 10),
+              Center(
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      padding: const EdgeInsets.all(defaultPadding),
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: colorBorder),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                        ),
+                      ),
+                      child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Bill From',
-                            style: GoogleFonts.kanit(color: Colors.grey),
+                          Expanded(
+                            child: Table(
+                              children: [
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerLeft,
+                                      height: 30.0,
+                                      child: Text(
+                                          'ใบเสร็จที่ 1 หมายเลขสั้งซื้อ 211221-00162 ชำระเงินแล้ว',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1))),
+                                ]),
+                                TableRow(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(10.0))),
+                                    children: [
+                                      Container(
+                                          alignment: Alignment.centerLeft,
+                                          height: 30.0,
+                                          child: Text('Bill Form',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1))),
+                                    ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerLeft,
+                                      height: 30.0,
+                                      child: Text('บริษัท DK decorative',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1))),
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerLeft,
+                                      height: 30.0,
+                                      child: Text('เลขกำกับภาษี 062924953',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1))),
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerLeft,
+                                      height: 30.0,
+                                      child: Text(
+                                          'ที่อยู่ : 188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1))),
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerLeft,
+                                      height: 30.0,
+                                      child: Text(
+                                          'เบอร์ติดต่อ : 052 002620 , 0818846190',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1))),
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                    height: 30,
+                                  ),
+                                ]),
+                              ],
+                            ),
                           ),
-                          Text(
-                            'บริษัท DK decorative',
-                            style:
-                                GoogleFonts.kanit(fontWeight: FontWeight.w500),
-                          ),
-                          Text(
-                            'เลขกำกับภาษี 062924953',
-                            style: GoogleFonts.kanit(color: Colors.grey),
-                          ),
-                          Text(
-                            'ที่อยู่ : 188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
-                            style: GoogleFonts.kanit(color: Colors.grey),
-                          ),
-                          Text(
-                            'เบอร์ติดต่อ : 052 002620 , 0818846190',
-                            style: GoogleFonts.kanit(color: Colors.grey),
+                          Expanded(
+                            child: Table(
+                              children: [
+                                TableRow(children: [
+                                  Container(
+                                    height: 30,
+                                  ),
+                                ]),
+                                TableRow(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10.0))),
+                                    children: [
+                                      Container(
+                                          alignment: Alignment.centerRight,
+                                          height: 30.0,
+                                          child: Text('Bill to',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1)))
+                                    ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerRight,
+                                      height: 30.0,
+                                      child: Text('คุณ แก้ว มาลูน',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1)))
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerRight,
+                                      height: 30.0,
+                                      child: Text('บริษัท ไท',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1)))
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerRight,
+                                      height: 30.0,
+                                      child: Text(
+                                          'ที่อยู่ : 188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1)))
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerRight,
+                                      height: 30.0,
+                                      child: Text('เบอร์ติดต่อ : 023456789',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1)))
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                      alignment: Alignment.centerRight,
+                                      height: 30.0,
+                                      child: Text('อีเมล : 123@gmail.com',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1)))
+                                ]),
+                              ],
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                    Table(
+                      border: const TableBorder(
+                        left: BorderSide(width: 2, color: colorBorder),
+                        right: BorderSide(width: 2, color: colorBorder),
+                        horizontalInside: BorderSide(color: colorBorder),
+                      ),
+                      columnWidths: const {
+                        0: FlexColumnWidth(1),
+                        1: FlexColumnWidth(4),
+                      },
+                      children: [
+                        TableRow(children: [
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.fill,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              decoration: const BoxDecoration(
+                                color: colorBorder,
+                              ),
+                              padding: const EdgeInsets.all(defaultPadding),
+                              child: Text(
+                                '#',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext1),
+                                textAlign: TextAlign.start,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding),
+                            child: Text(
+                              '1',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                              textAlign: TextAlign.start,
+                            ),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.fill,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              padding: const EdgeInsets.all(defaultPadding),
+                              color: colorBorder,
+                              child: Text(
+                                'รหัสสินค้า (ขนาด)',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext1),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding),
+                            child: Text(
+                              'A01CY03 CY 228/01 (400 x 500)',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.fill,
+                            child: Container(
+                              alignment: Alignment.centerLeft,
+                              padding: const EdgeInsets.all(defaultPadding),
+                              color: colorBorder,
+                              child: Text(
+                                'ชื่อสินค้า',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext1),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'ผ้าทึบหน้าแคบ CHALEEYA (150)',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                                Text(
+                                  '580.00 บาท',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ]),
+                        TableRow(
+                          children: [
+                            TableCell(
+                              verticalAlignment:
+                                  TableCellVerticalAlignment.fill,
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                padding: const EdgeInsets.all(defaultPadding),
+                                color: colorBorder,
+                                child: Text(
+                                  'รายละเอียด',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(defaultPadding),
+                              child: Text(
+                                'โฟนโหลนแบรนด์อุรังคธาตุออดิทอเรียมฮัมเยนผู้นำโบกี้\nแฟ็กซ์ไฟลท์โปรโมทกรุ๊ป อึวิภัชภาคกรีนธรรมาบ็อกซ์\nคันยิโทรโข่งไดเอ็ตเทวาธิราช',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext1),
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(children: [
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            decoration: const BoxDecoration(
+                              color: colorBorder,
+                            ),
+                            padding: const EdgeInsets.all(defaultPadding),
+                            child: Text(
+                              'ราคารวม',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(defaultPadding),
+                            child: Text(
+                              '3,480.00',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
+                          ),
+                        ]),
+                      ],
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: colorBorder),
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Bill to',
-                            style: GoogleFonts.kanit(color: Colors.grey),
+                          Expanded(
+                            child: Table(
+                              children: [
+                                TableRow(children: [
+                                  Container(
+                                    height: 30,
+                                  )
+                                ]),
+                              ],
+                            ),
                           ),
-                          Text(
-                            'คุณ แก้ว มาลูน',
-                            style:
-                                GoogleFonts.kanit(fontWeight: FontWeight.w500),
-                          ),
-                          Text(
-                            'บริษัท ไท',
-                            style: GoogleFonts.kanit(color: Colors.grey),
-                          ),
-                          Text(
-                            'ที่อยู่ : 12/3 ถนนระแกง ตำบลช้างคลาน อำเภอเมือง จังหวัดเชียงใหม่ 50100',
-                            style: GoogleFonts.kanit(color: Colors.grey),
-                          ),
-                          Text(
-                            'เบอร์โทรศัพท์ : 023456789',
-                            style: GoogleFonts.kanit(color: Colors.grey),
-                          ),
-                          Text(
-                            'อีเมล : 123@gmail.com',
-                            style: GoogleFonts.kanit(color: Colors.grey),
+                          Expanded(
+                            child: Table(
+                              children: [
+                                TableRow(children: [
+                                  Container(
+                                    height: 30,
+                                  ),
+                                ]),
+                                TableRow(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10.0))),
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.centerRight,
+                                        height: 30.0,
+                                        child: RichText(
+                                          text: TextSpan(
+                                            children: [
+                                              TextSpan(
+                                                text: 'ราคาเต็ม',
+                                                style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: ' 3,480.00 ',
+                                                style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colorBlue,
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                text: 'บาท',
+                                                style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    ]),
+                                TableRow(children: [
+                                  Container(
+                                    alignment: Alignment.centerRight,
+                                    height: 30.0,
+                                    child: RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'ส่วนลด',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' 0.00 ',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colorBlue,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'บาท',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                    alignment: Alignment.centerRight,
+                                    height: 30.0,
+                                    child: RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'ภาษีมูลค่าเพิ่ม (7%)',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' 246.60 ',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colorBlue,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'บาท',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ]),
+                                TableRow(children: [
+                                  Container(
+                                    alignment: Alignment.centerRight,
+                                    height: 30.0,
+                                    child: RichText(
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text:
+                                                'ราคาสุทธิ (หลังหักส่วนลดและภาษีมูลค่าเพิ่ม)',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' 3236.40 ',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colorBlue,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: 'บาท',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext1,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ]),
+                              ],
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 10),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.shade200),
-                    borderRadius: BorderRadius.circular(10.0),
+              ),
+              const SizedBox(height: defaultPadding),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'แผนที่สถานที่ติดตั้งงาน',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colorBlack),
+                      ),
+                      const Icon(Icons.location_on, color: colorBlack)
+                    ],
                   ),
-                  child: Table(
-                    border: TableBorder(
-                      horizontalInside: BorderSide(color: Colors.grey.shade200),
+                  const SizedBox(height: defaultPadding),
+                  SizedBox(
+                    height: 300,
+                    width: double.infinity,
+                    child: GoogleMap(
+                      myLocationEnabled: true,
+                      myLocationButtonEnabled: true,
+                      zoomControlsEnabled: true,
+                      initialCameraPosition: _initialCameraPosition,
+                      onMapCreated: (controller) =>
+                          _googleMapController = controller,
                     ),
-                    columnWidths: const {
-                      0: FlexColumnWidth(1),
-                      1: FlexColumnWidth(2),
-                    },
-                    children: [
-                      TableRow(children: [
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.fill,
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(9)),
-                              color: Colors.grey[200],
-                            ),
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              '#',
-                              style: GoogleFonts.kanit(color: Colors.grey[600]),
-                              textAlign: TextAlign.start,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            '1',
-                            style: GoogleFonts.kanit(color: Colors.grey[600]),
-                            textAlign: TextAlign.start,
-                          ),
-                        ),
-                      ]),
-                      TableRow(children: [
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.fill,
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            color: Colors.grey[200],
-                            child: Text(
-                              'รหัสสินค้า (กว้าง x ยาว)',
-                              style: GoogleFonts.kanit(color: Colors.grey[600]),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            'A01CY03 (100 x 200)\nA01CY03 (100 x 200)\nA01CY03 (100 x 200)',
-                            style: GoogleFonts.kanit(color: Colors.grey[600]),
-                          ),
-                        ),
-                      ]),
-                      TableRow(children: [
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.fill,
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            color: Colors.grey[200],
-                            child: Text(
-                              'ชื่อสินค้า x จำนวน(ราคา)',
-                              style: GoogleFonts.kanit(color: Colors.grey[600]),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            'ผ้าทึบหน้าแคบ CHALEEYA (150) (580)x1 580.00 บาท\nผ้าทึบหน้าแคบ CHALEEYA (150) (580)x1 580.00 บาท\nผ้าทึบหน้าแคบ CHALEEYA (150) (580)x1 580.00 บาท',
-                            style: GoogleFonts.kanit(color: Colors.grey[600]),
-                          ),
-                        ),
-                      ]),
-                      TableRow(children: [
-                        TableCell(
-                          verticalAlignment: TableCellVerticalAlignment.fill,
-                          child: Container(
-                            alignment: Alignment.centerLeft,
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            color: Colors.grey[200],
-                            child: Text(
-                              'ราบละเอียด',
-                              style: GoogleFonts.kanit(color: Colors.grey[600]),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            'โฟนโหลนแบรนด์อุรังคธาตุออดิทอเรียมฮัมเยนผู้นำโบกี้ แฟ็กซ์ไฟลท์โปรโมทกรุ๊ป อึวิภัชภาคกรีนธรรมาบ็อกซ์ คันยิโทรโข่งไดเอ็ตเทวาธิราช',
-                            style: GoogleFonts.kanit(color: Colors.grey[600]),
-                          ),
-                        ),
-                      ]),
-                      TableRow(children: [
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(9)),
-                            color: Colors.grey[200],
-                          ),
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            'ราคารวม',
-                            style: GoogleFonts.kanit(color: Colors.grey[600]),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            '3,480.00',
-                            style: GoogleFonts.kanit(color: Colors.grey[600]),
-                          ),
-                        ),
-                      ]),
-                    ],
                   ),
-                ),
-                const SizedBox(height: 10),
-                SizedBox(
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'ราคาเต็ม',
-                                style: GoogleFonts.kanit(
-                                  color: const Color(0xFF707070),
-                                ),
-                              ),
-                              TextSpan(
-                                text: ' 3,480.00 ',
-                                style: GoogleFonts.kanit(
-                                  color: const Color(0xFF3481f5),
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'บาท',
-                                style: GoogleFonts.kanit(
-                                  color: const Color(0xFF707070),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'ส่วนลด',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF707070),
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' 0.00 ',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF3481f5),
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'บาท',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF707070),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'ภาษีมูลค่าเพิ่ม (7%)',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF707070),
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' 246.60 ',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF3481f5),
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'บาท',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF707070),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text:
-                                  'ราคาสุทธิ (หลังหักส่วนลดและภาษีมูลค่าเพิ่ม)',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF707070),
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' 3236.40 ',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF3481f5),
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'บาท',
-                              style: GoogleFonts.kanit(
-                                color: const Color(0xFF707070),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                SizedBox(
-                  height: 300,
-                  width: double.infinity,
-                  child: GoogleMap(
-                    myLocationEnabled: true,
-                    myLocationButtonEnabled: true,
-                    zoomControlsEnabled: true,
-                    initialCameraPosition: _initialCameraPosition,
-                    onMapCreated: (controller) =>
-                        _googleMapController = controller,
-                  ),
-                ),
-              ],
-            ),
+                ],
+              ),
+              const SizedBox(height: defaultPadding),
+            ],
           ),
         ),
       ),
