@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_customer.dart';
 import 'package:project_curtain/edit_customer.dart';
+import 'package:project_curtain/history.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
 
 class CustomerScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
         centerTitle: true,
         title: Text(
           'CUSTOMER',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: 24),
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
         actions: [
           IconButton(
@@ -35,13 +36,18 @@ class _CustomerScreenState extends State<CustomerScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
+              padding: const EdgeInsets.only(
+                top: defaultPadding * 2,
+                bottom: defaultPadding,
+                right: defaultPadding * 5,
+                left: defaultPadding * 5,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'จัดการข้อมูลลูกค้า',
-                    style: GoogleFonts.kanit(fontSize: 24),
+                    style: GoogleFonts.kanit(fontSize: subtitle),
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
@@ -55,7 +61,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     icon: const Icon(Icons.add),
                     label: Text(
                       'เพิ่ม',
-                      style: GoogleFonts.kanit(fontSize: 16),
+                      style: GoogleFonts.kanit(fontSize: bodytext),
                     ),
                     style: ElevatedButton.styleFrom(
                       primary: Colors.black,
@@ -68,7 +74,10 @@ class _CustomerScreenState extends State<CustomerScreen> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              margin:
+                  const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: defaultPadding, vertical: defaultPadding),
               color: Colors.grey[200],
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,17 +89,47 @@ class _CustomerScreenState extends State<CustomerScreen> {
                         // color: Colors.amber,
                         child: Text(
                           'คุณ แก้ว มาลูน',
-                          style: GoogleFonts.kanit(fontSize: 16),
+                          style: GoogleFonts.kanit(fontSize: bodytext),
                         ),
                       ),
                       Row(
                         children: [
                           Container(
                             // padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              boxShadow: const [
-                                BoxShadow(color: Colors.black, blurRadius: 0.5),
+                            decoration: const BoxDecoration(
+                              color: colorbgbtn,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 10,
+                                  offset: (Offset(4, 4)),
+                                ),
+                              ],
+                              // border: Border.all(color: Colors.grey),
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const HistoryScreen(),
+                                  ),
+                                );
+                              },
+                              icon: const Icon(Icons.history),
+                              color: colortext1,
+                            ),
+                          ),
+                          Container(
+                            // padding: const EdgeInsets.all(8),
+                            decoration: const BoxDecoration(
+                              color: colorbgbtn,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
+                                  blurRadius: 10,
+                                  offset: (Offset(4, 4)),
+                                ),
                               ],
                               // border: Border.all(color: Colors.grey),
                             ),
@@ -104,16 +143,20 @@ class _CustomerScreenState extends State<CustomerScreen> {
                                 );
                               },
                               icon: const Icon(Icons.edit),
-                              color: Colors.grey,
+                              color: colortext1,
                             ),
                           ),
                           Container(
                             // padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               // border: Border.all(color: Colors.grey),
-                              color: Colors.grey[600],
-                              boxShadow: const [
-                                BoxShadow(color: Colors.black, blurRadius: 0.5),
+                              color: colortext1,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: colortext2,
+                                  blurRadius: 10,
+                                  offset: (Offset(4, 4)),
+                                ),
                               ],
                             ),
                             child: IconButton(
@@ -248,7 +291,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     color: Color(0xFF707070),
                     height: 0,
                     thickness: 1,
-                    endIndent: 110,
+                    endIndent: 160,
                   ),
                   const SizedBox(
                     height: 10,
@@ -259,12 +302,12 @@ class _CustomerScreenState extends State<CustomerScreen> {
                         TextSpan(
                           text: 'เลขที่ผู้เสียภาษี ',
                           style: GoogleFonts.kanit(
-                              color: Colors.grey[600], fontSize: 16),
+                              color: Colors.grey[600], fontSize: bodytext),
                         ),
                         TextSpan(
                           text: '3101908008',
                           style: GoogleFonts.kanit(
-                              color: Colors.grey[500], fontSize: 16),
+                              color: Colors.grey[500], fontSize: bodytext),
                         ),
                       ],
                     ),
@@ -275,12 +318,12 @@ class _CustomerScreenState extends State<CustomerScreen> {
                         TextSpan(
                           text: 'บริษัท/สถานที่ทำงาน ',
                           style: GoogleFonts.kanit(
-                              color: Colors.grey[600], fontSize: 16),
+                              color: Colors.grey[600], fontSize: bodytext),
                         ),
                         TextSpan(
                           text: 'ไท',
                           style: GoogleFonts.kanit(
-                              color: Colors.grey[500], fontSize: 16),
+                              color: Colors.grey[500], fontSize: bodytext),
                         ),
                       ],
                     ),
@@ -291,13 +334,13 @@ class _CustomerScreenState extends State<CustomerScreen> {
                         TextSpan(
                           text: 'ที่อยู่ ',
                           style: GoogleFonts.kanit(
-                              color: Colors.grey[600], fontSize: 16),
+                              color: Colors.grey[600], fontSize: bodytext),
                         ),
                         TextSpan(
                           text:
                               '12/3 ถนนระแกง ตำบลช้างคลาน อำเภอเมือง จังหวัดเชียงใหม่ 50100 ',
                           style: GoogleFonts.kanit(
-                              color: Colors.grey[500], fontSize: 16),
+                              color: Colors.grey[500], fontSize: bodytext),
                         ),
                       ],
                     ),
@@ -311,12 +354,12 @@ class _CustomerScreenState extends State<CustomerScreen> {
                             TextSpan(
                               text: 'อีเมล ',
                               style: GoogleFonts.kanit(
-                                  color: Colors.grey[600], fontSize: 16),
+                                  color: Colors.grey[600], fontSize: bodytext),
                             ),
                             TextSpan(
                               text: '123@gmail.com',
                               style: GoogleFonts.kanit(
-                                  color: Colors.grey[500], fontSize: 16),
+                                  color: Colors.grey[500], fontSize: bodytext),
                             ),
                           ],
                         ),
@@ -324,8 +367,9 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       Text(
                         'เบอร์ติดต่อ 023456789',
                         style: GoogleFonts.kanit(
-                            color: Colors.grey[600], fontSize: 16),
-                      )
+                            color: Colors.grey[600], fontSize: bodytext),
+                      ),
+                      Container(),
                     ],
                   )
                 ],
