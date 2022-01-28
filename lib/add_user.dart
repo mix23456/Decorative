@@ -225,7 +225,7 @@ class _AddUserState extends State<AddUser> {
                 const SizedBox(width: defaultPadding / 2),
                 const Expanded(
                   flex: 1,
-                  child: SizedBox(height: 10),
+                  child: SizedBox(height: defaultPadding),
                 ),
               ],
             ),

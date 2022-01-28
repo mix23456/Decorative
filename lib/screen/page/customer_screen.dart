@@ -294,7 +294,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     endIndent: 160,
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: defaultPadding,
                   ),
                   RichText(
                     text: TextSpan(

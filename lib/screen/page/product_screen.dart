@@ -79,7 +79,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                 });
                                               },
                                             ),
-                                            const Divider(height: 10),
+                                            const Divider(
+                                                height: defaultPadding),
                                             CheckboxListTile(
                                               controlAffinity:
                                                   ListTileControlAffinity
@@ -93,7 +94,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                 });
                                               },
                                             ),
-                                            const Divider(height: 10),
+                                            const Divider(
+                                                height: defaultPadding),
                                             CheckboxListTile(
                                               controlAffinity:
                                                   ListTileControlAffinity
@@ -107,7 +109,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                 });
                                               },
                                             ),
-                                            const Divider(height: 10),
+                                            const Divider(
+                                                height: defaultPadding),
                                             CheckboxListTile(
                                               controlAffinity:
                                                   ListTileControlAffinity
@@ -121,7 +124,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                 });
                                               },
                                             ),
-                                            const Divider(height: 10),
+                                            const Divider(
+                                                height: defaultPadding),
                                             CheckboxListTile(
                                               controlAffinity:
                                                   ListTileControlAffinity
@@ -135,7 +139,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                 });
                                               },
                                             ),
-                                            const Divider(height: 10),
+                                            const Divider(
+                                                height: defaultPadding),
                                             CheckboxListTile(
                                               controlAffinity:
                                                   ListTileControlAffinity
@@ -149,7 +154,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                 });
                                               },
                                             ),
-                                            const Divider(height: 10),
+                                            const Divider(
+                                                height: defaultPadding),
                                             CheckboxListTile(
                                               controlAffinity:
                                                   ListTileControlAffinity
@@ -163,7 +169,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                 });
                                               },
                                             ),
-                                            const Divider(height: 10),
+                                            const Divider(
+                                                height: defaultPadding),
                                           ],
                                         ),
                                       ),
@@ -204,7 +211,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                       });
                                                     },
                                                   ),
-                                                  const Divider(height: 10),
+                                                  const Divider(
+                                                      height: defaultPadding),
                                                   CheckboxListTile(
                                                     controlAffinity:
                                                         ListTileControlAffinity
@@ -219,7 +227,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                       });
                                                     },
                                                   ),
-                                                  const Divider(height: 10),
+                                                  const Divider(
+                                                      height: defaultPadding),
                                                   CheckboxListTile(
                                                     controlAffinity:
                                                         ListTileControlAffinity
@@ -235,7 +244,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                                       });
                                                     },
                                                   ),
-                                                  const Divider(height: 10),
+                                                  const Divider(
+                                                      height: defaultPadding),
                                                   const SizedBox(height: 5),
                                                 ],
                                               ),
@@ -372,7 +382,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                             });
         //   //   //                                           },
         //   //   //                                         ),
-        //   //   //                                         const Divider(height: 10),
+        //   //   //                                         const Divider(height: defaultPadding),
         //   //   //                                         CheckboxListTile(
         //   //   //                                           controlAffinity:
         //   //   //                                               ListTileControlAffinity
@@ -387,7 +397,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                             });
         //   //   //                                           },
         //   //   //                                         ),
-        //   //   //                                         const Divider(height: 10),
+        //   //   //                                         const Divider(height: defaultPadding),
         //   //   //                                         CheckboxListTile(
         //   //   //                                           controlAffinity:
         //   //   //                                               ListTileControlAffinity
@@ -402,7 +412,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                             });
         //   //   //                                           },
         //   //   //                                         ),
-        //   //   //                                         const Divider(height: 10),
+        //   //   //                                         const Divider(height: defaultPadding),
         //   //   //                                         CheckboxListTile(
         //   //   //                                           controlAffinity:
         //   //   //                                               ListTileControlAffinity
@@ -417,7 +427,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                             });
         //   //   //                                           },
         //   //   //                                         ),
-        //   //   //                                         const Divider(height: 10),
+        //   //   //                                         const Divider(height: defaultPadding),
         //   //   //                                         CheckboxListTile(
         //   //   //                                           controlAffinity:
         //   //   //                                               ListTileControlAffinity
@@ -433,7 +443,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                             });
         //   //   //                                           },
         //   //   //                                         ),
-        //   //   //                                         const Divider(height: 10),
+        //   //   //                                         const Divider(height: defaultPadding),
         //   //   //                                         CheckboxListTile(
         //   //   //                                           controlAffinity:
         //   //   //                                               ListTileControlAffinity
@@ -449,7 +459,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                             });
         //   //   //                                           },
         //   //   //                                         ),
-        //   //   //                                         const Divider(height: 10),
+        //   //   //                                         const Divider(height: defaultPadding),
         //   //   //                                         CheckboxListTile(
         //   //   //                                           controlAffinity:
         //   //   //                                               ListTileControlAffinity
@@ -465,7 +475,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                             });
         //   //   //                                           },
         //   //   //                                         ),
-        //   //   //                                         const Divider(height: 10),
+        //   //   //                                         const Divider(height: defaultPadding),
         //   //   //                                       ],
         //   //   //                                     ),
         //   //   //                                   ),
@@ -509,7 +519,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                                 },
         //   //   //                                               ),
         //   //   //                                               const Divider(
-        //   //   //                                                   height: 10),
+        //   //   //                                                   height: defaultPadding),
         //   //   //                                               CheckboxListTile(
         //   //   //                                                 controlAffinity:
         //   //   //                                                     ListTileControlAffinity
@@ -526,7 +536,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                                 },
         //   //   //                                               ),
         //   //   //                                               const Divider(
-        //   //   //                                                   height: 10),
+        //   //   //                                                   height: defaultPadding),
         //   //   //                                               CheckboxListTile(
         //   //   //                                                 controlAffinity:
         //   //   //                                                     ListTileControlAffinity
@@ -543,7 +553,7 @@ class _ProductScreenState extends State<ProductScreen> {
         //   //   //                                                 },
         //   //   //                                               ),
         //   //   //                                               const Divider(
-        //   //   //                                                   height: 10),
+        //   //   //                                                   height: defaultPadding),
         //   //   //                                               const SizedBox(
         //   //   //                                                   height: 5),
         //   //   //                                             ],
@@ -996,7 +1006,7 @@ class _ProductScreenState extends State<ProductScreen> {
               //                                                 },
               //                                               ),
               //                                               const Divider(
-              //                                                   height: 10),
+              //                                                   height: defaultPadding),
               //                                               CheckboxListTile(
               //                                                 controlAffinity:
               //                                                     ListTileControlAffinity
@@ -1015,7 +1025,7 @@ class _ProductScreenState extends State<ProductScreen> {
               //                                                 },
               //                                               ),
               //                                               const Divider(
-              //                                                   height: 10),
+              //                                                   height: defaultPadding),
               //                                               CheckboxListTile(
               //                                                 controlAffinity:
               //                                                     ListTileControlAffinity
@@ -1034,7 +1044,7 @@ class _ProductScreenState extends State<ProductScreen> {
               //                                                 },
               //                                               ),
               //                                               const Divider(
-              //                                                   height: 10),
+              //                                                   height: defaultPadding),
               //                                               CheckboxListTile(
               //                                                 controlAffinity:
               //                                                     ListTileControlAffinity
@@ -1053,7 +1063,7 @@ class _ProductScreenState extends State<ProductScreen> {
               //                                                 },
               //                                               ),
               //                                               const Divider(
-              //                                                   height: 10),
+              //                                                   height: defaultPadding),
               //                                               CheckboxListTile(
               //                                                 controlAffinity:
               //                                                     ListTileControlAffinity
@@ -1072,7 +1082,7 @@ class _ProductScreenState extends State<ProductScreen> {
               //                                                 },
               //                                               ),
               //                                               const Divider(
-              //                                                   height: 10),
+              //                                                   height: defaultPadding),
               //                                               CheckboxListTile(
               //                                                 controlAffinity:
               //                                                     ListTileControlAffinity
@@ -1091,7 +1101,7 @@ class _ProductScreenState extends State<ProductScreen> {
               //                                                 },
               //                                               ),
               //                                               const Divider(
-              //                                                   height: 10),
+              //                                                   height: defaultPadding),
               //                                               CheckboxListTile(
               //                                                 controlAffinity:
               //                                                     ListTileControlAffinity
@@ -1110,7 +1120,7 @@ class _ProductScreenState extends State<ProductScreen> {
               //                                                 },
               //                                               ),
               //                                               const Divider(
-              //                                                   height: 10),
+              //                                                   height: defaultPadding),
               //                                             ],
               //                                           ),
               //                                         ),

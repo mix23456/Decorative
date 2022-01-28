@@ -654,7 +654,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     //   ),
                     // ),
 
-                    // const SizedBox(height: 10),
+                    // const SizedBox(height: defaultPadding),
 
                     const SizedBox(height: defaultPadding / 2),
                     Container(

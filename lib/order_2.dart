@@ -359,10 +359,10 @@
 //                                 ],
 //                               ),
 //                               const SizedBox(
-//                                 height: 10,
+//                                 height: defaultPadding,
 //                               ),
 //                               const SizedBox(
-//                                 height: 10,
+//                                 height: defaultPadding,
 //                               ),
 //                               Row(
 //                                 mainAxisAlignment:
