@@ -141,7 +141,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                     Container(
                                       width: 320,
                                       height: 256,
-                                      color: colorContiner,
+                                      color: colorContainer,
                                     ),
                                     const SizedBox(width: defaultPadding * 2),
                                     Expanded(

@@ -411,7 +411,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Container(
                                   width: 100,
                                   height: 100,
-                                  color: colorContiner,
+                                  color: colorContainer,
                                 ),
                                 const SizedBox(height: defaultPadding),
                                 Text(
@@ -500,7 +500,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Container(
                                   width: 100,
                                   height: 100,
-                                  color: colorContiner,
+                                  color: colorContainer,
                                 ),
                                 const SizedBox(height: defaultPadding),
                                 Text(

@@ -352,7 +352,7 @@ class _CartOrderState extends State<CartOrder> {
               color: colorWhite,
               border: Border.all(color: const Color(0xFFF5F5F5)),
               boxShadow: const [
-                BoxShadow(color: colorContiner),
+                BoxShadow(color: colorContainer),
               ],
             ),
             child: Column(

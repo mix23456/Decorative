@@ -54,7 +54,7 @@ class _ContactInformationState extends State<ContactInformation> {
                     alignment: Alignment.center,
                     width: 576,
                     height: 250,
-                    color: colorContiner,
+                    color: colorContainer,
                   ),
                 ),
                 const SizedBox(height: defaultPadding),

@@ -258,7 +258,7 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                       ),
                       columnWidths: const {
                         0: FlexColumnWidth(1),
-                        1: FlexColumnWidth(2),
+                        1: FlexColumnWidth(4),
                       },
                       children: [
                         TableRow(children: [
@@ -616,7 +616,7 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                     Container(
                       width: 100,
                       height: 100,
-                      color: colorContiner,
+                      color: colorContainer,
                     ),
                     const SizedBox(height: defaultPadding),
                     Text(
