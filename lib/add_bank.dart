@@ -126,60 +126,198 @@ class _AddBankState extends State<AddBank> {
             ),
             const SizedBox(height: defaultPadding),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  showPopupAddImage();
+                },
                 child: Text(
-                  'สร้าง QR รับเงิน',
+                  'เพิ่มรูปภาพ QR รับเงิน',
                   style: GoogleFonts.kanit(
                       color: Colors.grey,
                       fontSize: bodytext,
                       decoration: TextDecoration.underline),
                 )),
             const SizedBox(height: defaultPadding),
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.20,
-                height: MediaQuery.of(context).size.height * 0.04,
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF707070),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(28),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 160,
+                  height: 48,
+                  // padding:
+                  //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: colortext2.withOpacity(0.25),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'ยกเลิก',
+                      style: GoogleFonts.kanit(
+                          fontSize: bodytext, color: colortext1),
                     ),
                   ),
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            child: Container(
-                                alignment: Alignment.center,
-                                width: MediaQuery.of(context).size.width * 0.25,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.1,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Text(
-                                  'บันทึกข้อมูลสำเร็จ',
-                                  style: GoogleFonts.kanit(fontSize: bodytext),
-                                )),
-                          );
-                        });
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => Bank()));
-                  },
-                  icon: const Icon(Icons.save),
-                  label: Text(
-                    'บันทึก',
-                    style: GoogleFonts.kanit(fontSize: bodytext),
+                ),
+                const SizedBox(width: defaultPadding),
+                SizedBox(
+                  width: 160,
+                  height: 48,
+                  // padding:
+                  //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: colortext1,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28),
+                      ),
+                    ),
+                    onPressed: () {
+                      showPopupSave();
+                    },
+                    icon: const Icon(Icons.save),
+                    label: Text(
+                      'บันทึก',
+                      style: GoogleFonts.kanit(fontSize: bodytext),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  void showPopupAddImage() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'เพิ่มรูปภาพ',
+                      style: GoogleFonts.kanit(fontSize: bodytext),
+                    ),
+                    const SizedBox(width: defaultPadding),
+                    Container(
+                      width: 32,
+                      height: 32,
+                      color: colorbgbtn,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            showPopupconfirm();
+                          },
+                          icon: const Icon(Icons.image, color: colortext1),
+                          iconSize: 18),
+                    )
+                  ],
+                )),
+          );
+        });
+  }
+
+  void showPopupconfirm() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 28, horizontal: defaultPadding),
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.12,
+                child: Column(
+                  children: [
+                    Text('ยืนยันจะใช้รูปภาพนี้',
+                        style: GoogleFonts.kanit(fontSize: bodytext)),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: const Color(0xFFD4D4D4),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'ยกเลิก',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: colortext1,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'ยืนยัน',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colorWhite),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+  }
+
+  void showPopupSave() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'บันทึกข้อมูลสำเร็จ',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
   }
 }
