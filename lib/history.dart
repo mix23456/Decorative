@@ -97,14 +97,10 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                     topRight: Radius.circular(10.0))),
                             children: [
                               Container(
-                                  padding: const EdgeInsets.all(defaultPadding),
-                                  alignment: Alignment.centerRight,
-                                  height: 60.0,
-                                  child: Text(
-                                    'สำเร็จแล้ว',
-                                    style: GoogleFonts.kanit(
-                                        fontSize: bodytext, color: colortext1),
-                                  ))
+                                padding: const EdgeInsets.all(defaultPadding),
+                                alignment: Alignment.centerRight,
+                                height: 60.0,
+                              )
                             ]),
                         TableRow(children: [
                           Container(
