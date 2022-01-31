@@ -110,7 +110,10 @@ class _ContackState extends State<Contack> {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.facebook),
+                      Tab(
+                        icon: Image.asset('assets/logos/facebook_logo.png'),
+                        height: 24,
+                      ),
                       const SizedBox(width: defaultPadding),
                       Text(
                         'DK decorative',
@@ -121,7 +124,10 @@ class _ContackState extends State<Contack> {
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.facebook),
+                      Tab(
+                        icon: Image.asset('assets/logos/instagram_logo.png'),
+                        height: 24,
+                      ),
                       const SizedBox(width: defaultPadding),
                       Text(
                         'DK decorative',
@@ -132,7 +138,10 @@ class _ContackState extends State<Contack> {
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.facebook),
+                      Tab(
+                        icon: Image.asset('assets/logos/line_logo.png'),
+                        height: 24,
+                      ),
                       const SizedBox(width: defaultPadding),
                       Text(
                         'DK decorative',
@@ -143,7 +152,10 @@ class _ContackState extends State<Contack> {
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.facebook),
+                      Tab(
+                        icon: Image.asset('assets/logos/twitter_logo.png'),
+                        height: 24,
+                      ),
                       const SizedBox(width: defaultPadding),
                       Text(
                         'DK decorative',
