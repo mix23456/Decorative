@@ -48,13 +48,33 @@ class _ContactInformationState extends State<ContactInformation> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 576,
-                    height: 250,
-                    color: colorContainer,
+                Padding(
+                  padding: const EdgeInsets.all(defaultPadding),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          color: colorbgbtn,
+                          child: IconButton(
+                            onPressed: () {
+                              showPopupChangeImage();
+                            },
+                            icon: const Icon(
+                              Icons.edit,
+                              color: colortext1,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: defaultPadding / 2),
+                      Container(
+                        alignment: Alignment.center,
+                        width: double.infinity,
+                        height: 250,
+                        color: colorContainer,
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: defaultPadding),
@@ -155,11 +175,9 @@ class _ContactInformationState extends State<ContactInformation> {
                 const SizedBox(height: defaultPadding),
                 Row(
                   children: [
-                    const CircleAvatar(
-                      radius: 16.0,
-                      backgroundImage:
-                          AssetImage('assets/logos/facebook_logo.png'),
-                      backgroundColor: Colors.transparent,
+                    Tab(
+                      icon: Image.asset('assets/logos/facebook_logo.png'),
+                      height: 24,
                     ),
                     const SizedBox(width: defaultPadding / 2),
                     Expanded(
@@ -172,11 +190,9 @@ class _ContactInformationState extends State<ContactInformation> {
                       ),
                     ),
                     const SizedBox(width: defaultPadding),
-                    const CircleAvatar(
-                      radius: 16.0,
-                      backgroundImage:
-                          AssetImage('assets/logos/instagram_logo.png'),
-                      backgroundColor: Colors.transparent,
+                    Tab(
+                      icon: Image.asset('assets/logos/instagram_logo.png'),
+                      height: 24,
                     ),
                     const SizedBox(width: defaultPadding / 2),
                     Expanded(
@@ -189,10 +205,9 @@ class _ContactInformationState extends State<ContactInformation> {
                       ),
                     ),
                     const SizedBox(width: defaultPadding),
-                    const CircleAvatar(
-                      radius: 16.0,
-                      backgroundImage: AssetImage('assets/logos/line_logo.png'),
-                      backgroundColor: Colors.transparent,
+                    Tab(
+                      icon: Image.asset('assets/logos/line_logo.png'),
+                      height: 24,
                     ),
                     const SizedBox(width: defaultPadding / 2),
                     Expanded(
@@ -205,11 +220,9 @@ class _ContactInformationState extends State<ContactInformation> {
                       ),
                     ),
                     const SizedBox(width: defaultPadding),
-                    const CircleAvatar(
-                      radius: 16.0,
-                      backgroundImage:
-                          AssetImage('assets/logos/twitter_logo.png'),
-                      backgroundColor: Colors.transparent,
+                    Tab(
+                      icon: Image.asset('assets/logos/twitter_logo.png'),
+                      height: 24,
                     ),
                     const SizedBox(width: defaultPadding / 2),
                     Expanded(
@@ -268,5 +281,133 @@ class _ContactInformationState extends State<ContactInformation> {
         ],
       ),
     );
+  }
+
+  void showPopupChangeImage() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'เปลี่ยนรูปภาพ',
+                      style: GoogleFonts.kanit(fontSize: bodytext),
+                    ),
+                    const SizedBox(width: defaultPadding),
+                    Container(
+                      width: 32,
+                      height: 32,
+                      color: colorbgbtn,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            showPopupconfirm();
+                          },
+                          icon: const Icon(Icons.image, color: colortext1),
+                          iconSize: 18),
+                    )
+                  ],
+                )),
+          );
+        });
+  }
+
+  void showPopupconfirm() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 28, horizontal: defaultPadding),
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.12,
+                child: Column(
+                  children: [
+                    Text('ยืนยันจะใช้รูปภาพนี้',
+                        style: GoogleFonts.kanit(fontSize: bodytext)),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: const Color(0xFFD4D4D4),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'ยกเลิก',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: colortext1,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'ยืนยัน',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colorWhite),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+  }
+
+  void showPopupSave() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'บันทึกข้อมูลสำเร็จ',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
   }
 }
