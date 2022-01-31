@@ -754,15 +754,28 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             color: colortext1),
                         children: [
-                          Container(
-                            padding: const EdgeInsets.all(defaultPadding / 2),
-                            height: 50,
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'บริษัท DK decorative',
-                              style: GoogleFonts.kanit(
-                                  fontSize: bodytext, color: colorWhite),
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(defaultPadding),
+                                height: 50,
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  'บริษัท DK decorative',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colorWhite),
+                                ),
+                              ),
+                              Container(
+                                padding: const EdgeInsets.all(defaultPadding),
+                                alignment: Alignment.centerRight,
+                                child: const Icon(
+                                  Icons.ios_share,
+                                  color: colorWhite,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -867,22 +880,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: defaultPadding),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      const Icon(
-                        Icons.ios_share,
-                        color: colortext1,
-                      ),
-                      const SizedBox(width: defaultPadding / 2),
-                      Text(
-                        'แชร์',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext1),
-                      )
                     ],
                   ),
                   const SizedBox(height: defaultPadding),
