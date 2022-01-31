@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_bank.dart';
 import 'package:project_curtain/add_user.dart';
 import 'package:project_curtain/bank.dart';
-import 'package:project_curtain/contact_information.dart';
+import 'package:project_curtain/edit_contact_information.dart';
 import 'package:project_curtain/screen/constants/constants.dart';
 import 'package:project_curtain/work.dart';
 
@@ -167,9 +167,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                           children: [
                                             Row(
                                               children: [
-                                                const Icon(Icons.facebook),
+                                                Tab(
+                                                  icon: Image.asset(
+                                                      'assets/logos/facebook_logo.png'),
+                                                  height: 24,
+                                                ),
                                                 const SizedBox(
-                                                    width: defaultPadding),
+                                                    width: defaultPadding / 2),
                                                 Text(
                                                   'DK decorative',
                                                   style: GoogleFonts.kanit(
@@ -180,9 +184,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                             ),
                                             Row(
                                               children: [
-                                                const Icon(Icons.facebook),
+                                                Tab(
+                                                  icon: Image.asset(
+                                                      'assets/logos/instagram_logo.png'),
+                                                  height: 24,
+                                                ),
                                                 const SizedBox(
-                                                    width: defaultPadding),
+                                                    width: defaultPadding / 2),
                                                 Text(
                                                   'DK decorative',
                                                   style: GoogleFonts.kanit(
@@ -193,9 +201,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                             ),
                                             Row(
                                               children: [
-                                                const Icon(Icons.facebook),
+                                                Tab(
+                                                  icon: Image.asset(
+                                                      'assets/logos/line_logo.png'),
+                                                  height: 24,
+                                                ),
                                                 const SizedBox(
-                                                    width: defaultPadding),
+                                                    width: defaultPadding / 2),
                                                 Text(
                                                   'DK decorative',
                                                   style: GoogleFonts.kanit(
@@ -206,9 +218,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                             ),
                                             Row(
                                               children: [
-                                                const Icon(Icons.facebook),
+                                                Tab(
+                                                  icon: Image.asset(
+                                                      'assets/logos/twitter_logo.png'),
+                                                  height: 24,
+                                                ),
                                                 const SizedBox(
-                                                    width: defaultPadding),
+                                                    width: defaultPadding / 2),
                                                 Text(
                                                   'DK decorative',
                                                   style: GoogleFonts.kanit(
@@ -347,10 +363,12 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   IconButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Bank()));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          settings: const RouteSettings(name: '/setting'),
+                          builder: (context) => const AddBank(),
+                        ),
+                      );
                     },
                     icon: const Icon(Icons.add),
                   ),
