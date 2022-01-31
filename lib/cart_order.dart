@@ -55,27 +55,33 @@ class _CartOrderState extends State<CartOrder> {
                   Container(
                     padding: const EdgeInsets.all(defaultPadding),
                     decoration: BoxDecoration(
-                      // color: Colors.amber,
-                      border: Border.all(
-                        color: colortext2.withOpacity(0.25),
-                      ),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                        // color: Colors.amber,
+                        border: Border.all(
+                          color: colortext2.withOpacity(0.25),
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          // BoxShadow(color: colortext2, offset: Offset(0, 3)),
+                        ]),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'คุณ แก้ว มาลูน',
                               style: GoogleFonts.kanit(
                                   fontSize: bodytext, color: colorBlack),
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.edit,
-                                color: colortext2,
+                            Container(
+                              color: colorbgbtn,
+                              child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.edit,
+                                  color: colortext2,
+                                ),
                               ),
                             ),
                           ],
@@ -388,10 +394,13 @@ class _CartOrderState extends State<CartOrder> {
                       style: GoogleFonts.kanit(
                           fontSize: bodytext, color: colortext1),
                     ),
-                    Text(
-                      '฿ 1,600',
-                      style: GoogleFonts.kanit(
-                          fontSize: bodytext, color: colorBlack),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Text(
+                        '฿ 1,600',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colorBlack),
+                      ),
                     ),
                   ],
                 ),
@@ -399,30 +408,26 @@ class _CartOrderState extends State<CartOrder> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        CupertinoSwitch(
-                          thumbColor: colorWhite,
-                          // trackColor: colortext1,
-                          activeColor: colortext1,
-                          value: isChecked,
-                          onChanged: (value) {
-                            setState(() {
-                              isChecked = !isChecked;
-                            });
-                          },
-                        ),
-                        Text(
-                          'ใช้ส่วนลด 0%',
-                          style: GoogleFonts.kanit(
-                              fontSize: bodytext, color: colortext1),
-                        ),
-                      ],
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
+                      child: Text(
+                        'ใช้ส่วนลด 0%',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colortext1),
+                      ),
                     ),
-                    Text(
-                      '฿ 10.00',
-                      style: GoogleFonts.kanit(
-                          fontSize: bodytext, color: colortext1),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: colortext1),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        '฿ 10.00',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colortext1),
+                      ),
                     ),
                   ],
                 ),
@@ -430,29 +435,36 @@ class _CartOrderState extends State<CartOrder> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Radio(
-                          value: 1,
-                          groupValue: _vat,
-                          activeColor: colortext1,
-                          onChanged: (value) {
-                            setState(() {
-                              _vat = value;
-                            });
-                          },
-                        ),
-                        Text(
-                          'ภาษีมูลค่าเพิ่ม (7%)',
-                          style: GoogleFonts.kanit(
-                              fontSize: bodytext, color: colortext1),
-                        )
-                      ],
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultPadding),
+                      child: Row(
+                        children: [
+                          Radio(
+                            value: 1,
+                            groupValue: _vat,
+                            activeColor: colortext1,
+                            onChanged: (value) {
+                              setState(() {
+                                _vat = value;
+                              });
+                            },
+                          ),
+                          Text(
+                            'ภาษีมูลค่าเพิ่ม (7%)',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext1),
+                          )
+                        ],
+                      ),
                     ),
-                    Text(
-                      '฿ 112',
-                      style: GoogleFonts.kanit(
-                          fontSize: bodytext, color: colortext2),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Text(
+                        '฿ 112',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colortext2),
+                      ),
                     ),
                   ],
                 ),
@@ -465,15 +477,19 @@ class _CartOrderState extends State<CartOrder> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'ราคาทั้งหมด',
-                    style: GoogleFonts.kanit(
-                        fontSize: bodytext, color: colortext1),
-                  ),
-                  Text(
-                    '฿ 1,712',
-                    style: GoogleFonts.kanit(
-                        fontSize: bodytext, color: colorBlack),
+                  Column(
+                    children: [
+                      Text(
+                        'ยอดชำระทั้งหมด',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colortext1),
+                      ),
+                      Text(
+                        '฿ 1,712',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colorBlack),
+                      ),
+                    ],
                   ),
                   const SizedBox(width: defaultPadding),
                   Material(
