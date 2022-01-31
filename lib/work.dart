@@ -65,110 +65,7 @@ class _WorkState extends State<Work> {
                   color: colortext1,
                   child: IconButton(
                     onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) {
-                            return Dialog(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 28, horizontal: defaultPadding),
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.12,
-                                child: Column(
-                                  children: [
-                                    Text('ยืนยันจะลบข้อมูลผลงานนี้',
-                                        style: GoogleFonts.kanit(
-                                            fontSize: bodytext)),
-                                    const SizedBox(height: defaultPadding),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        SizedBox(
-                                          width: 150,
-                                          child: ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(28),
-                                              ),
-                                              primary: const Color(0xFFD4D4D4),
-                                            ),
-                                            onPressed: () {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Text(
-                                              'ยกเลิก',
-                                              style: GoogleFonts.kanit(
-                                                  fontSize: bodytext,
-                                                  color: colortext1),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 150,
-                                          child: ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(28),
-                                              ),
-                                              primary: colortext1,
-                                            ),
-                                            onPressed: () {
-                                              showDialog(
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return Dialog(
-                                                      child: Container(
-                                                          alignment: Alignment
-                                                              .center,
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.25,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.1,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        20),
-                                                          ),
-                                                          child: Text(
-                                                            'ลบข้อมูลผลงานสำเร็จ',
-                                                            style: GoogleFonts
-                                                                .kanit(
-                                                                    fontSize:
-                                                                        bodytext),
-                                                          )),
-                                                    );
-                                                  });
-                                            },
-                                            child: Text(
-                                              'ยืนยัน',
-                                              style: GoogleFonts.kanit(
-                                                  fontSize: bodytext,
-                                                  color: colorWhite),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ),
-                            );
-                          });
+                      showPopupRemoveWork();
                     },
                     icon: const Icon(
                       Icons.remove,
@@ -219,7 +116,9 @@ class _WorkState extends State<Work> {
                       height: 40,
                       color: colortext1,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showPopupRemoveImage();
+                        },
                         icon: const Icon(
                           Icons.delete_outline,
                           color: colorWhite,
@@ -242,7 +141,9 @@ class _WorkState extends State<Work> {
                       height: 40,
                       color: colortext1,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showPopupRemoveImage();
+                        },
                         icon: const Icon(
                           Icons.delete_outline,
                           color: colorWhite,
@@ -256,10 +157,15 @@ class _WorkState extends State<Work> {
                   children: [
                     DottedBorder(
                       padding: EdgeInsets.zero,
-                      child: Container(
-                        width: 181,
-                        height: 214,
-                        color: colorContainer,
+                      child: GestureDetector(
+                        onTap: () {
+                          showPopupAddImage();
+                        },
+                        child: Container(
+                          width: 181,
+                          height: 214,
+                          color: colorContainer,
+                        ),
                       ),
                     ),
                     const SizedBox(height: defaultPadding),
@@ -313,5 +219,293 @@ class _WorkState extends State<Work> {
         ),
       ),
     );
+  }
+
+  void showPopupRemoveWork() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 28, horizontal: defaultPadding),
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: MediaQuery.of(context).size.height * 0.12,
+              child: Column(
+                children: [
+                  Text('ยืนยันจะลบข้อมูลผลงานนี้',
+                      style: GoogleFonts.kanit(fontSize: bodytext)),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: const Color(0xFFD4D4D4),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'ยกเลิก',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: colortext1,
+                          ),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    child: Container(
+                                        alignment: Alignment.center,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.25,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.1,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Text(
+                                          'ลบข้อมูลผลงานสำเร็จ',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext),
+                                        )),
+                                  );
+                                });
+                          },
+                          child: Text(
+                            'ยืนยัน',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colorWhite),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  void showPopupAddImage() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'เพิ่มรูปภาพ',
+                      style: GoogleFonts.kanit(fontSize: bodytext),
+                    ),
+                    const SizedBox(width: defaultPadding),
+                    Container(
+                      width: 32,
+                      height: 32,
+                      color: colorbgbtn,
+                      child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                            showPopupconfirm();
+                          },
+                          icon: const Icon(Icons.image, color: colortext1),
+                          iconSize: 18),
+                    )
+                  ],
+                )),
+          );
+        });
+  }
+
+  void showPopupRemoveImage() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 28, horizontal: defaultPadding),
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: MediaQuery.of(context).size.height * 0.12,
+              child: Column(
+                children: [
+                  Text('ยืนยันจะลบรูปภาพนี้',
+                      style: GoogleFonts.kanit(fontSize: bodytext)),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: const Color(0xFFD4D4D4),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'ยกเลิก',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: colortext1,
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    child: Container(
+                                        alignment: Alignment.center,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.25,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.1,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Text(
+                                          'ลบรูปภาพสำเร็จ',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext),
+                                        )),
+                                  );
+                                });
+                          },
+                          child: Text(
+                            'ยืนยัน',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colorWhite),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  void showPopupconfirm() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 28, horizontal: defaultPadding),
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.12,
+                child: Column(
+                  children: [
+                    Text('ยืนยันจะใช้รูปภาพนี้',
+                        style: GoogleFonts.kanit(fontSize: bodytext)),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: const Color(0xFFD4D4D4),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'ยกเลิก',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: colortext1,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'ยืนยัน',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colorWhite),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
   }
 }
