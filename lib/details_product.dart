@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_customer.dart';
 // import 'package:lite_rolling_switch/lite_rolling_switch.dart';
-import 'package:project_curtain/screen/constants/constants.dart';
+import 'package:project_curtain/constants.dart';
 import 'package:project_curtain/format.dart';
 import 'package:project_curtain/screen/page/customer_screen.dart';
 import 'package:project_curtain/screen/page/home_screen.dart';

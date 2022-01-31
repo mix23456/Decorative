@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/detail_receip2.dart';
-import 'package:project_curtain/screen/constants/constants.dart';
+import 'package:project_curtain/constants.dart';
 
 class CartOrder extends StatefulWidget {
   const CartOrder({Key? key}) : super(key: key);

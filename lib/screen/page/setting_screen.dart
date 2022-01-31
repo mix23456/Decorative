@@ -4,7 +4,7 @@ import 'package:project_curtain/add_bank.dart';
 import 'package:project_curtain/add_user.dart';
 import 'package:project_curtain/bank.dart';
 import 'package:project_curtain/edit_contact_information.dart';
-import 'package:project_curtain/screen/constants/constants.dart';
+import 'package:project_curtain/constants.dart';
 import 'package:project_curtain/work.dart';
 
 class SettingScreen extends StatefulWidget {

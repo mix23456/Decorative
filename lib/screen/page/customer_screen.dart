@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_customer.dart';
 import 'package:project_curtain/edit_customer.dart';
 import 'package:project_curtain/history.dart';
-import 'package:project_curtain/screen/constants/constants.dart';
+import 'package:project_curtain/constants.dart';
 
 class CustomerScreen extends StatefulWidget {
   const CustomerScreen({Key? key}) : super(key: key);
