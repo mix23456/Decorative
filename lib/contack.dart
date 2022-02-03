@@ -52,9 +52,13 @@ class _ContackState extends State<Contack> {
             Row(
               children: [
                 Container(
+                  padding: const EdgeInsets.only(top: defaultPadding * 2),
                   width: 320,
-                  height: 256,
-                  color: colorContainer,
+                  height: 350,
+                  child: Image.network(
+                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 const SizedBox(width: defaultPadding * 2),
                 Expanded(
@@ -70,6 +74,7 @@ class _ContackState extends State<Contack> {
                               fontSize: bodytext, color: colortext1),
                         ),
                       ),
+                      const SizedBox(height: defaultPadding * 2),
                       Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: defaultPadding / 2),
@@ -79,6 +84,7 @@ class _ContackState extends State<Contack> {
                               fontSize: bodytext, color: colortext1),
                         ),
                       ),
+                      const SizedBox(height: defaultPadding * 2),
                       Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: defaultPadding / 2),
@@ -88,6 +94,7 @@ class _ContackState extends State<Contack> {
                               fontSize: bodytext, color: colortext1),
                         ),
                       ),
+                      const SizedBox(height: defaultPadding * 2),
                       Container(
                         padding: const EdgeInsets.symmetric(
                             vertical: defaultPadding / 2),
@@ -167,16 +174,43 @@ class _ContackState extends State<Contack> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 300,
-              width: double.infinity,
-              child: GoogleMap(
-                myLocationEnabled: true,
-                myLocationButtonEnabled: true,
-                zoomControlsEnabled: true,
-                initialCameraPosition: _initialCameraPosition,
-                onMapCreated: (controller) => _googleMapController = controller,
-              ),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  height: 300,
+                  width: double.infinity,
+                  child: GoogleMap(
+                    myLocationEnabled: true,
+                    myLocationButtonEnabled: true,
+                    zoomControlsEnabled: true,
+                    initialCameraPosition: _initialCameraPosition,
+                    onMapCreated: (controller) =>
+                        _googleMapController = controller,
+                  ),
+                ),
+                Container(
+                  width: 183,
+                  height: 56,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: defaultPadding + 3, vertical: defaultPadding),
+                  decoration: BoxDecoration(
+                      color: colorBlue, borderRadius: BorderRadius.circular(5)),
+                  child: Row(
+                    children: [
+                      Text(
+                        'ดูบน Google Map',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colorWhite),
+                      ),
+                      const Icon(
+                        Icons.location_on,
+                        color: colorWhite,
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
