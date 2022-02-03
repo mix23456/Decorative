@@ -91,7 +91,10 @@ class _CustomerScreenState extends State<CustomerScreen> {
                   const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
               padding: const EdgeInsets.symmetric(
                   horizontal: defaultPadding, vertical: defaultPadding),
-              color: Colors.grey[200],
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.grey[200],
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -174,123 +177,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                             ),
                             child: IconButton(
                               onPressed: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (context) {
-                                      return Dialog(
-                                        child: Container(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 28,
-                                              horizontal: defaultPadding),
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.4,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.12,
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                'ยืนยันจะลบข้อมูลลูกค้า',
-                                                style: GoogleFonts.kanit(
-                                                    fontSize: bodytext),
-                                              ),
-                                              const SizedBox(
-                                                  height: defaultPadding),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceAround,
-                                                children: [
-                                                  SizedBox(
-                                                    width: 150,
-                                                    child: ElevatedButton(
-                                                      style: ElevatedButton
-                                                          .styleFrom(
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(28),
-                                                        ),
-                                                        primary: const Color(
-                                                            0xFFD4D4D4),
-                                                      ),
-                                                      onPressed: () {
-                                                        Navigator.pop(context);
-                                                      },
-                                                      child: Text(
-                                                        'ยกเลิก',
-                                                        style:
-                                                            GoogleFonts.kanit(
-                                                                fontSize:
-                                                                    bodytext,
-                                                                color:
-                                                                    colortext1),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 150,
-                                                    child: ElevatedButton(
-                                                      style: ElevatedButton
-                                                          .styleFrom(
-                                                        shape:
-                                                            RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(28),
-                                                        ),
-                                                        primary: colortext1,
-                                                      ),
-                                                      onPressed: () {
-                                                        showDialog(
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return Dialog(
-                                                                child:
-                                                                    Container(
-                                                                        alignment:
-                                                                            Alignment
-                                                                                .center,
-                                                                        width: MediaQuery.of(context).size.width *
-                                                                            0.25,
-                                                                        height: MediaQuery.of(context).size.height *
-                                                                            0.1,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(20),
-                                                                        ),
-                                                                        child:
-                                                                            Text(
-                                                                          'ลบข้อมูลลูกค้าสำเร็จ',
-                                                                          style:
-                                                                              GoogleFonts.kanit(fontSize: bodytext),
-                                                                        )),
-                                                              );
-                                                            });
-                                                      },
-                                                      child: Text(
-                                                        'ยืนยัน',
-                                                        style:
-                                                            GoogleFonts.kanit(
-                                                                fontSize:
-                                                                    bodytext,
-                                                                color:
-                                                                    colorWhite),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      );
-                                    });
+                                showDeleteCustomerDialog();
                               },
                               icon: const Icon(Icons.delete_outline),
                               color: Colors.white,
@@ -301,14 +188,12 @@ class _CustomerScreenState extends State<CustomerScreen> {
                     ],
                   ),
                   const Divider(
-                    color: Color(0xFF707070),
+                    color: colortext1,
                     height: 0,
-                    thickness: 1,
+                    thickness: 2,
                     endIndent: 160,
                   ),
-                  const SizedBox(
-                    height: defaultPadding,
-                  ),
+                  const SizedBox(height: defaultPadding),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -325,6 +210,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       ],
                     ),
                   ),
+                  const SizedBox(height: defaultPadding),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -341,6 +227,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       ],
                     ),
                   ),
+                  const SizedBox(height: defaultPadding),
                   RichText(
                     text: TextSpan(
                       children: [
@@ -358,6 +245,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                       ],
                     ),
                   ),
+                  const SizedBox(height: defaultPadding),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -392,5 +280,94 @@ class _CustomerScreenState extends State<CustomerScreen> {
         ),
       ),
     );
+  }
+
+  void showDeleteCustomerDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 28, horizontal: defaultPadding),
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: MediaQuery.of(context).size.height * 0.12,
+              child: Column(
+                children: [
+                  Text(
+                    'ยืนยันจะลบข้อมูลลูกค้า',
+                    style: GoogleFonts.kanit(fontSize: bodytext),
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: const Color(0xFFD4D4D4),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'ยกเลิก',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: colortext1,
+                          ),
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    child: Container(
+                                        alignment: Alignment.center,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.25,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.1,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Text(
+                                          'ลบข้อมูลลูกค้าสำเร็จ',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext),
+                                        )),
+                                  );
+                                });
+                          },
+                          child: Text(
+                            'ยืนยัน',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colorWhite),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
