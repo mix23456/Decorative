@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/cart_order.dart';
 import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/edit_product.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({Key? key}) : super(key: key);
@@ -35,6 +36,7 @@ class _OrderScreenState extends State<OrderScreen> {
                 PopupMenuItem<int>(
                   child: TextField(
                     decoration: InputDecoration(
+                        border: InputBorder.none,
                         hintText: 'ค้นหา',
                         hintStyle: GoogleFonts.kanit(color: colortext2)),
                   ),
@@ -134,7 +136,13 @@ class _OrderScreenState extends State<OrderScreen> {
                                                   ],
                                                 ),
                                                 child: IconButton(
-                                                  onPressed: () {},
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const EditDetailScreen()));
+                                                  },
                                                   icon: const Icon(
                                                     Icons.edit_outlined,
                                                     color: colortext1,
