@@ -277,6 +277,7 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
+                              const SizedBox(width: defaultPadding),
                               Container(
                                 width: 143,
                                 height: 33,
@@ -284,8 +285,6 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                   color: colortext1,
                                 ),
-                                child: TextButton(
-                                    onPressed: () {}, child: Text('')),
                               ),
                               const SizedBox(width: defaultPadding),
                               Container(
@@ -295,8 +294,6 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                                   borderRadius: BorderRadius.circular(10),
                                   color: colortext2,
                                 ),
-                                child: TextButton(
-                                    onPressed: () {}, child: Text('')),
                               ),
                               const SizedBox(width: defaultPadding),
                               Container(
@@ -304,10 +301,8 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                                 height: 33,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xFFE9E9E9),
+                                  color: const Color(0xFFE9E9E9),
                                 ),
-                                child: TextButton(
-                                    onPressed: () {}, child: Text('')),
                               ),
                             ],
                           ),
@@ -653,6 +648,7 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                         Expanded(
                           flex: 3,
                           child: TextField(
+                            maxLines: 5,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
