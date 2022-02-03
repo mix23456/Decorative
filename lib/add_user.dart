@@ -337,79 +337,59 @@ class _AddUserState extends State<AddUser> {
               ],
             ),
             const SizedBox(height: defaultPadding),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 160,
-                  height: 48,
-                  // padding:
-                  //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: colortext2.withOpacity(0.25),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      'ยกเลิก',
-                      style: GoogleFonts.kanit(
-                          fontSize: bodytext, color: colortext1),
-                    ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.only(bottom: defaultPadding * 2),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 160,
+              height: 48,
+              // padding:
+              //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: colortext2.withOpacity(0.25),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(28),
                   ),
                 ),
-                const SizedBox(width: defaultPadding),
-                SizedBox(
-                  width: 160,
-                  height: 48,
-                  // padding:
-                  //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
-                  child: ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      primary: colortext1,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                    ),
-                    onPressed: () {
-                      showPopupSave();
-                    },
-                    icon: const Icon(Icons.save),
-                    label: Text(
-                      'บันทึก',
-                      style: GoogleFonts.kanit(fontSize: bodytext),
-                    ),
-                  ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'ยกเลิก',
+                  style:
+                      GoogleFonts.kanit(fontSize: bodytext, color: colortext1),
                 ),
-              ],
+              ),
             ),
-            // Align(
-            //   alignment: Alignment.center,
-            //   child: SizedBox(
-            //     width: MediaQuery.of(context).size.width * 0.20,
-            //     height: MediaQuery.of(context).size.height * 0.04,
-            //     child: ElevatedButton.icon(
-            //       style: ElevatedButton.styleFrom(
-            //         primary: colortext1,
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(28),
-            //         ),
-            //       ),
-            //       onPressed: () {
-            //         showPopupSave();
-            //       },
-            //       icon: const Icon(Icons.save),
-            //       label: Text(
-            //         'บันทึก',
-            //         style: GoogleFonts.kanit(fontSize: bodytext),
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            const SizedBox(width: defaultPadding),
+            SizedBox(
+              width: 160,
+              height: 48,
+              // padding:
+              //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  primary: colortext1,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(28),
+                  ),
+                ),
+                onPressed: () {
+                  showPopupSave();
+                },
+                icon: const Icon(Icons.save),
+                label: Text(
+                  'บันทึก',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                ),
+              ),
+            ),
           ],
         ),
       ),
