@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/screen/page/product_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -166,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: defaultPadding / 2),
+                  const SizedBox(width: defaultPadding),
                   Expanded(
                     child: Container(
                       height: 200,
@@ -336,12 +337,20 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.only(
                   top: defaultPadding / 2, right: defaultPadding * 5),
               alignment: Alignment.centerRight,
-              child: Text(
-                'All Item',
-                style: GoogleFonts.kanit(
-                    fontSize: bodytext,
-                    color: colortext2,
-                    decoration: TextDecoration.underline),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ProductScreen()));
+                },
+                child: Text(
+                  'All Item',
+                  style: GoogleFonts.kanit(
+                      fontSize: bodytext,
+                      color: colortext2,
+                      decoration: TextDecoration.underline),
+                ),
               ),
             ),
             const SizedBox(height: defaultPadding / 2),
