@@ -668,171 +668,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               borderRadius: BorderRadius.circular(28),
                             )),
                         onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return Dialog(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: SingleChildScrollView(
-                                    child: Container(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 28,
-                                          horizontal: defaultPadding),
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.19,
-                                      child: Column(
-                                        children: [
-                                          Text('เจ้าของออเดอร์',
-                                              style: GoogleFonts.kanit(
-                                                  fontSize: bodytext)),
-                                          const SizedBox(
-                                              height: defaultPadding),
-                                          Row(
-                                            children: [
-                                              Expanded(
-                                                child: TextField(
-                                                  decoration: InputDecoration(
-                                                    hintText: 'ชื่อลูกค้า',
-                                                    hintStyle:
-                                                        GoogleFonts.kanit(
-                                                            color: Colors.grey,
-                                                            fontSize: bodytext),
-                                                    border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                  width: defaultPadding),
-                                              ElevatedButton.icon(
-                                                onPressed: () {
-                                                  Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              const AddCustomer()));
-                                                },
-                                                icon: const Icon(Icons.add),
-                                                label: Text(
-                                                  'เพิ่ม',
-                                                  style: GoogleFonts.kanit(
-                                                      fontSize: bodytext),
-                                                ),
-                                                style: ElevatedButton.styleFrom(
-                                                  primary: Colors.black,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                              height: defaultPadding),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              SizedBox(
-                                                width: 150,
-                                                child: ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              28),
-                                                    ),
-                                                    primary:
-                                                        const Color(0xFFD4D4D4),
-                                                  ),
-                                                  onPressed: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Text(
-                                                    'ยกเลิก',
-                                                    style: GoogleFonts.kanit(
-                                                        fontSize: bodytext,
-                                                        color: colortext1),
-                                                  ),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 150,
-                                                child: ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              28),
-                                                    ),
-                                                    primary: colortext1,
-                                                  ),
-                                                  onPressed: () {
-                                                    showDialog(
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return Dialog(
-                                                            child: Container(
-                                                                alignment:
-                                                                    Alignment
-                                                                        .center,
-                                                                width: MediaQuery
-                                                                            .of(
-                                                                                context)
-                                                                        .size
-                                                                        .width *
-                                                                    0.25,
-                                                                height: MediaQuery.of(
-                                                                            context)
-                                                                        .size
-                                                                        .height *
-                                                                    0.1,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              20),
-                                                                ),
-                                                                child: Text(
-                                                                  'เพิ่มออเดอร์สำเร็จ',
-                                                                  style: GoogleFonts.kanit(
-                                                                      fontSize:
-                                                                          bodytext),
-                                                                )),
-                                                          );
-                                                        });
-                                                  },
-                                                  child: Text(
-                                                    'ยืนยัน',
-                                                    style: GoogleFonts.kanit(
-                                                        fontSize: bodytext,
-                                                        color: colorWhite),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              });
+                          showConfirmDialog;
                         },
                         icon: const Icon(Icons.shopping_cart_outlined),
                         label: Text(
@@ -841,7 +677,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               color: colorWhite, fontSize: bodytext),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -905,6 +741,136 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
+  void showConfirmDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: SingleChildScrollView(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 28, horizontal: defaultPadding),
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.19,
+                child: Column(
+                  children: [
+                    Text('เจ้าของออเดอร์',
+                        style: GoogleFonts.kanit(fontSize: bodytext)),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'ชื่อลูกค้า',
+                              hintStyle: GoogleFonts.kanit(
+                                  color: Colors.grey, fontSize: bodytext),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: defaultPadding),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const AddCustomer()));
+                          },
+                          icon: const Icon(Icons.add),
+                          label: Text(
+                            'เพิ่ม',
+                            style: GoogleFonts.kanit(fontSize: bodytext),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: const Color(0xFFD4D4D4),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'ยกเลิก',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: colortext1,
+                            ),
+                            onPressed: () {
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Dialog(
+                                      child: Container(
+                                          alignment: Alignment.center,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.25,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.1,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          child: Text(
+                                            'เพิ่มออเดอร์สำเร็จ',
+                                            style: GoogleFonts.kanit(
+                                                fontSize: bodytext),
+                                          )),
+                                    );
+                                  });
+                            },
+                            child: Text(
+                              'ยืนยัน',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colorWhite),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+  }
   // ม่านตาไก่
   // (ผ้าหน้ากว้าง)
   //    - สูงไม่เกิน 2.5 เมตร
