@@ -755,7 +755,7 @@ class _AddCustomerState extends State<AddCustomer> {
                       _googleMapController = controller,
                 ),
               ),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: defaultPadding * 2),
               Align(
                 alignment: Alignment.center,
                 child: SizedBox(
@@ -798,6 +798,7 @@ class _AddCustomerState extends State<AddCustomer> {
                   ),
                 ),
               ),
+              const SizedBox(height: defaultPadding * 2),
             ],
           ),
         ),
