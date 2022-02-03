@@ -72,16 +72,38 @@ class _ContactInformationState extends State<ContactInformation> {
                         alignment: Alignment.center,
                         width: double.infinity,
                         height: 250,
-                        color: colorContainer,
+                        child: Image.network(
+                          'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ],
                   ),
                 ),
                 const SizedBox(height: defaultPadding),
-                Text(
-                  'บริษัท DK decorative',
-                  style:
-                      GoogleFonts.kanit(fontSize: bodytext, color: colortext1),
+                Row(
+                  children: [
+                    Expanded(
+                      // flex: 1,
+                      child: Text(
+                        'บริษัท :',
+                        style: GoogleFonts.kanit(
+                            fontSize: bodytext, color: colortext2),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 8,
+                      child: SizedBox(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: defaultPadding),
                 Row(
@@ -172,7 +194,7 @@ class _ContactInformationState extends State<ContactInformation> {
                     ),
                   ],
                 ),
-                const SizedBox(height: defaultPadding),
+                const SizedBox(height: defaultPadding * 2),
                 Row(
                   children: [
                     Tab(
@@ -236,60 +258,62 @@ class _ContactInformationState extends State<ContactInformation> {
                     ),
                   ],
                 ),
+                const SizedBox(height: defaultPadding * 2),
               ],
             ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 160,
-                height: 48,
-                // padding:
-                //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: colortext2.withOpacity(0.25),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(28),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    'ยกเลิก',
-                    style: GoogleFonts.kanit(
-                        fontSize: bodytext, color: colortext1),
-                  ),
-                ),
-              ),
-              const SizedBox(width: defaultPadding),
-              SizedBox(
-                width: 160,
-                height: 48,
-                // padding:
-                //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    primary: colortext1,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(28),
-                    ),
-                  ),
-                  onPressed: () {
-                    showPopupSave();
-                  },
-                  icon: const Icon(Icons.save),
-                  label: Text(
-                    'บันทึก',
-                    style: GoogleFonts.kanit(fontSize: bodytext),
-                  ),
-                ),
-              ),
-            ],
-          ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.only(bottom: defaultPadding * 2),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 160,
+              height: 48,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: colortext2.withOpacity(0.25),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(28),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'ยกเลิก',
+                  style:
+                      GoogleFonts.kanit(fontSize: bodytext, color: colortext1),
+                ),
+              ),
+            ),
+            const SizedBox(width: defaultPadding),
+            SizedBox(
+              width: 160,
+              height: 48,
+              // padding:
+              //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  primary: colortext1,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(28),
+                  ),
+                ),
+                onPressed: () {
+                  showPopupSave();
+                },
+                icon: const Icon(Icons.save),
+                label: Text(
+                  'บันทึก',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
