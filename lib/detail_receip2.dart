@@ -34,43 +34,27 @@ class _DetailReceipState2 extends State<DetailReceip2> {
           style: GoogleFonts.kanit(color: Colors.black),
         ),
         actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              IconButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return Dialog(
-                          child: Container(
-                              alignment: Alignment.center,
-                              width: MediaQuery.of(context).size.width * 0.25,
-                              height: MediaQuery.of(context).size.height * 0.1,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Text(
-                                'บันทึกรูปภาพสำเร็จ',
-                                style: GoogleFonts.kanit(fontSize: bodytext),
-                              )),
-                        );
-                      });
-                },
-                icon: const Icon(
+          GestureDetector(
+            onTap: () {
+              showSaveRecipeComplete();
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const Icon(
                   Icons.download,
                   color: colortext2,
                 ),
-              ),
-              Text(
-                'บันทึกใบเสร็จ',
-                style: GoogleFonts.kanit(
-                    fontSize: bodytext,
-                    color: colortext2,
-                    decoration: TextDecoration.underline),
-              ),
-              const SizedBox(width: defaultPadding)
-            ],
+                Text(
+                  'บันทึกใบเสร็จ',
+                  style: GoogleFonts.kanit(
+                      fontSize: bodytext,
+                      color: colortext2,
+                      decoration: TextDecoration.underline),
+                ),
+                const SizedBox(width: defaultPadding)
+              ],
+            ),
           ),
         ],
       ),
@@ -432,32 +416,45 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                                       Container(
                                         alignment: Alignment.centerRight,
                                         height: 30.0,
-                                        child: RichText(
-                                          text: TextSpan(
-                                            children: [
-                                              TextSpan(
-                                                text: 'ราคาเต็ม',
-                                                style: GoogleFonts.kanit(
-                                                  fontSize: bodytext,
-                                                  color: colortext1,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Expanded(
+                                              flex: 3,
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  'ราคาเต็ม',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colortext1,
+                                                  ),
                                                 ),
                                               ),
-                                              TextSpan(
-                                                text: ' 3,480.00 ',
-                                                style: GoogleFonts.kanit(
-                                                  fontSize: bodytext,
-                                                  color: colorBlue,
+                                            ),
+                                            Expanded(
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  ' 3,480.00 ',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colorBlue,
+                                                  ),
                                                 ),
                                               ),
-                                              TextSpan(
-                                                text: 'บาท',
-                                                style: GoogleFonts.kanit(
-                                                  fontSize: bodytext,
-                                                  color: colortext1,
-                                                ),
+                                            ),
+                                            Text(
+                                              'บาท',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext1,
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       )
                                     ]),
@@ -465,32 +462,43 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                                   Container(
                                     alignment: Alignment.centerRight,
                                     height: 30.0,
-                                    child: RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: 'ส่วนลด',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Expanded(
+                                          flex: 3,
+                                          child: Container(
+                                            alignment: Alignment.centerRight,
+                                            child: Text(
+                                              'ส่วนลด',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext1,
+                                              ),
                                             ),
                                           ),
-                                          TextSpan(
-                                            text: ' 0.00 ',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colorBlue,
+                                        ),
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            alignment: Alignment.centerRight,
+                                            child: Text(
+                                              ' 0.00 ',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colorBlue,
+                                              ),
                                             ),
                                           ),
-                                          TextSpan(
-                                            text: 'บาท',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
-                                            ),
+                                        ),
+                                        Text(
+                                          'บาท',
+                                          style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   )
                                 ]),
@@ -498,32 +506,41 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                                   Container(
                                     alignment: Alignment.centerRight,
                                     height: 30.0,
-                                    child: RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: 'ภาษีมูลค่าเพิ่ม (7%)',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 3,
+                                          child: Container(
+                                            alignment: Alignment.centerRight,
+                                            child: Text(
+                                              'ภาษีมูลค่าเพิ่ม(7%)',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext1,
+                                              ),
                                             ),
                                           ),
-                                          TextSpan(
-                                            text: ' 246.60 ',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colorBlue,
+                                        ),
+                                        Expanded(
+                                          child: Container(
+                                            alignment: Alignment.centerRight,
+                                            child: Text(
+                                              '246.60 ',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colorBlue,
+                                              ),
                                             ),
                                           ),
-                                          TextSpan(
-                                            text: 'บาท',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
-                                            ),
+                                        ),
+                                        Text(
+                                          'บาท',
+                                          style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   )
                                 ]),
@@ -531,35 +548,44 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                                   Container(
                                     alignment: Alignment.centerRight,
                                     height: 30.0,
-                                    child: RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text:
-                                                'ราคาสุทธิ (หลังหักส่วนลดและภาษีมูลค่าเพิ่ม)',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Expanded(
+                                          flex: 3,
+                                          child: Container(
+                                            alignment: Alignment.centerRight,
+                                            child: Text(
+                                              'ราคาสุทธิ (หลังหักส่วนลดและภาษีมูลค่าเพิ่ม)',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext1,
+                                              ),
                                             ),
                                           ),
-                                          TextSpan(
-                                            text: ' 3236.40 ',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colorBlue,
+                                        ),
+                                        Expanded(
+                                          child: Container(
+                                            alignment: Alignment.centerRight,
+                                            child: Text(
+                                              ' 3236.40 ',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colorBlue,
+                                              ),
                                             ),
                                           ),
-                                          TextSpan(
-                                            text: 'บาท',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
-                                            ),
+                                        ),
+                                        Text(
+                                          'บาท',
+                                          style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  )
+                                  ),
                                 ]),
                               ],
                             ),
@@ -650,5 +676,25 @@ class _DetailReceipState2 extends State<DetailReceip2> {
         ),
       ),
     );
+  }
+
+  void showSaveRecipeComplete() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'บันทึกรูปภาพสำเร็จ',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
   }
 }
