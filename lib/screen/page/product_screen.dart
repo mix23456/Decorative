@@ -45,6 +45,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 PopupMenuItem<int>(
                   child: TextField(
                     decoration: InputDecoration(
+                        border: InputBorder.none,
                         hintText: 'ค้นหา',
                         hintStyle: GoogleFonts.kanit(color: colortext2)),
                   ),

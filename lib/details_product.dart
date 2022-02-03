@@ -70,30 +70,43 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: IconButton(
-              onPressed: () {
-                setState(() {
-                  Navigator.pop(context);
-                });
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.black,
-              )),
-          centerTitle: true,
-          title: Text(
-            'PRODUCT',
-            style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
+        backgroundColor: Colors.white,
+        leading: IconButton(
+            onPressed: () {
+              setState(() {
+                Navigator.pop(context);
+              });
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            )),
+        centerTitle: true,
+        title: Text(
+          'PRODUCT',
+          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
+        ),
+        actions: [
+          PopupMenuButton(
+            icon: const Icon(
+              Icons.search,
+              color: colorBlack,
+            ),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem<int>(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'ค้นหา',
+                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  ),
+                ),
+              ];
+            },
           ),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.search,
-                  color: Colors.black,
-                ))
-          ]),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

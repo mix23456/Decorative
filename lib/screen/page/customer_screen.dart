@@ -24,11 +24,24 @@ class _CustomerScreenState extends State<CustomerScreen> {
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search),
-            color: Colors.black,
-          )
+          PopupMenuButton(
+            icon: const Icon(
+              Icons.search,
+              color: colorBlack,
+            ),
+            itemBuilder: (context) {
+              return [
+                PopupMenuItem<int>(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'ค้นหา',
+                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  ),
+                ),
+              ];
+            },
+          ),
         ],
       ),
       body: Padding(
