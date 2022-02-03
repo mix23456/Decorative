@@ -22,33 +22,6 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: Text(
-          'SETTING',
-          style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
-        ),
-        actions: [
-          PopupMenuButton(
-            icon: const Icon(
-              Icons.search,
-              color: colorBlack,
-            ),
-            itemBuilder: (context) {
-              return [
-                PopupMenuItem<int>(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: 'ค้นหา',
-                        hintStyle: GoogleFonts.kanit(color: colortext2)),
-                  ),
-                ),
-              ];
-            },
-          ),
-        ],
-      ),
       body: SingleChildScrollView(
         child: Container(
           // height: 230,
@@ -60,6 +33,10 @@ class _SettingScreenState extends State<SettingScreen> {
             // color: Colors.amber,
           ),
           child: Column(children: [
+            Text(
+              'SETTING',
+              style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
+            ),
             Container(
               margin: const EdgeInsets.all(10),
               child: Row(
