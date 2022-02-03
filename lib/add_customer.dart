@@ -61,7 +61,7 @@ class _AddCustomerState extends State<AddCustomer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'เพิ่มรายชื่อลูกค้า',
+                'เพิ่มข้อมูลลูกค้า',
                 style: GoogleFonts.kanit(fontSize: subtitle),
               ),
               const SizedBox(height: defaultPadding),

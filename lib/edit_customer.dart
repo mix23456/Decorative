@@ -66,7 +66,7 @@ class _EditCustomer extends State<EditCustomer> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'เพิ่มรายชื่อลูกค้า',
+                  'แก้ไขข้อมูลลูกค้า',
                   style: GoogleFonts.kanit(fontSize: subtitle),
                 ),
                 Container(
