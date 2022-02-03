@@ -36,7 +36,8 @@ class _DetailReceipState extends State<DetailReceip> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          padding: const EdgeInsets.symmetric(
+              horizontal: defaultPadding * 5, vertical: defaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
