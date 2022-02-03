@@ -123,25 +123,17 @@ class _HomeScreenState extends State<HomeScreen> {
               }).toList(),
             ),
             const SizedBox(height: defaultPadding / 2),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Container(width: 32.0),
-                Text(
-                  "REVIEW",
-                  style: GoogleFonts.kanit(fontSize: 32),
-                ),
-                Text(
-                  'All Item',
-                  style: GoogleFonts.kanit(
-                      fontSize: bodytext,
-                      color: colortext2,
-                      decoration: TextDecoration.underline),
-                ),
-              ],
-            ),
+            Container(width: 32.0),
             Padding(
-              padding: const EdgeInsets.all(defaultPadding / 2),
+              padding: const EdgeInsets.symmetric(vertical: defaultPadding * 2),
+              child: Text(
+                "REVIEW",
+                style: GoogleFonts.kanit(fontSize: 32),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: defaultPadding * 5, vertical: defaultPadding * 2),
               child: Row(
                 children: [
                   Expanded(
@@ -208,8 +200,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(defaultPadding / 2),
+            Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
               child: Row(
                 children: [
                   Expanded(
@@ -242,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: defaultPadding / 2),
+                  const SizedBox(width: defaultPadding),
                   Expanded(
                     child: Container(
                       height: 200,
@@ -273,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: defaultPadding / 2),
+                  const SizedBox(width: defaultPadding),
                   Expanded(
                     child: Container(
                       height: 200,
@@ -304,7 +297,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: defaultPadding / 2),
+                  const SizedBox(width: defaultPadding),
                   Expanded(
                     child: Container(
                       width: 200,
@@ -339,11 +332,132 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+            Container(
+              padding: const EdgeInsets.only(
+                  top: defaultPadding / 2, right: defaultPadding * 5),
+              alignment: Alignment.centerRight,
+              child: Text(
+                'All Item',
+                style: GoogleFonts.kanit(
+                    fontSize: bodytext,
+                    color: colortext2,
+                    decoration: TextDecoration.underline),
+              ),
+            ),
             const SizedBox(height: defaultPadding / 2),
-            Text('PAYMENT', style: GoogleFonts.kanit(fontSize: 32)),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: defaultPadding * 2),
+              child:
+                  Text('PERFORMANCE', style: GoogleFonts.kanit(fontSize: 32)),
+            ),
             const SizedBox(height: defaultPadding / 2),
             Container(
-              padding: EdgeInsets.symmetric(vertical: defaultPadding),
+              margin:
+                  const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
+              padding: const EdgeInsets.symmetric(
+                  horizontal: defaultPadding, vertical: defaultPadding),
+              decoration: BoxDecoration(
+                  border: Border.all(color: colortext2),
+                  borderRadius: BorderRadius.circular(10)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'ชื่อผลงาน',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext1),
+                        ),
+                        TextSpan(
+                          text: 'ผ้าม่านสุดเกร์',
+                          style: GoogleFonts.kanit(
+                            color: colortext2,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'ที่อยู่งาน',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext1),
+                        ),
+                        TextSpan(
+                          text:
+                              '188/5-6 ถ.ทุ่งโอเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
+                          style: GoogleFonts.kanit(
+                            color: colortext2,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          width: 200,
+                          height: 200,
+                          color: Colors.transparent,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: defaultPadding),
+                      Expanded(
+                        child: Container(
+                          width: 200,
+                          height: 200,
+                          color: Colors.transparent,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: defaultPadding),
+                      Expanded(
+                        child: Container(
+                          width: 200,
+                          height: 200,
+                          color: Colors.transparent,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            const SizedBox(height: defaultPadding / 2),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: defaultPadding * 2),
+              child: Text('PAYMENT', style: GoogleFonts.kanit(fontSize: 32)),
+            ),
+            const SizedBox(height: defaultPadding / 2),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: defaultPadding),
               color: Colors.grey[200],
               height: 430,
               width: double.infinity,
@@ -531,217 +645,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             const SizedBox(height: defaultPadding / 2),
-            Text('CONTACK US', style: GoogleFonts.kanit(fontSize: 32)),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: defaultPadding * 2),
+              child: Text('CONTACK US', style: GoogleFonts.kanit(fontSize: 32)),
+            ),
             Container(
               padding: const EdgeInsets.symmetric(
                   vertical: defaultPadding, horizontal: defaultPadding * 5),
               color: Colors.grey[200],
-              // height: 200,
-              // child: Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     Container(
-              //       padding: const EdgeInsets.all(defaultPadding),
-              //       child: Text(
-              //         'บริษัท DK decorative',
-              //         style: GoogleFonts.kanit(
-              //             fontSize: bodytext, color: colorBlack),
-              //       ),
-              //     ),
-              //     const SizedBox(height: defaultPadding * 3),
-              //     SizedBox(
-              //       child: Column(
-              //         children: [
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: [
-              //               Row(
-              //                 children: [
-              //                   const Icon(
-              //                     Icons.email,
-              //                     color: colorBlack,
-              //                   ),
-              //                   const SizedBox(width: defaultPadding),
-              //                   Text(
-              //                     'dkdecorative@gmail.com',
-              //                     style: GoogleFonts.kanit(
-              //                         fontSize: bodytext, color: colortext1),
-              //                   ),
-              //                 ],
-              //               ),
-              //               Row(
-              //                 children: [
-              //                   const Icon(Icons.ios_share),
-              //                   const SizedBox(width: defaultPadding / 2),
-              //                   Text(
-              //                     'แชร์',
-              //                     style: GoogleFonts.kanit(
-              //                         fontSize: bodytext,
-              //                         color: colortext1,
-              //                         decoration: TextDecoration.underline),
-              //                   ),
-              //                 ],
-              //               ),
-              //             ],
-              //           ),
-              //           const SizedBox(height: defaultPadding * 2.5),
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: [
-              //               Row(
-              //                 children: [
-              //                   const Icon(
-              //                     Icons.phone,
-              //                     color: colorBlack,
-              //                   ),
-              //                   const SizedBox(width: defaultPadding),
-              //                   Text(
-              //                     '052 002620',
-              //                     style: GoogleFonts.kanit(
-              //                         fontSize: bodytext, color: colortext1),
-              //                   ),
-              //                 ],
-              //               ),
-              //               Row(
-              //                 children: [
-              //                   const Icon(Icons.ios_share),
-              //                   const SizedBox(width: defaultPadding / 2),
-              //                   Text(
-              //                     'แชร์',
-              //                     style: GoogleFonts.kanit(
-              //                         fontSize: bodytext,
-              //                         color: colortext1,
-              //                         decoration: TextDecoration.underline),
-              //                   ),
-              //                 ],
-              //               ),
-              //             ],
-              //           ),
-              //           const SizedBox(height: defaultPadding * 2.5),
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: [
-              //               Row(
-              //                 children: [
-              //                   const Icon(
-              //                     Icons.phone_iphone,
-              //                     color: colorBlack,
-              //                   ),
-              //                   const SizedBox(width: defaultPadding),
-              //                   Text(
-              //                     '0818846190',
-              //                     style: GoogleFonts.kanit(
-              //                         fontSize: bodytext, color: colortext1),
-              //                   ),
-              //                 ],
-              //               ),
-              //               Row(
-              //                 children: [
-              //                   const Icon(Icons.ios_share),
-              //                   const SizedBox(width: defaultPadding / 2),
-              //                   Text(
-              //                     'แชร์',
-              //                     style: GoogleFonts.kanit(
-              //                         fontSize: bodytext,
-              //                         color: colortext1,
-              //                         decoration: TextDecoration.underline),
-              //                   ),
-              //                 ],
-              //               ),
-              //             ],
-              //           ),
-              //           const SizedBox(height: defaultPadding * 2.5),
-              //           Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: [
-              //               Row(
-              //                 children: [
-              //                   const Icon(
-              //                     Icons.location_on,
-              //                     color: colorBlack,
-              //                   ),
-              //                   const SizedBox(width: defaultPadding),
-              //                   Text(
-              //                     '188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
-              //                     style: GoogleFonts.kanit(
-              //                         fontSize: bodytext, color: colortext1),
-              //                   ),
-              //                 ],
-              //               ),
-              //               Row(
-              //                 children: [
-              //                   const Icon(Icons.ios_share),
-              //                   const SizedBox(width: defaultPadding / 2),
-              //                   Text(
-              //                     'แชร์',
-              //                     style: GoogleFonts.kanit(
-              //                         fontSize: bodytext,
-              //                         color: colortext1,
-              //                         decoration: TextDecoration.underline),
-              //                   ),
-              //                 ],
-              //               ),
-              //             ],
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //     const SizedBox(height: defaultPadding * 2),
-              //     SizedBox(
-              //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //         children: [
-              //           Row(
-              //             children: [
-              //               const Icon(Icons.facebook_sharp),
-              //               const SizedBox(width: defaultPadding),
-              //               Text(
-              //                 'DK decoration',
-              //                 style: GoogleFonts.kanit(
-              //                     fontSize: bodytext, color: colortext2),
-              //               ),
-              //             ],
-              //           ),
-              //           Row(
-              //             children: [
-              //               const Icon(Icons.facebook_sharp),
-              //               const SizedBox(width: defaultPadding),
-              //               Text(
-              //                 'DK decoration',
-              //                 style: GoogleFonts.kanit(
-              //                     fontSize: bodytext, color: colortext2),
-              //               ),
-              //             ],
-              //           ),
-              //           Row(
-              //             children: [
-              //               const Icon(Icons.facebook_sharp),
-              //               const SizedBox(width: defaultPadding),
-              //               Text(
-              //                 'DK decoration',
-              //                 style: GoogleFonts.kanit(
-              //                     fontSize: bodytext, color: colortext2),
-              //               ),
-              //             ],
-              //           ),
-              //           Row(
-              //             children: [
-              //               const Icon(Icons.facebook_sharp),
-              //               const SizedBox(width: defaultPadding),
-              //               Text(
-              //                 'DK decoration',
-              //                 style: GoogleFonts.kanit(
-              //                     fontSize: bodytext, color: colortext2),
-              //               ),
-              //             ],
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //     const SizedBox(height: defaultPadding * 2),
-              //     SizedBox(),
-              //   ],
-              // ),
               child: Column(
                 children: [
                   Table(
@@ -882,13 +793,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: defaultPadding),
+                  const SizedBox(height: defaultPadding * 2),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Row(
                         children: [
-                          const Icon(Icons.facebook),
+                          Tab(
+                            icon: Image.asset('assets/logos/facebook_logo.png'),
+                            height: 24,
+                          ),
                           const SizedBox(width: defaultPadding),
                           Text(
                             'DK decorative',
@@ -899,7 +813,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Row(
                         children: [
-                          const Icon(Icons.facebook),
+                          Tab(
+                            icon:
+                                Image.asset('assets/logos/instagram_logo.png'),
+                            height: 24,
+                          ),
                           const SizedBox(width: defaultPadding),
                           Text(
                             'DK decorative',
@@ -910,7 +828,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Row(
                         children: [
-                          const Icon(Icons.facebook),
+                          Tab(
+                            icon: Image.asset('assets/logos/line_logo.png'),
+                            height: 24,
+                          ),
                           const SizedBox(width: defaultPadding),
                           Text(
                             'DK decorative',
@@ -921,7 +842,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       Row(
                         children: [
-                          const Icon(Icons.facebook),
+                          Tab(
+                            icon: Image.asset('assets/logos/twitter_logo.png'),
+                            height: 24,
+                          ),
                           const SizedBox(width: defaultPadding),
                           Text(
                             'DK decorative',
@@ -932,7 +856,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: defaultPadding),
+                  const SizedBox(height: defaultPadding * 2),
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
