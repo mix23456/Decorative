@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  build_runner: ^2.1.7
   carousel_slider: ^4.0.0
   cupertino_icons: ^1.0.4
   custom_navigator: ^0.3.0
@@ -47,8 +48,11 @@ dependencies:
   geolocator: ^8.0.1
   google_fonts: ^2.1.0
   google_maps_flutter: ^2.1.1
+  http: ^0.13.4
+  image: ^3.1.1
   intl: ^0.17.0
   location: ^4.3.0
+  mongo_dart: ^0.7.4
   number_inc_dec: ^0.8.0
   numberpicker: ^2.1.1
   pattern_formatter: ^2.0.0

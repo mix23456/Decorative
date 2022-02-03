@@ -72,7 +72,10 @@ class _SettingScreenState extends State<SettingScreen> {
                                           Container(
                                             width: 320,
                                             height: 256,
-                                            color: colorContainer,
+                                            child: Image.network(
+                                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                              fit: BoxFit.contain,
+                                            ),
                                           ),
                                           const SizedBox(
                                               width: defaultPadding * 2),

@@ -864,7 +864,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 300,
                     child: GoogleMap(
                       initialCameraPosition: _kInitialPosition,
-                      myLocationButtonEnabled: true,
+                      myLocationEnabled: true,
+                      // myLocationButtonEnabled: true,
                     ),
                   ),
                 ],
