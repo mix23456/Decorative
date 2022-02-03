@@ -109,7 +109,8 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(
+              horizontal: defaultPadding * 5, vertical: defaultPadding),
           child: Column(
             children: [
               GestureDetector(
@@ -263,7 +264,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('ความสูงผ้าม่าน (เมตร) :',
+                              Text('ความสูง:',
                                   style: GoogleFonts.kanit(
                                       color: colortext1, fontSize: bodytext)),
                             ],
@@ -275,7 +276,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 530,
+                                width: 430,
                                 child: SfSliderTheme(
                                   data: SfSliderThemeData(
                                     thumbStrokeWidth: 3,
@@ -345,7 +346,7 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('ความกว้างผ้าม่าน (เมตร) :',
+                              Text('ความกว้าง:',
                                   style: GoogleFonts.kanit(
                                       color: colortext1, fontSize: bodytext)),
                             ],
@@ -357,7 +358,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 530,
+                                width: 430,
                                 child: SfSliderTheme(
                                   data: SfSliderThemeData(
                                     thumbStrokeWidth: 3,
@@ -440,7 +441,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 530,
+                                width: 430,
                                 child: SfSliderTheme(
                                   data: SfSliderThemeData(
                                     thumbStrokeWidth: 3,
@@ -946,16 +947,14 @@ class _DetailScreenState extends State<DetailScreen> {
         height: 48,
         width: 48,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
+          color: colorBlue,
           border: Border.all(
-            color: selectImage == index
-                ? const Color(0xFFFF7643)
-                : Colors.transparent,
+            color: selectImage == index ? colorBlack : Colors.transparent,
           ),
         ),
         child: Image.network(
           'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
+          fit: BoxFit.cover,
         ),
       ),
     );
