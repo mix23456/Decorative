@@ -30,319 +30,6 @@ class _ProductScreenState extends State<ProductScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
-        leading: Builder(
-          builder: (context) => // Ensure Scaffold is in context
-              IconButton(
-                  icon: const Icon(Icons.menu),
-                  color: Colors.black,
-                  onPressed: () => Scaffold.of(context).openDrawer()),
-        ),
-        // leading: IconButton(
-        //   icon: Icon(Icons.filter_alt_outlined),
-        //   color: Colors.black,
-        //   // onPressed: () {
-        //   //   // showDialog(
-        //   //   //   context: context,
-        //   //   //   builder: (context) {
-        //   //   //     return StatefulBuilder(
-        //   //   //       // StatefulBuilder
-        //   //   //       builder: (context, setState) {
-        //   //   //         return SingleChildScrollView(
-        //   //   //           child: AlertDialog(
-        //   //   //             actions: <Widget>[
-        //   //   //               SizedBox(
-        //   //   //                 height: MediaQuery.of(context).size.height * 0.55,
-        //   //   //                 width: 400,
-        //   //   //                 child: Column(
-        //   //   //                   crossAxisAlignment: CrossAxisAlignment.center,
-        //   //   //                   children: <Widget>[
-        //   //   //                     Text("ตัวกรอง",
-        //   //   //                         style: GoogleFonts.kanit(fontSize: 20)),
-        //   //   //                     // SizedBox(height: 5),
-        //   //   //                     const Divider(
-        //   //   //                         thickness: 5, color: Colors.black),
-        //   //   //                     const SizedBox(height: 15),
-        //   //   //                     Align(
-        //   //   //                       alignment: Alignment.centerLeft,
-        //   //   //                       child: Text(
-        //   //   //                         'หมวดหมู่: ผ้าม่าน',
-        //   //   //                         style: GoogleFonts.kanit(
-        //   //   //                           fontWeight: FontWeight.w600,
-        //   //   //                         ),
-        //   //   //                       ),
-        //   //   //                     ),
-        //   //   //                     SingleChildScrollView(
-        //   //   //                       child: Column(
-        //   //   //                         children: [
-        //   //   //                           SizedBox(
-        //   //   //                             height: 250,
-        //   //   //                             child: CustomScrollView(
-        //   //   //                               shrinkWrap: true,
-        //   //   //                               slivers: [
-        //   //   //                                 SliverPadding(
-        //   //   //                                   padding: EdgeInsets.zero,
-        //   //   //                                   sliver: SliverList(
-        //   //   //                                     delegate:
-        //   //   //                                         SliverChildListDelegate(
-        //   //   //                                       <Widget>[
-        //   //   //                                         CheckboxListTile(
-        //   //   //                                           controlAffinity:
-        //   //   //                                               ListTileControlAffinity
-        //   //   //                                                   .leading,
-        //   //   //                                           value: curtain1,
-        //   //   //                                           title: Text(
-        //   //   //                                               "ผ้าม่านสองชั้น",
-        //   //   //                                               style: GoogleFonts
-        //   //   //                                                   .kanit()),
-        //   //   //                                           onChanged: (value) {
-        //   //   //                                             setState(() {
-        //   //   //                                               curtain1 = value;
-        //   //   //                                             });
-        //   //   //                                           },
-        //   //   //                                         ),
-        //   //   //                                         const Divider(height: defaultPadding),
-        //   //   //                                         CheckboxListTile(
-        //   //   //                                           controlAffinity:
-        //   //   //                                               ListTileControlAffinity
-        //   //   //                                                   .leading,
-        //   //   //                                           value: curtain2,
-        //   //   //                                           title: Text("ผ้าม่านพับ",
-        //   //   //                                               style: GoogleFonts
-        //   //   //                                                   .kanit()),
-        //   //   //                                           onChanged: (value) {
-        //   //   //                                             setState(() {
-        //   //   //                                               curtain2 = value;
-        //   //   //                                             });
-        //   //   //                                           },
-        //   //   //                                         ),
-        //   //   //                                         const Divider(height: defaultPadding),
-        //   //   //                                         CheckboxListTile(
-        //   //   //                                           controlAffinity:
-        //   //   //                                               ListTileControlAffinity
-        //   //   //                                                   .leading,
-        //   //   //                                           value: curtain3,
-        //   //   //                                           title: Text("ผ้าม่านม้วน",
-        //   //   //                                               style: GoogleFonts
-        //   //   //                                                   .kanit()),
-        //   //   //                                           onChanged: (value) {
-        //   //   //                                             setState(() {
-        //   //   //                                               curtain3 = value;
-        //   //   //                                             });
-        //   //   //                                           },
-        //   //   //                                         ),
-        //   //   //                                         const Divider(height: defaultPadding),
-        //   //   //                                         CheckboxListTile(
-        //   //   //                                           controlAffinity:
-        //   //   //                                               ListTileControlAffinity
-        //   //   //                                                   .leading,
-        //   //   //                                           value: curtain4,
-        //   //   //                                           title: Text("ผ้าม่านจีบ",
-        //   //   //                                               style: GoogleFonts
-        //   //   //                                                   .kanit()),
-        //   //   //                                           onChanged: (value) {
-        //   //   //                                             setState(() {
-        //   //   //                                               curtain4 = value;
-        //   //   //                                             });
-        //   //   //                                           },
-        //   //   //                                         ),
-        //   //   //                                         const Divider(height: defaultPadding),
-        //   //   //                                         CheckboxListTile(
-        //   //   //                                           controlAffinity:
-        //   //   //                                               ListTileControlAffinity
-        //   //   //                                                   .leading,
-        //   //   //                                           value: curtain5,
-        //   //   //                                           title: Text(
-        //   //   //                                               "ผ้าม่านโปร่งแสง",
-        //   //   //                                               style: GoogleFonts
-        //   //   //                                                   .kanit()),
-        //   //   //                                           onChanged: (value) {
-        //   //   //                                             setState(() {
-        //   //   //                                               curtain5 = value;
-        //   //   //                                             });
-        //   //   //                                           },
-        //   //   //                                         ),
-        //   //   //                                         const Divider(height: defaultPadding),
-        //   //   //                                         CheckboxListTile(
-        //   //   //                                           controlAffinity:
-        //   //   //                                               ListTileControlAffinity
-        //   //   //                                                   .leading,
-        //   //   //                                           value: curtain6,
-        //   //   //                                           title: Text(
-        //   //   //                                               "ผ้าม่านตาไก่",
-        //   //   //                                               style: GoogleFonts
-        //   //   //                                                   .kanit()),
-        //   //   //                                           onChanged: (value) {
-        //   //   //                                             setState(() {
-        //   //   //                                               curtain6 = value;
-        //   //   //                                             });
-        //   //   //                                           },
-        //   //   //                                         ),
-        //   //   //                                         const Divider(height: defaultPadding),
-        //   //   //                                         CheckboxListTile(
-        //   //   //                                           controlAffinity:
-        //   //   //                                               ListTileControlAffinity
-        //   //   //                                                   .leading,
-        //   //   //                                           value: curtain7,
-        //   //   //                                           title: Text(
-        //   //   //                                               "ผ้าม่านลายริ้ว",
-        //   //   //                                               style: GoogleFonts
-        //   //   //                                                   .kanit()),
-        //   //   //                                           onChanged: (value) {
-        //   //   //                                             setState(() {
-        //   //   //                                               curtain7 = value;
-        //   //   //                                             });
-        //   //   //                                           },
-        //   //   //                                         ),
-        //   //   //                                         const Divider(height: defaultPadding),
-        //   //   //                                       ],
-        //   //   //                                     ),
-        //   //   //                                   ),
-        //   //   //                                 ),
-        //   //   //                               ],
-        //   //   //                             ),
-        //   //   //                           ),
-        //   //   //                           SingleChildScrollView(
-        //   //   //                             child: Column(
-        //   //   //                               children: [
-        //   //   //                                 SizedBox(
-        //   //   //                                   height: 250,
-        //   //   //                                   child: CustomScrollView(
-        //   //   //                                     shrinkWrap: true,
-        //   //   //                                     slivers: [
-        //   //   //                                       SliverPadding(
-        //   //   //                                         padding: EdgeInsets.zero,
-        //   //   //                                         sliver: SliverList(
-        //   //   //                                           delegate:
-        //   //   //                                               SliverChildListDelegate(
-        //   //   //                                             <Widget>[
-        //   //   //                                               Text(
-        //   //   //                                                   'หมวดหมู่: มู่ลี่',
-        //   //   //                                                   style: GoogleFonts.kanit(
-        //   //   //                                                       fontWeight:
-        //   //   //                                                           FontWeight
-        //   //   //                                                               .w600)),
-        //   //   //                                               CheckboxListTile(
-        //   //   //                                                 controlAffinity:
-        //   //   //                                                     ListTileControlAffinity
-        //   //   //                                                         .leading,
-        //   //   //                                                 value: chick1,
-        //   //   //                                                 title: Text(
-        //   //   //                                                     "มู่ลี่",
-        //   //   //                                                     style: GoogleFonts
-        //   //   //                                                         .kanit()),
-        //   //   //                                                 onChanged: (value) {
-        //   //   //                                                   setState(() {
-        //   //   //                                                     chick1 = value;
-        //   //   //                                                   });
-        //   //   //                                                 },
-        //   //   //                                               ),
-        //   //   //                                               const Divider(
-        //   //   //                                                   height: defaultPadding),
-        //   //   //                                               CheckboxListTile(
-        //   //   //                                                 controlAffinity:
-        //   //   //                                                     ListTileControlAffinity
-        //   //   //                                                         .leading,
-        //   //   //                                                 value: chick2,
-        //   //   //                                                 title: Text(
-        //   //   //                                                     "มู่ลี่ไม้",
-        //   //   //                                                     style: GoogleFonts
-        //   //   //                                                         .kanit()),
-        //   //   //                                                 onChanged: (value) {
-        //   //   //                                                   setState(() {
-        //   //   //                                                     chick2 = value;
-        //   //   //                                                   });
-        //   //   //                                                 },
-        //   //   //                                               ),
-        //   //   //                                               const Divider(
-        //   //   //                                                   height: defaultPadding),
-        //   //   //                                               CheckboxListTile(
-        //   //   //                                                 controlAffinity:
-        //   //   //                                                     ListTileControlAffinity
-        //   //   //                                                         .leading,
-        //   //   //                                                 value: chick3,
-        //   //   //                                                 title: Text(
-        //   //   //                                                     "มู่ลี่อลูมิเนียม",
-        //   //   //                                                     style: GoogleFonts
-        //   //   //                                                         .kanit()),
-        //   //   //                                                 onChanged: (value) {
-        //   //   //                                                   setState(() {
-        //   //   //                                                     chick3 = value;
-        //   //   //                                                   });
-        //   //   //                                                 },
-        //   //   //                                               ),
-        //   //   //                                               const Divider(
-        //   //   //                                                   height: defaultPadding),
-        //   //   //                                               const SizedBox(
-        //   //   //                                                   height: 5),
-        //   //   //                                             ],
-        //   //   //                                           ),
-        //   //   //                                         ),
-        //   //   //                                       ),
-        //   //   //                                     ],
-        //   //   //                                   ),
-        //   //   //                                 ),
-        //   //   //                               ],
-        //   //   //                             ),
-        //   //   //                           ),
-        //   //   //                           Row(
-        //   //   //                             mainAxisAlignment:
-        //   //   //                                 MainAxisAlignment.spaceEvenly,
-        //   //   //                             children: <Widget>[
-        //   //   //                               Material(
-        //   //   //                                 elevation: 5.0,
-        //   //   //                                 color: Colors.blue[900],
-        //   //   //                                 child: MaterialButton(
-        //   //   //                                   padding:
-        //   //   //                                       const EdgeInsets.symmetric(
-        //   //   //                                           vertical: 5,
-        //   //   //                                           horizontal: 10),
-        //   //   //                                   onPressed: () {},
-        //   //   //                                   child: Text("Save",
-        //   //   //                                       textAlign: TextAlign.center,
-        //   //   //                                       style: GoogleFonts.kanit(
-        //   //   //                                         color: Colors.white,
-        //   //   //                                         fontSize: 15,
-        //   //   //                                       )),
-        //   //   //                                 ),
-        //   //   //                               ),
-        //   //   //                               Material(
-        //   //   //                                 elevation: 5.0,
-        //   //   //                                 color: Colors.blue[900],
-        //   //   //                                 child: MaterialButton(
-        //   //   //                                   padding:
-        //   //   //                                       const EdgeInsets.symmetric(
-        //   //   //                                           vertical: 5,
-        //   //   //                                           horizontal: 10),
-        //   //   //                                   onPressed: () {
-        //   //   //                                     setState(() {
-        //   //   //                                       Navigator.of(context).pop();
-        //   //   //                                     });
-        //   //   //                                   },
-        //   //   //                                   child: Text("Cancel",
-        //   //   //                                       textAlign: TextAlign.center,
-        //   //   //                                       style: GoogleFonts.kanit(
-        //   //   //                                         color: Colors.white,
-        //   //   //                                         fontSize: 15,
-        //   //   //                                       )),
-        //   //   //                                 ),
-        //   //   //                               ),
-        //   //   //                             ],
-        //   //   //                           )
-        //   //   //                         ],
-        //   //   //                       ),
-        //   //   //                     ),
-        //   //   //                   ],
-        //   //   //                 ),
-        //   //   //               ),
-        //   //   //             ],
-        //   //   //           ),
-        //   //   //         );
-        //   //   //       },
-        //   //   //     );
-        //   //   //   },
-        //   //   // );
-        //   // },
-        // ),
         title: Text(
           'PRODUCTS',
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
@@ -387,7 +74,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                     const SearchResultCurtain()));
                       },
                       child: Text(
-                        'ผ้าม่าน',
+                        'ผ้าม่าน (100)',
                         style: GoogleFonts.kanit(
                             fontSize: bodytext, color: colorWhite),
                       ),
@@ -406,7 +93,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                     const SearchResultChick()));
                       },
                       child: Text(
-                        'ผ้าม่าน',
+                        'มู่ลี่ (100)',
                         style: GoogleFonts.kanit(
                             fontSize: bodytext, color: colortext1),
                       ),
@@ -455,7 +142,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                     Text(
@@ -463,7 +150,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                   ],
@@ -474,7 +161,7 @@ class _ProductScreenState extends State<ProductScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: defaultPadding / 2),
+                    const SizedBox(width: defaultPadding),
                     Expanded(
                       child: Container(
                         height: MediaQuery.of(context).size.height * 0.25,
@@ -499,7 +186,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                     Text(
@@ -507,7 +194,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                   ],
@@ -550,7 +237,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                     Text(
@@ -558,7 +245,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                   ],
@@ -594,7 +281,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                     Text(
@@ -602,7 +289,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                   ],
@@ -645,7 +332,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                     Text(
@@ -653,7 +340,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                   ],
@@ -689,7 +376,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                     Text(
@@ -697,7 +384,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                   ],
@@ -733,7 +420,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                     Text(
@@ -741,7 +428,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                   ],
@@ -778,7 +465,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                     Text(
@@ -786,7 +473,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                       style: GoogleFonts.kanit(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
-                                        fontSize: 13,
+                                        fontSize: bodytext,
                                       ),
                                     ),
                                   ],
@@ -807,649 +494,3 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 }
-// Column(
-//           children: [
-//             SingleChildScrollView(
-//               child: AlertDialog(
-//                 actions: <Widget>[
-//                   SizedBox(
-//                     // height: MediaQuery.of(context).size.height * 0.55,
-//                     width: 400,
-//                     child: Column(
-//                       crossAxisAlignment: CrossAxisAlignment.center,
-//                       children: <Widget>[
-//                         Text("ตัวกรอง", style: GoogleFonts.kanit(fontSize: 20)),
-//                         // SizedBox(height: 5),
-//                         const Divider(thickness: 5, color: Colors.black),
-//                         const SizedBox(height: 15),
-//                         Align(
-//                           alignment: Alignment.centerLeft,
-//                           child: Text(
-//                             'หมวดหมู่: ผ้าม่าน',
-//                             style: GoogleFonts.kanit(
-//                               fontWeight: FontWeight.w600,
-//                             ),
-//                           ),
-//                         ),
-//                         SingleChildScrollView(
-//                           child: Column(
-//                             children: [
-//                               SizedBox(
-//                                 height:
-//                                     MediaQuery.of(context).size.height * 0.4,
-//                                 child: CustomScrollView(
-//                                   shrinkWrap: true,
-//                                   slivers: [
-//                                     SliverPadding(
-//                                       padding: EdgeInsets.zero,
-//                                       sliver: SliverList(
-//                                         delegate: SliverChildListDelegate(
-//                                           <Widget>[
-//                                             CheckboxListTile(
-//                                               controlAffinity:
-//                                                   ListTileControlAffinity
-//                                                       .leading,
-//                                               value: curtain1,
-//                                               title: Text("ผ้าม่านสองชั้น",
-//                                                   style: GoogleFonts.kanit()),
-//                                               onChanged: (value) {
-//                                                 setState(() {
-//                                                   curtain1 = value;
-//                                                 });
-//                                               },
-//                                             ),
-//                                             const Divider(
-//                                                 height: defaultPadding),
-//                                             CheckboxListTile(
-//                                               controlAffinity:
-//                                                   ListTileControlAffinity
-//                                                       .leading,
-//                                               value: curtain2,
-//                                               title: Text("ผ้าม่านพับ",
-//                                                   style: GoogleFonts.kanit()),
-//                                               onChanged: (value) {
-//                                                 setState(() {
-//                                                   curtain2 = value;
-//                                                 });
-//                                               },
-//                                             ),
-//                                             const Divider(
-//                                                 height: defaultPadding),
-//                                             CheckboxListTile(
-//                                               controlAffinity:
-//                                                   ListTileControlAffinity
-//                                                       .leading,
-//                                               value: curtain3,
-//                                               title: Text("ผ้าม่านม้วน",
-//                                                   style: GoogleFonts.kanit()),
-//                                               onChanged: (value) {
-//                                                 setState(() {
-//                                                   curtain3 = value;
-//                                                 });
-//                                               },
-//                                             ),
-//                                             const Divider(
-//                                                 height: defaultPadding),
-//                                             CheckboxListTile(
-//                                               controlAffinity:
-//                                                   ListTileControlAffinity
-//                                                       .leading,
-//                                               value: curtain4,
-//                                               title: Text("ผ้าม่านจีบ",
-//                                                   style: GoogleFonts.kanit()),
-//                                               onChanged: (value) {
-//                                                 setState(() {
-//                                                   curtain4 = value;
-//                                                 });
-//                                               },
-//                                             ),
-//                                             const Divider(
-//                                                 height: defaultPadding),
-//                                             CheckboxListTile(
-//                                               controlAffinity:
-//                                                   ListTileControlAffinity
-//                                                       .leading,
-//                                               value: curtain5,
-//                                               title: Text("ผ้าม่านโปร่งแสง",
-//                                                   style: GoogleFonts.kanit()),
-//                                               onChanged: (value) {
-//                                                 setState(() {
-//                                                   curtain5 = value;
-//                                                 });
-//                                               },
-//                                             ),
-//                                             const Divider(
-//                                                 height: defaultPadding),
-//                                             CheckboxListTile(
-//                                               controlAffinity:
-//                                                   ListTileControlAffinity
-//                                                       .leading,
-//                                               value: curtain6,
-//                                               title: Text("ผ้าม่านตาไก่",
-//                                                   style: GoogleFonts.kanit()),
-//                                               onChanged: (value) {
-//                                                 setState(() {
-//                                                   curtain6 = value;
-//                                                 });
-//                                               },
-//                                             ),
-//                                             const Divider(
-//                                                 height: defaultPadding),
-//                                             CheckboxListTile(
-//                                               controlAffinity:
-//                                                   ListTileControlAffinity
-//                                                       .leading,
-//                                               value: curtain7,
-//                                               title: Text("ผ้าม่านลายริ้ว",
-//                                                   style: GoogleFonts.kanit()),
-//                                               onChanged: (value) {
-//                                                 setState(() {
-//                                                   curtain7 = value;
-//                                                 });
-//                                               },
-//                                             ),
-//                                             const Divider(
-//                                                 height: defaultPadding),
-//                                           ],
-//                                         ),
-//                                       ),
-//                                     ),
-//                                   ],
-//                                 ),
-//                               ),
-//                               SingleChildScrollView(
-//                                 child: Column(
-//                                   children: [
-//                                     SizedBox(
-//                                       height:
-//                                           MediaQuery.of(context).size.height *
-//                                               0.2,
-//                                       child: CustomScrollView(
-//                                         shrinkWrap: true,
-//                                         slivers: [
-//                                           SliverPadding(
-//                                             padding: EdgeInsets.zero,
-//                                             sliver: SliverList(
-//                                               delegate: SliverChildListDelegate(
-//                                                 <Widget>[
-//                                                   Text('หมวดหมู่: มู่ลี่',
-//                                                       style: GoogleFonts.kanit(
-//                                                           fontWeight:
-//                                                               FontWeight.w600)),
-//                                                   CheckboxListTile(
-//                                                     controlAffinity:
-//                                                         ListTileControlAffinity
-//                                                             .leading,
-//                                                     value: chick1,
-//                                                     title: Text("มู่ลี่",
-//                                                         style: GoogleFonts
-//                                                             .kanit()),
-//                                                     onChanged: (value) {
-//                                                       setState(() {
-//                                                         chick1 = value;
-//                                                       });
-//                                                     },
-//                                                   ),
-//                                                   const Divider(
-//                                                       height: defaultPadding),
-//                                                   CheckboxListTile(
-//                                                     controlAffinity:
-//                                                         ListTileControlAffinity
-//                                                             .leading,
-//                                                     value: chick2,
-//                                                     title: Text("มู่ลี่ไม้",
-//                                                         style: GoogleFonts
-//                                                             .kanit()),
-//                                                     onChanged: (value) {
-//                                                       setState(() {
-//                                                         chick2 = value;
-//                                                       });
-//                                                     },
-//                                                   ),
-//                                                   const Divider(
-//                                                       height: defaultPadding),
-//                                                   CheckboxListTile(
-//                                                     controlAffinity:
-//                                                         ListTileControlAffinity
-//                                                             .leading,
-//                                                     value: chick3,
-//                                                     title: Text(
-//                                                         "มู่ลี่อลูมิเนียม",
-//                                                         style: GoogleFonts
-//                                                             .kanit()),
-//                                                     onChanged: (value) {
-//                                                       setState(() {
-//                                                         chick3 = value;
-//                                                       });
-//                                                     },
-//                                                   ),
-//                                                   const Divider(
-//                                                       height: defaultPadding),
-//                                                   const SizedBox(height: 5),
-//                                                 ],
-//                                               ),
-//                                             ),
-//                                           ),
-//                                         ],
-//                                       ),
-//                                     ),
-//                                   ],
-//                                 ),
-//                               ),
-//                               Row(
-//                                 mainAxisAlignment:
-//                                     MainAxisAlignment.spaceEvenly,
-//                                 children: <Widget>[
-//                                   Material(
-//                                     elevation: 5.0,
-//                                     color: Colors.blue[900],
-//                                     child: MaterialButton(
-//                                       padding: const EdgeInsets.symmetric(
-//                                           vertical: 5, horizontal: 10),
-//                                       onPressed: () {},
-//                                       child: Text("Save",
-//                                           textAlign: TextAlign.center,
-//                                           style: GoogleFonts.kanit(
-//                                             color: Colors.white,
-//                                             fontSize: 15,
-//                                           )),
-//                                     ),
-//                                   ),
-//                                   Material(
-//                                     elevation: 5.0,
-//                                     color: Colors.blue[900],
-//                                     child: MaterialButton(
-//                                       padding: const EdgeInsets.symmetric(
-//                                           vertical: 5, horizontal: 10),
-//                                       onPressed: () {
-//                                         setState(() {
-//                                           Navigator.of(context).pop();
-//                                         });
-//                                       },
-//                                       child: Text("Cancel",
-//                                           textAlign: TextAlign.center,
-//                                           style: GoogleFonts.kanit(
-//                                             color: Colors.white,
-//                                             fontSize: 15,
-//                                           )),
-//                                     ),
-//                                   ),
-//                                 ],
-//                               )
-//                             ],
-//                           ),
-//                         ),
-//                       ],
-//                     ),
-//                   ),
-//                 ],
-//               ),
-//             )
-//           ],
-//         ),
-// const SizedBox(height: defaultPadding),
-              // Container(
-              //   width: MediaQuery.of(context).size.width * 0.1,
-              //   height: MediaQuery.of(context).size.height * 0.03,
-              //   child: ElevatedButton(
-              //     onPressed: () {
-              //       showDialog(
-              //         context: context,
-              //         builder: (context) {
-              //           return StatefulBuilder(
-              //             // StatefulBuilder
-              //             builder: (context, setState) {
-              //               return SingleChildScrollView(
-              //                 child: AlertDialog(
-              //                   actions: <Widget>[
-              //                     SizedBox(
-              //                       height: MediaQuery.of(context).size.height *
-              //                           0.55,
-              //                       width: 400,
-              //                       child: Column(
-              //                         crossAxisAlignment:
-              //                             CrossAxisAlignment.center,
-              //                         children: <Widget>[
-              //                           Text("ตัวกรอง",
-              //                               style: GoogleFonts.kanit(
-              //                                   fontSize: 20)),
-              //                           // SizedBox(height: 5),
-              //                           const Divider(
-              //                               thickness: 5, color: Colors.black),
-              //                           const SizedBox(height: 15),
-              //                           Align(
-              //                             alignment: Alignment.centerLeft,
-              //                             child: Text(
-              //                               'หมวดหมู่: ผ้าม่าน',
-              //                               style: GoogleFonts.kanit(
-              //                                 fontWeight: FontWeight.w600,
-              //                               ),
-              //                             ),
-              //                           ),
-              //                           SingleChildScrollView(
-              //                             child: Column(
-              //                               children: [
-              //                                 SizedBox(
-              //                                   height: 250,
-              //                                   child: CustomScrollView(
-              //                                     shrinkWrap: true,
-              //                                     slivers: [
-              //                                       SliverPadding(
-              //                                         padding: EdgeInsets.zero,
-              //                                         sliver: SliverList(
-              //                                           delegate:
-              //                                               SliverChildListDelegate(
-              //                                             <Widget>[
-              //                                               CheckboxListTile(
-              //                                                 controlAffinity:
-              //                                                     ListTileControlAffinity
-              //                                                         .leading,
-              //                                                 value: curtain1,
-              //                                                 title: Text(
-              //                                                     "ผ้าม่านสองชั้น",
-              //                                                     style: GoogleFonts
-              //                                                         .kanit()),
-              //                                                 onChanged:
-              //                                                     (value) {
-              //                                                   setState(() {
-              //                                                     curtain1 =
-              //                                                         value;
-              //                                                   });
-              //                                                 },
-              //                                               ),
-              //                                               const Divider(
-              //                                                   height: defaultPadding),
-              //                                               CheckboxListTile(
-              //                                                 controlAffinity:
-              //                                                     ListTileControlAffinity
-              //                                                         .leading,
-              //                                                 value: curtain2,
-              //                                                 title: Text(
-              //                                                     "ผ้าม่านพับ",
-              //                                                     style: GoogleFonts
-              //                                                         .kanit()),
-              //                                                 onChanged:
-              //                                                     (value) {
-              //                                                   setState(() {
-              //                                                     curtain2 =
-              //                                                         value;
-              //                                                   });
-              //                                                 },
-              //                                               ),
-              //                                               const Divider(
-              //                                                   height: defaultPadding),
-              //                                               CheckboxListTile(
-              //                                                 controlAffinity:
-              //                                                     ListTileControlAffinity
-              //                                                         .leading,
-              //                                                 value: curtain3,
-              //                                                 title: Text(
-              //                                                     "ผ้าม่านม้วน",
-              //                                                     style: GoogleFonts
-              //                                                         .kanit()),
-              //                                                 onChanged:
-              //                                                     (value) {
-              //                                                   setState(() {
-              //                                                     curtain3 =
-              //                                                         value;
-              //                                                   });
-              //                                                 },
-              //                                               ),
-              //                                               const Divider(
-              //                                                   height: defaultPadding),
-              //                                               CheckboxListTile(
-              //                                                 controlAffinity:
-              //                                                     ListTileControlAffinity
-              //                                                         .leading,
-              //                                                 value: curtain4,
-              //                                                 title: Text(
-              //                                                     "ผ้าม่านจีบ",
-              //                                                     style: GoogleFonts
-              //                                                         .kanit()),
-              //                                                 onChanged:
-              //                                                     (value) {
-              //                                                   setState(() {
-              //                                                     curtain4 =
-              //                                                         value;
-              //                                                   });
-              //                                                 },
-              //                                               ),
-              //                                               const Divider(
-              //                                                   height: defaultPadding),
-              //                                               CheckboxListTile(
-              //                                                 controlAffinity:
-              //                                                     ListTileControlAffinity
-              //                                                         .leading,
-              //                                                 value: curtain5,
-              //                                                 title: Text(
-              //                                                     "ผ้าม่านโปร่งแสง",
-              //                                                     style: GoogleFonts
-              //                                                         .kanit()),
-              //                                                 onChanged:
-              //                                                     (value) {
-              //                                                   setState(() {
-              //                                                     curtain5 =
-              //                                                         value;
-              //                                                   });
-              //                                                 },
-              //                                               ),
-              //                                               const Divider(
-              //                                                   height: defaultPadding),
-              //                                               CheckboxListTile(
-              //                                                 controlAffinity:
-              //                                                     ListTileControlAffinity
-              //                                                         .leading,
-              //                                                 value: curtain6,
-              //                                                 title: Text(
-              //                                                     "ผ้าม่านตาไก่",
-              //                                                     style: GoogleFonts
-              //                                                         .kanit()),
-              //                                                 onChanged:
-              //                                                     (value) {
-              //                                                   setState(() {
-              //                                                     curtain6 =
-              //                                                         value;
-              //                                                   });
-              //                                                 },
-              //                                               ),
-              //                                               const Divider(
-              //                                                   height: defaultPadding),
-              //                                               CheckboxListTile(
-              //                                                 controlAffinity:
-              //                                                     ListTileControlAffinity
-              //                                                         .leading,
-              //                                                 value: curtain7,
-              //                                                 title: Text(
-              //                                                     "ผ้าม่านลายริ้ว",
-              //                                                     style: GoogleFonts
-              //                                                         .kanit()),
-              //                                                 onChanged:
-              //                                                     (value) {
-              //                                                   setState(() {
-              //                                                     curtain7 =
-              //                                                         value;
-              //                                                   });
-              //                                                 },
-              //                                               ),
-              //                                               const Divider(
-              //                                                   height: defaultPadding),
-              //                                             ],
-              //                                           ),
-              //                                         ),
-              //                                       ),
-              //                                     ],
-              //                                   ),
-              //                                 ),
-              //                                 SingleChildScrollView(
-              //                                   child: Column(
-              //                                     children: [
-              //                                       SizedBox(
-              //                                         height: 250,
-              //                                         child: CustomScrollView(
-              //                                           shrinkWrap: true,
-              //                                           slivers: [
-              //                                             SliverPadding(
-              //                                               padding:
-              //                                                   EdgeInsets.zero,
-              //                                               sliver: SliverList(
-              //                                                 delegate:
-              //                                                     SliverChildListDelegate(
-              //                                                   <Widget>[
-              //                                                     Text(
-              //                                                         'หมวดหมู่: มู่ลี่',
-              //                                                         style: GoogleFonts.kanit(
-              //                                                             fontWeight:
-              //                                                                 FontWeight.w600)),
-              //                                                     CheckboxListTile(
-              //                                                       controlAffinity:
-              //                                                           ListTileControlAffinity
-              //                                                               .leading,
-              //                                                       value:
-              //                                                           chick1,
-              //                                                       title: Text(
-              //                                                           "มู่ลี่",
-              //                                                           style: GoogleFonts
-              //                                                               .kanit()),
-              //                                                       onChanged:
-              //                                                           (value) {
-              //                                                         setState(
-              //                                                             () {
-              //                                                           chick1 =
-              //                                                               value;
-              //                                                         });
-              //                                                       },
-              //                                                     ),
-              //                                                     const Divider(
-              //                                                         height:
-              //                                                             10),
-              //                                                     CheckboxListTile(
-              //                                                       controlAffinity:
-              //                                                           ListTileControlAffinity
-              //                                                               .leading,
-              //                                                       value:
-              //                                                           chick2,
-              //                                                       title: Text(
-              //                                                           "มู่ลี่ไม้",
-              //                                                           style: GoogleFonts
-              //                                                               .kanit()),
-              //                                                       onChanged:
-              //                                                           (value) {
-              //                                                         setState(
-              //                                                             () {
-              //                                                           chick2 =
-              //                                                               value;
-              //                                                         });
-              //                                                       },
-              //                                                     ),
-              //                                                     const Divider(
-              //                                                         height:
-              //                                                             10),
-              //                                                     CheckboxListTile(
-              //                                                       controlAffinity:
-              //                                                           ListTileControlAffinity
-              //                                                               .leading,
-              //                                                       value:
-              //                                                           chick3,
-              //                                                       title: Text(
-              //                                                           "มู่ลี่อลูมิเนียม",
-              //                                                           style: GoogleFonts
-              //                                                               .kanit()),
-              //                                                       onChanged:
-              //                                                           (value) {
-              //                                                         setState(
-              //                                                             () {
-              //                                                           chick3 =
-              //                                                               value;
-              //                                                         });
-              //                                                       },
-              //                                                     ),
-              //                                                     const Divider(
-              //                                                         height:
-              //                                                             10),
-              //                                                     const SizedBox(
-              //                                                         height:
-              //                                                             5),
-              //                                                   ],
-              //                                                 ),
-              //                                               ),
-              //                                             ),
-              //                                           ],
-              //                                         ),
-              //                                       ),
-              //                                     ],
-              //                                   ),
-              //                                 ),
-              //                                 Row(
-              //                                   mainAxisAlignment:
-              //                                       MainAxisAlignment
-              //                                           .spaceEvenly,
-              //                                   children: <Widget>[
-              //                                     Material(
-              //                                       elevation: 5.0,
-              //                                       color: Colors.blue[900],
-              //                                       child: MaterialButton(
-              //                                         padding: const EdgeInsets
-              //                                                 .symmetric(
-              //                                             vertical: 5,
-              //                                             horizontal: 10),
-              //                                         onPressed: () {},
-              //                                         child: Text("Save",
-              //                                             textAlign:
-              //                                                 TextAlign.center,
-              //                                             style:
-              //                                                 GoogleFonts.kanit(
-              //                                               color: Colors.white,
-              //                                               fontSize: 15,
-              //                                             )),
-              //                                       ),
-              //                                     ),
-              //                                     Material(
-              //                                       elevation: 5.0,
-              //                                       color: Colors.blue[900],
-              //                                       child: MaterialButton(
-              //                                         padding: const EdgeInsets
-              //                                                 .symmetric(
-              //                                             vertical: 5,
-              //                                             horizontal: 10),
-              //                                         onPressed: () {
-              //                                           setState(() {
-              //                                             Navigator.of(context)
-              //                                                 .pop();
-              //                                           });
-              //                                         },
-              //                                         child: Text("Cancel",
-              //                                             textAlign:
-              //                                                 TextAlign.center,
-              //                                             style:
-              //                                                 GoogleFonts.kanit(
-              //                                               color: Colors.white,
-              //                                               fontSize: 15,
-              //                                             )),
-              //                                       ),
-              //                                     ),
-              //                                   ],
-              //                                 )
-              //                               ],
-              //                             ),
-              //                           ),
-              //                         ],
-              //                       ),
-              //                     ),
-              //                   ],
-              //                 ),
-              //               );
-              //             },
-              //           );
-              //         },
-              //       );
-              //     },
-              //     child: Text('Filter', style: GoogleFonts.kanit(fontSize: 16)),
-              //     style: ElevatedButton.styleFrom(
-              //       shape: RoundedRectangleBorder(
-              //         borderRadius: BorderRadius.circular(20),
-              //       ),
-              //       primary: Colors.black38,
-              //     ),
-              //   ),
-              // ),
-              // const SizedBox(height: defaultPadding),
