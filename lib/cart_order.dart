@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/detail_receip2.dart';
 import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/edit_customer.dart';
 
 class CartOrder extends StatefulWidget {
   const CartOrder({Key? key}) : super(key: key);
@@ -77,7 +78,13 @@ class _CartOrderState extends State<CartOrder> {
                             Container(
                               color: colorbgbtn,
                               child: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const EditCustomer()));
+                                },
                                 icon: const Icon(
                                   Icons.edit,
                                   color: colortext2,
