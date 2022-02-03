@@ -37,7 +37,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
           child: Center(
               child: Column(children: <Widget>[
             Container(
-              margin: const EdgeInsets.all(10),
+              margin: const EdgeInsets.symmetric(
+                  horizontal: defaultPadding * 5, vertical: defaultPadding * 2),
               decoration: BoxDecoration(
                 border: Border.all(color: colorbgbtn),
                 borderRadius: BorderRadius.circular(10.0),
@@ -46,6 +47,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
+                    flex: 2,
                     child: Table(
                       children: [
                         TableRow(
@@ -63,20 +65,21 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                         GoogleFonts.kanit(fontSize: bodytext),
                                   )),
                             ]),
-                        TableRow(
-                            decoration: BoxDecoration(
-                              color: Colors.blue.shade100,
-                            ),
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(defaultPadding),
-                                height: 60.0,
-                                color: colorBlack,
-                              ),
-                            ]),
                         TableRow(children: [
                           Container(
-                              padding: const EdgeInsets.all(defaultPadding),
+                            padding: const EdgeInsets.all(defaultPadding),
+                            height: 120.0,
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: defaultPadding,
+                                  vertical: defaultPadding),
                               height: 60.0,
                               child: Text(
                                 '4 ชิ้น',
@@ -88,6 +91,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     ),
                   ),
                   Expanded(
+                    flex: 3,
                     child: Table(
                       children: [
                         TableRow(
@@ -114,13 +118,27 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         ]),
                         TableRow(children: [
                           Container(
-                              padding: const EdgeInsets.all(defaultPadding),
+                              padding:
+                                  const EdgeInsets.only(left: defaultPadding),
                               height: 60.0,
-                              child: Text(
-                                'ที่อยู่งาน :',
-                                style: GoogleFonts.kanit(
-                                    fontSize: bodytext, color: colortext1),
-                              ))
+                              child: RichText(
+                                  text: TextSpan(children: [
+                                TextSpan(
+                                    text: 'ที่อยู่งาน:',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext1)),
+                                TextSpan(
+                                    text:
+                                        '188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext2))
+                              ]))
+                              // Text(
+                              //   'ที่อยู่งาน :',
+                              //   style: GoogleFonts.kanit(
+                              //       fontSize: bodytext, color: colortext1),
+                              // ),
+                              )
                         ]),
                         TableRow(children: [
                           Container(
