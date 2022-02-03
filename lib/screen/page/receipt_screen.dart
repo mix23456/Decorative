@@ -44,11 +44,12 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+        padding: const EdgeInsets.symmetric(
+            horizontal: defaultPadding * 5, vertical: defaultPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
+            Container(
               padding: const EdgeInsets.symmetric(
                   horizontal: defaultPadding, vertical: defaultPadding),
               child: Text(
@@ -58,8 +59,10 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DetailReceip()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const DetailReceip()));
               },
               child: Container(
                 decoration: BoxDecoration(
