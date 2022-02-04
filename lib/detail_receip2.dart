@@ -25,10 +25,9 @@ class _DetailReceipState2 extends State<DetailReceip2> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios_new),
           color: Colors.black,
         ),
-        centerTitle: true,
         title: Text(
           'ออกใบเสร็จ',
           style: GoogleFonts.kanit(fontSize: subtitle, color: Colors.black),
@@ -395,193 +394,212 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                                   fontSize: bodytext, color: colortext1),
                             ),
                           ),
-                          Table(
+                          Row(
                             children: [
-                              TableRow(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(10.0))),
+                              Expanded(child: Container()),
+                              Expanded(
+                                flex: 2,
+                                child: Table(
                                   children: [
-                                    Container(
-                                      padding: const EdgeInsets.only(
-                                          right: defaultPadding),
-                                      alignment: Alignment.centerRight,
-                                      height: 30.0,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
+                                    TableRow(
+                                        decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                                topRight:
+                                                    Radius.circular(10.0))),
                                         children: [
-                                          Expanded(
-                                            flex: 3,
-                                            child: Container(
-                                              alignment: Alignment.centerRight,
-                                              child: Text(
-                                                'ราคาเต็ม',
-                                                style: GoogleFonts.kanit(
-                                                  fontSize: bodytext,
-                                                  color: colortext1,
+                                          Container(
+                                            padding: const EdgeInsets.only(
+                                                right: defaultPadding),
+                                            alignment: Alignment.centerRight,
+                                            height: 30.0,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
+                                              children: [
+                                                Expanded(
+                                                  flex: 3,
+                                                  child: Container(
+                                                    alignment:
+                                                        Alignment.centerRight,
+                                                    child: Text(
+                                                      'ราคาเต็ม',
+                                                      style: GoogleFonts.kanit(
+                                                        fontSize: bodytext,
+                                                        color: colortext1,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    alignment:
+                                                        Alignment.centerRight,
+                                                    child: Text(
+                                                      ' 3,480.00 ',
+                                                      style: GoogleFonts.kanit(
+                                                        fontSize: bodytext,
+                                                        color: colorBlue,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'บาท',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colortext1,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ]),
+                                    TableRow(children: [
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                            right: defaultPadding),
+                                        alignment: Alignment.centerRight,
+                                        height: 30.0,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Expanded(
+                                              flex: 3,
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  'ส่วนลด',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colortext1,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                          Expanded(
-                                            child: Container(
-                                              alignment: Alignment.centerRight,
-                                              child: Text(
-                                                ' 3,480.00 ',
-                                                style: GoogleFonts.kanit(
-                                                  fontSize: bodytext,
-                                                  color: colorBlue,
+                                            Expanded(
+                                              flex: 1,
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  ' 0.00 ',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colorBlue,
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                          Text(
-                                            'บาท',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
+                                            Text(
+                                              'บาท',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext1,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ]),
-                              TableRow(children: [
-                                Container(
-                                  padding: const EdgeInsets.only(
-                                      right: defaultPadding),
-                                  alignment: Alignment.centerRight,
-                                  height: 30.0,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Expanded(
-                                        flex: 3,
-                                        child: Container(
-                                          alignment: Alignment.centerRight,
-                                          child: Text(
-                                            'ส่วนลด',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
+                                          ],
+                                        ),
+                                      )
+                                    ]),
+                                    TableRow(children: [
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                            right: defaultPadding),
+                                        alignment: Alignment.centerRight,
+                                        height: 30.0,
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                              flex: 3,
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  'ภาษีมูลค่าเพิ่ม(7%)',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colortext1,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 1,
-                                        child: Container(
-                                          alignment: Alignment.centerRight,
-                                          child: Text(
-                                            ' 0.00 ',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colorBlue,
+                                            Expanded(
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  '246.60 ',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colorBlue,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                      Text(
-                                        'บาท',
-                                        style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ]),
-                              TableRow(children: [
-                                Container(
-                                  padding: const EdgeInsets.only(
-                                      right: defaultPadding),
-                                  alignment: Alignment.centerRight,
-                                  height: 30.0,
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        flex: 3,
-                                        child: Container(
-                                          alignment: Alignment.centerRight,
-                                          child: Text(
-                                            'ภาษีมูลค่าเพิ่ม(7%)',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
+                                            Text(
+                                              'บาท',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext1,
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Container(
-                                          alignment: Alignment.centerRight,
-                                          child: Text(
-                                            '246.60 ',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colorBlue,
+                                      )
+                                    ]),
+                                    TableRow(children: [
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                            right: defaultPadding),
+                                        alignment: Alignment.centerRight,
+                                        height: 30.0,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Expanded(
+                                              flex: 3,
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  'ราคาสุทธิ (หลังหักส่วนลดและภาษีมูลค่าเพิ่ม)',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colortext1,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                      Text(
-                                        'บาท',
-                                        style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
-                              ]),
-                              TableRow(children: [
-                                Container(
-                                  padding: const EdgeInsets.only(
-                                      right: defaultPadding),
-                                  alignment: Alignment.centerRight,
-                                  height: 30.0,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Expanded(
-                                        flex: 3,
-                                        child: Container(
-                                          alignment: Alignment.centerRight,
-                                          child: Text(
-                                            'ราคาสุทธิ (หลังหักส่วนลดและภาษีมูลค่าเพิ่ม)',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1,
+                                            Expanded(
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  ' 3236.40 ',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colorBlue,
+                                                  ),
+                                                ),
+                                              ),
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Container(
-                                          alignment: Alignment.centerRight,
-                                          child: Text(
-                                            ' 3236.40 ',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colorBlue,
+                                            Text(
+                                              'บาท',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext1,
+                                              ),
                                             ),
-                                          ),
+                                          ],
                                         ),
                                       ),
-                                      Text(
-                                        'บาท',
-                                        style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ]),
+                                  ],
                                 ),
-                              ]),
+                              ),
                             ],
                           ),
                         ],
