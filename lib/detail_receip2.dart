@@ -623,7 +623,7 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                   ),
                   const SizedBox(height: defaultPadding),
                   SizedBox(
-                    height: 300,
+                    height: 200,
                     width: double.infinity,
                     child: GoogleMap(
                       myLocationEnabled: true,

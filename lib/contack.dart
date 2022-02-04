@@ -189,7 +189,7 @@ class _ContackState extends State<Contack> {
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  height: 300,
+                  height: 200,
                   width: double.infinity,
                   child: GoogleMap(
                     myLocationEnabled: true,

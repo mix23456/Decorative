@@ -760,7 +760,7 @@ class _EditCustomer extends State<EditCustomer> {
                 const SizedBox(height: defaultPadding),
                 // GoogleMap(initialCameraPosition: ),
                 SizedBox(
-                  height: 300,
+                  height: 200,
                   width: double.infinity,
                   child: GoogleMap(
                     myLocationEnabled: true,
