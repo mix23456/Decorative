@@ -682,7 +682,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               borderRadius: BorderRadius.circular(28),
                             )),
                         onPressed: () {
-                          showConfirmDialog;
+                          showConfirmDialog();
                         },
                         icon: const Icon(Icons.shopping_cart_outlined),
                         label: Text(
@@ -843,31 +843,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               primary: colortext1,
                             ),
                             onPressed: () {
-                              showDialog(
-                                  context: context,
-                                  builder: (context) {
-                                    return Dialog(
-                                      child: Container(
-                                          alignment: Alignment.center,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.25,
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.1,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                          child: Text(
-                                            'เพิ่มออเดอร์สำเร็จ',
-                                            style: GoogleFonts.kanit(
-                                                fontSize: bodytext),
-                                          )),
-                                    );
-                                  });
+                              showIncressOrderComplete();
                             },
                             child: Text(
                               'ยืนยัน',
@@ -882,6 +858,26 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               ),
             ),
+          );
+        });
+  }
+
+  void showIncressOrderComplete() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'เพิ่มออเดอร์สำเร็จ',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
           );
         });
   }
