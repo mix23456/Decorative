@@ -25,37 +25,28 @@ class _DetailReceipState extends State<DetailReceip> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios_new),
           color: Colors.black,
         ),
-        centerTitle: true,
         title: Text(
-          'Detail',
-          style: GoogleFonts.kanit(color: Colors.black),
+          'ใบเสร็จ',
+          style: GoogleFonts.kanit(fontSize: subtitle, color: Colors.black),
         ),
       ),
       body: SingleChildScrollView(
         child: Container(
+          color: colorWhite,
+          margin: const EdgeInsets.all(defaultPadding),
           padding: const EdgeInsets.symmetric(
               horizontal: defaultPadding * 5, vertical: defaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                ),
-                child: Text(
-                  'ใบเสร็จ',
-                  style: GoogleFonts.kanit(fontSize: subtitle),
-                ),
-              ),
-              const SizedBox(height: defaultPadding),
               Center(
                 child: Column(
                   children: <Widget>[
                     Container(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      // padding: const EdgeInsets.all(defaultPadding),
                       decoration: BoxDecoration(
                         border: Border.all(width: 2, color: colorBorder),
                         borderRadius: const BorderRadius.only(
@@ -63,150 +54,177 @@ class _DetailReceipState extends State<DetailReceip> {
                           topRight: Radius.circular(10),
                         ),
                       ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Column(
                         children: [
-                          Expanded(
-                            child: Table(
-                              children: [
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerLeft,
-                                      height: 30.0,
-                                      child: Text(
-                                          'ใบเสร็จที่ 1 หมายเลขสั้งซื้อ 211221-00162 ชำระเงินแล้ว',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1))),
-                                ]),
-                                TableRow(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(10.0))),
-                                    children: [
+                          Container(
+                            padding:
+                                const EdgeInsets.only(left: defaultPadding),
+                            alignment: Alignment.centerLeft,
+                            height: 30.0,
+                            child: Text(
+                              'ใบเสร็จที่ 1 หมายเลขสั้งซื้อ 211221-00162 ชำระเงินแล้ว',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(
+                                child: Table(
+                                  border: const TableBorder(
+                                      top: BorderSide(
+                                          width: 2, color: colorBorder)),
+                                  children: [
+                                    TableRow(
+                                        decoration: const BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(10.0),
+                                          ),
+                                        ),
+                                        children: [
+                                          Container(
+                                              padding: const EdgeInsets.only(
+                                                  left: defaultPadding),
+                                              alignment: Alignment.centerLeft,
+                                              height: 30.0,
+                                              child: Text('Bill Form',
+                                                  style: GoogleFonts.kanit(
+                                                      fontSize: bodytext,
+                                                      color: colortext1))),
+                                        ]),
+                                    TableRow(children: [
                                       Container(
+                                          padding: const EdgeInsets.only(
+                                              left: defaultPadding),
                                           alignment: Alignment.centerLeft,
                                           height: 30.0,
-                                          child: Text('Bill Form',
+                                          child: Text('บริษัท DK decorative',
                                               style: GoogleFonts.kanit(
                                                   fontSize: bodytext,
                                                   color: colortext1))),
                                     ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerLeft,
-                                      height: 30.0,
-                                      child: Text('บริษัท DK decorative',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1))),
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerLeft,
-                                      height: 30.0,
-                                      child: Text('เลขกำกับภาษี 062924953',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1))),
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerLeft,
-                                      height: 30.0,
-                                      child: Text(
-                                          'ที่อยู่ : 188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1))),
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerLeft,
-                                      height: 30.0,
-                                      child: Text(
-                                          'เบอร์ติดต่อ : 052 002620 , 0818846190',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1))),
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                    height: 30,
-                                  ),
-                                ]),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Table(
-                              children: [
-                                TableRow(children: [
-                                  Container(
-                                    height: 30,
-                                  ),
-                                ]),
-                                TableRow(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                            topRight: Radius.circular(10.0))),
-                                    children: [
+                                    TableRow(children: [
                                       Container(
+                                          padding: const EdgeInsets.only(
+                                              left: defaultPadding),
+                                          alignment: Alignment.centerLeft,
+                                          height: 30.0,
+                                          child: Text('เลขกำกับภาษี 062924953',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1))),
+                                    ]),
+                                    TableRow(children: [
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              left: defaultPadding),
+                                          alignment: Alignment.centerLeft,
+                                          height: 60.0,
+                                          child: Text(
+                                              'ที่อยู่ : 188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1))),
+                                    ]),
+                                    TableRow(children: [
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              left: defaultPadding),
+                                          alignment: Alignment.centerLeft,
+                                          height: 30.0,
+                                          child: Text(
+                                              'เบอร์ติดต่อ : 052 002620 , 0818846190',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1))),
+                                    ]),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Table(
+                                  border: const TableBorder(
+                                      top: BorderSide(
+                                          width: 2, color: colorBorder)),
+                                  children: [
+                                    TableRow(
+                                        decoration: const BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(10.0),
+                                          ),
+                                        ),
+                                        children: [
+                                          Container(
+                                              padding: const EdgeInsets.only(
+                                                  right: defaultPadding),
+                                              alignment: Alignment.centerRight,
+                                              height: 30.0,
+                                              child: Text('Bill to',
+                                                  style: GoogleFonts.kanit(
+                                                      fontSize: bodytext,
+                                                      color: colortext1)))
+                                        ]),
+                                    TableRow(children: [
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              right: defaultPadding),
                                           alignment: Alignment.centerRight,
                                           height: 30.0,
-                                          child: Text('Bill to',
+                                          child: Text('คุณ แก้ว มาลูน',
                                               style: GoogleFonts.kanit(
                                                   fontSize: bodytext,
                                                   color: colortext1)))
                                     ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerRight,
-                                      height: 30.0,
-                                      child: Text('คุณ แก้ว มาลูน',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1)))
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerRight,
-                                      height: 30.0,
-                                      child: Text('บริษัท ไท',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1)))
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerRight,
-                                      height: 30.0,
-                                      child: Text(
-                                          'ที่อยู่ : 188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1)))
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerRight,
-                                      height: 30.0,
-                                      child: Text('เบอร์ติดต่อ : 023456789',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1)))
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                      alignment: Alignment.centerRight,
-                                      height: 30.0,
-                                      child: Text('อีเมล : 123@gmail.com',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1)))
-                                ]),
-                              ],
-                            ),
+                                    TableRow(children: [
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              right: defaultPadding),
+                                          alignment: Alignment.centerRight,
+                                          height: 30.0,
+                                          child: Text('บริษัท ไท',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1)))
+                                    ]),
+                                    TableRow(children: [
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              right: defaultPadding),
+                                          alignment: Alignment.centerRight,
+                                          height: 60.0,
+                                          child: Text(
+                                              'ที่อยู่ : 188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง \nจ.เชียงใหม่ 50000',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1)))
+                                    ]),
+                                    TableRow(children: [
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              right: defaultPadding),
+                                          alignment: Alignment.centerRight,
+                                          height: 30.0,
+                                          child: Text('เบอร์ติดต่อ : 023456789',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1)))
+                                    ]),
+                                    TableRow(children: [
+                                      Container(
+                                          padding: const EdgeInsets.only(
+                                              right: defaultPadding),
+                                          alignment: Alignment.centerRight,
+                                          height: 30.0,
+                                          child: Text('อีเมล : 123@gmail.com',
+                                              style: GoogleFonts.kanit(
+                                                  fontSize: bodytext,
+                                                  color: colortext1)))
+                                    ]),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -355,7 +373,6 @@ class _DetailReceipState extends State<DetailReceip> {
                         ]),
                       ],
                     ),
-                    const SizedBox(height: defaultPadding),
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(width: 2, color: colorBorder),
@@ -364,43 +381,83 @@ class _DetailReceipState extends State<DetailReceip> {
                           bottomRight: Radius.circular(10),
                         ),
                       ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Column(
                         children: [
-                          Expanded(
-                            child: Table(
-                              children: [
-                                TableRow(children: [
-                                  Container(
-                                    padding:
-                                        EdgeInsets.only(top: defaultPadding),
-                                    height: 60,
-                                    child: Text(
-                                      'หมายเหตุ : จัดส่งวันที่ 27 ม.ค.2565',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1),
-                                    ),
-                                  )
-                                ]),
-                              ],
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: const EdgeInsets.only(
+                                top: defaultPadding, left: defaultPadding),
+                            // height: 40,
+                            child: Text(
+                              'หมายเหตุ : จัดส่งวันที่ 27 ม.ค.2565',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
                             ),
                           ),
-                          Expanded(
-                            flex: 1,
-                            child: Table(
-                              children: [
-                                TableRow(children: [
-                                  Container(
-                                    height: 30,
-                                  ),
-                                ]),
-                                TableRow(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                            topRight: Radius.circular(10.0))),
-                                    children: [
+                          Row(
+                            children: [
+                              Expanded(child: Container()),
+                              Expanded(
+                                flex: 2,
+                                child: Table(
+                                  children: [
+                                    TableRow(
+                                        decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.only(
+                                                topRight:
+                                                    Radius.circular(10.0))),
+                                        children: [
+                                          Container(
+                                            padding: const EdgeInsets.only(
+                                                right: defaultPadding),
+                                            alignment: Alignment.centerRight,
+                                            height: 30.0,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
+                                              children: [
+                                                Expanded(
+                                                  flex: 3,
+                                                  child: Container(
+                                                    alignment:
+                                                        Alignment.centerRight,
+                                                    child: Text(
+                                                      'ราคาเต็ม',
+                                                      style: GoogleFonts.kanit(
+                                                        fontSize: bodytext,
+                                                        color: colortext1,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    alignment:
+                                                        Alignment.centerRight,
+                                                    child: Text(
+                                                      ' 3,480.00 ',
+                                                      style: GoogleFonts.kanit(
+                                                        fontSize: bodytext,
+                                                        color: colorBlue,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Text(
+                                                  'บาท',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colortext1,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ]),
+                                    TableRow(children: [
                                       Container(
+                                        padding: const EdgeInsets.only(
+                                            right: defaultPadding),
                                         alignment: Alignment.centerRight,
                                         height: 30.0,
                                         child: Row(
@@ -413,7 +470,7 @@ class _DetailReceipState extends State<DetailReceip> {
                                                 alignment:
                                                     Alignment.centerRight,
                                                 child: Text(
-                                                  'ราคาเต็ม',
+                                                  'ส่วนลด',
                                                   style: GoogleFonts.kanit(
                                                     fontSize: bodytext,
                                                     color: colortext1,
@@ -422,11 +479,12 @@ class _DetailReceipState extends State<DetailReceip> {
                                               ),
                                             ),
                                             Expanded(
+                                              flex: 1,
                                               child: Container(
                                                 alignment:
                                                     Alignment.centerRight,
                                                 child: Text(
-                                                  ' 3,480.00 ',
+                                                  ' 0.00 ',
                                                   style: GoogleFonts.kanit(
                                                     fontSize: bodytext,
                                                     color: colorBlue,
@@ -445,137 +503,104 @@ class _DetailReceipState extends State<DetailReceip> {
                                         ),
                                       )
                                     ]),
-                                TableRow(children: [
-                                  Container(
-                                    alignment: Alignment.centerRight,
-                                    height: 30.0,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Expanded(
-                                          flex: 3,
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(
-                                              'ส่วนลด',
+                                    TableRow(children: [
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                            right: defaultPadding),
+                                        alignment: Alignment.centerRight,
+                                        height: 30.0,
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                              flex: 3,
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  'ภาษีมูลค่าเพิ่ม(7%)',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colortext1,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  '246.60 ',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colorBlue,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Text(
+                                              'บาท',
                                               style: GoogleFonts.kanit(
                                                 fontSize: bodytext,
                                                 color: colortext1,
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                        Expanded(
-                                          flex: 1,
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(
-                                              ' 0.00 ',
-                                              style: GoogleFonts.kanit(
-                                                fontSize: bodytext,
-                                                color: colorBlue,
+                                      )
+                                    ]),
+                                    TableRow(children: [
+                                      Container(
+                                        padding: const EdgeInsets.only(
+                                            right: defaultPadding),
+                                        alignment: Alignment.centerRight,
+                                        height: 30.0,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Expanded(
+                                              flex: 3,
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  'ราคาสุทธิ (หลังหักส่วนลดและภาษีมูลค่าเพิ่ม)',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colortext1,
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                        Text(
-                                          'บาท',
-                                          style: GoogleFonts.kanit(
-                                            fontSize: bodytext,
-                                            color: colortext1,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                    alignment: Alignment.centerRight,
-                                    height: 30.0,
-                                    child: Row(
-                                      children: [
-                                        Expanded(
-                                          flex: 3,
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(
-                                              'ภาษีมูลค่าเพิ่ม(7%)',
-                                              style: GoogleFonts.kanit(
-                                                fontSize: bodytext,
-                                                color: colortext1,
+                                            Expanded(
+                                              child: Container(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Text(
+                                                  ' 3236.40 ',
+                                                  style: GoogleFonts.kanit(
+                                                    fontSize: bodytext,
+                                                    color: colorBlue,
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(
-                                              '246.60 ',
-                                              style: GoogleFonts.kanit(
-                                                fontSize: bodytext,
-                                                color: colorBlue,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Text(
-                                          'บาท',
-                                          style: GoogleFonts.kanit(
-                                            fontSize: bodytext,
-                                            color: colortext1,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                ]),
-                                TableRow(children: [
-                                  Container(
-                                    alignment: Alignment.centerRight,
-                                    height: 30.0,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Expanded(
-                                          flex: 3,
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(
-                                              'ราคาสุทธิ (หลังหักส่วนลดและภาษีมูลค่าเพิ่ม)',
+                                            Text(
+                                              'บาท',
                                               style: GoogleFonts.kanit(
                                                 fontSize: bodytext,
                                                 color: colortext1,
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                        Expanded(
-                                          child: Container(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(
-                                              ' 3236.40 ',
-                                              style: GoogleFonts.kanit(
-                                                fontSize: bodytext,
-                                                color: colorBlue,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Text(
-                                          'บาท',
-                                          style: GoogleFonts.kanit(
-                                            fontSize: bodytext,
-                                            color: colortext1,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ]),
-                              ],
-                            ),
+                                      ),
+                                    ]),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -617,5 +642,25 @@ class _DetailReceipState extends State<DetailReceip> {
         ),
       ),
     );
+  }
+
+  void showSaveRecipeComplete() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'บันทึกรูปภาพสำเร็จ',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
   }
 }
