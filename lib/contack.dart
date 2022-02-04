@@ -43,11 +43,22 @@ class _ContackState extends State<Contack> {
         padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
         child: Column(
           children: [
-            Text(
-              'ช่องทางการติดต่อ',
-              style: GoogleFonts.kanit(
-                fontSize: subtitle,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.arrow_back_ios)),
+                Text(
+                  'ช่องทางการติดต่อ',
+                  style: GoogleFonts.kanit(
+                    fontSize: subtitle,
+                  ),
+                ),
+                Container(),
+              ],
             ),
             Row(
               children: [
