@@ -213,9 +213,10 @@ class _OrderScreenState extends State<OrderScreen> {
                                                     color: lightGray,
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        color: Color(
-                                                                0xFFABAAAC40)
+                                                        color: const Color(
+                                                                0xFFABAAAC)
                                                             .withOpacity(0.25),
+                                                        blurRadius: 10,
                                                         offset:
                                                             const Offset(4, 4),
                                                       ),
