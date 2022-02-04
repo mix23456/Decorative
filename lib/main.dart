@@ -10,7 +10,6 @@ import 'package:project_curtain/screen/page/order_screen.dart';
 import 'package:project_curtain/screen/page/product_screen.dart';
 import 'package:project_curtain/screen/page/receipt_screen.dart';
 import 'package:project_curtain/screen/page/setting_screen.dart';
-import 'package:project_curtain/test/test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,278 +34,179 @@ class _MyAppState extends State<MyApp> {
 
     // return MaterialApp(home: Map());
 
-    return const MaterialApp(home: IndexScreen());
+    return const MaterialApp(home: TabsScreen());
   }
 }
 
 /////////////////////////////////////////////////////////////////////////
-
-class IndexScreen extends StatefulWidget {
-  const IndexScreen({Key? key}) : super(key: key);
+class TabsScreen extends StatefulWidget {
+  const TabsScreen({Key? key}) : super(key: key);
 
   @override
-  _IndexScreenState createState() => _IndexScreenState();
+  _TabsScreenState createState() => _TabsScreenState();
 }
 
-class _IndexScreenState extends State<IndexScreen> {
-  int currenIndex = 0;
-  final screens = [
-    const HomeScreen(),
-    const ProductScreen(),
-    const OrderScreen(),
-    const ReceiptScreen(),
-    const CustomerScreen(),
-    const SettingScreen(),
-  ];
+class _TabsScreenState extends State<TabsScreen> {
+  int _currentIndex = 0;
 
+  final _homeScreen = GlobalKey<NavigatorState>();
+  final _productScreen = GlobalKey<NavigatorState>();
+  final _orderScreen = GlobalKey<NavigatorState>();
+  final _receiptScreen = GlobalKey<NavigatorState>();
+  final _customerScreen = GlobalKey<NavigatorState>();
+  final _settingScreen = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 6,
-      child: Scaffold(
-          appBar: AppBar(
-            elevation: 2,
-            backgroundColor: Colors.grey[300],
-            leading: Image.asset('assets/logos/logo.png'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Contack()));
-                },
-                child: Text(
-                  'ช่องทางการติดต่อ',
-                  style:
-                      GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
-                ),
-              ),
-            ],
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 2,
+        backgroundColor: Colors.grey[300],
+        leading: Image.asset('assets/logos/logo.png'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Contack()));
+            },
+            child: Text(
+              'ช่องทางการติดต่อ',
+              style: GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
+            ),
           ),
-          body: screens[currenIndex],
-          bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: Colors.grey[300],
-            selectedItemColor: Colors.black,
-            onTap: (index) => setState(() => currenIndex = index),
-            currentIndex: currenIndex,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  size: 24,
-                ),
-                label: "HOME",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.all_inbox,
-                  size: 24,
-                ),
-                label: "PROSDUCTS",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.receipt,
-                  size: 24,
-                ),
-                label: "ORDERS",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.receipt_long,
-                  size: 24,
-                ),
-                label: "CHECK",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.people,
-                  size: 24,
-                ),
-                label: "CUSTOMERS",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.settings,
-                  size: 24,
-                ),
-                label: "SETTING",
-              ),
-            ],
-            selectedLabelStyle: GoogleFonts.kanit(),
-            unselectedLabelStyle: GoogleFonts.kanit(),
-          )),
+        ],
+      ),
+      body: IndexedStack(
+        index: _currentIndex,
+        children: <Widget>[
+          Navigator(
+            key: _homeScreen,
+            onGenerateRoute: (route) => MaterialPageRoute(
+              settings: route,
+              builder: (context) => const HomeScreen(),
+            ),
+          ),
+          Navigator(
+            key: _productScreen,
+            onGenerateRoute: (route) => MaterialPageRoute(
+              settings: route,
+              builder: (context) => const ProductScreen(),
+            ),
+          ),
+          Navigator(
+            key: _orderScreen,
+            onGenerateRoute: (route) => MaterialPageRoute(
+              settings: route,
+              builder: (context) => const OrderScreen(),
+            ),
+          ),
+          Navigator(
+            key: _receiptScreen,
+            onGenerateRoute: (route) => MaterialPageRoute(
+              settings: route,
+              builder: (context) => const ReceiptScreen(),
+            ),
+          ),
+          Navigator(
+            key: _customerScreen,
+            onGenerateRoute: (route) => MaterialPageRoute(
+              settings: route,
+              builder: (context) => const CustomerScreen(),
+            ),
+          ),
+          Navigator(
+            key: _settingScreen,
+            onGenerateRoute: (route) => MaterialPageRoute(
+              settings: route,
+              builder: (context) => const SettingScreen(),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (val) => _onTap(val, context),
+        backgroundColor: Colors.grey[300],
+        selectedItemColor: Colors.black,
+        selectedLabelStyle: GoogleFonts.kanit(),
+        unselectedLabelStyle: GoogleFonts.kanit(),
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              size: 24,
+            ),
+            label: "HOME",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.all_inbox,
+              size: 24,
+            ),
+            label: "PROSDUCTS",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.receipt,
+              size: 24,
+            ),
+            label: "ORDERS",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.receipt_long,
+              size: 24,
+            ),
+            label: "CHECK",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.people,
+              size: 24,
+            ),
+            label: "CUSTOMERS",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.settings,
+              size: 24,
+            ),
+            label: "SETTING",
+          ),
+        ],
+      ),
     );
   }
+
+  void _onTap(int val, BuildContext context) {
+    if (_currentIndex == val) {
+      switch (val) {
+        case 0:
+          _homeScreen.currentState!.popUntil((route) => route.isFirst);
+          break;
+        case 1:
+          _productScreen.currentState!.popUntil((route) => route.isFirst);
+          break;
+        case 2:
+          _orderScreen.currentState!.popUntil((route) => route.isFirst);
+          break;
+        case 3:
+          _receiptScreen.currentState!.popUntil((route) => route.isFirst);
+          break;
+        case 4:
+          _customerScreen.currentState!.popUntil((route) => route.isFirst);
+          break;
+        case 5:
+          _settingScreen.currentState!.popUntil((route) => route.isFirst);
+          break;
+        default:
+      }
+    } else {
+      if (mounted) {
+        setState(() {
+          _currentIndex = val;
+        });
+      }
+    }
+  }
 }
-
-// import 'package:flutter/material.dart';
-
-// import 'test/state_management.dart';
-
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Scaffold(
-//         body: HomePage(),
-//       ),
-//     );
-//   }
-// }
-
-// class HomePage extends StatefulWidget {
-//   const HomePage({Key? key}) : super(key: key);
-
-//   @override
-//   State<HomePage> createState() => _HomePageState();
-// }
-
-// class _HomePageState extends State<HomePage> {
-//   final stateManager = HomePageManager();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         SizedBox(height: 50),
-//         Center(
-//           child: Wrap(
-//             spacing: 50,
-//             alignment: WrapAlignment.center,
-//             children: [
-//               ElevatedButton(
-//                 onPressed: stateManager.makeGetRequest,
-//                 child: Text('GET'),
-//               ),
-//               ElevatedButton(
-//                 onPressed: stateManager.makePostRequest,
-//                 child: Text('POST'),
-//               ),
-//               ElevatedButton(
-//                 onPressed: stateManager.makePutRequest,
-//                 child: Text('PUT'),
-//               ),
-//               ElevatedButton(
-//                 onPressed: stateManager.makePatchRequest,
-//                 child: Text('PATCH'),
-//               ),
-//               ElevatedButton(
-//                 onPressed: stateManager.makeDeleteRequest,
-//                 child: Text('DELETE'),
-//               ),
-//             ],
-//           ),
-//         ),
-//         SizedBox(height: 20),
-//         ValueListenableBuilder<RequestState>(
-//           valueListenable: stateManager.resultNotifier,
-//           builder: (context, requestState, child) {
-//             if (requestState is RequestLoadInProgress) {
-//               return CircularProgressIndicator();
-//             } else if (requestState is RequestLoadSuccess) {
-//               return Expanded(
-//                   child: SingleChildScrollView(child: Text(requestState.body)));
-//             } else {
-//               return Container();
-//             }
-//           },
-//         ),
-//       ],
-//     );
-//   }
-// }
-
-// import 'dart:async';
-// import 'dart:convert';
-
-// import 'package:flutter/material.dart';
-// import 'package:http/http.dart' as http;
-// import 'package:project_curtain/test/test2/post_model_2.dart';
-
-// Future<List<Post>> fetchPost() async {
-//   final response =
-//       await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
-
-//   if (response.statusCode == 200) {
-//     final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
-
-//     return parsed.map<Post>((json) => Post.fromMap(json)).toList();
-//   } else {
-//     throw Exception('Failed to load album');
-//   }
-// }
-
-// void main() => runApp(const MyApp());
-
-// class MyApp extends StatefulWidget {
-//   const MyApp({Key? key}) : super(key: key);
-
-//   @override
-//   _MyAppState createState() => _MyAppState();
-// }
-
-// class _MyAppState extends State<MyApp> {
-//   late Future<List<Post>> futurePost;
-
-//   @override
-//   void initState() {
-//     super.initState();
-//     futurePost = fetchPost();
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Fetch Data Example',
-//       theme: ThemeData(
-//         primaryColor: Colors.lightBlueAccent,
-//       ),
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: const Text('Fetch Data Example'),
-//         ),
-//         body: FutureBuilder<List<Post>>(
-//           future: futurePost,
-//           builder: (context, snapshot) {
-//             if (snapshot.hasData) {
-//               return ListView.builder(
-//                 itemCount: snapshot.data!.length,
-//                 itemBuilder: (_, index) => Container(
-//                   margin:
-//                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-//                   padding: const EdgeInsets.all(20.0),
-//                   decoration: BoxDecoration(
-//                     color: const Color(0xff97FFFF),
-//                     borderRadius: BorderRadius.circular(15.0),
-//                   ),
-//                   child: Column(
-//                     mainAxisAlignment: MainAxisAlignment.start,
-//                     crossAxisAlignment: CrossAxisAlignment.start,
-//                     children: [
-//                       Text(
-//                         "${snapshot.data![index].title}",
-//                         style: const TextStyle(
-//                           fontSize: 18.0,
-//                           fontWeight: FontWeight.bold,
-//                         ),
-//                       ),
-//                       const SizedBox(height: 10),
-//                       Text("${snapshot.data![index].body}"),
-//                     ],
-//                   ),
-//                 ),
-//               );
-//             } else {
-//               return const Center(child: CircularProgressIndicator());
-//             }
-//           },
-//         ),
-//       ),
-//     );
-//   }
-// }
