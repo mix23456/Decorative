@@ -108,8 +108,8 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: defaultPadding),
+                          padding: const EdgeInsets.only(
+                              left: defaultPadding, top: defaultPadding),
                           child: Text(
                             'บริษัท ไท',
                             style: GoogleFonts.kanit(
@@ -121,8 +121,8 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: defaultPadding),
+                          padding: const EdgeInsets.only(
+                              left: defaultPadding, top: defaultPadding),
                           child: Text(
                             'จำนวนรายการทั้งหมด 2 รายการ',
                             style: GoogleFonts.kanit(
@@ -134,10 +134,10 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                     TableRow(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: defaultPadding * 2),
+                          padding: const EdgeInsets.only(
+                              left: defaultPadding * 2, top: defaultPadding),
                           child: Text(
-                            '1.ผ้าทึบหน้าแคบ CHALEEYA (150) 100 x 200 580 บาท/ชิ้น\n2.ผ้าทึบหน้าแคบ CHALEEYA (150) 100 x 200 580 บาท/ชิ้น',
+                            '1.ผ้าทึบหน้าแคบ CHALEEYA (150) 100 x 200 580 บาท/ชิ้น',
                             style: GoogleFonts.kanit(
                                 color: Colors.grey, fontSize: bodytext),
                           ),
@@ -148,6 +148,20 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
+                              left: defaultPadding * 2, top: defaultPadding),
+                          child: Text(
+                            '2.ผ้าทึบหน้าแคบ CHALEEYA (150) 100 x 200 580 บาท/ชิ้น',
+                            style: GoogleFonts.kanit(
+                                color: Colors.grey, fontSize: bodytext),
+                          ),
+                        ),
+                      ],
+                    ),
+                    TableRow(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: defaultPadding,
                               left: defaultPadding,
                               right: defaultPadding,
                               bottom: defaultPadding),
