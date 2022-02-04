@@ -785,7 +785,7 @@ class _EditCustomer extends State<EditCustomer> {
                         ),
                       ),
                       onPressed: () {
-                        saveCompilationTrace();
+                        showSaveComplete();
                       },
                       icon: const Icon(Icons.save),
                       label: Text(
