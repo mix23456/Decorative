@@ -36,9 +36,9 @@ final List<Widget> imageSliders = imgList
 int _current = 0;
 
 final CarouselController _controller = CarouselController();
-final LatLng _kMapCenter = const LatLng(19.018255973653343, 72.84793849278007);
+const LatLng _kMapCenter = LatLng(19.018255973653343, 72.84793849278007);
 
-final CameraPosition _kInitialPosition =
+const CameraPosition _kInitialPosition =
     CameraPosition(target: _kMapCenter, zoom: 11.0, tilt: 0, bearing: 0);
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -366,7 +366,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.symmetric(
                   horizontal: defaultPadding, vertical: defaultPadding),
               decoration: BoxDecoration(
-                  border: Border.all(color: colortext2),
+                  border: Border.all(color: colortext2.withOpacity(0.25)),
                   borderRadius: BorderRadius.circular(10)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -468,7 +468,6 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               padding: const EdgeInsets.symmetric(vertical: defaultPadding),
               color: Colors.grey[200],
-              height: 430,
               width: double.infinity,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -486,7 +485,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Row(
                               children: [
-                                SizedBox(
+                                Container(
+                                  margin: const EdgeInsets.all(defaultPadding),
                                   width: 64,
                                   height: 72,
                                   child: Image.asset('assets/logos/kbank.png'),
@@ -574,7 +574,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Row(
                               children: [
-                                SizedBox(
+                                Container(
+                                  margin: const EdgeInsets.all(defaultPadding),
                                   width: 64,
                                   height: 72,
                                   child:
@@ -870,8 +871,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    height: 300,
-                    child: GoogleMap(
+                    height: 200,
+                    child: const GoogleMap(
                       initialCameraPosition: _kInitialPosition,
                       myLocationEnabled: true,
                       // myLocationButtonEnabled: true,
