@@ -14,17 +14,6 @@ class EditCustomer extends StatefulWidget {
 }
 
 class _EditCustomer extends State<EditCustomer> {
-  // Position userLocation;
-  // Future<Position> _getLocation() async {
-  //   try {
-  //     userLocation = await Geolocator.getCurrentPosition(
-  //         desiredAccuracy: LocationAccuracy.best);
-  //   } catch (e) {
-  //     userLocation = null!;
-  //   }
-  //   return userLocation;
-  // }
-
   static const _initialCameraPosition = CameraPosition(
     target: LatLng(37.77972, -122.431297),
     zoom: 11.5,
