@@ -70,6 +70,8 @@ class _CartOrderState extends State<CartOrder> {
                               fontSize: bodytext, color: colorBlack),
                         ),
                         Container(
+                          width: 32,
+                          height: 32,
                           color: colorbgbtn,
                           child: IconButton(
                             onPressed: () {
@@ -82,6 +84,7 @@ class _CartOrderState extends State<CartOrder> {
                             icon: const Icon(
                               Icons.edit,
                               color: colortext2,
+                              size: iconSize,
                             ),
                           ),
                         ),
@@ -484,6 +487,7 @@ class _CartOrderState extends State<CartOrder> {
                               value: 1,
                               groupValue: _vat,
                               activeColor: colortext1,
+                              toggleable: true,
                               onChanged: (value) {
                                 setState(() {
                                   _vat = value;
