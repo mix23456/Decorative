@@ -131,7 +131,9 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 ],
                                               ),
                                               child: IconButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  showPopupRemoveOrder();
+                                                },
                                                 icon: const Icon(
                                                   Icons.delete_outline,
                                                   color: colorWhite,
@@ -251,7 +253,9 @@ class _OrderScreenState extends State<OrderScreen> {
                                                   ),
                                                   child: Center(
                                                     child: IconButton(
-                                                      onPressed: () {},
+                                                      onPressed: () {
+                                                        showPopupRemoveOrder();
+                                                      },
                                                       icon: const Icon(
                                                         Icons.delete_outline,
                                                         color: colorWhite,
@@ -473,5 +477,96 @@ class _OrderScreenState extends State<OrderScreen> {
         ],
       ),
     );
+  }
+
+  void showPopupRemoveOrder() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 28, horizontal: defaultPadding),
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: MediaQuery.of(context).size.height * 0.12,
+              child: Column(
+                children: [
+                  Text('ยืนยันจะลบออเดอร์นี้',
+                      style: GoogleFonts.kanit(fontSize: bodytext)),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: const Color(0xFFD4D4D4),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'ยกเลิก',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: colortext1,
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    child: Container(
+                                        alignment: Alignment.center,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.25,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.1,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Text(
+                                          'ลบรูปภาพสำเร็จ',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext),
+                                        )),
+                                  );
+                                });
+                          },
+                          child: Text(
+                            'ยืนยัน',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colorWhite),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
