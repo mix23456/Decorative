@@ -12,7 +12,6 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-  int _value = 1;
   bool checkProd = false;
   bool checkAll = false;
   @override
@@ -96,7 +95,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                       topRight: Radius.circular(9),
                                     ),
                                     border: Border.all(
-                                      color: const Color(0xFFF5F5F5),
+                                      color: colorBorder,
                                     ),
                                     // color: Colors.grey[200],
                                   ),
@@ -124,9 +123,8 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 color: colortext1,
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    color:
-                                                        const Color(0xFFABAAAC)
-                                                            .withOpacity(0.25),
+                                                    color: colortext2
+                                                        .withOpacity(0.25),
                                                     blurRadius: 10,
                                                     offset: const Offset(4, 4),
                                                   ),
@@ -137,7 +135,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 icon: const Icon(
                                                   Icons.delete_outline,
                                                   color: colorWhite,
-                                                  size: bodytext,
+                                                  size: iconSize,
                                                 ),
                                               ),
                                             ),
@@ -213,8 +211,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                                     color: lightGray,
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        color: const Color(
-                                                                0xFFABAAAC)
+                                                        color: colortext2
                                                             .withOpacity(0.25),
                                                         blurRadius: 10,
                                                         offset:
@@ -233,7 +230,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                                     icon: const Icon(
                                                       Icons.edit_outlined,
                                                       color: colortext1,
-                                                      size: bodytext,
+                                                      size: iconSize,
                                                     ),
                                                   ),
                                                 ),
@@ -244,8 +241,7 @@ class _OrderScreenState extends State<OrderScreen> {
                                                     color: colortext1,
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        color: const Color(
-                                                                0xFFABAAAC)
+                                                        color: colortext2
                                                             .withOpacity(0.25),
                                                         blurRadius: 10,
                                                         offset:
@@ -253,12 +249,14 @@ class _OrderScreenState extends State<OrderScreen> {
                                                       ),
                                                     ],
                                                   ),
-                                                  child: IconButton(
-                                                    onPressed: () {},
-                                                    icon: const Icon(
-                                                      Icons.delete_outline,
-                                                      color: colorWhite,
-                                                      size: bodytext,
+                                                  child: Center(
+                                                    child: IconButton(
+                                                      onPressed: () {},
+                                                      icon: const Icon(
+                                                        Icons.delete_outline,
+                                                        color: colorWhite,
+                                                        size: iconSize,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
