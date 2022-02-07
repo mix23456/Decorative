@@ -39,6 +39,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             Container(
               margin: const EdgeInsets.all(10),
+              color: colorWhite,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -247,6 +248,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             Container(
               margin: const EdgeInsets.all(10),
+              color: colorWhite,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -308,7 +310,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                       Container(
                                         color: colortext1,
                                         child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            showPopupRemoveBank();
+                                          },
                                           icon: const Icon(
                                             Icons.delete,
                                             color: colorWhite,
@@ -357,6 +361,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             Container(
               margin: const EdgeInsets.all(10),
+              color: colorWhite,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -476,6 +481,7 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
             Container(
               margin: const EdgeInsets.all(10),
+              color: colorWhite,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -526,7 +532,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                                 Container(
                                                   color: colortext1,
                                                   child: IconButton(
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      showPopupRemoveWork();
+                                                    },
                                                     icon: const Icon(
                                                       Icons.delete,
                                                       color: colorWhite,
@@ -536,7 +544,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                                 Container(
                                                   color: colorbgbtn,
                                                   child: IconButton(
-                                                    onPressed: () {},
+                                                    onPressed: () {
+                                                      Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  const Work()));
+                                                    },
                                                     icon: const Icon(
                                                       Icons.edit,
                                                       color: colortext1,
@@ -570,27 +584,36 @@ class _SettingScreenState extends State<SettingScreen> {
                                     const SizedBox(height: defaultPadding * 2),
                                     Align(
                                       alignment: Alignment.centerRight,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Text(
-                                            'See More',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext2,
-                                              decoration:
-                                                  TextDecoration.underline,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const Work()));
+                                        },
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Text(
+                                              'See More',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext2,
+                                                decoration:
+                                                    TextDecoration.underline,
+                                              ),
                                             ),
-                                          ),
-                                          Text(
-                                            ' > ',
-                                            style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext2,
+                                            Text(
+                                              ' > ',
+                                              style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext2,
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -624,5 +647,187 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
       ),
     );
+  }
+
+  void showPopupRemoveWork() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 28, horizontal: defaultPadding),
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: MediaQuery.of(context).size.height * 0.12,
+              child: Column(
+                children: [
+                  Text('ยืนยันจะลบผลงานนี้',
+                      style: GoogleFonts.kanit(fontSize: bodytext)),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: const Color(0xFFD4D4D4),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'ยกเลิก',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: colortext1,
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    child: Container(
+                                        alignment: Alignment.center,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.25,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.1,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Text(
+                                          'ลบรูปภาพสำเร็จ',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext),
+                                        )),
+                                  );
+                                });
+                          },
+                          child: Text(
+                            'ยืนยัน',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colorWhite),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  void showPopupRemoveBank() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                  vertical: 28, horizontal: defaultPadding),
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: MediaQuery.of(context).size.height * 0.12,
+              child: Column(
+                children: [
+                  Text('ยืนยันจะลบข้อมูลธนาคาร',
+                      style: GoogleFonts.kanit(fontSize: bodytext)),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: const Color(0xFFD4D4D4),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            'ยกเลิก',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colortext1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 150,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(28),
+                            ),
+                            primary: colortext1,
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return Dialog(
+                                    child: Container(
+                                        alignment: Alignment.center,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.25,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.1,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Text(
+                                          'ลบข้อมูลธนาคารสำเร็จ',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext),
+                                        )),
+                                  );
+                                });
+                          },
+                          child: Text(
+                            'ยืนยัน',
+                            style: GoogleFonts.kanit(
+                                fontSize: bodytext, color: colorWhite),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
