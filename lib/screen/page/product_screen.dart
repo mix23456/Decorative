@@ -104,10 +104,7 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
               const SizedBox(height: defaultPadding),
               Container(
-                padding: const EdgeInsets.only(
-                    left: defaultPadding / 2,
-                    right: defaultPadding / 2,
-                    top: defaultPadding / 2),
+                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
                 child: Row(
                   children: [
                     Expanded(
@@ -118,9 +115,6 @@ class _ProductScreenState extends State<ProductScreen> {
                           borderRadius: BorderRadius.circular(12),
                           child: InkWell(
                             onTap: () {
-                              // Navigator.of(context).push(MaterialPageRoute(
-                              //   builder: (context) => const DetailScreen(),
-                              // ));
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -170,7 +164,13 @@ class _ProductScreenState extends State<ProductScreen> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const DetailScreen(),
+                                  ));
+                            },
                             child: GridTile(
                               child: Image.network(
                                 'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
@@ -221,7 +221,13 @@ class _ProductScreenState extends State<ProductScreen> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const DetailScreen(),
+                                  ));
+                            },
                             child: GridTile(
                               child: Image.network(
                                 'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
@@ -265,7 +271,13 @@ class _ProductScreenState extends State<ProductScreen> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const DetailScreen(),
+                                  ));
+                            },
                             child: GridTile(
                               child: Image.network(
                                 'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
