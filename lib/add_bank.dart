@@ -246,7 +246,7 @@ class _AddBankState extends State<AddBank> {
                 padding: const EdgeInsets.symmetric(
                     vertical: 28, horizontal: defaultPadding),
                 width: MediaQuery.of(context).size.width * 0.4,
-                height: MediaQuery.of(context).size.height * 0.12,
+                height: MediaQuery.of(context).size.height * 0.118,
                 child: Column(
                   children: [
                     Text('ยืนยันจะใช้รูปภาพนี้',
