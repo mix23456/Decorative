@@ -28,7 +28,7 @@ class _SearchCustomerState extends State<SearchCustomer> {
           ),
         ),
         title: Text(
-          'ผลการค้นหาใบเสร็จ',
+          'ผลการค้นหาชื่อลูกค้า',
           style: GoogleFonts.kanit(fontSize: subtitle, color: colorBlack),
         ),
       ),
