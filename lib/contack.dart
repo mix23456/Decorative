@@ -50,7 +50,7 @@ class _ContackState extends State<Contack> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(Icons.arrow_back_ios)),
+                    icon: const Icon(Icons.arrow_back_ios_new)),
                 Text(
                   'ช่องทางการติดต่อ',
                   style: GoogleFonts.kanit(

@@ -20,7 +20,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios_new),
           color: Colors.black,
         ),
         centerTitle: true,

@@ -21,7 +21,7 @@ class _BankState extends State<Bank> {
             Navigator.pop(context);
           },
           icon: const Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back_ios_new,
             color: colorBlack,
           ),
         ),

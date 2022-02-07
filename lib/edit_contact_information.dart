@@ -21,7 +21,7 @@ class _ContactInformationState extends State<ContactInformation> {
             Navigator.pop(context);
           },
           icon: const Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back_ios_new,
             color: colorBlack,
           ),
         ),

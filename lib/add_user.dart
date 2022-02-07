@@ -22,7 +22,7 @@ class _AddUserState extends State<AddUser> {
             Navigator.pop(context);
           },
           icon: const Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back_ios_new,
             color: colorBlack,
           ),
         ),
