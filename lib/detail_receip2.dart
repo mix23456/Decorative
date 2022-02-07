@@ -32,6 +32,27 @@ class _DetailReceipState2 extends State<DetailReceip2> {
           'ออกใบเสร็จ',
           style: GoogleFonts.kanit(fontSize: subtitle, color: Colors.black),
         ),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              showSaveRecipeComplete();
+            },
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.download,
+                  color: colortext2,
+                ),
+                const SizedBox(width: defaultPadding / 2),
+                Text(
+                  'บันทึกใบเสร็จ',
+                  style:
+                      GoogleFonts.kanit(fontSize: bodytext, color: colortext2),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -641,7 +662,7 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                 child: Column(
                   children: [
                     Text(
-                      'ชำระเงิน',
+                      'ชำระเงินได้ที่นี้',
                       style: GoogleFonts.kanit(fontSize: bodytext),
                     ),
                     const SizedBox(height: defaultPadding),
