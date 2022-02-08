@@ -25,11 +25,7 @@ class _SettingScreenState extends State<SettingScreen> {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(defaultPadding),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: colorWhite,
-            // color: Colors.amber,
-          ),
+          color: colorWhite,
           child: Column(children: [
             Text(
               'SETTING',
