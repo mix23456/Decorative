@@ -12,6 +12,7 @@ import 'package:project_curtain/screen/page/order_screen.dart';
 import 'package:project_curtain/screen/page/product_screen.dart';
 import 'package:project_curtain/screen/page/receipt_screen.dart';
 import 'package:project_curtain/screen/page/setting_screen.dart';
+import 'package:project_curtain/search_product.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
@@ -105,6 +106,17 @@ class _DetailScreenState extends State<DetailScreen> {
               ];
             },
           ),
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchProduct()));
+              },
+              icon: const Icon(
+                Icons.search,
+                color: colorBlack,
+              ))
         ],
       ),
       body: SingleChildScrollView(
