@@ -68,7 +68,7 @@ class _WorkState extends State<Work> {
                       showPopupRemoveWork();
                     },
                     icon: const Icon(
-                      Icons.remove,
+                      Icons.delete_outline,
                       color: colorWhite,
                     ),
                   ),
@@ -103,122 +103,152 @@ class _WorkState extends State<Work> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
-                  children: [
-                    Container(
-                      width: 181,
-                      height: 214,
-                      color: colorContainer,
-                    ),
-                    const SizedBox(height: defaultPadding),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      color: colortext1,
-                      child: IconButton(
-                        onPressed: () {
-                          showPopupRemoveImage();
-                        },
-                        icon: const Icon(
-                          Icons.delete_outline,
-                          color: colorWhite,
+                Expanded(
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 181,
+                        height: 214,
+                        color: colorContainer,
+                      ),
+                      const SizedBox(height: defaultPadding),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        color: colortext1,
+                        child: IconButton(
+                          onPressed: () {
+                            showPopupRemoveImage();
+                          },
+                          icon: const Icon(
+                            Icons.delete_outline,
+                            color: colorWhite,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                const SizedBox(width: defaultPadding),
-                Column(
-                  children: [
-                    Container(
-                      width: 181,
-                      height: 214,
-                      color: colorContainer,
-                    ),
-                    const SizedBox(height: defaultPadding),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      color: colortext1,
-                      child: IconButton(
-                        onPressed: () {
-                          showPopupRemoveImage();
-                        },
-                        icon: const Icon(
-                          Icons.delete_outline,
-                          color: colorWhite,
-                        ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 181,
+                        height: 214,
+                        color: colorContainer,
                       ),
-                    )
-                  ],
+                      const SizedBox(height: defaultPadding),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        color: colortext1,
+                        child: IconButton(
+                          onPressed: () {
+                            showPopupRemoveImage();
+                          },
+                          icon: const Icon(
+                            Icons.delete_outline,
+                            color: colorWhite,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-                const SizedBox(width: defaultPadding),
-                Column(
-                  children: [
-                    DottedBorder(
-                      padding: EdgeInsets.zero,
-                      child: GestureDetector(
-                        onTap: () {
-                          showPopupAddImage();
-                        },
-                        child: Container(
-                          width: 181,
-                          height: 214,
-                          color: colorContainer,
+                Expanded(
+                  child: Column(
+                    children: [
+                      DottedBorder(
+                        padding: EdgeInsets.zero,
+                        child: GestureDetector(
+                          onTap: () {
+                            showPopupAddImage();
+                          },
+                          child: Container(
+                            width: 181,
+                            height: 214,
+                            color: colorContainer,
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: defaultPadding),
-                    const SizedBox(width: 40, height: 40),
-                  ],
+                      const SizedBox(height: defaultPadding),
+                      const SizedBox(width: 40, height: 40),
+                    ],
+                  ),
                 ),
               ],
             ),
             const SizedBox(height: defaultPadding),
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.20,
-                height: MediaQuery.of(context).size.height * 0.04,
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    primary: const Color(0xFF707070),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(28),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 160,
+                  height: 48,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: colorbgbtn,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'ยกเลิก',
+                      style: GoogleFonts.kanit(
+                          fontSize: bodytext, color: colortext1),
                     ),
                   ),
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            child: Container(
-                                alignment: Alignment.center,
-                                width: MediaQuery.of(context).size.width * 0.25,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.1,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Text(
-                                  'บันทึกข้อมูลสำเร็จ',
-                                  style: GoogleFonts.kanit(fontSize: bodytext),
-                                )),
-                          );
-                        });
-                  },
-                  icon: const Icon(Icons.save),
-                  label: Text(
-                    'บันทึก',
-                    style: GoogleFonts.kanit(fontSize: bodytext),
+                ),
+                const SizedBox(width: defaultPadding),
+                SizedBox(
+                  width: 160,
+                  height: 48,
+                  child: ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      primary: colortext1,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28),
+                      ),
+                    ),
+                    onPressed: () {
+                      showSaveComplete();
+                    },
+                    icon: const Icon(Icons.save),
+                    label: Text(
+                      'บันทึก',
+                      style: GoogleFonts.kanit(fontSize: bodytext),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  void showSaveComplete() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'บันทึกข้อมูลสำเร็จ',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
   }
 
   void showPopupRemoveWork() {

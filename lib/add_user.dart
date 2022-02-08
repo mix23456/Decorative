@@ -348,11 +348,9 @@ class _AddUserState extends State<AddUser> {
             SizedBox(
               width: 160,
               height: 48,
-              // padding:
-              //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: colortext2.withOpacity(0.25),
+                  primary: colorbgbtn,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(28),
                   ),
@@ -371,8 +369,6 @@ class _AddUserState extends State<AddUser> {
             SizedBox(
               width: 160,
               height: 48,
-              // padding:
-              //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
               child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   primary: colortext1,
