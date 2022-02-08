@@ -87,7 +87,7 @@ class _SearchCustomerState extends State<SearchCustomer> {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey,
-                                  blurRadius: 10,
+                                  blurRadius: 5,
                                   offset: (Offset(4, 4)),
                                 ),
                               ],
@@ -113,7 +113,7 @@ class _SearchCustomerState extends State<SearchCustomer> {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.grey,
-                                  blurRadius: 10,
+                                  blurRadius: 5,
                                   offset: (Offset(4, 4)),
                                 ),
                               ],
@@ -140,7 +140,7 @@ class _SearchCustomerState extends State<SearchCustomer> {
                               boxShadow: [
                                 BoxShadow(
                                   color: colortext2,
-                                  blurRadius: 10,
+                                  blurRadius: 5,
                                   offset: (Offset(4, 4)),
                                 ),
                               ],
@@ -160,7 +160,7 @@ class _SearchCustomerState extends State<SearchCustomer> {
                   const Divider(
                     color: colortext1,
                     height: 0,
-                    thickness: 2,
+                    thickness: 1,
                     endIndent: 160,
                   ),
                   const SizedBox(height: defaultPadding),

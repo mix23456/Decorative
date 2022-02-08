@@ -114,7 +114,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                   horizontal: defaultPadding, vertical: defaultPadding),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.grey[200],
+                color: colorBorder,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -137,8 +137,8 @@ class _CustomerScreenState extends State<CustomerScreen> {
                               color: colorbgbtn,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey,
-                                  blurRadius: 10,
+                                  color: colortext2,
+                                  blurRadius: 5,
                                   offset: (Offset(4, 4)),
                                 ),
                               ],
@@ -163,8 +163,8 @@ class _CustomerScreenState extends State<CustomerScreen> {
                               color: colorbgbtn,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey,
-                                  blurRadius: 10,
+                                  color: colortext2,
+                                  blurRadius: 5,
                                   offset: (Offset(4, 4)),
                                 ),
                               ],
@@ -191,7 +191,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                               boxShadow: [
                                 BoxShadow(
                                   color: colortext2,
-                                  blurRadius: 10,
+                                  blurRadius: 5,
                                   offset: (Offset(4, 4)),
                                 ),
                               ],
@@ -211,7 +211,7 @@ class _CustomerScreenState extends State<CustomerScreen> {
                   const Divider(
                     color: colortext1,
                     height: 0,
-                    thickness: 2,
+                    thickness: 1,
                     endIndent: 160,
                   ),
                   const SizedBox(height: defaultPadding),

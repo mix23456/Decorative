@@ -96,27 +96,35 @@ class _DetailScreenState extends State<DetailScreen> {
             itemBuilder: (context) {
               return [
                 PopupMenuItem<int>(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'ค้นหา',
-                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'ค้นหา',
+                              hintStyle: GoogleFonts.kanit(color: colortext2)),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SearchProduct()));
+                        },
+                        icon: const Icon(
+                          Icons.search,
+                          color: colorBlack,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ];
             },
           ),
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SearchProduct()));
-              },
-              icon: const Icon(
-                Icons.search,
-                color: colorBlack,
-              ))
         ],
       ),
       body: SingleChildScrollView(
