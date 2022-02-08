@@ -18,6 +18,4 @@ const colorBlue = Color(0xFF3481F5);
 const colorBorder = Color(0xFFF5F5F5);
 const colorBgBtn2 = Color(0xFFD4D4D4);
 const colorRed = Color(0xFFFF0000);
-
 const colorbtn1 = Color(0xFFEDEDED);
-const panelTransition = Duration(milliseconds: 500);
