@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_bank.dart';
 import 'package:project_curtain/add_user.dart';
-import 'package:project_curtain/bank.dart';
+import 'package:project_curtain/edit_bank.dart';
 import 'package:project_curtain/edit_contact_information.dart';
 import 'package:project_curtain/constants.dart';
 import 'package:project_curtain/work.dart';
@@ -24,12 +24,10 @@ class _SettingScreenState extends State<SettingScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          // height: 230,
-          // width: 768,
           padding: const EdgeInsets.all(defaultPadding),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: colorBorder,
+            color: colorWhite,
             // color: Colors.amber,
           ),
           child: Column(children: [
@@ -45,9 +43,10 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: [
                   Expanded(
                     child: ExpansionPanelList(
-                      // animationDuration: Duration(milliseconds: 2000),
+                      elevation: 0,
                       children: [
                         ExpansionPanel(
+                            backgroundColor: colorBorder,
                             headerBuilder: (context, isExpanded) {
                               return ListTile(
                                 title: Text(
@@ -56,12 +55,16 @@ class _SettingScreenState extends State<SettingScreen> {
                                 ),
                               );
                             },
-                            body: Align(
+                            body: Container(
+                              decoration: BoxDecoration(
+                                color: colorWhite,
+                                border: Border.all(color: colorBorder),
+                              ),
                               alignment: Alignment.centerLeft,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
-                                  horizontal: 16.0,
-                                  vertical: 8.0,
+                                  horizontal: defaultPadding,
+                                  vertical: defaultPadding / 2,
                                 ),
                                 child: Container(
                                   padding: const EdgeInsets.symmetric(
@@ -225,7 +228,6 @@ class _SettingScreenState extends State<SettingScreen> {
                             isExpanded: _expanded,
                             canTapOnHeader: false),
                       ],
-                      dividerColor: Colors.grey,
                       expansionCallback: (panelIndex, isExpanded) {
                         setState(() {
                           _expanded = !_expanded;
@@ -254,9 +256,10 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: [
                   Expanded(
                     child: ExpansionPanelList(
-                      // animationDuration: Duration(milliseconds: 2000),
+                      elevation: 0,
                       children: [
                         ExpansionPanel(
+                            backgroundColor: colorBorder,
                             headerBuilder: (context, isExpanded) {
                               return ListTile(
                                 title: Text(
@@ -267,6 +270,10 @@ class _SettingScreenState extends State<SettingScreen> {
                             },
                             body: Container(
                               padding: const EdgeInsets.all(defaultPadding),
+                              decoration: BoxDecoration(
+                                color: colorWhite,
+                                border: Border.all(color: colorBorder),
+                              ),
                               child: Row(
                                 children: [
                                   Container(
@@ -322,7 +329,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                       Container(
                                         color: colorbgbtn,
                                         child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const Bank()));
+                                          },
                                           icon: const Icon(
                                             Icons.edit,
                                             color: colortext1,
@@ -337,7 +350,6 @@ class _SettingScreenState extends State<SettingScreen> {
                             isExpanded: _expanded2,
                             canTapOnHeader: false),
                       ],
-                      dividerColor: Colors.grey,
                       expansionCallback: (panelIndex, isExpanded) {
                         setState(() {
                           _expanded2 = !_expanded2;
@@ -367,9 +379,10 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: [
                   Expanded(
                     child: ExpansionPanelList(
-                      // animationDuration: Duration(milliseconds: 2000),
+                      elevation: 0,
                       children: [
                         ExpansionPanel(
+                            backgroundColor: colorBorder,
                             headerBuilder: (context, isExpanded) {
                               return ListTile(
                                 title: Text(
@@ -380,6 +393,10 @@ class _SettingScreenState extends State<SettingScreen> {
                             },
                             body: Container(
                               padding: const EdgeInsets.all(defaultPadding),
+                              decoration: BoxDecoration(
+                                color: colorWhite,
+                                border: Border.all(color: colorBorder),
+                              ),
                               child: Row(
                                 children: [
                                   Row(
@@ -435,9 +452,12 @@ class _SettingScreenState extends State<SettingScreen> {
                                         color: colortext1,
                                         child: IconButton(
                                           onPressed: () {},
-                                          icon: const Icon(
-                                            Icons.edit,
-                                            color: colorWhite,
+                                          icon: Tab(
+                                            icon: Image.asset(
+                                              'assets/icons/no-stopping-white.png',
+                                              color: colorWhite,
+                                            ),
+                                            height: 24,
                                           ),
                                         ),
                                       ),
@@ -459,7 +479,6 @@ class _SettingScreenState extends State<SettingScreen> {
                             isExpanded: _expanded3,
                             canTapOnHeader: false),
                       ],
-                      dividerColor: Colors.grey,
                       expansionCallback: (panelIndex, isExpanded) {
                         setState(() {
                           _expanded3 = !_expanded3;
@@ -487,9 +506,10 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: [
                   Expanded(
                     child: ExpansionPanelList(
-                      // animationDuration: Duration(milliseconds: 2000),
+                      elevation: 0,
                       children: [
                         ExpansionPanel(
+                            backgroundColor: colorBorder,
                             headerBuilder: (context, isExpanded) {
                               return ListTile(
                                 title: Text(
@@ -498,132 +518,134 @@ class _SettingScreenState extends State<SettingScreen> {
                                 ),
                               );
                             },
-                            body: ListTile(
-                              title: Container(
-                                child: Column(
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  'ชื่อผลงาน : ',
-                                                  style: GoogleFonts.kanit(
-                                                      fontSize: bodytext,
-                                                      color: colortext1),
-                                                ),
-                                                Text(
-                                                  'ชื่อผลงาน',
-                                                  style: GoogleFonts.kanit(
+                            body: Container(
+                              padding: const EdgeInsets.all(defaultPadding),
+                              decoration: BoxDecoration(
+                                color: colorWhite,
+                                border: Border.all(color: colorBorder),
+                              ),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                'ชื่อผลงาน : ',
+                                                style: GoogleFonts.kanit(
                                                     fontSize: bodytext,
-                                                    color: colortext2,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Container(
-                                                  color: colortext1,
-                                                  child: IconButton(
-                                                    onPressed: () {
-                                                      showPopupRemoveWork();
-                                                    },
-                                                    icon: const Icon(
-                                                      Icons.delete,
-                                                      color: colorWhite,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  color: colorbgbtn,
-                                                  child: IconButton(
-                                                    onPressed: () {
-                                                      Navigator.push(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  const Work()));
-                                                    },
-                                                    icon: const Icon(
-                                                      Icons.edit,
-                                                      color: colortext1,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(height: defaultPadding),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              'ที่อยู่งาน : ',
-                                              style: GoogleFonts.kanit(
+                                                    color: colortext1),
+                                              ),
+                                              Text(
+                                                'ชื่อผลงาน',
+                                                style: GoogleFonts.kanit(
                                                   fontSize: bodytext,
-                                                  color: colortext1),
-                                            ),
-                                            Text(
-                                              'ที่อยู่งาน',
-                                              style: GoogleFonts.kanit(
-                                                fontSize: bodytext,
-                                                color: colortext2,
+                                                  color: colortext2,
+                                                ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: defaultPadding * 2),
-                                    Align(
-                                      alignment: Alignment.centerRight,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      const Work()));
-                                        },
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Text(
-                                              'See More',
-                                              style: GoogleFonts.kanit(
-                                                fontSize: bodytext,
-                                                color: colortext2,
-                                                decoration:
-                                                    TextDecoration.underline,
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Container(
+                                                color: colortext1,
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    showPopupRemoveWork();
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.delete,
+                                                    color: colorWhite,
+                                                  ),
+                                                ),
                                               ),
-                                            ),
-                                            Text(
-                                              ' > ',
-                                              style: GoogleFonts.kanit(
-                                                fontSize: bodytext,
-                                                color: colortext2,
+                                              Container(
+                                                color: colorbgbtn,
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const Work()));
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.edit,
+                                                    color: colortext1,
+                                                  ),
+                                                ),
                                               ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: defaultPadding),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            'ที่อยู่งาน : ',
+                                            style: GoogleFonts.kanit(
+                                                fontSize: bodytext,
+                                                color: colortext1),
+                                          ),
+                                          Text(
+                                            'ที่อยู่งาน',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext2,
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: defaultPadding * 2),
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const Work()));
+                                      },
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            'See More',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext2,
+                                              decoration:
+                                                  TextDecoration.underline,
+                                            ),
+                                          ),
+                                          Text(
+                                            ' > ',
+                                            style: GoogleFonts.kanit(
+                                              fontSize: bodytext,
+                                              color: colortext2,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                             isExpanded: _expanded4,
                             canTapOnHeader: false),
                       ],
-                      dividerColor: Colors.grey,
                       expansionCallback: (panelIndex, isExpanded) {
                         setState(() {
                           _expanded4 = !_expanded4;
