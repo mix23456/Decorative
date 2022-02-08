@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/constants.dart';
 import 'package:project_curtain/details_product.dart';
+import 'package:project_curtain/search_product.dart';
 import 'package:project_curtain/search_result_chick.dart';
 import 'package:project_curtain/search_result_curtain.dart';
 
@@ -43,11 +44,30 @@ class _ProductScreenState extends State<ProductScreen> {
             itemBuilder: (context) {
               return [
                 PopupMenuItem<int>(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'ค้นหา',
-                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'ค้นหา',
+                              hintStyle: GoogleFonts.kanit(color: colortext2)),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SearchProduct()));
+                        },
+                        icon: const Icon(
+                          Icons.search,
+                          color: colorBlack,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ];

@@ -4,6 +4,7 @@ import 'package:project_curtain/add_customer.dart';
 import 'package:project_curtain/edit_customer.dart';
 import 'package:project_curtain/history.dart';
 import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/search_customer.dart';
 
 class CustomerScreen extends StatefulWidget {
   const CustomerScreen({Key? key}) : super(key: key);
@@ -32,11 +33,31 @@ class _CustomerScreenState extends State<CustomerScreen> {
             itemBuilder: (context) {
               return [
                 PopupMenuItem<int>(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'ค้นหา',
-                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'ค้นหา',
+                              hintStyle: GoogleFonts.kanit(color: colortext2)),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SearchCustomer()));
+                        },
+                        icon: const Icon(
+                          Icons.search,
+                          color: colorBlack,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ];

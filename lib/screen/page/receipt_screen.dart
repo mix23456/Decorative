@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/detail_receip.dart';
 import 'package:project_curtain/details_product.dart';
 import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/search_receipt.dart';
 
 class ReceiptScreen extends StatefulWidget {
   const ReceiptScreen({Key? key}) : super(key: key);
@@ -31,11 +32,30 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
             itemBuilder: (context) {
               return [
                 PopupMenuItem<int>(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'ค้นหา',
-                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'ค้นหา',
+                              hintStyle: GoogleFonts.kanit(color: colortext2)),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SearchReceipt()));
+                        },
+                        icon: const Icon(
+                          Icons.search,
+                          color: colorBlack,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ];

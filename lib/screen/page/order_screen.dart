@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/cart_order.dart';
 import 'package:project_curtain/constants.dart';
 import 'package:project_curtain/edit_product.dart';
+import 'package:project_curtain/search_order.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({Key? key}) : super(key: key);
@@ -33,11 +34,29 @@ class _OrderScreenState extends State<OrderScreen> {
             itemBuilder: (context) {
               return [
                 PopupMenuItem<int>(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'ค้นหา',
-                        hintStyle: GoogleFonts.kanit(color: colortext2)),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 200,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'ค้นหา',
+                              hintStyle: GoogleFonts.kanit(color: colortext2)),
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SearchOrder()));
+                          },
+                          icon: const Icon(
+                            Icons.search,
+                            color: colorBlack,
+                          ))
+                    ],
                   ),
                 ),
               ];
