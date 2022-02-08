@@ -80,7 +80,7 @@ class _BankState extends State<Bank> {
                                         showPopupRemoveBank();
                                       },
                                       icon: const Icon(
-                                        Icons.delete,
+                                        Icons.delete_outline,
                                         color: colorWhite,
                                       ),
                                     ),
@@ -168,7 +168,7 @@ class _BankState extends State<Bank> {
                                         showPopupRemoveBank();
                                       },
                                       icon: const Icon(
-                                        Icons.delete,
+                                        Icons.delete_outline,
                                         color: colorWhite,
                                       ),
                                     ),

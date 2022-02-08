@@ -317,7 +317,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                             showPopupRemoveBank();
                                           },
                                           icon: const Icon(
-                                            Icons.delete,
+                                            Icons.delete_outline,
                                             color: colorWhite,
                                           ),
                                         ),
@@ -556,7 +556,7 @@ class _SettingScreenState extends State<SettingScreen> {
                                                     showPopupRemoveWork();
                                                   },
                                                   icon: const Icon(
-                                                    Icons.delete,
+                                                    Icons.delete_outline,
                                                     color: colorWhite,
                                                   ),
                                                 ),
