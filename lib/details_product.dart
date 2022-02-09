@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_multi_formatter/formatters/money_input_formatter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_customer.dart';
 // import 'package:lite_rolling_switch/lite_rolling_switch.dart';
@@ -130,23 +131,21 @@ class _DetailScreenState extends State<DetailScreen> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: defaultPadding * 5, vertical: defaultPadding),
+              horizontal: defaultPadding * 2, vertical: defaultPadding),
           child: Column(
             children: [
               GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const DetailScreen2();
-                  }));
+                onTap: () async {
+                  showDialog(
+                      context: context, builder: (_) => const ImageDialog());
                 },
-                child: SizedBox(
+                child: Container(
                   width: 453,
                   height: 214,
-                  child: Hero(
-                    tag: 'imageHero',
-                    child: Image.network(
-                      'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-                      fit: BoxFit.cover,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
                     ),
                   ),
                 ),
@@ -182,12 +181,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             ],
                           ),
                         ),
+                        const SizedBox(width: defaultPadding),
                         Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(' ผ้าหน้าทึบ',
+                              Text(' ผ้าทึบหน้าแคบ Acacia',
                                   style: GoogleFonts.kanit(
                                       color: colortext2, fontSize: bodytext)),
                             ],
@@ -209,14 +209,71 @@ class _DetailScreenState extends State<DetailScreen> {
                             ],
                           ),
                         ),
+                        const SizedBox(width: defaultPadding),
                         Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(' ผ้าหน้าทึบ',
-                                  style: GoogleFonts.kanit(
-                                      color: colortext2, fontSize: bodytext)),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.18,
+                                height: 33,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 4,
+                                    primary: colorWhite,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: Text(
+                                    'A01CY04',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext2),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: defaultPadding),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.18,
+                                height: 33,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 4,
+                                    primary: colorWhite,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: Text(
+                                    'A01CY04',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext2),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(width: defaultPadding),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.18,
+                                height: 33,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 4,
+                                    primary: colorWhite,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: Text(
+                                    'A01CY04',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext2),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -236,14 +293,59 @@ class _DetailScreenState extends State<DetailScreen> {
                             ],
                           ),
                         ),
+                        const SizedBox(width: defaultPadding),
                         Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(' ผ้าหน้าทึบ',
-                                  style: GoogleFonts.kanit(
-                                      color: colortext2, fontSize: bodytext)),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.18,
+                                height: 33,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: colortext1,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: colorBgBtn2,
+                                      blurRadius: 5,
+                                      offset: Offset(0, 2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: defaultPadding),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.18,
+                                height: 33,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: colortext2,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: colorBgBtn2,
+                                      blurRadius: 5,
+                                      offset: Offset(0, 2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(width: defaultPadding),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.18,
+                                height: 33,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: const Color(0xFFE9E9E9),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: colorBgBtn2,
+                                      blurRadius: 5,
+                                      offset: Offset(0, 2),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -263,12 +365,13 @@ class _DetailScreenState extends State<DetailScreen> {
                             ],
                           ),
                         ),
+                        const SizedBox(width: defaultPadding),
                         Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(' ผ้าหน้าทึบ',
+                              Text(' ฿400',
                                   style: GoogleFonts.kanit(
                                       color: colortext2, fontSize: bodytext)),
                             ],
@@ -284,19 +387,19 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('ความสูง:',
+                              Text('ความสูง :',
                                   style: GoogleFonts.kanit(
                                       color: colortext1, fontSize: bodytext)),
                             ],
                           ),
                         ),
                         Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 430,
+                                width: MediaQuery.of(context).size.width * 0.35,
                                 child: SfSliderTheme(
                                   data: SfSliderThemeData(
                                     thumbStrokeWidth: 3,
@@ -311,53 +414,81 @@ class _DetailScreenState extends State<DetailScreen> {
                                     onChanged: (dynamic newValue) {
                                       setState(() {
                                         heightCurtain = newValue;
+                                        heightController.text =
+                                            newValue.toStringAsFixed(2);
                                         valueChange();
                                       });
                                     },
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                width: defaultPadding,
+                              const SizedBox(width: defaultPadding),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: defaultPadding),
+                                decoration: BoxDecoration(
+                                  color: colorWhite,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: colorBgBtn2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 2)),
+                                  ],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextField(
+                                        controller: heightController,
+                                        onChanged: (value) {
+                                          var formatValue =
+                                              value.isEmpty ? '0' : value;
+                                          if (double.parse(formatValue) >=
+                                              100.00) {
+                                            setState(() {
+                                              heightCurtain = 100.00;
+                                              heightController.text =
+                                                  heightCurtain.toString();
+                                            });
+                                          } else {
+                                            setState(() {
+                                              heightCurtain =
+                                                  double.parse(formatValue);
+                                            });
+                                          }
+                                          valueChange();
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        textInputAction: TextInputAction.done,
+                                        inputFormatters: [
+                                          MoneyInputFormatter()
+                                        ],
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: '0.00',
+                                          hintStyle: GoogleFonts.kanit(
+                                              color: colortext2),
+                                        ),
+                                        style: GoogleFonts.kanit(
+                                            color: colortext2),
+                                      ),
+                                    ),
+                                    Text(
+                                      'เมตร',
+                                      style: GoogleFonts.kanit(
+                                          color: colortext2,
+                                          fontSize: bodytext),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              Text(
-                                '${heightCurtain.toStringAsFixed(2)}',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                'เมตร',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              )
                             ],
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: defaultPadding / 2),
-                    // TextField(
-                    //   controller: heightController,
-                    //   onChanged: (value) {
-                    //     valueChange();
-                    //   },
-                    //   keyboardType: TextInputType.number,
-                    //   textInputAction: TextInputAction.next,
-                    //   inputFormatters: [MoneyInputFormatter()],
-                    //   // inputFormatters: [ThousandsFormatter(allowFraction: true)],
-                    //   decoration: InputDecoration(
-                    //     // errorText: _height.text.replaceAll('.', ''),
-                    //     focusedBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(30),
-                    //     ),
-                    //     enabledBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(30),
-                    //     ),
-                    //   ),
-                    // ),
                     const SizedBox(height: defaultPadding / 2),
                     Row(
                       children: [
@@ -366,19 +497,19 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('ความกว้าง:',
+                              Text('ความกว้าง :',
                                   style: GoogleFonts.kanit(
                                       color: colortext1, fontSize: bodytext)),
                             ],
                           ),
                         ),
                         Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 430,
+                                width: MediaQuery.of(context).size.width * 0.35,
                                 child: SfSliderTheme(
                                   data: SfSliderThemeData(
                                     thumbStrokeWidth: 3,
@@ -393,6 +524,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                     onChanged: (dynamic newValue) {
                                       setState(() {
                                         widthCurtain = newValue;
+                                        widthController.text =
+                                            newValue.toStringAsFixed(2);
                                         valueChange();
                                       });
                                     },
@@ -402,40 +535,68 @@ class _DetailScreenState extends State<DetailScreen> {
                               const SizedBox(
                                 width: defaultPadding,
                               ),
-                              // Expanded(
-                              //   child: TextField(
-                              //     controller: widthController,
-                              //     onChanged: (value) {
-                              //       valueChange();
-                              //     },
-                              //     keyboardType: TextInputType.number,
-                              //     textInputAction: TextInputAction.next,
-                              //     // inputFormatters: [MoneyInputFormatter()],
-                              //     // inputFormatters: [ThousandsFormatter(allowFraction: true)],
-                              //     decoration: InputDecoration(
-                              //       // errorText: _height.text.replaceAll('.', ''),
-                              //       focusedBorder: OutlineInputBorder(
-                              //         borderRadius: BorderRadius.circular(30),
-                              //       ),
-                              //       enabledBorder: OutlineInputBorder(
-                              //         borderRadius: BorderRadius.circular(30),
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
-                              Text(
-                                '${widthCurtain.toStringAsFixed(2)}',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.3,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: defaultPadding),
+                                decoration: BoxDecoration(
+                                  color: colorWhite,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: colorBgBtn2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 2))
+                                  ],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextField(
+                                        controller: widthController,
+                                        onChanged: (value) {
+                                          var formatValue =
+                                              value.isEmpty ? '0' : value;
+                                          if (double.parse(formatValue) >=
+                                              100.00) {
+                                            setState(() {
+                                              widthCurtain = 100.00;
+                                              widthController.text =
+                                                  widthCurtain.toString();
+                                            });
+                                          } else {
+                                            setState(() {
+                                              widthCurtain =
+                                                  double.parse(formatValue);
+                                            });
+                                          }
+                                          valueChange();
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        textInputAction: TextInputAction.next,
+                                        inputFormatters: [
+                                          MoneyInputFormatter()
+                                        ],
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: '0.00',
+                                          hintStyle: GoogleFonts.kanit(
+                                              color: colortext2),
+                                        ),
+                                        style: GoogleFonts.kanit(
+                                            color: colortext2),
+                                      ),
+                                    ),
+                                    const SizedBox(width: defaultPadding),
+                                    Text(
+                                      'เมตร',
+                                      style: GoogleFonts.kanit(
+                                          color: colortext2,
+                                          fontSize: bodytext),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                'เมตร',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              )
                             ],
                           ),
                         ),
@@ -461,7 +622,7 @@ class _DetailScreenState extends State<DetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 430,
+                                width: MediaQuery.of(context).size.width * 0.35,
                                 child: SfSliderTheme(
                                   data: SfSliderThemeData(
                                     thumbStrokeWidth: 3,
@@ -503,33 +664,6 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: defaultPadding / 2),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text('แบบเย็บ :',
-                                  style: GoogleFonts.kanit(
-                                      color: colortext1, fontSize: bodytext))
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(' ผ้าหน้าทึบ',
-                                  style: GoogleFonts.kanit(
-                                      color: colortext2, fontSize: bodytext)),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
                     const SizedBox(height: defaultPadding),
                     Row(
                       children: [
@@ -538,30 +672,34 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text(
-                                'สลับหน้าผ้า ',
-                                style: GoogleFonts.kanit(
-                                    fontSize: bodytext, color: colortext1),
+                              Expanded(
+                                flex: 1,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    CupertinoSwitch(
+                                      thumbColor: colorWhite,
+                                      // trackColor: colortext1,
+                                      activeColor: colortext1,
+                                      value: isChecked,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          isChecked = !isChecked;
+                                          valueChange();
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              CupertinoSwitch(
-                                thumbColor: colorWhite,
-                                // trackColor: colortext1,
-                                activeColor: colortext1,
-                                value: isChecked,
-                                onChanged: (value) {
-                                  setState(() {
-                                    isChecked = !isChecked;
-                                    valueChange();
-                                  });
-                                },
+                              const SizedBox(width: defaultPadding * 2),
+                              Expanded(
+                                flex: 4,
+                                child: Text(
+                                  'สลับหน้าผ้า ',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
+                                ),
                               ),
                             ],
                           ),
@@ -586,8 +724,9 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                         const SizedBox(width: defaultPadding),
                         Expanded(
-                          flex: 3,
+                          flex: 4,
                           child: TextField(
+                            maxLines: 4,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -598,11 +737,12 @@ class _DetailScreenState extends State<DetailScreen> {
                       ],
                     ),
                     Container(
-                      padding: const EdgeInsets.all(defaultPadding),
+                      padding:
+                          const EdgeInsets.symmetric(vertical: defaultPadding),
                       child: Column(
                         children: [
                           const Divider(
-                            indent: 50,
+                            indent: 0,
                             height: defaultPadding,
                             thickness: 1,
                             color: Color(0xFF707070),
@@ -649,47 +789,6 @@ class _DetailScreenState extends State<DetailScreen> {
                         ],
                       ),
                     ),
-                    // CheckboxListTile(
-                    //   title: Text('สลับหน้าผ้า ', style: GoogleFonts.kanit()),
-                    //   controlAffinity: ListTileControlAffinity.leading,
-                    //   activeColor: Colors.black,
-                    //   value: isChecked,
-                    //   onChanged: (bool? value) {
-                    //     setState(() {
-                    //       // isChecked = !isChecked;
-                    //       // valueChange();
-                    //     });
-                    //   },
-                    // ),
-                    // const SizedBox(height: defaultPadding / 2),
-
-                    // SizedBox(
-                    //   width: double.infinity,
-                    //   child: ElevatedButton(
-                    //     style: ElevatedButton.styleFrom(
-                    //       primary: Colors.black,
-                    //       shape: RoundedRectangleBorder(
-                    //         borderRadius: BorderRadius.circular(30),
-                    //       ),
-                    //     ),
-                    //     onPressed: () {
-                    //       double width =
-                    //           double.parse(widthController.value.text);
-                    //       double price =
-                    //           double.parse(priceController.value.text);
-                    //       double _height =
-                    //           double.parse(heightController.value.text);
-                    //       calculate(width, price, _height);
-                    //     },
-                    //     child: Text(
-                    //       'คำนวณราคา',
-                    //       style: GoogleFonts.kanit(fontSize: 20),
-                    //     ),
-                    //   ),
-                    // ),
-
-                    // const SizedBox(height: defaultPadding),
-
                     const SizedBox(height: defaultPadding / 2),
                     Container(
                       alignment: Alignment.center,
@@ -719,59 +818,6 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   type: BottomNavigationBarType.fixed,
-      //   backgroundColor: Colors.grey[300],
-      //   selectedItemColor: Colors.black,
-      //   onTap: (index) => setState(() => currenIndex = index),
-      //   currentIndex: currenIndex,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.home,
-      //         size: 24,
-      //       ),
-      //       label: "หน้าแรก",
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.all_inbox,
-      //         size: 24,
-      //       ),
-      //       label: "สินค้า",
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.people,
-      //         size: 24,
-      //       ),
-      //       label: "ลูกค้า",
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.receipt,
-      //         size: 24,
-      //       ),
-      //       label: "ออเดอร์",
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.receipt_long,
-      //         size: 24,
-      //       ),
-      //       label: "ใบเสร็จ",
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(
-      //         Icons.settings,
-      //         size: 24,
-      //       ),
-      //       label: "ตั้งค่า",
-      //     ),
-      //   ],
-      //   selectedLabelStyle: GoogleFonts.kanit(),
-      //   unselectedLabelStyle: GoogleFonts.kanit(),
-      // ),
     );
   }
 
@@ -787,8 +833,8 @@ class _DetailScreenState extends State<DetailScreen> {
               child: Container(
                 padding: const EdgeInsets.symmetric(
                     vertical: 28, horizontal: defaultPadding),
-                width: MediaQuery.of(context).size.width * 0.4,
-                height: MediaQuery.of(context).size.height * 0.19,
+                width: MediaQuery.of(context).size.width * 0.56,
+                height: MediaQuery.of(context).size.height * 0.25,
                 child: Column(
                   children: [
                     Text('เจ้าของออเดอร์',
@@ -988,7 +1034,7 @@ class _DetailScreenState extends State<DetailScreen> {
     calculate(widthCurtain, priceCurtain, heightCurtain);
     // double width = double.parse(widthController.value.text);
     // double price = double.parse(priceController.value.text);
-    // double _height = double.parse(heightController.value.text);
+    // double height = double.parse(heightController.value.text);
     // calculate(width, price, _height);
   }
 }
@@ -1051,6 +1097,26 @@ class _DetailScreenState extends State<DetailScreen> {
 // ผ้าหน้าแคบ		(((0.35+สูงที่ติดตั้ง)*(กว้าง*3.0)/1.4)/0.9)*ราคาผ้า
 //             (((0.35 + _height) * (width * 3.0) / 1.4) / 0.9) * price
 
+class ImageDialog extends StatelessWidget {
+  const ImageDialog({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * 0.5,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: NetworkImage(
+                  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
+              fit: BoxFit.cover),
+        ),
+      ),
+    );
+  }
+}
+
 class DetailScreen2 extends StatelessWidget {
   const DetailScreen2({Key? key}) : super(key: key);
 
@@ -1065,7 +1131,7 @@ class DetailScreen2 extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(defaultPadding),
             width: double.infinity,
-            height: 500,
+            height: MediaQuery.of(context).size.height * 2,
             child: Hero(
               tag: 'imageHero',
               child: Image.network(
