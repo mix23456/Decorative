@@ -152,7 +152,7 @@ class _AddBankState extends State<AddBank> {
               //     const EdgeInsets.symmetric(horizontal: 12, vertical: 58),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: colortext2.withOpacity(0.25),
+                  primary: colorbgbtn,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(28),
                   ),

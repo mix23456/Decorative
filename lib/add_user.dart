@@ -59,7 +59,7 @@ class _AddUserState extends State<AddUser> {
                               TextSpan(
                                 text: '*',
                                 style: GoogleFonts.kanit(
-                                  color: const Color(0xFFFF0000),
+                                  color: colorRed,
                                 ),
                               ),
                             ],
@@ -100,7 +100,7 @@ class _AddUserState extends State<AddUser> {
                               TextSpan(
                                 text: '*',
                                 style: GoogleFonts.kanit(
-                                  color: const Color(0xFFFF0000),
+                                  color: colorRed,
                                 ),
                               ),
                             ],
@@ -175,7 +175,7 @@ class _AddUserState extends State<AddUser> {
                               TextSpan(
                                 text: '*',
                                 style: GoogleFonts.kanit(
-                                  color: const Color(0xFFFF0000),
+                                  color: colorRed,
                                 ),
                               ),
                             ],
@@ -221,7 +221,7 @@ class _AddUserState extends State<AddUser> {
                               TextSpan(
                                 text: '*',
                                 style: GoogleFonts.kanit(
-                                  color: const Color(0xFFFF0000),
+                                  color: colorRed,
                                 ),
                               ),
                             ],
@@ -272,7 +272,7 @@ class _AddUserState extends State<AddUser> {
                               TextSpan(
                                 text: '*',
                                 style: GoogleFonts.kanit(
-                                  color: const Color(0xFFFF0000),
+                                  color: colorRed,
                                 ),
                               ),
                             ],
@@ -306,14 +306,14 @@ class _AddUserState extends State<AddUser> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                text: 'ป้นรหัสผ่านอีกครั้ง',
+                                text: 'ป้อนรหัสผ่านอีกครั้ง',
                                 style: GoogleFonts.kanit(
                                     fontSize: bodytext, color: colorBlack),
                               ),
                               TextSpan(
                                 text: '*',
                                 style: GoogleFonts.kanit(
-                                  color: const Color(0xFFFF0000),
+                                  color: colorRed,
                                 ),
                               ),
                             ],
