@@ -27,11 +27,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     // return MaterialApp(home: LoginScreen());
 
-    // return const MaterialApp(
-    //   title: MyApp._title,
-    //   home: Test1(),
-    // );
-
     // return MaterialApp(home: Map());
 
     return const MaterialApp(home: TabsScreen());
