@@ -36,9 +36,8 @@ class _DetailReceipState extends State<DetailReceip> {
       body: SingleChildScrollView(
         child: Container(
           color: colorWhite,
-          margin: const EdgeInsets.all(defaultPadding),
           padding: const EdgeInsets.symmetric(
-              horizontal: defaultPadding * 5, vertical: defaultPadding),
+              horizontal: defaultPadding * 3, vertical: defaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -132,7 +131,7 @@ class _DetailReceipState extends State<DetailReceip> {
                                           padding: const EdgeInsets.only(
                                               left: defaultPadding),
                                           alignment: Alignment.centerLeft,
-                                          height: 30.0,
+                                          height: 50.0,
                                           child: Text(
                                               'เบอร์ติดต่อ : 052 002620 , 0818846190',
                                               style: GoogleFonts.kanit(
@@ -192,7 +191,7 @@ class _DetailReceipState extends State<DetailReceip> {
                                           padding: const EdgeInsets.only(
                                               right: defaultPadding),
                                           alignment: Alignment.centerRight,
-                                          height: 60.0,
+                                          height: 70.0,
                                           child: Text(
                                               'ที่อยู่ : 188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง \nจ.เชียงใหม่ 50000',
                                               style: GoogleFonts.kanit(
@@ -398,7 +397,7 @@ class _DetailReceipState extends State<DetailReceip> {
                             children: [
                               Expanded(child: Container()),
                               Expanded(
-                                flex: 2,
+                                flex: 6,
                                 child: Table(
                                   children: [
                                     TableRow(
@@ -411,7 +410,6 @@ class _DetailReceipState extends State<DetailReceip> {
                                             padding: const EdgeInsets.only(
                                                 right: defaultPadding),
                                             alignment: Alignment.centerRight,
-                                            height: 30.0,
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
@@ -459,7 +457,6 @@ class _DetailReceipState extends State<DetailReceip> {
                                         padding: const EdgeInsets.only(
                                             right: defaultPadding),
                                         alignment: Alignment.centerRight,
-                                        height: 30.0,
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
@@ -508,7 +505,6 @@ class _DetailReceipState extends State<DetailReceip> {
                                         padding: const EdgeInsets.only(
                                             right: defaultPadding),
                                         alignment: Alignment.centerRight,
-                                        height: 30.0,
                                         child: Row(
                                           children: [
                                             Expanded(
@@ -554,7 +550,6 @@ class _DetailReceipState extends State<DetailReceip> {
                                         padding: const EdgeInsets.only(
                                             right: defaultPadding),
                                         alignment: Alignment.centerRight,
-                                        height: 30.0,
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,

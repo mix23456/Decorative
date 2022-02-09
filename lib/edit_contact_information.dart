@@ -30,70 +30,181 @@ class _ContactInformationState extends State<ContactInformation> {
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: const Color(0xFFEDEDED),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: const Color(0xFFEDEDED),
+                ),
+                borderRadius: BorderRadius.circular(10),
               ),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            padding: const EdgeInsets.all(defaultPadding),
-            margin: const EdgeInsets.only(
+              padding: const EdgeInsets.all(defaultPadding),
+              margin: const EdgeInsets.only(
                 top: defaultPadding * 2,
                 bottom: defaultPadding,
-                left: defaultPadding * 5,
-                right: defaultPadding * 5),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(defaultPadding),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Container(
-                          color: colorbgbtn,
-                          child: IconButton(
-                            onPressed: () {
-                              showPopupChangeImage();
-                            },
-                            icon: const Icon(
-                              Icons.edit,
-                              color: colortext1,
+                left: defaultPadding * 3,
+                right: defaultPadding * 3,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(defaultPadding),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                            color: colorbgbtn,
+                            child: IconButton(
+                              onPressed: () {
+                                showPopupChangeImage();
+                              },
+                              icon: const Icon(
+                                Icons.edit,
+                                color: colortext1,
+                              ),
                             ),
                           ),
                         ),
+                        const SizedBox(height: defaultPadding / 2),
+                        Container(
+                          alignment: Alignment.center,
+                          width: double.infinity,
+                          height: 250,
+                          child: Image.network(
+                            'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    children: [
+                      Expanded(
+                        // flex: 1,
+                        child: Text(
+                          'บริษัท :',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext2),
+                        ),
                       ),
-                      const SizedBox(height: defaultPadding / 2),
-                      Container(
-                        alignment: Alignment.center,
-                        width: double.infinity,
-                        height: 250,
-                        child: Image.network(
-                          'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                          fit: BoxFit.cover,
+                      Expanded(
+                        flex: 8,
+                        child: SizedBox(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: defaultPadding),
-                Row(
-                  children: [
-                    Expanded(
-                      // flex: 1,
-                      child: Text(
-                        'บริษัท :',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext2),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          'เลขกำกับภาษี',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext2),
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      flex: 8,
-                      child: SizedBox(
+                      Expanded(
+                        flex: 6,
+                        child: SizedBox(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          'ที่อยู่',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext2),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 10,
+                        child: SizedBox(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: defaultPadding),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          'เบอร์โทรติดต่อ',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext2),
+                        ),
+                      ),
+                      const SizedBox(width: defaultPadding),
+                      Expanded(
+                        flex: 3,
+                        child: SizedBox(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: defaultPadding),
+                      Expanded(
+                        flex: 3,
+                        child: SizedBox(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: defaultPadding * 2),
+                  Row(
+                    children: [
+                      Tab(
+                        icon: Image.asset('assets/logos/facebook_logo.png'),
+                        height: 24,
+                      ),
+                      const SizedBox(width: defaultPadding / 2),
+                      Expanded(
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -102,23 +213,13 @@ class _ContactInformationState extends State<ContactInformation> {
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: defaultPadding),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        'เลขกำกับภาษี',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext2),
+                      const SizedBox(width: defaultPadding),
+                      Tab(
+                        icon: Image.asset('assets/logos/instagram_logo.png'),
+                        height: 24,
                       ),
-                    ),
-                    Expanded(
-                      flex: 6,
-                      child: SizedBox(
+                      const SizedBox(width: defaultPadding / 2),
+                      Expanded(
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -127,23 +228,13 @@ class _ContactInformationState extends State<ContactInformation> {
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: defaultPadding),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        'ที่อยู่',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext2),
+                      const SizedBox(width: defaultPadding),
+                      Tab(
+                        icon: Image.asset('assets/logos/line_logo.png'),
+                        height: 24,
                       ),
-                    ),
-                    Expanded(
-                      flex: 10,
-                      child: SizedBox(
+                      const SizedBox(width: defaultPadding / 2),
+                      Expanded(
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -152,24 +243,13 @@ class _ContactInformationState extends State<ContactInformation> {
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: defaultPadding),
-                Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Text(
-                        'เบอร์โทรติดต่อ',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext2),
+                      const SizedBox(width: defaultPadding),
+                      Tab(
+                        icon: Image.asset('assets/logos/twitter_logo.png'),
+                        height: 24,
                       ),
-                    ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      flex: 3,
-                      child: SizedBox(
+                      const SizedBox(width: defaultPadding / 2),
+                      Expanded(
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -178,91 +258,14 @@ class _ContactInformationState extends State<ContactInformation> {
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      flex: 3,
-                      child: SizedBox(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: defaultPadding * 2),
-                Row(
-                  children: [
-                    Tab(
-                      icon: Image.asset('assets/logos/facebook_logo.png'),
-                      height: 24,
-                    ),
-                    const SizedBox(width: defaultPadding / 2),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: defaultPadding),
-                    Tab(
-                      icon: Image.asset('assets/logos/instagram_logo.png'),
-                      height: 24,
-                    ),
-                    const SizedBox(width: defaultPadding / 2),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: defaultPadding),
-                    Tab(
-                      icon: Image.asset('assets/logos/line_logo.png'),
-                      height: 24,
-                    ),
-                    const SizedBox(width: defaultPadding / 2),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: defaultPadding),
-                    Tab(
-                      icon: Image.asset('assets/logos/twitter_logo.png'),
-                      height: 24,
-                    ),
-                    const SizedBox(width: defaultPadding / 2),
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: defaultPadding * 2),
-              ],
+                    ],
+                  ),
+                  const SizedBox(height: defaultPadding * 2),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.only(bottom: defaultPadding * 2),

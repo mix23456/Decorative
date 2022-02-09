@@ -40,7 +40,7 @@ class _ContackState extends State<Contack> {
         ],
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
+        padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
         child: Column(
           children: [
             Row(
@@ -64,8 +64,8 @@ class _ContackState extends State<Contack> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(top: defaultPadding * 2),
-                  width: 320,
-                  height: 350,
+                  width: MediaQuery.of(context).size.width * 0.35,
+                  height: MediaQuery.of(context).size.width * 0.35,
                   child: Image.network(
                     'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
                     fit: BoxFit.cover,
@@ -124,63 +124,73 @@ class _ContackState extends State<Contack> {
             Container(
               padding: const EdgeInsets.all(defaultPadding),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Row(
-                    children: [
-                      Tab(
-                        icon: Image.asset('assets/logos/facebook_logo.png'),
-                        height: 24,
-                      ),
-                      const SizedBox(width: defaultPadding),
-                      Text(
-                        'DK decorative',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext2),
-                      ),
-                    ],
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Tab(
+                          icon: Image.asset('assets/logos/facebook_logo.png'),
+                          height: 24,
+                        ),
+                        const SizedBox(width: defaultPadding / 2),
+                        Text(
+                          'DK decorative',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext2),
+                        ),
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Tab(
-                        icon: Image.asset('assets/logos/instagram_logo.png'),
-                        height: 24,
-                      ),
-                      const SizedBox(width: defaultPadding),
-                      Text(
-                        'DK decorative',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext2),
-                      ),
-                    ],
+                  const SizedBox(width: defaultPadding / 2),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Tab(
+                          icon: Image.asset('assets/logos/instagram_logo.png'),
+                          height: 24,
+                        ),
+                        const SizedBox(width: defaultPadding / 2),
+                        Text(
+                          'DK decorative',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext2),
+                        ),
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Tab(
-                        icon: Image.asset('assets/logos/line_logo.png'),
-                        height: 24,
-                      ),
-                      const SizedBox(width: defaultPadding),
-                      Text(
-                        'DK decorative',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext2),
-                      ),
-                    ],
+                  const SizedBox(width: defaultPadding / 2),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Tab(
+                          icon: Image.asset('assets/logos/line_logo.png'),
+                          height: 24,
+                        ),
+                        const SizedBox(width: defaultPadding / 2),
+                        Text(
+                          'DK decorative',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext2),
+                        ),
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      Tab(
-                        icon: Image.asset('assets/logos/twitter_logo.png'),
-                        height: 24,
-                      ),
-                      const SizedBox(width: defaultPadding),
-                      Text(
-                        'DK decorative',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext, color: colortext2),
-                      ),
-                    ],
+                  const SizedBox(width: defaultPadding / 2),
+                  Expanded(
+                    child: Row(
+                      children: [
+                        Tab(
+                          icon: Image.asset('assets/logos/twitter_logo.png'),
+                          height: 24,
+                        ),
+                        const SizedBox(width: defaultPadding / 2),
+                        Text(
+                          'DK decorative',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext, color: colortext2),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -66,7 +66,7 @@ class _OrderScreenState extends State<OrderScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
+          padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(

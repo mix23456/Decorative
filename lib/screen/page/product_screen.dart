@@ -77,7 +77,7 @@ class _ProductScreenState extends State<ProductScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
+          padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
           child: Column(
             children: [
               Row(
@@ -123,402 +123,393 @@ class _ProductScreenState extends State<ProductScreen> {
                 ],
               ),
               const SizedBox(height: defaultPadding),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รางยูโก้ประกอบ มือปีด',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      color: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DetailScreen(),
+                                ));
+                          },
+                          child: GridTile(
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                            footer: Container(
+                              padding: const EdgeInsets.all(8),
+                              color: Colors.black.withOpacity(.5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'รางยูโก้ประกอบ มือปีด',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                                  ),
+                                  Text(
+                                    '฿ 400',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รางยูโก้ประกอบ มือปีด',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      color: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DetailScreen(),
+                                ));
+                          },
+                          child: GridTile(
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                            footer: Container(
+                              padding: const EdgeInsets.all(8),
+                              color: Colors.black.withOpacity(.5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'รางยูโก้ประกอบ มือปีด',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                                  ),
+                                  Text(
+                                    '฿ 400',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const SizedBox(height: defaultPadding),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'ผ้าทึบหน้าแคบ',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      color: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DetailScreen(),
+                                ));
+                          },
+                          child: GridTile(
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                            footer: Container(
+                              padding: const EdgeInsets.all(8),
+                              color: Colors.black.withOpacity(.5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'ผ้าทึบหน้าแคบ',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                                  ),
+                                  Text(
+                                    '฿ 400',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'ผ้าทึบหน้าแคบ',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                      color: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DetailScreen(),
+                                ));
+                          },
+                          child: GridTile(
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                            footer: Container(
+                              padding: const EdgeInsets.all(8),
+                              color: Colors.black.withOpacity(.5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'ผ้าทึบหน้าแคบ',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                                  ),
+                                  Text(
+                                    '฿ 400',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               const SizedBox(height: defaultPadding),
-              Container(
-                padding: const EdgeInsets.all(defaultPadding),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: 200,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {},
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รางยูโก้ประกอบ มือปีด',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      height: 200,
+                      color: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {},
+                          child: GridTile(
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                            footer: Container(
+                              padding: const EdgeInsets.all(8),
+                              color: Colors.black.withOpacity(.5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'รางยูโก้ประกอบ มือปีด',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                                  ),
+                                  Text(
+                                    '฿ 400',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      child: Container(
-                        height: 200,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {},
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รางยูโก้ประกอบ มือปีด',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: Container(
+                      height: 200,
+                      color: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {},
+                          child: GridTile(
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                            footer: Container(
+                              padding: const EdgeInsets.all(8),
+                              color: Colors.black.withOpacity(.5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'รางยูโก้ประกอบ มือปีด',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                                  ),
+                                  Text(
+                                    '฿ 400',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      child: Container(
-                        height: 200,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {},
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รางยูโก้ประกอบ มือปีด',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: Container(
+                      height: 200,
+                      color: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {},
+                          child: GridTile(
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                            footer: Container(
+                              padding: const EdgeInsets.all(8),
+                              color: Colors.black.withOpacity(.5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'รางยูโก้ประกอบ มือปีด',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                                  ),
+                                  Text(
+                                    '฿ 400',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      child: Container(
-                        width: 200,
-                        height: 200,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {},
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รางยูโก้ประกอบ มือปีด',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: Container(
+                      width: 200,
+                      height: 200,
+                      color: Colors.transparent,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: InkWell(
+                          onTap: () {},
+                          child: GridTile(
+                            child: Image.network(
+                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                              fit: BoxFit.cover,
+                            ),
+                            footer: Container(
+                              padding: const EdgeInsets.all(8),
+                              color: Colors.black.withOpacity(.5),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'รางยูโก้ประกอบ มือปีด',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
+                                  ),
+                                  Text(
+                                    '฿ 400',
+                                    style: GoogleFonts.kanit(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontSize: bodytext,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),

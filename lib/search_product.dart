@@ -34,8 +34,8 @@ class _SearchProductState extends State<SearchProduct> {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(
-              left: defaultPadding * 5,
-              right: defaultPadding * 5,
+              left: defaultPadding * 3,
+              right: defaultPadding * 3,
               top: defaultPadding),
           child: Column(
             children: [

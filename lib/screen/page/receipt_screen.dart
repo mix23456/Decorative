@@ -66,7 +66,7 @@ class _ReceiptScreenState extends State<ReceiptScreen> {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(
-              horizontal: defaultPadding * 5, vertical: defaultPadding),
+              horizontal: defaultPadding * 3, vertical: defaultPadding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

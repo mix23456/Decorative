@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_multi_formatter/formatters/money_input_formatter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_customer.dart';
 // import 'package:lite_rolling_switch/lite_rolling_switch.dart';
@@ -191,7 +192,6 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                         Expanded(
                           flex: 3,
                           child: Row(
-                            // mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               const SizedBox(width: defaultPadding),
                               SizedBox(
@@ -344,7 +344,7 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('ความสูงผ้าม่าน (เมตร) :',
+                              Text('ความสูง:',
                                   style: GoogleFonts.kanit(
                                       color: colortext1, fontSize: bodytext)),
                             ],
@@ -356,7 +356,7 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 530,
+                                width: MediaQuery.of(context).size.width * 0.35,
                                 child: SfSliderTheme(
                                   data: SfSliderThemeData(
                                     thumbStrokeWidth: 3,
@@ -371,28 +371,74 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                                     onChanged: (dynamic newValue) {
                                       setState(() {
                                         heightCurtain = newValue;
+                                        heightController.text =
+                                            newValue.toStringAsFixed(2);
                                         valueChange();
                                       });
                                     },
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                width: defaultPadding,
+                              const SizedBox(width: defaultPadding),
+                              Container(
+                                width: 150,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: defaultPadding),
+                                decoration: BoxDecoration(
+                                  color: colorWhite,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: colorBgBtn2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 2)),
+                                  ],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextField(
+                                        controller: heightController,
+                                        onChanged: (value) {
+                                          var formatValue =
+                                              value.isEmpty ? '0' : value;
+                                          if (double.parse(formatValue) >=
+                                              100.00) {
+                                            setState(() {
+                                              heightCurtain = 100.00;
+                                              heightController.text =
+                                                  heightCurtain.toString();
+                                            });
+                                          } else {
+                                            setState(() {
+                                              heightCurtain =
+                                                  double.parse(formatValue);
+                                            });
+                                          }
+                                          valueChange();
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        textInputAction: TextInputAction.done,
+                                        inputFormatters: [
+                                          MoneyInputFormatter()
+                                        ],
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: '0.00',
+                                          hintStyle: GoogleFonts.kanit(
+                                              color: colortext2),
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'เมตร',
+                                      style: GoogleFonts.kanit(
+                                          color: colortext2,
+                                          fontSize: bodytext),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              Text(
-                                '${heightCurtain.toStringAsFixed(2)}',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                'เมตร',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              )
                             ],
                           ),
                         ),
@@ -426,7 +472,7 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text('ความกว้างผ้าม่าน (เมตร) :',
+                              Text('ความกว้าง:',
                                   style: GoogleFonts.kanit(
                                       color: colortext1, fontSize: bodytext)),
                             ],
@@ -438,7 +484,7 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 530,
+                                width: MediaQuery.of(context).size.width * 0.35,
                                 child: SfSliderTheme(
                                   data: SfSliderThemeData(
                                     thumbStrokeWidth: 3,
@@ -453,6 +499,8 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                                     onChanged: (dynamic newValue) {
                                       setState(() {
                                         widthCurtain = newValue;
+                                        widthController.text =
+                                            newValue.toStringAsFixed(2);
                                         valueChange();
                                       });
                                     },
@@ -462,102 +510,64 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                               const SizedBox(
                                 width: defaultPadding,
                               ),
-                              // Expanded(
-                              //   child: TextField(
-                              //     controller: widthController,
-                              //     onChanged: (value) {
-                              //       valueChange();
-                              //     },
-                              //     keyboardType: TextInputType.number,
-                              //     textInputAction: TextInputAction.next,
-                              //     // inputFormatters: [MoneyInputFormatter()],
-                              //     // inputFormatters: [ThousandsFormatter(allowFraction: true)],
-                              //     decoration: InputDecoration(
-                              //       // errorText: _height.text.replaceAll('.', ''),
-                              //       focusedBorder: OutlineInputBorder(
-                              //         borderRadius: BorderRadius.circular(30),
-                              //       ),
-                              //       enabledBorder: OutlineInputBorder(
-                              //         borderRadius: BorderRadius.circular(30),
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
-                              Text(
-                                '${widthCurtain.toStringAsFixed(2)}',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                'เมตร',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: defaultPadding / 2),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text('ราคาผ้าม่าน (บาท) :',
-                                  style: GoogleFonts.kanit(
-                                      color: colortext1, fontSize: bodytext)),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 530,
-                                child: SfSliderTheme(
-                                  data: SfSliderThemeData(
-                                    thumbStrokeWidth: 3,
-                                    thumbStrokeColor: colortext1,
-                                    thumbColor: Colors.white,
-                                  ),
-                                  child: SfSlider(
-                                    min: 0.0,
-                                    max: 100.0,
-                                    value: priceCurtain,
-                                    inactiveColor: colortext2,
-                                    onChanged: (dynamic newValue) {
-                                      setState(() {
-                                        priceCurtain = newValue;
-                                        valueChange();
-                                      });
-                                    },
-                                  ),
+                              Container(
+                                width: 150,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: defaultPadding),
+                                decoration: BoxDecoration(
+                                  color: colorWhite,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: colorBgBtn2,
+                                        blurRadius: 5,
+                                        offset: Offset(0, 2))
+                                  ],
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextField(
+                                        controller: widthController,
+                                        onChanged: (value) {
+                                          var formatValue =
+                                              value.isEmpty ? '0' : value;
+                                          if (double.parse(formatValue) >=
+                                              100.00) {
+                                            setState(() {
+                                              widthCurtain = 100.00;
+                                              widthController.text =
+                                                  widthController.toString();
+                                            });
+                                          } else {
+                                            setState(() {
+                                              widthCurtain =
+                                                  double.parse(formatValue);
+                                            });
+                                          }
+                                          valueChange();
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        textInputAction: TextInputAction.next,
+                                        // inputFormatters: [MoneyInputFormatter()],
+                                        decoration: InputDecoration(
+                                          border: InputBorder.none,
+                                          hintText: '0.00',
+                                          hintStyle: GoogleFonts.kanit(
+                                              color: colortext2),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(width: defaultPadding),
+                                    Text(
+                                      'เมตร',
+                                      style: GoogleFonts.kanit(
+                                          color: colortext2,
+                                          fontSize: bodytext),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                '${priceCurtain.toStringAsFixed(2)}',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                'บาท',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              )
                             ],
                           ),
                         ),
@@ -755,46 +765,44 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          // width: 160,
-                          // height: 48,
-                          alignment: Alignment.center,
+                        SizedBox(
+                          width: 160,
+                          height: 48,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                                primary: colortext2.withOpacity(0.25),
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 58, vertical: 12),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(28),
-                                )),
+                              primary: colorbgbtn,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                            ),
                             onPressed: () {
                               Navigator.pop(context);
                             },
                             child: Text(
                               'ยกเลิก',
                               style: GoogleFonts.kanit(
-                                  color: colorBlack, fontSize: bodytext),
+                                  fontSize: bodytext, color: colortext1),
                             ),
                           ),
                         ),
-                        const SizedBox(width: defaultPadding / 2),
-                        Container(
-                          alignment: Alignment.center,
-                          child: ElevatedButton(
+                        const SizedBox(width: defaultPadding),
+                        SizedBox(
+                          width: 160,
+                          height: 48,
+                          child: ElevatedButton.icon(
                             style: ElevatedButton.styleFrom(
-                                primary: colortext1,
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 58, vertical: 12),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(28),
-                                )),
+                              primary: colortext1,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                            ),
                             onPressed: () {
-                              showEditCompleteDialog();
+                              showSaveComplete();
                             },
-                            child: Text(
+                            icon: const Icon(Icons.save),
+                            label: Text(
                               'บันทึก',
-                              style: GoogleFonts.kanit(
-                                  color: colorWhite, fontSize: bodytext),
+                              style: GoogleFonts.kanit(fontSize: bodytext),
                             ),
                           ),
                         ),
@@ -861,6 +869,26 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
       //   unselectedLabelStyle: GoogleFonts.kanit(),
       // ),
     );
+  }
+
+  void showSaveComplete() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'บันทึกข้อมูลสำเร็จ',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
   }
 
   void showConfirmDialog() {

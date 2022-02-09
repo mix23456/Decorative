@@ -41,7 +41,7 @@ class _CartOrderState extends State<CartOrder> {
         child: Container(
           height: MediaQuery.of(context).size.height,
           color: colorWhite,
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
+          margin: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
           child: Column(
             children: [
               const SizedBox(height: defaultPadding),
@@ -384,7 +384,7 @@ class _CartOrderState extends State<CartOrder> {
                       ),
                       const SizedBox(width: defaultPadding),
                       SizedBox(
-                        width: 659,
+                        width: MediaQuery.of(context).size.width * 0.8,
                         child: TextField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(

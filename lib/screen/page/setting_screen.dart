@@ -63,15 +63,21 @@ class _SettingScreenState extends State<SettingScreen> {
                                   vertical: defaultPadding / 2,
                                 ),
                                 child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: defaultPadding * 5),
+                                  // padding: const EdgeInsets.symmetric(
+                                  //     horizontal: defaultPadding * 5),
                                   child: Column(
                                     children: [
                                       Row(
                                         children: [
                                           Container(
-                                            width: 320,
-                                            height: 256,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.3,
+                                            // height: MediaQuery.of(context)
+                                            //         .size
+                                            //         .width *
+                                            //     0.5,
                                             child: Image.network(
                                               'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
                                               fit: BoxFit.contain,

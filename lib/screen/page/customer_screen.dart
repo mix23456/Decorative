@@ -65,51 +65,41 @@ class _CustomerScreenState extends State<CustomerScreen> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: Container(
+        margin: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                top: defaultPadding * 2,
-                bottom: defaultPadding,
-                right: defaultPadding * 5,
-                left: defaultPadding * 5,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'จัดการข้อมูลลูกค้า',
-                    style: GoogleFonts.kanit(fontSize: subtitle),
-                  ),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AddCustomer(),
-                        ),
-                      );
-                    },
-                    icon: const Icon(Icons.add),
-                    label: Text(
-                      'เพิ่ม',
-                      style: GoogleFonts.kanit(fontSize: bodytext),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'จัดการข้อมูลลูกค้า',
+                  style: GoogleFonts.kanit(fontSize: subtitle),
+                ),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AddCustomer(),
                       ),
+                    );
+                  },
+                  icon: const Icon(Icons.add),
+                  label: Text(
+                    'เพิ่ม',
+                    style: GoogleFonts.kanit(fontSize: bodytext),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Container(
-              margin:
-                  const EdgeInsets.symmetric(horizontal: defaultPadding * 5),
               padding: const EdgeInsets.symmetric(
                   horizontal: defaultPadding, vertical: defaultPadding),
               decoration: BoxDecoration(
