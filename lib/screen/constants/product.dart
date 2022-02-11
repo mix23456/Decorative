@@ -1,51 +1,103 @@
+import 'package:flutter/material.dart';
+
 class Product {
-  final String title, image, descliption;
-  final int productcode, price;
+  final int id;
+  final String title, description;
+  final List<String> images;
+  final List<Color> colors;
+  final double rating, price;
+  final bool isFavourite, isPopular;
 
   Product({
+    required this.id,
+    required this.images,
+    required this.colors,
+    this.rating = 0.0,
+    this.isFavourite = false,
+    this.isPopular = false,
     required this.title,
-    required this.image,
-    required this.descliption,
-    required this.productcode,
     required this.price,
+    required this.description,
   });
 }
 
-// เหลือ รหัสสินค้า , เลือกแบบ ,จำนวน ,
-List<Product> products = [
+// Our demo Products
+
+List<Product> demoProducts = [
   Product(
-    title: "ชื่อสินค้า 1",
-    image: "assets/images/img_1.png",
-    descliption: "รายละเอียด 1",
-    productcode: 00001,
-    price: 100,
+    id: 1,
+    images: [
+      "assets/images/ps4_console_white_1.png",
+      "assets/images/ps4_console_white_2.png",
+      "assets/images/ps4_console_white_3.png",
+      "assets/images/ps4_console_white_4.png",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Wireless Controller for PS4™",
+    price: 64.99,
+    description: description,
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
   ),
   Product(
-    title: "ชื่อสินค้า 2",
-    image: "assets/images/img_1.png",
-    descliption: "รายละเอียด 2",
-    productcode: 00002,
-    price: 110,
+    id: 2,
+    images: [
+      "assets/images/Image Popular Product 2.png",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Nike Sport White - Man Pant",
+    price: 50.5,
+    description: description,
+    rating: 4.1,
+    isPopular: true,
   ),
   Product(
-    title: "ชื่อสินค้า 3",
-    image: "assets/images/img_1.png",
-    descliption: "รายละเอียด 3",
-    productcode: 00003,
-    price: 120,
+    id: 3,
+    images: [
+      "assets/images/glap.png",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Gloves XC Omega - Polygon",
+    price: 36.55,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
+    isPopular: true,
   ),
   Product(
-    title: "ชื่อสินค้า 4",
-    image: "assets/images/img_1.png",
-    descliption: "รายละเอียด 4",
-    productcode: 00004,
-    price: 140,
-  ),
-  Product(
-    title: "ชื่อสินค้า 5",
-    image: "assets/images/img_1.png",
-    descliption: "รายละเอียด 5",
-    productcode: 00005,
-    price: 150,
+    id: 4,
+    images: [
+      "assets/images/wireless headset.png",
+    ],
+    colors: [
+      Color(0xFFF6625E),
+      Color(0xFF836DB8),
+      Color(0xFFDECB9C),
+      Colors.white,
+    ],
+    title: "Logitech Head",
+    price: 20.20,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
   ),
 ];
+
+const String description =
+    "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";
