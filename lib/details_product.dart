@@ -4,33 +4,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/formatters/money_input_formatter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_customer.dart';
-// import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:project_curtain/constants.dart';
 import 'package:project_curtain/format.dart';
-import 'package:project_curtain/screen/page/customer_screen.dart';
-import 'package:project_curtain/screen/page/home_screen.dart';
-import 'package:project_curtain/screen/page/order_screen.dart';
-import 'package:project_curtain/screen/page/product_screen.dart';
-import 'package:project_curtain/screen/page/receipt_screen.dart';
-import 'package:project_curtain/screen/page/setting_screen.dart';
 import 'package:project_curtain/search_product.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 class DetailScreen extends StatefulWidget {
-  const DetailScreen({Key? key}) : super(key: key);
+  const DetailScreen({key}) : super(key: key);
 
   @override
   _DetailScreenState createState() => _DetailScreenState();
 }
 
 final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
+  'https://shorturl.asia/eq4vE',
+  'https://shorturl.asia/jHWhA',
+  'https://shorturl.asia/nWtmT',
+  'https://shorturl.asia/Eic8B',
 ];
-
 final List<Widget> imageSliders = imgList
     .map((item) => Container(
           margin: const EdgeInsets.all(5.0),
@@ -43,29 +35,15 @@ final List<Widget> imageSliders = imgList
               )),
         ))
     .toList();
-var curtain = ['ผ้าม่านตาไก่', 'ผ้าม่านจับ', 'ผ้าม่านลอน'];
-int numOfItem = 1;
 int selectImage = 0;
-String? dropdownValue;
-double check = 1;
 double result = 0;
 bool isChecked = false;
 double heightCurtain = 0;
 double widthCurtain = 0;
 double priceCurtain = 0;
 final TextEditingController widthController = TextEditingController();
-final TextEditingController priceController = TextEditingController();
 final TextEditingController heightController = TextEditingController();
 final CarouselController _controller = CarouselController();
-int currenIndex = 0;
-final screens = [
-  const HomeScreen(),
-  const ProductScreen(),
-  const CustomerScreen(),
-  const OrderScreen(),
-  const ReceiptScreen(),
-  const SettingScreen(),
-];
 
 class _DetailScreenState extends State<DetailScreen> {
   @override
@@ -144,8 +122,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   height: 214,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(
-                          'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
+                      image: NetworkImage('https://shorturl.asia/eq4vE'),
                     ),
                   ),
                 ),
@@ -160,6 +137,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                 ],
               ),
+              const SizedBox(height: defaultPadding),
               const SizedBox(height: defaultPadding),
               Text('ม่านสองชั้น', style: GoogleFonts.kanit(fontSize: subtitle)),
               const SizedBox(height: defaultPadding),
@@ -214,66 +192,13 @@ class _DetailScreenState extends State<DetailScreen> {
                           flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.18,
-                                height: 33,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    elevation: 4,
-                                    primary: colorWhite,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    'A01CY04',
-                                    style: GoogleFonts.kanit(
-                                        fontSize: bodytext, color: colortext2),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: defaultPadding),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.18,
-                                height: 33,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    elevation: 4,
-                                    primary: colorWhite,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    'A01CY04',
-                                    style: GoogleFonts.kanit(
-                                        fontSize: bodytext, color: colortext2),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: defaultPadding),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.18,
-                                height: 33,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    elevation: 4,
-                                    primary: colorWhite,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                  onPressed: () {},
-                                  child: Text(
-                                    'A01CY04',
-                                    style: GoogleFonts.kanit(
-                                        fontSize: bodytext, color: colortext2),
-                                  ),
-                                ),
-                              ),
+                            children: const [
+                              selectProductCode(
+                                  productCode: 'A01CY04', isSelected: true),
+                              SizedBox(width: defaultPadding),
+                              selectProductCode(productCode: 'A01CY04'),
+                              SizedBox(width: defaultPadding),
+                              selectProductCode(productCode: 'A01CY04'),
                             ],
                           ),
                         ),
@@ -298,54 +223,12 @@ class _DetailScreenState extends State<DetailScreen> {
                           flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.18,
-                                height: 33,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: colortext1,
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      color: colorBgBtn2,
-                                      blurRadius: 5,
-                                      offset: Offset(0, 2),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(width: defaultPadding),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.18,
-                                height: 33,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: colortext2,
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      color: colorBgBtn2,
-                                      blurRadius: 5,
-                                      offset: Offset(0, 2),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(width: defaultPadding),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.18,
-                                height: 33,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: const Color(0xFFE9E9E9),
-                                  boxShadow: const [
-                                    BoxShadow(
-                                      color: colorBgBtn2,
-                                      blurRadius: 5,
-                                      offset: Offset(0, 2),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            children: const [
+                              selectColor(color: colortext1, isSelected: true),
+                              SizedBox(width: defaultPadding),
+                              selectColor(color: colortext2),
+                              SizedBox(width: defaultPadding),
+                              selectColor(color: Color(0xFFE9E9E9)),
                             ],
                           ),
                         ),
@@ -1005,7 +888,7 @@ class _DetailScreenState extends State<DetailScreen> {
       },
       child: Container(
         margin: const EdgeInsets.only(right: 15),
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(1),
         height: 48,
         width: 48,
         decoration: BoxDecoration(
@@ -1036,6 +919,72 @@ class _DetailScreenState extends State<DetailScreen> {
     // double price = double.parse(priceController.value.text);
     // double height = double.parse(heightController.value.text);
     // calculate(width, price, _height);
+  }
+}
+
+class selectProductCode extends StatelessWidget {
+  final bool isSelected;
+  final String productCode;
+  const selectProductCode({
+    key,
+    this.isSelected = false,
+    required this.productCode,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.18,
+      height: 33,
+      decoration: BoxDecoration(
+        border: Border.all(color: isSelected ? colorBlack : Colors.transparent),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 4,
+          primary: colorWhite,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+        onPressed: () {},
+        child: Text(
+          productCode,
+          style: GoogleFonts.kanit(fontSize: bodytext, color: colortext2),
+        ),
+      ),
+    );
+  }
+}
+
+class selectColor extends StatelessWidget {
+  final bool isSelected;
+  final Color color;
+  const selectColor({
+    key,
+    this.isSelected = false,
+    required this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.18,
+      height: 33,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: color,
+        border: Border.all(color: isSelected ? colorBlack : Colors.transparent),
+        boxShadow: const [
+          BoxShadow(
+            color: colorBgBtn2,
+            blurRadius: 5,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -1111,35 +1060,6 @@ class ImageDialog extends StatelessWidget {
               image: NetworkImage(
                   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
               fit: BoxFit.cover),
-        ),
-      ),
-    );
-  }
-}
-
-class DetailScreen2 extends StatelessWidget {
-  const DetailScreen2({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: GestureDetector(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Center(
-          child: Container(
-            padding: const EdgeInsets.all(defaultPadding),
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 2,
-            child: Hero(
-              tag: 'imageHero',
-              child: Image.network(
-                'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
         ),
       ),
     );
