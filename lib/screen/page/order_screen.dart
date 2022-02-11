@@ -15,6 +15,11 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   bool checkProd = false;
   bool checkAll = false;
+  final allChecked = CheckBoxModal(title: 'All Checked');
+  final checkBoxList = [
+    CheckBoxModal(title: '1'),
+    CheckBoxModal(title: '2'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -173,11 +178,9 @@ class _OrderScreenState extends State<OrderScreen> {
                         Row(
                           children: [
                             Checkbox(
-                              value: checkProd,
+                              value: onAllClicked(allChecked),
                               onChanged: (value) {
-                                setState(() {
-                                  checkProd = !checkProd;
-                                });
+                                onAllClicked(allChecked);
                               },
                             ),
                             Expanded(
@@ -426,11 +429,9 @@ class _OrderScreenState extends State<OrderScreen> {
             child: Row(
               children: [
                 Checkbox(
-                  value: checkAll,
+                  value: allChecked.value,
                   onChanged: (value) {
-                    setState(() {
-                      checkAll = !checkAll;
-                    });
+                    onAllClicked(allChecked);
                   },
                 ),
                 Text(
@@ -496,6 +497,30 @@ class _OrderScreenState extends State<OrderScreen> {
         ],
       ),
     );
+  }
+
+  onAllClicked(CheckBoxModal ckbItem) {
+    final newValue = !ckbItem.value;
+    setState(() {
+      ckbItem.value = newValue;
+      checkBoxList.forEach((element) {
+        element.value = newValue;
+      });
+    });
+  }
+
+  onItemClicked(CheckBoxModal ckbItem) {
+    final newValue = !ckbItem.value;
+    setState(() {
+      ckbItem.value = newValue;
+
+      if (!newValue) {
+        allChecked.value = false;
+      } else {
+        final allListCheck = checkBoxList.every((element) => element.value);
+        allChecked.value = allListCheck;
+      }
+    });
   }
 
   void showPopupRemoveOrder() {
@@ -588,4 +613,10 @@ class _OrderScreenState extends State<OrderScreen> {
           );
         });
   }
+}
+
+class CheckBoxModal {
+  String title;
+  bool value;
+  CheckBoxModal({required this.title, this.value = false});
 }
