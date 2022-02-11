@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/cart_order.dart';
 import 'package:project_curtain/constants.dart';
 import 'package:project_curtain/edit_product.dart';
+import 'package:project_curtain/order_empty.dart';
 import 'package:project_curtain/search_order.dart';
 
 class OrderScreen extends StatefulWidget {
@@ -22,7 +23,10 @@ class _OrderScreenState extends State<OrderScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+        // ?OrderEmptyScreen()
+        // :Scaffold(
+        Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
