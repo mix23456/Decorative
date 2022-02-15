@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/foget_password.dart';
+import 'package:project_curtain/main.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -11,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _rememberMe = false;
+  var iconClick = true;
 
   Widget _buildEmailTF() {
     return Column(
@@ -18,22 +21,14 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Text(
           'Email',
-          style: GoogleFonts.kanit(),
+          style: GoogleFonts.kanit(fontSize: bodytext, color: colortext1),
         ),
         const SizedBox(height: defaultPadding / 2),
         Container(
           alignment: Alignment.centerLeft,
           height: defaultPadding + 40,
-          // decoration: BoxDecoration(
-          //   color: Colors.blue[400],
-          //   boxShadow: const [
-          //     BoxShadow(
-          //         blurRadius: 10, color: Colors.blue, offset: Offset(1, 3)),
-          //   ],
-          // ),
           child: TextField(
               keyboardType: TextInputType.emailAddress,
-              style: GoogleFonts.kanit(color: Colors.white),
               decoration: InputDecoration(
                 hintText: 'Email',
                 focusedBorder: OutlineInputBorder(
@@ -42,17 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-              )
-              // decoration: InputDecoration(
-              //     border: InputBorder.none,
-              //     contentPadding: const EdgeInsets.only(top: 14.0),
-              //     prefixIcon: const Icon(
-              //       Icons.email,
-              //       color: Colors.white,
-              //     ),
-              //     hintText: 'Enter your Email',
-              //     hintStyle: GoogleFonts.kanit(color: Colors.black26)),
-              ),
+              )),
         ),
       ],
     );
@@ -64,42 +49,25 @@ class _LoginScreenState extends State<LoginScreen> {
       children: [
         Text(
           'Password',
-          style: GoogleFonts.kanit(),
+          style: GoogleFonts.kanit(fontSize: bodytext, color: colortext1),
         ),
         const SizedBox(height: defaultPadding / 2),
         Container(
           alignment: Alignment.centerLeft,
           height: defaultPadding + 40,
-          // decoration: BoxDecoration(
-          //   color: Colors.blue[400],
-          //   boxShadow: const [
-          //     BoxShadow(
-          //         blurRadius: 10, color: Colors.blue, offset: Offset(1, 3)),
-          //   ],
-          // ),
           child: TextField(
-              obscureText: true,
-              keyboardType: TextInputType.emailAddress,
-              style: GoogleFonts.kanit(color: Colors.white),
-              decoration: InputDecoration(
-                hintText: 'Password',
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              )
-              // decoration: InputDecoration(
-              //     border: InputBorder.none,
-              //     contentPadding: const EdgeInsets.only(top: 14.0),
-              //     prefixIcon: const Icon(
-              //       Icons.lock,
-              //       color: Colors.white,
-              //     ),
-              //     hintText: 'Enter your Password',
-              //     hintStyle: GoogleFonts.kanit(color: Colors.black26)),
+            obscureText: true,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              hintText: 'Password',
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
         ),
       ],
     );
@@ -109,12 +77,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       alignment: Alignment.centerRight,
       child: TextButton(
-        onPressed: () => print('Forgot Password Button Pressed'),
+        onPressed: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const ForgetScreen(),
+          ),
+        ),
         child: Text(
           'Forgot Password?',
-          style: GoogleFonts.kanit(),
+          style: GoogleFonts.kanit(fontSize: bodytext, color: colorBlue),
         ),
-        style: TextButton.styleFrom(primary: Colors.blue),
       ),
     );
   }
@@ -139,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Text(
             'Remember Me',
-            style: GoogleFonts.kanit(color: Colors.black),
+            style: GoogleFonts.kanit(fontSize: bodytext, color: colortext2),
           ),
         ],
       ),
@@ -148,17 +119,21 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildLoginBtn() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: defaultPadding + 5),
-      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+      width: 160,
       child: ElevatedButton(
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const TabsScreen(),
+            ),
+          );
+        },
         child: Text(
           "SIGN IN",
           style: GoogleFonts.kanit(
-            color: Colors.black,
-            // letterSpacing: 1.5,
-            fontSize: 18,
-            // fontWeight: FontWeight.bold,
+            color: colorWhite,
+            fontSize: bodytext,
           ),
         ),
         style: ElevatedButton.styleFrom(
@@ -166,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          primary: Colors.grey[350],
+          primary: colortext1,
         ),
       ),
     );
@@ -178,23 +153,6 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            // decoration: const BoxDecoration(
-            //   gradient: LinearGradient(
-            //     begin: Alignment.topCenter,
-            //     end: Alignment.bottomCenter,
-            //     colors: [
-            //       Color(0xFF73AEF5),
-            //       Color(0xFF61A4F1),
-            //       Color(0xFF478DE0),
-            //       Color(0xFF398AE5),
-            //     ],
-            //     stops: [0.1, 0.4, 0.7, 0.9],
-            //   ),
-            // ),
-          ),
           Container(
             height: double.infinity,
             child: SingleChildScrollView(
@@ -210,10 +168,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 250,
                     child: Image.asset('assets/logos/logo.png'),
                   ),
-                  // Text(
-                  //   'Sing In',
-                  //   style: GoogleFonts.kanit(fontSize: 26),
-                  // ),
                   const SizedBox(height: defaultPadding + 10),
                   _buildEmailTF(),
                   const SizedBox(height: defaultPadding / 2),
