@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants.dart';
 import 'package:project_curtain/details_product.dart';
-import 'package:project_curtain/screen/page/product_screen.dart';
+import 'package:project_curtain/page/product_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.33,
+              height: MediaQuery.of(context).size.height * 0.40,
               child: Stack(
                 children: [
                   CarouselSlider(
@@ -868,77 +868,70 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         const SizedBox(height: defaultPadding * 2),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Tab(
-                                    icon: Image.asset(
-                                        'assets/logos/facebook_logo.png'),
-                                    height: 10,
-                                  ),
-                                  const SizedBox(width: defaultPadding / 2),
-                                  Text(
-                                    'DK decorative',
-                                    style: GoogleFonts.kanit(
-                                        fontSize: bodytext, color: colortext2),
-                                  ),
-                                ],
-                              ),
+                            Row(
+                              children: [
+                                Tab(
+                                  icon: Image.asset(
+                                      'assets/logos/facebook_logo.png'),
+                                  height: 24,
+                                ),
+                                const SizedBox(width: defaultPadding / 2),
+                                Text(
+                                  'DK decorative',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
                             ),
                             const SizedBox(width: defaultPadding / 2),
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Tab(
-                                    icon: Image.asset(
-                                        'assets/logos/instagram_logo.png'),
-                                    height: 10,
-                                  ),
-                                  const SizedBox(width: defaultPadding / 2),
-                                  Text(
-                                    'DK decorative',
-                                    style: GoogleFonts.kanit(
-                                        fontSize: bodytext, color: colortext2),
-                                  ),
-                                ],
-                              ),
+                            Row(
+                              children: [
+                                Tab(
+                                  icon: Image.asset(
+                                      'assets/logos/instagram_logo.png'),
+                                  height: 24,
+                                ),
+                                const SizedBox(width: defaultPadding / 2),
+                                Text(
+                                  'DK decorative',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
                             ),
                             const SizedBox(width: defaultPadding / 2),
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Tab(
-                                    icon: Image.asset(
-                                        'assets/logos/line_logo.png'),
-                                    height: 10,
-                                  ),
-                                  const SizedBox(width: defaultPadding / 2),
-                                  Text(
-                                    'DK decorative',
-                                    style: GoogleFonts.kanit(
-                                        fontSize: bodytext, color: colortext2),
-                                  ),
-                                ],
-                              ),
+                            Row(
+                              children: [
+                                Tab(
+                                  icon:
+                                      Image.asset('assets/logos/line_logo.png'),
+                                  height: 24,
+                                ),
+                                const SizedBox(width: defaultPadding / 2),
+                                Text(
+                                  'DK decorative',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
                             ),
                             const SizedBox(width: defaultPadding / 2),
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Tab(
-                                    icon: Image.asset(
-                                        'assets/logos/twitter_logo.png'),
-                                    height: 10,
-                                  ),
-                                  const SizedBox(width: defaultPadding / 2),
-                                  Text(
-                                    'DK decorative',
-                                    style: GoogleFonts.kanit(
-                                        fontSize: bodytext, color: colortext2),
-                                  ),
-                                ],
-                              ),
+                            Row(
+                              children: [
+                                Tab(
+                                  icon: Image.asset(
+                                      'assets/logos/twitter_logo.png'),
+                                  height: 24,
+                                ),
+                                const SizedBox(width: defaultPadding / 2),
+                                Text(
+                                  'DK decorative',
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext2),
+                                ),
+                              ],
                             ),
                           ],
                         ),

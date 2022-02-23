@@ -19,14 +19,11 @@ class _OrderScreenState extends State<OrderScreen> {
   final allChecked = CheckBoxModal(title: 'All Checked');
   final checkBoxList = [
     CheckBoxModal(title: '1'),
-    CheckBoxModal(title: '2'),
+    // CheckBoxModal(title: '2'),
   ];
   @override
   Widget build(BuildContext context) {
-    return
-        // ?OrderEmptyScreen()
-        // :Scaffold(
-        Scaffold(
+    return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: true,
@@ -125,13 +122,11 @@ class _OrderScreenState extends State<OrderScreen> {
                                     border: Border.all(
                                       color: colorBorder,
                                     ),
-                                    // color: Colors.grey[200],
                                   ),
                                   child: Row(
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          // color: Colors.amber,
                                           child: Text(
                                             'คุณ แก้ว มาลูน',
                                             style: GoogleFonts.kanit(
@@ -182,7 +177,7 @@ class _OrderScreenState extends State<OrderScreen> {
                         Row(
                           children: [
                             Checkbox(
-                              value: onAllClicked(allChecked),
+                              value: allChecked.value,
                               onChanged: (value) {
                                 onAllClicked(allChecked);
                               },
@@ -507,9 +502,9 @@ class _OrderScreenState extends State<OrderScreen> {
     final newValue = !ckbItem.value;
     setState(() {
       ckbItem.value = newValue;
-      checkBoxList.forEach((element) {
+      for (var element in checkBoxList) {
         element.value = newValue;
-      });
+      }
     });
   }
 
@@ -617,10 +612,4 @@ class _OrderScreenState extends State<OrderScreen> {
           );
         });
   }
-}
-
-class CheckBoxModal {
-  String title;
-  bool value;
-  CheckBoxModal({required this.title, this.value = false});
 }

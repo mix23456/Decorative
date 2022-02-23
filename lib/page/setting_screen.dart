@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_bank.dart';
@@ -5,7 +6,9 @@ import 'package:project_curtain/add_user.dart';
 import 'package:project_curtain/edit_bank.dart';
 import 'package:project_curtain/edit_contact_information.dart';
 import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/login_screen.dart';
 import 'package:project_curtain/work.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -32,7 +35,6 @@ class _SettingScreenState extends State<SettingScreen> {
               style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
             ),
             Container(
-              margin: const EdgeInsets.all(10),
               color: colorWhite,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -251,7 +253,6 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(10),
               color: colorWhite,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -374,7 +375,6 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(10),
               color: colorWhite,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -501,7 +501,6 @@ class _SettingScreenState extends State<SettingScreen> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.all(10),
               color: colorWhite,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -853,5 +852,14 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
           );
         });
+  }
+
+  _logout() async {
+    var sharePrefs = await SharedPreferences.getInstance();
+    await sharePrefs.remove('token');
+    await sharePrefs.remove('profile');
+
+    Navigator.of(context, rootNavigator: true)
+        .pushNamedAndRemoveUntil('/login', (route) => false);
   }
 }
