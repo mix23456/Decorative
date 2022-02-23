@@ -664,6 +664,7 @@ class _EditCustomer extends State<EditCustomer> {
                         activeColor: colortext1,
                         value: 1,
                         groupValue: address,
+                        toggleable: true,
                         onChanged: (value) {
                           setState(() {
                             address = value;
