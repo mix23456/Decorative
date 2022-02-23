@@ -30,6 +30,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
         Container(
           alignment: Alignment.centerLeft,
           height: defaultPadding + 40,
+          width: 360,
           child: TextField(
               keyboardType: TextInputType.emailAddress,
               style: GoogleFonts.kanit(color: Colors.white),
@@ -67,12 +68,11 @@ class _ForgetScreenState extends State<ForgetScreen> {
               ),
             ),
             style: ElevatedButton.styleFrom(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              primary: colorBgBtn2,
-            ),
+                primary: colorBgBtn2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
+                minimumSize: const Size(160, 48)),
           ),
         ),
         const SizedBox(width: defaultPadding / 2),
@@ -80,7 +80,9 @@ class _ForgetScreenState extends State<ForgetScreen> {
           padding: const EdgeInsets.symmetric(vertical: defaultPadding),
           width: 160,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              showPopupForgetPassword();
+            },
             child: Text(
               "ส่งรหัสผ่าน",
               style: GoogleFonts.kanit(
@@ -89,12 +91,11 @@ class _ForgetScreenState extends State<ForgetScreen> {
               ),
             ),
             style: ElevatedButton.styleFrom(
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              primary: colortext1,
-            ),
+                primary: colortext1,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
+                minimumSize: const Size(160, 48)),
           ),
         ),
       ],
@@ -131,5 +132,28 @@ class _ForgetScreenState extends State<ForgetScreen> {
         ],
       ),
     );
+  }
+
+  void showPopupForgetPassword() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Flexible(
+                  child: Text(
+                    'เราส่ง รหัสชั่วคราว และ ลิ้งค์สร้างใหม่ ไปยัง email ของคุณแล้ว',
+                    style: GoogleFonts.kanit(fontSize: bodytext),
+                    textAlign: TextAlign.center,
+                  ),
+                )),
+          );
+        });
   }
 }
