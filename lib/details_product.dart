@@ -193,12 +193,12 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: const [
-                              selectProductCode(
+                              SelectProductCode(
                                   productCode: 'A01CY04', isSelected: true),
                               SizedBox(width: defaultPadding),
-                              selectProductCode(productCode: 'A01CY04'),
+                              SelectProductCode(productCode: 'A01CY04'),
                               SizedBox(width: defaultPadding),
-                              selectProductCode(productCode: 'A01CY04'),
+                              SelectProductCode(productCode: 'A01CY04'),
                             ],
                           ),
                         ),
@@ -922,10 +922,10 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 }
 
-class selectProductCode extends StatelessWidget {
+class SelectProductCode extends StatelessWidget {
   final bool isSelected;
   final String productCode;
-  const selectProductCode({
+  const SelectProductCode({
     key,
     this.isSelected = false,
     required this.productCode,
