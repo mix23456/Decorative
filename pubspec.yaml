@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  badges: ^2.0.2
   build_runner: ^2.1.7
   carousel_slider: ^4.0.0
   cupertino_icons: ^1.0.4
@@ -60,6 +61,7 @@ dependencies:
   persistent_bottom_nav_bar: ^4.0.2
   provider: ^6.0.1
   searchfield: ^0.5.6
+  shared_preferences: ^2.0.13
   simple_animations: ^2.2.3
   smooth_page_indicator: ^1.0.0+2
   supercharged: ^1.11.1
