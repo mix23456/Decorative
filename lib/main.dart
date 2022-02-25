@@ -1,15 +1,15 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/contack.dart';
-import 'package:project_curtain/login_page.dart';
 import 'package:project_curtain/constants.dart';
-import 'package:project_curtain/screen/map/map.dart';
-import 'package:project_curtain/screen/page/customer_screen.dart';
-import 'package:project_curtain/screen/page/home_screen.dart';
-import 'package:project_curtain/screen/page/order_screen.dart';
-import 'package:project_curtain/screen/page/product_screen.dart';
-import 'package:project_curtain/screen/page/receipt_screen.dart';
-import 'package:project_curtain/screen/page/setting_screen.dart';
+import 'package:project_curtain/login_screen.dart';
+import 'package:project_curtain/page/customer_screen.dart';
+import 'package:project_curtain/page/home_screen.dart';
+import 'package:project_curtain/page/order_screen.dart';
+import 'package:project_curtain/page/product_screen.dart';
+import 'package:project_curtain/page/receipt_screen.dart';
+import 'package:project_curtain/page/setting_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,11 +25,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    // return MaterialApp(home: LoginScreen());
+    return const MaterialApp(home: LoginScreen());
 
-    // return MaterialApp(home: Map());
-
-    return const MaterialApp(home: TabsScreen());
+    // return const MaterialApp(home: TabsScreen());
   }
 }
 
@@ -43,6 +41,7 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int _currentIndex = 0;
+  int _counter = 1;
 
   final _homeScreen = GlobalKey<NavigatorState>();
   final _productScreen = GlobalKey<NavigatorState>();
@@ -125,15 +124,15 @@ class _TabsScreenState extends State<TabsScreen> {
         selectedItemColor: Colors.black,
         selectedLabelStyle: GoogleFonts.kanit(),
         unselectedLabelStyle: GoogleFonts.kanit(),
-        items: const [
-          BottomNavigationBarItem(
+        items: [
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
               size: 24,
             ),
             label: "HOME",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.all_inbox,
               size: 24,
@@ -141,27 +140,33 @@ class _TabsScreenState extends State<TabsScreen> {
             label: "PROSDUCTS",
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.receipt,
-              size: 24,
+            icon: Badge(
+              badgeContent: Text(
+                0.toString(),
+              ),
+              showBadge: _counter > 0 ? true : false,
+              child: const Icon(
+                Icons.receipt,
+                size: 24,
+              ),
             ),
             label: "ORDERS",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.receipt_long,
               size: 24,
             ),
             label: "CHECK",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.people,
               size: 24,
             ),
             label: "CUSTOMERS",
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.settings,
               size: 24,
