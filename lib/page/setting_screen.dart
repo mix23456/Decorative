@@ -32,7 +32,7 @@ class _SettingScreenState extends State<SettingScreen> {
           child: Column(children: [
             Text(
               'SETTING',
-              style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
+              style: GoogleFonts.kanit(color: colortext1, fontSize: subtitle),
             ),
             Container(
               color: colorWhite,
@@ -49,7 +49,8 @@ class _SettingScreenState extends State<SettingScreen> {
                               return ListTile(
                                 title: Text(
                                   'ข้อมูลการติดต่อ',
-                                  style: GoogleFonts.kanit(color: Colors.black),
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
                                 ),
                               );
                             },
@@ -239,15 +240,18 @@ class _SettingScreenState extends State<SettingScreen> {
                       },
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const ContactInformation()));
-                    },
-                    icon: const Icon(Icons.edit),
+                  Container(
+                    color: lightGray,
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ContactInformation()));
+                      },
+                      icon: const Icon(Icons.edit),
+                    ),
                   )
                 ],
               ),
@@ -267,7 +271,8 @@ class _SettingScreenState extends State<SettingScreen> {
                               return ListTile(
                                 title: Text(
                                   'ธนาคาร',
-                                  style: GoogleFonts.kanit(color: Colors.black),
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
                                 ),
                               );
                             },
@@ -360,16 +365,19 @@ class _SettingScreenState extends State<SettingScreen> {
                       },
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          settings: const RouteSettings(name: '/setting'),
-                          builder: (context) => const AddBank(),
-                        ),
-                      );
-                    },
-                    icon: const Icon(Icons.add),
+                  Container(
+                    color: lightGray,
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            settings: const RouteSettings(name: '/setting'),
+                            builder: (context) => const AddBank(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.add),
+                    ),
                   ),
                 ],
               ),
@@ -389,7 +397,8 @@ class _SettingScreenState extends State<SettingScreen> {
                               return ListTile(
                                 title: Text(
                                   'ผู้ใช้',
-                                  style: GoogleFonts.kanit(color: Colors.black),
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
                                 ),
                               );
                             },
@@ -488,14 +497,17 @@ class _SettingScreenState extends State<SettingScreen> {
                       },
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AddUser()));
-                    },
-                    icon: const Icon(Icons.add),
+                  Container(
+                    color: lightGray,
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AddUser()));
+                      },
+                      icon: const Icon(Icons.add),
+                    ),
                   ),
                 ],
               ),
@@ -515,7 +527,8 @@ class _SettingScreenState extends State<SettingScreen> {
                               return ListTile(
                                 title: Text(
                                   'ผลงาน',
-                                  style: GoogleFonts.kanit(color: Colors.black),
+                                  style: GoogleFonts.kanit(
+                                      fontSize: bodytext, color: colortext1),
                                 ),
                               );
                             },
@@ -654,18 +667,42 @@ class _SettingScreenState extends State<SettingScreen> {
                       },
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Work()));
-                    },
-                    icon: const Icon(Icons.add),
+                  Container(
+                    color: lightGray,
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Work()));
+                      },
+                      icon: const Icon(Icons.add),
+                    ),
                   ),
                 ],
               ),
             ),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: colorBorder, elevation: 0),
+                onPressed: () async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.remove('token');
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext ctx) => LoginScreen()));
+                },
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    'ออกจากระบบ',
+                    textAlign: TextAlign.left,
+                    style: GoogleFonts.kanit(
+                        fontSize: bodytext, color: colortext1),
+                  ),
+                )),
           ]),
         ),
       ),
