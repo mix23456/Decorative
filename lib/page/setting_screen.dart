@@ -5,7 +5,7 @@ import 'package:project_curtain/add_bank.dart';
 import 'package:project_curtain/add_user.dart';
 import 'package:project_curtain/edit_bank.dart';
 import 'package:project_curtain/edit_contact_information.dart';
-import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/constants/constants.dart';
 import 'package:project_curtain/login_screen.dart';
 import 'package:project_curtain/work.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,15 +25,19 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorWhite,
+      appBar: AppBar(
+        backgroundColor: colorWhite,
+        centerTitle: true,
+        title: Text(
+          'SETTING',
+          style: GoogleFonts.kanit(color: colortext1, fontSize: subtitle),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(defaultPadding),
-          color: colorWhite,
           child: Column(children: [
-            Text(
-              'SETTING',
-              style: GoogleFonts.kanit(color: colortext1, fontSize: subtitle),
-            ),
             Container(
               color: colorWhite,
               child: Row(
@@ -682,27 +686,6 @@ class _SettingScreenState extends State<SettingScreen> {
                 ],
               ),
             ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: colorBorder, elevation: 0),
-                onPressed: () async {
-                  SharedPreferences prefs =
-                      await SharedPreferences.getInstance();
-                  prefs.remove('token');
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext ctx) => LoginScreen()));
-                },
-                child: SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                    'ออกจากระบบ',
-                    textAlign: TextAlign.left,
-                    style: GoogleFonts.kanit(
-                        fontSize: bodytext, color: colortext1),
-                  ),
-                )),
           ]),
         ),
       ),
