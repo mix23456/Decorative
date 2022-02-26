@@ -46,11 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: colorWhite,
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.40,
+              height: MediaQuery.of(context).size.height / 2.5,
               child: Stack(
                 children: [
                   CarouselSlider(
@@ -122,837 +123,830 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               }).toList(),
             ),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
-              child: Column(
-                children: [
-                  const SizedBox(height: defaultPadding / 2),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: defaultPadding * 2),
-                    child: Text(
-                      "REVIEW",
-                      style: GoogleFonts.kanit(fontSize: 32),
-                    ),
+            Column(
+              children: [
+                const SizedBox(height: defaultPadding / 2),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: defaultPadding * 2),
+                  child: Text(
+                    "REVIEW",
+                    style: GoogleFonts.kanit(fontSize: 32),
                   ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 200,
-                          color: Colors.transparent,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const DetailScreen(),
-                                    ));
-                              },
-                              child: GridTile(
-                                child: Image.network(
-                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                                footer: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  color: Colors.black.withOpacity(.5),
-                                  child: Text(
-                                    'ผลงานผ้าม่าน',
-                                    style: GoogleFonts.kanit(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: defaultPadding),
-                      Expanded(
-                        child: Container(
-                          height: 200,
-                          color: Colors.transparent,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const DetailScreen(),
-                                    ));
-                              },
-                              child: GridTile(
-                                child: Image.network(
-                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                                footer: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  color: Colors.black.withOpacity(.5),
-                                  child: Text(
-                                    'ผลงานมู่ลี่ไม้',
-                                    style: GoogleFonts.kanit(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: defaultPadding),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 200,
-                          color: Colors.transparent,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const DetailScreen(),
-                                    ));
-                              },
-                              child: GridTile(
-                                child: Image.network(
-                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                                footer: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  color: Colors.black.withOpacity(.5),
-                                  child: Text(
-                                    'ผ้าโปร่งแสง',
-                                    style: GoogleFonts.kanit(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: defaultPadding),
-                      Expanded(
-                        child: Container(
-                          height: 200,
-                          color: Colors.transparent,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const DetailScreen(),
-                                    ));
-                              },
-                              child: GridTile(
-                                child: Image.network(
-                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                                footer: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  color: Colors.black.withOpacity(.5),
-                                  child: Text(
-                                    'ม่านจีบ',
-                                    style: GoogleFonts.kanit(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: defaultPadding),
-                      Expanded(
-                        child: Container(
-                          height: 200,
-                          color: Colors.transparent,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const DetailScreen(),
-                                    ));
-                              },
-                              child: GridTile(
-                                child: Image.network(
-                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                                footer: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  color: Colors.black.withOpacity(.5),
-                                  child: Text(
-                                    'ม่านสองชั้น',
-                                    style: GoogleFonts.kanit(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: defaultPadding),
-                      Expanded(
-                        child: Container(
-                          width: 200,
-                          height: 200,
-                          color: Colors.transparent,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const DetailScreen(),
-                                    ));
-                              },
-                              child: GridTile(
-                                child: Image.network(
-                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                  fit: BoxFit.cover,
-                                ),
-                                footer: Container(
-                                  padding: const EdgeInsets.all(8),
-                                  color: Colors.black.withOpacity(.5),
-                                  child: Text(
-                                    'มู่ลี่',
-                                    style: GoogleFonts.kanit(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontSize: 13,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(top: defaultPadding / 2),
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const ProductScreen()));
-                      },
-                      child: Text(
-                        'All Item',
-                        style: GoogleFonts.kanit(
-                            fontSize: bodytext,
-                            color: colortext2,
-                            decoration: TextDecoration.underline),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: defaultPadding / 2),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: defaultPadding * 2),
-                    child: Text('PERFORMANCE',
-                        style: GoogleFonts.kanit(fontSize: 32)),
-                  ),
-                  const SizedBox(height: defaultPadding / 2),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: defaultPadding, vertical: defaultPadding),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: colortext2.withOpacity(0.25)),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'ชื่อผลงาน : ',
-                                style: GoogleFonts.kanit(
-                                    fontSize: bodytext, color: colortext1),
-                              ),
-                              TextSpan(
-                                text: 'ผ้าม่านสุดเกร๋',
-                                style: GoogleFonts.kanit(
-                                  color: colortext2,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: defaultPadding),
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'ที่อยู่งาน : ',
-                                style: GoogleFonts.kanit(
-                                    fontSize: bodytext, color: colortext1),
-                              ),
-                              TextSpan(
-                                text:
-                                    '188/5-6 ถ.ทุ่งโอเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
-                                style: GoogleFonts.kanit(
-                                  color: colortext2,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: defaultPadding),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                width: 200,
-                                height: 200,
-                                color: Colors.transparent,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Image.network(
-                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: defaultPadding),
-                            Expanded(
-                              child: Container(
-                                width: 200,
-                                height: 200,
-                                color: Colors.transparent,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Image.network(
-                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: defaultPadding),
-                            Expanded(
-                              child: Container(
-                                width: 200,
-                                height: 200,
-                                color: Colors.transparent,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Image.network(
-                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: defaultPadding * 2),
-                    child:
-                        Text('PAYMENT', style: GoogleFonts.kanit(fontSize: 32)),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: defaultPadding / 2,
-                      horizontal: defaultPadding / 2,
-                    ),
-                    color: Colors.grey[200],
-                    width: double.infinity,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: defaultPadding * 5),
+                  child: Column(children: [
+                    Row(
                       children: [
                         Expanded(
                           child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: colorWhite,
-                            ),
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.all(
-                                          defaultPadding / 2),
-                                      width: 40,
-                                      child: Image.asset(
-                                        'assets/logos/kbank.png',
-                                        fit: BoxFit.contain,
+                            height: 200,
+                            color: Colors.transparent,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const DetailScreen(),
+                                      ));
+                                },
+                                child: GridTile(
+                                  child: Image.network(
+                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                  footer: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    color: Colors.black.withOpacity(.5),
+                                    child: Text(
+                                      'ผลงานผ้าม่าน',
+                                      style: GoogleFonts.kanit(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 13,
                                       ),
                                     ),
-                                    const SizedBox(width: defaultPadding),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'บัญชี : 254-2-63689-0',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1),
-                                        ),
-                                        Text(
-                                          'ธนาคารกสิกรไทย',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1),
-                                        ),
-                                        Text(
-                                          'สาขาช้างคลาน',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                                const Divider(
-                                  thickness: 1,
-                                  height: 20,
-                                  indent: 20,
-                                  endIndent: 20,
-                                ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      'PromptPay',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1),
-                                    ),
-                                    const SizedBox(height: defaultPadding),
-                                    Container(
-                                      width: 100,
-                                      height: 100,
-                                      color: colorContainer,
-                                    ),
-                                    const SizedBox(height: defaultPadding),
-                                    Text(
-                                      'แสกน QR เพื่อโอนเข้าบัญชี',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1),
-                                    ),
-                                    const SizedBox(height: defaultPadding),
-                                    Text(
-                                      'ชื่อ :',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1),
-                                    ),
-                                    const SizedBox(height: defaultPadding),
-                                    Text(
-                                      'เลขอ้างอิง :',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext2),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                        const SizedBox(width: defaultPadding / 2.5),
+                        const SizedBox(width: defaultPadding),
                         Expanded(
                           child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: colorWhite,
-                            ),
-                            child: Column(
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      margin: const EdgeInsets.all(
-                                          defaultPadding / 2),
-                                      width: 40,
-                                      child: Image.asset(
-                                        'assets/logos/kbank.png',
-                                        fit: BoxFit.contain,
+                            height: 200,
+                            color: Colors.transparent,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const DetailScreen(),
+                                      ));
+                                },
+                                child: GridTile(
+                                  child: Image.network(
+                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                  footer: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    color: Colors.black.withOpacity(.5),
+                                    child: Text(
+                                      'ผลงานมู่ลี่ไม้',
+                                      style: GoogleFonts.kanit(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 13,
                                       ),
                                     ),
-                                    const SizedBox(width: defaultPadding),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'บัญชี : 254-2-63689-0',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1),
-                                        ),
-                                        Text(
-                                          'ธนาคารกสิกรไทย',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1),
-                                        ),
-                                        Text(
-                                          'สาขาช้างคลาน',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext,
-                                              color: colortext1),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                                const Divider(
-                                  thickness: 1,
-                                  height: 20,
-                                  indent: 20,
-                                  endIndent: 20,
-                                ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      'PromptPay',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1),
-                                    ),
-                                    const SizedBox(height: defaultPadding),
-                                    Container(
-                                      width: 100,
-                                      height: 100,
-                                      color: colorContainer,
-                                    ),
-                                    const SizedBox(height: defaultPadding),
-                                    Text(
-                                      'แสกน QR เพื่อโอนเข้าบัญชี',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1),
-                                    ),
-                                    const SizedBox(height: defaultPadding),
-                                    Text(
-                                      'ชื่อ :',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext1),
-                                    ),
-                                    const SizedBox(height: defaultPadding),
-                                    Text(
-                                      'เลขอ้างอิง :',
-                                      style: GoogleFonts.kanit(
-                                          fontSize: bodytext,
-                                          color: colortext2),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(height: defaultPadding / 2),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: defaultPadding * 2),
-                    child: Text('CONTACK US',
-                        style: GoogleFonts.kanit(fontSize: 32)),
-                  ),
-                  Container(
-                    color: Colors.grey[200],
-                    child: Column(
+                    const SizedBox(height: defaultPadding),
+                    Row(
                       children: [
-                        Table(
+                        Expanded(
+                          child: Container(
+                            height: 200,
+                            color: Colors.transparent,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const DetailScreen(),
+                                      ));
+                                },
+                                child: GridTile(
+                                  child: Image.network(
+                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                  footer: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    color: Colors.black.withOpacity(.5),
+                                    child: Text(
+                                      'ผ้าโปร่งแสง',
+                                      style: GoogleFonts.kanit(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: defaultPadding),
+                        Expanded(
+                          child: Container(
+                            height: 200,
+                            color: Colors.transparent,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const DetailScreen(),
+                                      ));
+                                },
+                                child: GridTile(
+                                  child: Image.network(
+                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                  footer: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    color: Colors.black.withOpacity(.5),
+                                    child: Text(
+                                      'ม่านจีบ',
+                                      style: GoogleFonts.kanit(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: defaultPadding),
+                        Expanded(
+                          child: Container(
+                            height: 200,
+                            color: Colors.transparent,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const DetailScreen(),
+                                      ));
+                                },
+                                child: GridTile(
+                                  child: Image.network(
+                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                  footer: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    color: Colors.black.withOpacity(.5),
+                                    child: Text(
+                                      'ม่านสองชั้น',
+                                      style: GoogleFonts.kanit(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: defaultPadding),
+                        Expanded(
+                          child: Container(
+                            width: 200,
+                            height: 200,
+                            color: Colors.transparent,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const DetailScreen(),
+                                      ));
+                                },
+                                child: GridTile(
+                                  child: Image.network(
+                                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                    fit: BoxFit.cover,
+                                  ),
+                                  footer: Container(
+                                    padding: const EdgeInsets.all(8),
+                                    color: Colors.black.withOpacity(.5),
+                                    child: Text(
+                                      'มู่ลี่',
+                                      style: GoogleFonts.kanit(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 13,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(top: defaultPadding / 2),
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ProductScreen()));
+                        },
+                        child: Text(
+                          'All Item',
+                          style: GoogleFonts.kanit(
+                              fontSize: bodytext,
+                              color: colortext2,
+                              decoration: TextDecoration.underline),
+                        ),
+                      ),
+                    ),
+                  ]),
+                ),
+                const SizedBox(height: defaultPadding / 2),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: defaultPadding * 2),
+                  child: Text('PERFORMANCE',
+                      style: GoogleFonts.kanit(fontSize: 32)),
+                ),
+                const SizedBox(height: defaultPadding / 2),
+                Container(
+                  padding: const EdgeInsets.all(defaultPadding),
+                  margin: const EdgeInsets.symmetric(
+                      horizontal: defaultPadding * 5, vertical: defaultPadding),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: colortext2.withOpacity(0.25)),
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RichText(
+                        text: TextSpan(
                           children: [
-                            TableRow(
-                              decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10),
-                                  ),
-                                  color: colortext1),
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      padding:
-                                          const EdgeInsets.all(defaultPadding),
-                                      height: 50,
-                                      alignment: Alignment.centerLeft,
-                                      child: Text(
-                                        'บริษัท DK decorative',
-                                        style: GoogleFonts.kanit(
-                                            fontSize: bodytext,
-                                            color: colorWhite),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding:
-                                          const EdgeInsets.all(defaultPadding),
-                                      alignment: Alignment.centerRight,
-                                      child: const Icon(
-                                        Icons.ios_share,
-                                        color: colorWhite,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                            TextSpan(
+                              text: 'ชื่อผลงาน : ',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
                             ),
-                            TableRow(
-                              decoration:
-                                  const BoxDecoration(color: colorWhite),
-                              children: [
-                                Container(
-                                  padding:
-                                      const EdgeInsets.all(defaultPadding / 2),
-                                  height: 50,
-                                  alignment: Alignment.centerLeft,
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.email,
-                                        color: colortext1,
-                                      ),
-                                      const SizedBox(width: defaultPadding),
-                                      Text(
-                                        'dkdecorative@gmail.com',
-                                        style: GoogleFonts.kanit(
-                                            fontSize: bodytext,
-                                            color: colortext2),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            TableRow(
-                              decoration:
-                                  const BoxDecoration(color: colorWhite),
-                              children: [
-                                Container(
-                                  padding:
-                                      const EdgeInsets.all(defaultPadding / 2),
-                                  height: 50,
-                                  alignment: Alignment.centerLeft,
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.phone,
-                                        color: colortext1,
-                                      ),
-                                      const SizedBox(width: defaultPadding),
-                                      Text(
-                                        '052 002620',
-                                        style: GoogleFonts.kanit(
-                                            fontSize: bodytext,
-                                            color: colortext2),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            TableRow(
-                              decoration:
-                                  const BoxDecoration(color: colorWhite),
-                              children: [
-                                Container(
-                                  padding:
-                                      const EdgeInsets.all(defaultPadding / 2),
-                                  height: 50,
-                                  alignment: Alignment.centerLeft,
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.phone_iphone,
-                                        color: colortext1,
-                                      ),
-                                      const SizedBox(width: defaultPadding),
-                                      Text(
-                                        '0818846190',
-                                        style: GoogleFonts.kanit(
-                                            fontSize: bodytext,
-                                            color: colortext2),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            TableRow(
-                              decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(10),
-                                    bottomRight: Radius.circular(10),
-                                  ),
-                                  color: colorWhite),
-                              children: [
-                                Container(
-                                  padding:
-                                      const EdgeInsets.all(defaultPadding / 2),
-                                  height: 50,
-                                  alignment: Alignment.centerLeft,
-                                  child: Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.location_on,
-                                        color: colortext1,
-                                      ),
-                                      const SizedBox(width: defaultPadding),
-                                      Text(
-                                        '188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
-                                        style: GoogleFonts.kanit(
-                                            fontSize: bodytext,
-                                            color: colortext2),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                            TextSpan(
+                              text: 'ผ้าม่านสุดเกร๋',
+                              style: GoogleFonts.kanit(
+                                color: colortext2,
+                              ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: defaultPadding * 2),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      ),
+                      const SizedBox(height: defaultPadding),
+                      RichText(
+                        text: TextSpan(
                           children: [
-                            Row(
-                              children: [
-                                Tab(
-                                  icon: Image.asset(
-                                      'assets/logos/facebook_logo.png'),
-                                  height: 24,
-                                ),
-                                const SizedBox(width: defaultPadding / 2),
-                                Text(
-                                  'DK decorative',
-                                  style: GoogleFonts.kanit(
-                                      fontSize: bodytext, color: colortext2),
-                                ),
-                              ],
+                            TextSpan(
+                              text: 'ที่อยู่งาน : ',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
                             ),
-                            const SizedBox(width: defaultPadding / 2),
-                            Row(
-                              children: [
-                                Tab(
-                                  icon: Image.asset(
-                                      'assets/logos/instagram_logo.png'),
-                                  height: 24,
-                                ),
-                                const SizedBox(width: defaultPadding / 2),
-                                Text(
-                                  'DK decorative',
-                                  style: GoogleFonts.kanit(
-                                      fontSize: bodytext, color: colortext2),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(width: defaultPadding / 2),
-                            Row(
-                              children: [
-                                Tab(
-                                  icon:
-                                      Image.asset('assets/logos/line_logo.png'),
-                                  height: 24,
-                                ),
-                                const SizedBox(width: defaultPadding / 2),
-                                Text(
-                                  'DK decorative',
-                                  style: GoogleFonts.kanit(
-                                      fontSize: bodytext, color: colortext2),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(width: defaultPadding / 2),
-                            Row(
-                              children: [
-                                Tab(
-                                  icon: Image.asset(
-                                      'assets/logos/twitter_logo.png'),
-                                  height: 24,
-                                ),
-                                const SizedBox(width: defaultPadding / 2),
-                                Text(
-                                  'DK decorative',
-                                  style: GoogleFonts.kanit(
-                                      fontSize: bodytext, color: colortext2),
-                                ),
-                              ],
+                            TextSpan(
+                              text:
+                                  '188/5-6 ถ.ทุ่งโอเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
+                              style: GoogleFonts.kanit(
+                                color: colortext2,
+                              ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: defaultPadding * 2),
-                        Container(
+                      ),
+                      const SizedBox(height: defaultPadding),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              width: 200,
+                              height: 200,
+                              color: Colors.transparent,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.network(
+                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: defaultPadding),
+                          Expanded(
+                            child: Container(
+                              width: 200,
+                              height: 200,
+                              color: Colors.transparent,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.network(
+                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: defaultPadding),
+                          Expanded(
+                            child: Container(
+                              width: 200,
+                              height: 200,
+                              color: Colors.transparent,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.network(
+                                  'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: defaultPadding * 2),
+                  child:
+                      Text('PAYMENT', style: GoogleFonts.kanit(fontSize: 32)),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: defaultPadding,
+                    horizontal: defaultPadding * 5,
+                  ),
+                  color: Colors.grey[200],
+                  width: double.infinity,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
+                            color: colorWhite,
                           ),
-                          height: 200,
-                          child: const GoogleMap(
-                            initialCameraPosition: _kInitialPosition,
-                            myLocationEnabled: true,
-                            myLocationButtonEnabled: true,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    margin: const EdgeInsets.all(
+                                        defaultPadding / 2),
+                                    width: 40,
+                                    child: Image.asset(
+                                      'assets/logos/kbank.png',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                  const SizedBox(width: defaultPadding),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'บัญชี : 254-2-63689-0',
+                                        style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1),
+                                      ),
+                                      Text(
+                                        'ธนาคารกสิกรไทย',
+                                        style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1),
+                                      ),
+                                      Text(
+                                        'สาขาช้างคลาน',
+                                        style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                thickness: 1,
+                                height: 20,
+                                indent: 20,
+                                endIndent: 20,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'PromptPay',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext1),
+                                  ),
+                                  const SizedBox(height: defaultPadding),
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    color: colorContainer,
+                                  ),
+                                  const SizedBox(height: defaultPadding),
+                                  Text(
+                                    'แสกน QR เพื่อโอนเข้าบัญชี',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext1),
+                                  ),
+                                  const SizedBox(height: defaultPadding),
+                                  Text(
+                                    'ชื่อ :',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext1),
+                                  ),
+                                  const SizedBox(height: defaultPadding),
+                                  Text(
+                                    'เลขอ้างอิง :',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext2),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(width: defaultPadding / 2.5),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: colorWhite,
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Container(
+                                    margin: const EdgeInsets.all(
+                                        defaultPadding / 2),
+                                    width: 40,
+                                    child: Image.asset(
+                                      'assets/logos/kbank.png',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                  const SizedBox(width: defaultPadding),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'บัญชี : 254-2-63689-0',
+                                        style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1),
+                                      ),
+                                      Text(
+                                        'ธนาคารกสิกรไทย',
+                                        style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1),
+                                      ),
+                                      Text(
+                                        'สาขาช้างคลาน',
+                                        style: GoogleFonts.kanit(
+                                            fontSize: bodytext,
+                                            color: colortext1),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                thickness: 1,
+                                height: 20,
+                                indent: 20,
+                                endIndent: 20,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'PromptPay',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext1),
+                                  ),
+                                  const SizedBox(height: defaultPadding),
+                                  Container(
+                                    width: 100,
+                                    height: 100,
+                                    color: colorContainer,
+                                  ),
+                                  const SizedBox(height: defaultPadding),
+                                  Text(
+                                    'แสกน QR เพื่อโอนเข้าบัญชี',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext1),
+                                  ),
+                                  const SizedBox(height: defaultPadding),
+                                  Text(
+                                    'ชื่อ :',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext1),
+                                  ),
+                                  const SizedBox(height: defaultPadding),
+                                  Text(
+                                    'เลขอ้างอิง :',
+                                    style: GoogleFonts.kanit(
+                                        fontSize: bodytext, color: colortext2),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: defaultPadding / 2),
-                ],
-              ),
+                ),
+                const SizedBox(height: defaultPadding / 2),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: defaultPadding * 2),
+                  child: Text('CONTACK US',
+                      style: GoogleFonts.kanit(fontSize: 32)),
+                ),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(
+                      vertical: defaultPadding, horizontal: defaultPadding * 5),
+                  color: Colors.grey[200],
+                  child: Column(
+                    children: [
+                      Table(
+                        children: [
+                          TableRow(
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  topRight: Radius.circular(10),
+                                ),
+                                color: colortext1),
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    padding:
+                                        const EdgeInsets.all(defaultPadding),
+                                    height: 50,
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'บริษัท DK decorative',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colorWhite),
+                                    ),
+                                  ),
+                                  Container(
+                                    padding:
+                                        const EdgeInsets.all(defaultPadding),
+                                    alignment: Alignment.centerRight,
+                                    child: const Icon(
+                                      Icons.ios_share,
+                                      color: colorWhite,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          TableRow(
+                            decoration: const BoxDecoration(color: colorWhite),
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.all(defaultPadding / 2),
+                                height: 50,
+                                alignment: Alignment.centerLeft,
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.email,
+                                      color: colortext1,
+                                    ),
+                                    const SizedBox(width: defaultPadding),
+                                    Text(
+                                      'dkdecorative@gmail.com',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          TableRow(
+                            decoration: const BoxDecoration(color: colorWhite),
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.all(defaultPadding / 2),
+                                height: 50,
+                                alignment: Alignment.centerLeft,
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.phone,
+                                      color: colortext1,
+                                    ),
+                                    const SizedBox(width: defaultPadding),
+                                    Text(
+                                      '052 002620',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          TableRow(
+                            decoration: const BoxDecoration(color: colorWhite),
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.all(defaultPadding / 2),
+                                height: 50,
+                                alignment: Alignment.centerLeft,
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.phone_iphone,
+                                      color: colortext1,
+                                    ),
+                                    const SizedBox(width: defaultPadding),
+                                    Text(
+                                      '0818846190',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          TableRow(
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
+                                ),
+                                color: colorWhite),
+                            children: [
+                              Container(
+                                padding:
+                                    const EdgeInsets.all(defaultPadding / 2),
+                                height: 50,
+                                alignment: Alignment.centerLeft,
+                                child: Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.location_on,
+                                      color: colortext1,
+                                    ),
+                                    const SizedBox(width: defaultPadding),
+                                    Text(
+                                      '188/5-6 ถ.ทุ่งโฮเต็ล ต.วัดเกต อ.เมือง จ.เชียงใหม่ 50000',
+                                      style: GoogleFonts.kanit(
+                                          fontSize: bodytext,
+                                          color: colortext2),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: defaultPadding * 2),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Row(
+                            children: [
+                              Tab(
+                                icon: Image.asset(
+                                    'assets/logos/facebook_logo.png'),
+                                height: 24,
+                              ),
+                              const SizedBox(width: defaultPadding / 2),
+                              Text(
+                                'DK decorative',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext2),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(width: defaultPadding / 2),
+                          Row(
+                            children: [
+                              Tab(
+                                icon: Image.asset(
+                                    'assets/logos/instagram_logo.png'),
+                                height: 24,
+                              ),
+                              const SizedBox(width: defaultPadding / 2),
+                              Text(
+                                'DK decorative',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext2),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(width: defaultPadding / 2),
+                          Row(
+                            children: [
+                              Tab(
+                                icon: Image.asset('assets/logos/line_logo.png'),
+                                height: 24,
+                              ),
+                              const SizedBox(width: defaultPadding / 2),
+                              Text(
+                                'DK decorative',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext2),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(width: defaultPadding / 2),
+                          Row(
+                            children: [
+                              Tab(
+                                icon: Image.asset(
+                                    'assets/logos/twitter_logo.png'),
+                                height: 24,
+                              ),
+                              const SizedBox(width: defaultPadding / 2),
+                              Text(
+                                'DK decorative',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext2),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: defaultPadding * 2),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: 200,
+                        child: const GoogleMap(
+                          initialCameraPosition: _kInitialPosition,
+                          myLocationEnabled: true,
+                          myLocationButtonEnabled: true,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),
