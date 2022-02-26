@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/details_product.dart';
-import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/constants/constants.dart';
 
 class SearchResultChick extends StatefulWidget {
   const SearchResultChick({Key? key}) : super(key: key);

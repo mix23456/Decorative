@@ -2,7 +2,7 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/contack.dart';
-import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/constants/constants.dart';
 import 'package:project_curtain/login_screen.dart';
 import 'package:project_curtain/page/customer_screen.dart';
 import 'package:project_curtain/page/home_screen.dart';

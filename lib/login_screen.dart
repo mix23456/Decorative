@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/constants/constants.dart';
 import 'package:project_curtain/forget_password.dart';
 import 'package:project_curtain/login.dart';
 import 'package:project_curtain/login2.dart';

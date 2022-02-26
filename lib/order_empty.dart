@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/cart_order.dart';
-import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/constants/constants.dart';
 import 'package:project_curtain/edit_product.dart';
 import 'package:project_curtain/search_order.dart';
 

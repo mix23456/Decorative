@@ -54,7 +54,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/constants/constants.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({

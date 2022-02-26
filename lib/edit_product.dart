@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/formatters/money_input_formatter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/add_customer.dart';
-import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/constants/constants.dart';
 import 'package:project_curtain/format.dart';
 import 'package:project_curtain/page/customer_screen.dart';
 import 'package:project_curtain/page/home_screen.dart';

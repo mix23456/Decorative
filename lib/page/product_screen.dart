@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/constants.dart';
+import 'package:project_curtain/constants/constants.dart';
 import 'package:project_curtain/details_product.dart';
-import 'package:project_curtain/product_card.dart';
+import 'package:project_curtain/constants/product_card.dart';
 import 'package:project_curtain/search_product.dart';
 import 'package:project_curtain/search_result_chick.dart';
 import 'package:project_curtain/search_result_curtain.dart';
