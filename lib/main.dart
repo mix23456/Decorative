@@ -10,6 +10,7 @@ import 'package:project_curtain/page/order_screen.dart';
 import 'package:project_curtain/page/product_screen.dart';
 import 'package:project_curtain/page/receipt_screen.dart';
 import 'package:project_curtain/page/setting_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,6 +43,7 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _currentIndex = 0;
   int _counter = 1;
+  bool showElevatedButtonBadge = true;
 
   final _homeScreen = GlobalKey<NavigatorState>();
   final _productScreen = GlobalKey<NavigatorState>();
@@ -57,15 +59,35 @@ class _TabsScreenState extends State<TabsScreen> {
         backgroundColor: Colors.grey[300],
         leading: Image.asset('assets/logos/logo.png'),
         actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Contack()));
-            },
-            child: Text(
-              'ช่องทางการติดต่อ',
-              style: GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
-            ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Contack()));
+                },
+                child: Text(
+                  'ช่องทางการติดต่อ',
+                  style:
+                      GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
+                ),
+              ),
+              IconButton(
+                  onPressed: () async {
+                    SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                    prefs.remove('token');
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext ctx) =>
+                                const LoginScreen()));
+                  },
+                  icon: const Icon(
+                    Icons.logout,
+                    color: Colors.black,
+                  ))
+            ],
           ),
         ],
       ),
@@ -144,7 +166,7 @@ class _TabsScreenState extends State<TabsScreen> {
               badgeContent: Text(
                 0.toString(),
               ),
-              showBadge: _counter > 0 ? true : false,
+              showBadge: showElevatedButtonBadge,
               child: const Icon(
                 Icons.receipt,
                 size: 24,
