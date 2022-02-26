@@ -66,7 +66,8 @@ class _CustomerScreenState extends State<CustomerScreen> {
         ],
       ),
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
+        margin: const EdgeInsets.symmetric(
+            horizontal: defaultPadding * 3, vertical: defaultPadding * 2),
         child: Column(
           children: [
             Row(
