@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/constants/constants.dart';
+import 'package:project_curtain/constants/product_card.dart';
 import 'package:project_curtain/details_product.dart';
 
 class SearchProduct extends StatefulWidget {
@@ -41,10 +42,13 @@ class _SearchProductState extends State<SearchProduct> {
             children: [
               Row(
                 children: [
-                  Container(
-                    width: 300,
+                  Expanded(
+                    flex: 1,
                     child: TextField(
                       decoration: InputDecoration(
+                        hintText: 'ผ้าม่าน',
+                        hintStyle: GoogleFonts.kanit(
+                            color: Colors.grey, fontSize: bodytext),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -52,326 +56,111 @@ class _SearchProductState extends State<SearchProduct> {
                     ),
                   ),
                   const SizedBox(width: defaultPadding),
-                  const Icon(Icons.search)
+                  const Icon(Icons.search, color: colorBlack),
+                  const Expanded(child: SizedBox())
                 ],
               ),
-              const SizedBox(height: defaultPadding),
-              Container(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รางยูโก้ประกอบ มือปีด',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+              SizedBox(height: defaultPadding),
+              Row(
+                children: [
+                  Expanded(
+                    child: ProductCard(
+                      nameProduct: 'รางยูโก้ประกอบ มือปิด',
+                      ontap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DetailScreen()));
+                      },
+                      image: Image.asset(
+                        'assets/images/curtain2.png',
+                        fit: BoxFit.cover,
                       ),
+                      price: 400,
                     ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'รางยูโก้ประกอบ มือปีด',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: ProductCard(
+                      nameProduct: 'รางยูโก้ประกอบ มือปิด',
+                      ontap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DetailScreen()));
+                      },
+                      image: Image.asset(
+                        'assets/images/curtain3.png',
+                        fit: BoxFit.cover,
                       ),
+                      price: 400,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const SizedBox(height: defaultPadding),
-              Container(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'ผ้าทึบหน้าแคบ',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+              const SizedBox(height: defaultPadding / 2),
+              Row(
+                children: [
+                  Expanded(
+                    child: ProductCard(
+                      nameProduct: 'รางยูโก้ประกอบ มือปิด',
+                      ontap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DetailScreen()));
+                      },
+                      image: Image.asset(
+                        'assets/images/curtain2.png',
+                        fit: BoxFit.cover,
                       ),
+                      price: 400,
                     ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'ผ้าทึบหน้าแคบ',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: ProductCard(
+                      nameProduct: 'รางยูโก้ประกอบ มือปิด',
+                      ontap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DetailScreen()));
+                      },
+                      image: Image.asset(
+                        'assets/images/curtain3.png',
+                        fit: BoxFit.cover,
                       ),
+                      price: 400,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const SizedBox(height: defaultPadding),
-              Container(
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'ผ้าทึบหน้าแคบ',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+              const SizedBox(height: defaultPadding / 2),
+              Row(
+                children: [
+                  Expanded(
+                    child: ProductCard(
+                      nameProduct: 'รางยูโก้ประกอบ มือปิด',
+                      ontap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DetailScreen()));
+                      },
+                      image: Image.asset(
+                        'assets/images/curtain2.png',
+                        fit: BoxFit.cover,
                       ),
+                      price: 400,
                     ),
-                    const SizedBox(width: defaultPadding),
-                    Expanded(
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.25,
-                        color: Colors.transparent,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DetailScreen(),
-                                  ));
-                            },
-                            child: GridTile(
-                              child: Image.network(
-                                'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                                fit: BoxFit.cover,
-                              ),
-                              footer: Container(
-                                padding: const EdgeInsets.all(8),
-                                color: Colors.black.withOpacity(.5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'ผ้าทึบหน้าแคบ',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                    Text(
-                                      '฿ 400',
-                                      style: GoogleFonts.kanit(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white,
-                                        fontSize: bodytext,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: ProductCard(
+                      nameProduct: 'รางยูโก้ประกอบ มือปิด',
+                      ontap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DetailScreen()));
+                      },
+                      image: Image.asset(
+                        'assets/images/curtain3.png',
+                        fit: BoxFit.cover,
                       ),
+                      price: 400,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ],
           ),
