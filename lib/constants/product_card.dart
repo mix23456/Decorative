@@ -101,6 +101,33 @@ class ProductCard extends StatelessWidget {
                       fontSize: bodytext,
                     ),
                   ),
+                  Row(
+                    children: [
+                      Container(
+                        width: 34,
+                        height: 24,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: colortext1),
+                      ),
+                      const SizedBox(width: 8),
+                      Container(
+                        width: 34,
+                        height: 24,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: colortext2),
+                      ),
+                      const SizedBox(width: 8),
+                      Container(
+                        width: 34,
+                        height: 24,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: const Color(0xFFE9E9E9)),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
