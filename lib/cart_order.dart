@@ -193,12 +193,10 @@ class _CartOrderState extends State<CartOrder> {
                           TableRow(
                             children: [
                               Container(
-                                color: Colors.amber,
-                                width: 100,
-                                height: 120,
-                                // child: Image.asset(
-                                //     'assets/images/img_1.png'),
-                              ),
+                                  width: 179,
+                                  height: 153,
+                                  child:
+                                      Image.asset('assets/images/curtain.png')),
                             ],
                           )
                         ],

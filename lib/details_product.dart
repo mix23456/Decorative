@@ -18,24 +18,29 @@ class DetailScreen extends StatefulWidget {
 }
 
 final List<String> imgList = [
-  'https://shorturl.asia/eq4vE',
-  'https://shorturl.asia/jHWhA',
-  'https://shorturl.asia/nWtmT',
-  'https://shorturl.asia/Eic8B',
+  'assets/images/detail_product_curtain1.png',
+  'assets/images/detail_product_curtain2.png',
+  'assets/images/detail_product_curtain3.png',
+  'assets/images/detail_product_curtain4.png',
+  'assets/images/detail_product_curtain5.png',
+  'assets/images/detail_product_curtain6.png',
 ];
-final List<Widget> imageSliders = imgList
-    .map((item) => Container(
-          margin: const EdgeInsets.all(5.0),
-          child: ClipRRect(
-              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-              child: Stack(
-                children: <Widget>[
-                  Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                ],
-              )),
-        ))
-    .toList();
+
+final List<String> code = [
+  'AC01CY04',
+  'AC01CY04',
+  'AC01CY04',
+];
+
+final List<Color> color = [
+  colortext1,
+  colortext2,
+  const Color(0xFFE9E9E9),
+];
+
 int selectImage = 0;
+int selectCode = 0;
+int selectColor = 0;
 double result = 0;
 bool isChecked = false;
 double heightCurtain = 0;
@@ -117,15 +122,10 @@ class _DetailScreenState extends State<DetailScreen> {
                   showDialog(
                       context: context, builder: (_) => const ImageDialog());
                 },
-                child: Container(
-                  width: 453,
-                  height: 214,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage('https://shorturl.asia/eq4vE'),
-                    ),
-                  ),
-                ),
+                child: SizedBox(
+                    width: 453,
+                    height: 214,
+                    child: Image.asset(imgList[selectImage])),
               ),
               const SizedBox(height: defaultPadding),
               Row(
@@ -137,8 +137,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: defaultPadding),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: defaultPadding * 2),
               Text('ม่านสองชั้น', style: GoogleFonts.kanit(fontSize: subtitle)),
               const SizedBox(height: defaultPadding),
               Container(
@@ -192,13 +191,11 @@ class _DetailScreenState extends State<DetailScreen> {
                           flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: const [
-                              SelectProductCode(
-                                  productCode: 'A01CY04', isSelected: true),
-                              SizedBox(width: defaultPadding),
-                              SelectProductCode(productCode: 'A01CY04'),
-                              SizedBox(width: defaultPadding),
-                              SelectProductCode(productCode: 'A01CY04'),
+                            children: [
+                              ...List.generate(
+                                code.length,
+                                (index) => buildSelectCode(index),
+                              ),
                             ],
                           ),
                         ),
@@ -223,12 +220,43 @@ class _DetailScreenState extends State<DetailScreen> {
                           flex: 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: const [
-                              selectColor(color: colortext1, isSelected: true),
-                              SizedBox(width: defaultPadding),
-                              selectColor(color: colortext2),
-                              SizedBox(width: defaultPadding),
-                              selectColor(color: Color(0xFFE9E9E9)),
+                            children: [
+                              // ...List.generate(
+                              //   color.length,
+                              //   (index) => buildSelectColor(index),
+                              // ),
+                              ...List.generate(
+                                  3,
+                                  (index) => GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            selectColor = index;
+                                          });
+                                        },
+                                        child: Container(
+                                          margin:
+                                              const EdgeInsets.only(right: 10),
+                                          height: 33.5,
+                                          width: 148,
+                                          decoration: BoxDecoration(
+                                            color: color[index],
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            border: Border.all(
+                                              color: selectColor == index
+                                                  ? colorBlack
+                                                  : Colors.transparent,
+                                            ),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                color: colorBgBtn2,
+                                                blurRadius: 5,
+                                                offset: Offset(0, 2),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      )),
                             ],
                           ),
                         ),
@@ -830,24 +858,6 @@ class _DetailScreenState extends State<DetailScreen> {
           );
         });
   }
-  // ม่านตาไก่
-  // (ผ้าหน้ากว้าง)
-  //    - สูงไม่เกิน 2.5 เมตร
-  // 		  ไม่สลับหน้าผ้า ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.2)/2.8)/0.9)*ราคาผ้า
-  // 		  สลับหน้าผ้า   ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.2)/2.8)/0.9)*ราคาผ้า
-  //
-  // 		- สูงเกิน 2.5 เมตร
-  // 		 ไม่สลับหน้าผ้า ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.2)/2.8)/0.9)*ราคาผ้า
-  // 		 สลับหน้าผ้า   ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.2)/2.8)/0.9)*ราคาผ้า
-  //
-  // (ผ้าหน้าแคบ)
-  // - สูงไม่เกิน 2.5 เมตร
-  //   ไม่สลับหน้าผ้า ((0.35+สูงที่ติดตั้ง)*(กว้าง*2.8)/0.9)*ราคาผ้า
-  //   สลับหน้าผ้า   ((0.35+สูงที่ติดตั้ง)*(กว้าง*3.2)/0.9)*ราคาผ้า
-  //
-  // - สูงเกิน 2.5 เมตร
-  //   ไม่สลับหน้าผ้า
-  //   สลับหน้าผ้า   (((0.35+สูงที่ติดตั้ง)*(กว้าง*2.6)/1.4)/0.9)*ราคาผ้า
 
   // void calculate(double width, double price, double _height) {
   //   print('width');
@@ -888,19 +898,75 @@ class _DetailScreenState extends State<DetailScreen> {
       },
       child: Container(
         margin: const EdgeInsets.only(right: 15),
-        padding: const EdgeInsets.all(1),
         height: 48,
         width: 48,
         decoration: BoxDecoration(
-          color: colorBlue,
+          border:
+              Border.all(color: selectImage == index ? colorBlack : colorWhite),
+        ),
+        child: Image.asset(imgList[index]),
+      ),
+    );
+  }
+
+  GestureDetector buildSelectCode(int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectCode = index;
+        });
+      },
+      child: Container(
+        margin: const EdgeInsets.only(right: 15),
+        height: 33.5,
+        width: 143,
+        decoration: BoxDecoration(
+          color: colorWhite,
+          borderRadius: BorderRadius.circular(10),
+          border:
+              Border.all(color: selectCode == index ? colorBlack : colorWhite),
+          boxShadow: const [
+            BoxShadow(
+              color: colorBgBtn2,
+              blurRadius: 5,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              code[index],
+              style: GoogleFonts.kanit(),
+            )),
+      ),
+    );
+  }
+
+  GestureDetector buildSelectColor(int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectColor = index;
+        });
+      },
+      child: Container(
+        margin: const EdgeInsets.only(right: 15),
+        height: 33.5,
+        width: 143,
+        decoration: BoxDecoration(
+          color: color[selectColor],
           border: Border.all(
-            color: selectImage == index ? colorBlack : Colors.transparent,
-          ),
+              color: selectColor == index ? colorBlack : Colors.transparent),
+          boxShadow: const [
+            BoxShadow(
+              color: colorBgBtn2,
+              blurRadius: 5,
+              offset: Offset(0, 2),
+            ),
+          ],
         ),
-        child: Image.network(
-          'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-          fit: BoxFit.cover,
-        ),
+        child: Text(index.toString()),
       ),
     );
   }
@@ -922,130 +988,6 @@ class _DetailScreenState extends State<DetailScreen> {
   }
 }
 
-class SelectProductCode extends StatelessWidget {
-  final bool isSelected;
-  final String productCode;
-  const SelectProductCode({
-    key,
-    this.isSelected = false,
-    required this.productCode,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.18,
-      height: 33,
-      decoration: BoxDecoration(
-        border: Border.all(color: isSelected ? colorBlack : Colors.transparent),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          elevation: 4,
-          primary: colorWhite,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        onPressed: () {},
-        child: Text(
-          productCode,
-          style: GoogleFonts.kanit(fontSize: bodytext, color: colortext2),
-        ),
-      ),
-    );
-  }
-}
-
-class selectColor extends StatelessWidget {
-  final bool isSelected;
-  final Color color;
-  const selectColor({
-    key,
-    this.isSelected = false,
-    required this.color,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.18,
-      height: 33,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: color,
-        border: Border.all(color: isSelected ? colorBlack : Colors.transparent),
-        boxShadow: const [
-          BoxShadow(
-            color: colorBgBtn2,
-            blurRadius: 5,
-            offset: Offset(0, 2),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-// ม่านตาไก่ //
-// (ผ้าหน้ากว้าง)
-//    - สูงไม่เกิน 2.5 เมตร
-// 		  ไม่สลับหน้าผ้า (((กว้าง*2.2)/2.8)/0.9)*ราคาผ้า
-// 		  สลับหน้าผ้า   (((กว้าง*2.2)/3.2)/0.9)*ราคาผ้า
-//                  (((width * 2.2) / check) / 0.9) * price
-//
-// 		- สูงเกิน 2.5 เมตร
-// 		 ไม่สลับหน้าผ้า ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.2)/2.8)/0.9)*ราคาผ้า
-// 		 สลับหน้าผ้า   ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.2)/3.2)/0.9)*ราคาผ้า
-//                 ((0.35 + _height) * ((width * 2.2) / check) / 0.9) * price
-// (ผ้าหน้าแคบ)
-//		- สูงไม่เกิน 2.5 เมตร
-// 		  ไม่สลับหน้าผ้า ((0.35+สูงที่ติดตั้ง)*(กว้าง*2.2)/0.9)*ราคาผ้า
-// 		  สลับหน้าผ้า
-//                  ((0.35 + _height) * ((width * 2.6) / 1.4) / 0.9) * price
-//
-// 		- สูงเกิน 2.5 เมตร
-// 		  ไม่สลับหน้าผ้า ((0.35+สูงที่ติดตั้ง)*((กว้าง*2.6)/1.4)/0.9)*ราคาผ้า
-// 		  สลับหน้าผ้า
-//                  ((0.35 + _height) * ((width * 2.6) / 1.4) / 0.9) * price
-
-// ม่านจับ //
-// ผ้าหน้ากว้าง
-//		- สูงไม่เกิน 2.6 เมตร
-// 		  ไม่สลับหน้าผ้า ((กว้าง * 2.6)/0.9)*ราคาผ้า
-// 		  สลับหน้าผ้า   ((กว้าง*2.6)/2.8)*ราคาผ้า
-//                  ((width * 2.6) / check) * price
-//
-// 		- สูงเกิน 2.6 เมตร
-// 		  ไม่สลับหน้าผ้า ((กว้าง * 2.6)/0.9)*ราคาผ้า
-// 		  สลับหน้าผ้า   ((กว้าง*2.6)/2.8)*ราคาผ้า
-//                  ((width * 2.6) / check) * price
-//
-// ผ้าหน้าแคบ
-//    - สูงไม่เกิน 2.6เมตร
-// 		  (((กว้าง*2.6)/0.9)*2)*ราคาผ้า
-//      (((width * 2.6) / check) * 2) * price
-//
-// 		- สูงเกิน 2.6 เมตร
-// 		  (((กว้าง*2.6)/2.8)*2)*ราคาผ้า
-//      (((width * 2.6) / 2.8) * 2) * price
-
-// ม่านลอน //
-// ผ้าหน้ากว้าง
-//		- สูงไม่เกิน 2.6 เมตร
-// 		  ไม่สลับหน้าผ้า ((กว้าง*3.0)/0.9)*ราคาผ้า
-// 		  สลับหน้าผ้า   ((กว้าง*3.0)/2.8)*ราคาผ้า
-//                  ((width * 3.0) / check) * price
-//
-// 		- สูงเกิน 2.6 เมตร
-//      ไม่สลับหน้าผ้า ((กว้าง*3.0)/0.9)*ราคาผ้า
-// 		  สลับหน้าผ้า   ((กว้าง*3.0)/2.8)*ราคาผ้า
-//                  ((width * 3.0) / check) * price
-//
-// ผ้าหน้าแคบ		(((0.35+สูงที่ติดตั้ง)*(กว้าง*3.0)/1.4)/0.9)*ราคาผ้า
-//             (((0.35 + _height) * (width * 3.0) / 1.4) / 0.9) * price
-
 class ImageDialog extends StatelessWidget {
   const ImageDialog({Key? key}) : super(key: key);
 
@@ -1055,12 +997,7 @@ class ImageDialog extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.5,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: NetworkImage(
-                  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80'),
-              fit: BoxFit.cover),
-        ),
+        child: Image.asset(imgList[selectImage]),
       ),
     );
   }

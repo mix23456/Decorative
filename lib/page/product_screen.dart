@@ -78,11 +78,11 @@ class _ProductScreenState extends State<ProductScreen> {
                     color: colortext1,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const SearchResultCurtain()));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) =>
+                        //             const SearchResultCurtain()));
                       },
                       child: Text(
                         'ผ้าม่าน (100)',
@@ -97,11 +97,11 @@ class _ProductScreenState extends State<ProductScreen> {
                     color: colorBgBtn2,
                     child: TextButton(
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const SearchResultChick()));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) =>
+                        //             const SearchResultChick()));
                       },
                       child: Text(
                         'มู่ลี่ (100)',
@@ -122,8 +122,8 @@ class _ProductScreenState extends State<ProductScreen> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DetailScreen()));
                       },
-                      image: Image.network(
-                        'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                      image: Image.asset(
+                        'assets/images/curtain2.png',
                         fit: BoxFit.cover,
                       ),
                       price: 400,
@@ -137,8 +137,42 @@ class _ProductScreenState extends State<ProductScreen> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DetailScreen()));
                       },
-                      image: Image.network(
-                        'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                      image: Image.asset(
+                        'assets/images/curtain3.png',
+                        fit: BoxFit.cover,
+                      ),
+                      price: 400,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: defaultPadding),
+              Row(
+                children: [
+                  Expanded(
+                    child: ProductCard(
+                      nameProduct: 'ผ้าทึบหน้าแคบ',
+                      ontap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DetailScreen()));
+                      },
+                      image: Image.asset(
+                        'assets/images/curtain4.png',
+                        fit: BoxFit.cover,
+                      ),
+                      price: 400,
+                    ),
+                  ),
+                  const SizedBox(width: defaultPadding),
+                  Expanded(
+                    child: ProductCard(
+                      nameProduct: 'ผ้าทึบหน้าแคบ',
+                      ontap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const DetailScreen()));
+                      },
+                      image: Image.asset(
+                        'assets/images/curtain5.png',
                         fit: BoxFit.cover,
                       ),
                       price: 400,
@@ -156,8 +190,8 @@ class _ProductScreenState extends State<ProductScreen> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DetailScreen()));
                       },
-                      image: Image.network(
-                        'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                      image: Image.asset(
+                        'assets/images/curtain6.png',
                         fit: BoxFit.cover,
                       ),
                       price: 400,
@@ -171,27 +205,8 @@ class _ProductScreenState extends State<ProductScreen> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DetailScreen()));
                       },
-                      image: Image.network(
-                        'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                      price: 400,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: defaultPadding),
-              Row(
-                children: [
-                  Expanded(
-                    child: ProductCard(
-                      nameProduct: 'รางยูโก้ประกอบ มือปิด',
-                      ontap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const DetailScreen()));
-                      },
-                      image: Image.network(
-                        'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                      image: Image.asset(
+                        'assets/images/curtain7.png',
                         fit: BoxFit.cover,
                       ),
                       price: 400,
@@ -205,8 +220,8 @@ class _ProductScreenState extends State<ProductScreen> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DetailScreen()));
                       },
-                      image: Image.network(
-                        'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                      image: Image.asset(
+                        'assets/images/curtain8.png',
                         fit: BoxFit.cover,
                       ),
                       price: 400,
@@ -220,23 +235,8 @@ class _ProductScreenState extends State<ProductScreen> {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DetailScreen()));
                       },
-                      image: Image.network(
-                        'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                      price: 400,
-                    ),
-                  ),
-                  const SizedBox(width: defaultPadding),
-                  Expanded(
-                    child: ProductCard(
-                      nameProduct: 'รางยูโก้ประกอบ มือปิด',
-                      ontap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const DetailScreen()));
-                      },
-                      image: Image.network(
-                        'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                      image: Image.asset(
+                        'assets/images/curtain9.png',
                         fit: BoxFit.cover,
                       ),
                       price: 400,

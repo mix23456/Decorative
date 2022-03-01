@@ -70,356 +70,342 @@ class _OrderScreenState extends State<OrderScreen> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height,
-          decoration: BoxDecoration(
-            color: colorWhite,
-            boxShadow: [
-              BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5),
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(defaultPadding),
-                child: Text(
-                  'สินค้าในตะกร้า',
-                  style:
-                      GoogleFonts.kanit(color: colortext1, fontSize: subtitle),
-                ),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          color: colorWhite,
+          boxShadow: [
+            BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(defaultPadding),
+              child: Text(
+                'สินค้าในตะกร้า',
+                style: GoogleFonts.kanit(color: colortext1, fontSize: subtitle),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(bottom: defaultPadding / 2),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade200),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Column(
-                      children: [
-                        Table(
-                          children: [
-                            TableRow(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.only(
-                                    left: 16,
-                                    right: 16,
-                                    top: 16,
-                                    bottom: 16,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(bottom: defaultPadding / 2),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.shade200),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Column(
+                    children: [
+                      Table(
+                        children: [
+                          TableRow(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.only(
+                                  left: 16,
+                                  right: 16,
+                                  top: 16,
+                                  bottom: 16,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(9),
+                                    topRight: Radius.circular(9),
                                   ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(9),
-                                      topRight: Radius.circular(9),
-                                    ),
-                                    border: Border.all(
-                                      color: colorBorder,
-                                    ),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Container(
-                                          child: Text(
-                                            'คุณ แก้ว มาลูน',
-                                            style: GoogleFonts.kanit(
-                                                fontSize: bodytext),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Container(
-                                              width: 32,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                color: colortext1,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: colortext2
-                                                        .withOpacity(0.25),
-                                                    blurRadius: 10,
-                                                    offset: const Offset(4, 4),
-                                                  ),
-                                                ],
-                                              ),
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  showPopupRemoveOrder();
-                                                },
-                                                icon: const Icon(
-                                                  Icons.delete_outline,
-                                                  color: colorWhite,
-                                                  size: iconSize,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                  border: Border.all(
+                                    color: colorBorder,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Checkbox(
-                              value: allChecked.value,
-                              onChanged: (value) {
-                                onAllClicked(allChecked);
-                              },
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Table(
-                                children: [
-                                  TableRow(
-                                    children: [
-                                      Container(
-                                        width: 100,
-                                        height: 120,
-                                        child: Image.network(
-                                          'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-                                          fit: BoxFit.cover,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        child: Text(
+                                          'คุณ แก้ว มาลูน',
+                                          style: GoogleFonts.kanit(
+                                              fontSize: bodytext),
                                         ),
                                       ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 3,
-                              child: Table(
-                                children: [
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: defaultPadding,
-                                          right: defaultPadding,
-                                          top: defaultPadding,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              'ม่านสองชั้น ผ้าทึบหน้าแคบ Acacia',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
+                                    ),
+                                    Expanded(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Container(
+                                            width: 32,
+                                            height: 32,
+                                            decoration: BoxDecoration(
+                                              color: colortext1,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: colortext2
+                                                      .withOpacity(0.25),
+                                                  blurRadius: 10,
+                                                  offset: const Offset(4, 4),
+                                                ),
+                                              ],
                                             ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  width: 32,
-                                                  height: 32,
-                                                  decoration: BoxDecoration(
-                                                    color: lightGray,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: colortext2
-                                                            .withOpacity(0.25),
-                                                        blurRadius: 10,
-                                                        offset:
-                                                            const Offset(4, 4),
-                                                      ),
-                                                    ],
+                                            child: IconButton(
+                                              onPressed: () {
+                                                showPopupRemoveOrder();
+                                              },
+                                              icon: const Icon(
+                                                Icons.delete_outline,
+                                                color: colorWhite,
+                                                size: iconSize,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: allChecked.value,
+                            onChanged: (value) {
+                              onAllClicked(allChecked);
+                            },
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Table(
+                              children: [
+                                TableRow(
+                                  children: [
+                                    Container(
+                                        width: 179,
+                                        height: 153,
+                                        child: Image.asset(
+                                          'assets/images/curtain.png',
+                                          fit: BoxFit.contain,
+                                        )),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Table(
+                              children: [
+                                TableRow(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                        left: defaultPadding,
+                                        right: defaultPadding,
+                                        top: defaultPadding,
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            'ม่านสองชั้น ผ้าทึบหน้าแคบ Acacia',
+                                            style: GoogleFonts.kanit(
+                                                color: colortext1,
+                                                fontSize: bodytext),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Container(
+                                                width: 32,
+                                                height: 32,
+                                                decoration: BoxDecoration(
+                                                  color: lightGray,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: colortext2
+                                                          .withOpacity(0.25),
+                                                      blurRadius: 10,
+                                                      offset:
+                                                          const Offset(4, 4),
+                                                    ),
+                                                  ],
+                                                ),
+                                                child: IconButton(
+                                                  onPressed: () {
+                                                    Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder: (context) =>
+                                                                const EditDetailScreen()));
+                                                  },
+                                                  icon: const Icon(
+                                                    Icons.edit_outlined,
+                                                    color: colortext1,
+                                                    size: iconSize,
                                                   ),
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 32,
+                                                height: 32,
+                                                decoration: BoxDecoration(
+                                                  color: colortext1,
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: colortext2
+                                                          .withOpacity(0.25),
+                                                      blurRadius: 10,
+                                                      offset:
+                                                          const Offset(4, 4),
+                                                    ),
+                                                  ],
+                                                ),
+                                                child: Center(
                                                   child: IconButton(
                                                     onPressed: () {
-                                                      Navigator.push(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  const EditDetailScreen()));
+                                                      showPopupRemoveOrder();
                                                     },
                                                     icon: const Icon(
-                                                      Icons.edit_outlined,
-                                                      color: colortext1,
+                                                      Icons.delete_outline,
+                                                      color: colorWhite,
                                                       size: iconSize,
                                                     ),
                                                   ),
                                                 ),
-                                                Container(
-                                                  width: 32,
-                                                  height: 32,
-                                                  decoration: BoxDecoration(
-                                                    color: colortext1,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: colortext2
-                                                            .withOpacity(0.25),
-                                                        blurRadius: 10,
-                                                        offset:
-                                                            const Offset(4, 4),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  child: Center(
-                                                    child: IconButton(
-                                                      onPressed: () {
-                                                        showPopupRemoveOrder();
-                                                      },
-                                                      icon: const Icon(
-                                                        Icons.delete_outline,
-                                                        color: colorWhite,
-                                                        size: iconSize,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              'รหัสสินค้า ',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            ),
-                                            Text(
-                                              'A01CY04',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            )
-                                          ],
-                                        ),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: defaultPadding,
+                                          left: defaultPadding),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'รหัสสินค้า ',
+                                            style: GoogleFonts.kanit(
+                                                color: colortext1,
+                                                fontSize: bodytext),
+                                          ),
+                                          Text(
+                                            'A01CY04',
+                                            style: GoogleFonts.kanit(
+                                                color: colortext1,
+                                                fontSize: bodytext),
+                                          )
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              'สี ',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            ),
-                                            Text(
-                                              'CY 228/01',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            )
-                                          ],
-                                        ),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: defaultPadding,
+                                          left: defaultPadding),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'สี ',
+                                            style: GoogleFonts.kanit(
+                                                color: colortext1,
+                                                fontSize: bodytext),
+                                          ),
+                                          Text(
+                                            'CY 228/01',
+                                            style: GoogleFonts.kanit(
+                                                color: colortext1,
+                                                fontSize: bodytext),
+                                          )
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              'ขนาด ',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            ),
-                                            Text(
-                                              '100 x 200 นิ้ว',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            )
-                                          ],
-                                        ),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: defaultPadding,
+                                          left: defaultPadding),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            'ขนาด ',
+                                            style: GoogleFonts.kanit(
+                                                color: colortext1,
+                                                fontSize: bodytext),
+                                          ),
+                                          Text(
+                                            '100 x 200 นิ้ว',
+                                            style: GoogleFonts.kanit(
+                                                color: colortext1,
+                                                fontSize: bodytext),
+                                          )
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              'แบบเย็บ ',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            ),
-                                            Text(
-                                              'ม่านตาไก่',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            )
-                                          ],
-                                        ),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: defaultPadding,
+                                          left: defaultPadding),
+                                      child: Text(
+                                        'ราคาต่อชิ้น ฿ 400 ',
+                                        style: GoogleFonts.kanit(
+                                            color: colortext1,
+                                            fontSize: bodytext),
                                       ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            bottom: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Text(
-                                          '฿ 400.00',
-                                          style: GoogleFonts.kanit(
-                                              color: Colors.black,
-                                              fontSize: bodytext),
-                                        ),
+                                    ),
+                                  ],
+                                ),
+                                TableRow(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: defaultPadding,
+                                          bottom: defaultPadding,
+                                          left: defaultPadding),
+                                      child: Text(
+                                        'ราคารวม ฿ 400.00',
+                                        style: GoogleFonts.kanit(
+                                            color: Colors.black,
+                                            fontSize: bodytext),
                                       ),
-                                    ],
-                                  )
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                )
+                              ],
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: Row(

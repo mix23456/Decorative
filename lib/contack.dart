@@ -66,10 +66,7 @@ class _ContackState extends State<Contack> {
                   padding: const EdgeInsets.only(top: defaultPadding * 2),
                   width: MediaQuery.of(context).size.width * 0.35,
                   height: MediaQuery.of(context).size.width * 0.35,
-                  child: Image.network(
-                    'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.asset('assets/images/curtain.png'),
                 ),
                 const SizedBox(width: defaultPadding * 2),
                 Expanded(
