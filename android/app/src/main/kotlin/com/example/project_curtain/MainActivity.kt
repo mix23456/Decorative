@@ -1,4 +1,4 @@
-package com.example.project_curtain
+package com.dudee.project_curtain
 
 import io.flutter.embedding.android.FlutterActivity
 
