@@ -717,7 +717,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Tab(
                                 icon: Image.asset(
                                     'assets/logos/facebook_logo.png'),
-                                height: 24,
+                                height: MediaQuery.of(context).size.height / 50,
                               ),
                               const SizedBox(width: defaultPadding / 2),
                               Text(
@@ -733,7 +733,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Tab(
                                 icon: Image.asset(
                                     'assets/logos/instagram_logo.png'),
-                                height: 24,
+                                height: MediaQuery.of(context).size.height / 50,
                               ),
                               const SizedBox(width: defaultPadding / 2),
                               Text(
@@ -748,7 +748,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Tab(
                                 icon: Image.asset('assets/logos/line_logo.png'),
-                                height: 24,
+                                height: MediaQuery.of(context).size.height / 50,
                               ),
                               const SizedBox(width: defaultPadding / 2),
                               Text(
@@ -764,7 +764,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               Tab(
                                 icon: Image.asset(
                                     'assets/logos/twitter_logo.png'),
-                                height: 24,
+                                height: MediaQuery.of(context).size.height / 50,
                               ),
                               const SizedBox(width: defaultPadding / 2),
                               Text(
