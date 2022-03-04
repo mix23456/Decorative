@@ -80,13 +80,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                             width: MediaQuery.of(context)
                                                     .size
                                                     .width *
-                                                0.3,
-                                            // height: MediaQuery.of(context)
-                                            //         .size
-                                            //         .width *
-                                            //     0.5,
-                                            child: Image.network(
-                                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                                                0.25,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.25,
+                                            child: Image.asset(
+                                              'assets/images/curtain.png',
                                               fit: BoxFit.contain,
                                             ),
                                           ),

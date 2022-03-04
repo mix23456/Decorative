@@ -71,11 +71,11 @@ class _ContactInformationState extends State<ContactInformation> {
                         ),
                         const SizedBox(height: defaultPadding / 2),
                         Container(
-                          alignment: Alignment.center,
+                          color: colorBlack,
                           width: double.infinity,
-                          height: 250,
-                          child: Image.network(
-                            'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
+                          height: 300,
+                          child: Image.asset(
+                            'assets/images/curtain.png',
                             fit: BoxFit.cover,
                           ),
                         ),

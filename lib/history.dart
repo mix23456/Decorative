@@ -67,13 +67,13 @@ class _HistoryScreenState extends State<HistoryScreen> {
                             ]),
                         TableRow(children: [
                           Container(
-                            padding: const EdgeInsets.all(defaultPadding),
-                            height: 120.0,
-                            child: Image.network(
-                              'https://resources.pulse.icc-cricket.com/ICC/photo/2018/04/22/c19486c2-4e5b-48c4-82af-c6d0eebb7bd2/Main.jpg',
-                              fit: BoxFit.contain,
-                            ),
-                          ),
+                              padding: EdgeInsets.only(top: defaultPadding),
+                              height: 100.0,
+                              width: 100,
+                              child: Image.asset(
+                                'assets/images/curtain.png',
+                                fit: BoxFit.contain,
+                              )),
                         ]),
                         TableRow(children: [
                           Container(
