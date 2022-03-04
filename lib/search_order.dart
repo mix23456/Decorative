@@ -47,11 +47,27 @@ class _SearchOrderState extends State<SearchOrder> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(defaultPadding),
-                child: Text(
-                  'สินค้าในตะกร้า',
-                  style:
-                      GoogleFonts.kanit(color: colortext1, fontSize: subtitle),
+                padding: const EdgeInsets.only(
+                    top: defaultPadding, bottom: defaultPadding),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'ผ้าม่าน',
+                          hintStyle: GoogleFonts.kanit(
+                              color: Colors.grey, fontSize: bodytext),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: defaultPadding),
+                    const Icon(Icons.search, color: colorBlack),
+                    const Expanded(child: SizedBox())
+                  ],
                 ),
               ),
               Column(
@@ -155,10 +171,9 @@ class _SearchOrderState extends State<SearchOrder> {
                                   TableRow(
                                     children: [
                                       Container(
-                                        width: 100,
-                                        height: 120,
-                                        child: Image.network(
-                                          'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
+                                        height: 200,
+                                        child: Image.asset(
+                                          'assets/images/curtain.png',
                                           fit: BoxFit.cover,
                                         ),
                                       ),
