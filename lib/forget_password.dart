@@ -33,7 +33,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
           width: 360,
           child: TextField(
               keyboardType: TextInputType.emailAddress,
-              style: GoogleFonts.kanit(color: Colors.white),
+              style: GoogleFonts.kanit(color: Colors.black),
               decoration: InputDecoration(
                 hintText: 'Email',
                 hintStyle: GoogleFonts.kanit(color: colortext2),

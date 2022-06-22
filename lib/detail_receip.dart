@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
+import 'package:project_curtain/constants/fluttermap.dart';
 
 class DetailReceip extends StatefulWidget {
   const DetailReceip({Key? key}) : super(key: key);
@@ -11,11 +12,11 @@ class DetailReceip extends StatefulWidget {
 }
 
 class _DetailReceipState extends State<DetailReceip> {
-  static const _initialCameraPosition = CameraPosition(
-    target: LatLng(37.77972, -122.431297),
-    zoom: 11.5,
-  );
-  late GoogleMapController _googleMapController;
+  // static const _initialCameraPosition = CameraPosition(
+  //   target: LatLng(37.77972, -122.431297),
+  //   zoom: 11.5,
+  // );
+  // late GoogleMapController _googleMapController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -617,18 +618,19 @@ class _DetailReceipState extends State<DetailReceip> {
                     ],
                   ),
                   const SizedBox(height: defaultPadding),
-                  SizedBox(
-                    height: 200,
-                    width: double.infinity,
-                    child: GoogleMap(
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
-                      zoomControlsEnabled: true,
-                      initialCameraPosition: _initialCameraPosition,
-                      onMapCreated: (controller) =>
-                          _googleMapController = controller,
-                    ),
-                  ),
+                  fluttermap(),
+                  // SizedBox(
+                  //   height: 200,
+                  //   width: double.infinity,
+                  //   child: GoogleMap(
+                  //     myLocationEnabled: true,
+                  //     myLocationButtonEnabled: true,
+                  //     zoomControlsEnabled: true,
+                  //     initialCameraPosition: _initialCameraPosition,
+                  //     onMapCreated: (controller) =>
+                  //         _googleMapController = controller,
+                  //   ),
+                  // ),
                 ],
               ),
               const SizedBox(height: defaultPadding),

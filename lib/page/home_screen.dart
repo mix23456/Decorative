@@ -1,11 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
+import 'package:project_curtain/constants/fluttermap.dart';
 import 'package:project_curtain/constants/product_card.dart';
 import 'package:project_curtain/details_product.dart';
 import 'package:project_curtain/page/product_screen.dart';
+import 'package:latlong2/latlong.dart' as latlng;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -37,10 +39,10 @@ final List<Widget> imageSliders = imgList
 int _current = 0;
 
 final CarouselController _controller = CarouselController();
-const LatLng _kMapCenter = LatLng(19.018255973653343, 72.84793849278007);
+// const LatLng _kMapCenter = LatLng(19.018255973653343, 72.84793849278007);
 
-const CameraPosition _kInitialPosition =
-    CameraPosition(target: _kMapCenter, zoom: 11.0, tilt: 0, bearing: 0);
+// const CameraPosition _kInitialPosition =
+//     CameraPosition(target: _kMapCenter, zoom: 11.0, tilt: 0, bearing: 0);
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
@@ -49,10 +51,13 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: colorWhite,
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               height: MediaQuery.of(context).size.height / 2.5,
               child: Stack(
+                alignment: AlignmentDirectional.center,
                 children: [
                   CarouselSlider(
                     items: imageSliders,
@@ -60,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     options: CarouselOptions(
                         autoPlay: true,
                         enlargeCenterPage: true,
-                        aspectRatio: 2.0,
+                        aspectRatio: 3,
                         onPageChanged: (index, reason) {
                           setState(() {
                             _current = index;
@@ -140,6 +145,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(children: [
                     Row(
                       children: [
+                        Expanded(
+                            child: ProductCard(
+                          nameProduct: 'ลองดูสักอันจะเป็นไร',
+                          ontap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const DetailScreen()));
+                          },
+                          image: Image.asset('assets/logos/app_logo.png'),
+                          price: 99999,
+                        )),
+                        const SizedBox(
+                          width: defaultPadding,
+                        ),
                         Expanded(
                           child: ProductCard(
                             nameProduct: 'รางยูโก้ประกอบ มือปิด',
@@ -429,7 +447,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   const SizedBox(height: defaultPadding),
                                   Text(
-                                    'แสกน QR เพื่อโอนเข้าบัญชี',
+                                    'สแกน QR เพื่อโอนเข้าบัญชี',
                                     style: GoogleFonts.kanit(
                                         fontSize: bodytext, color: colortext1),
                                   ),
@@ -445,6 +463,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: GoogleFonts.kanit(
                                         fontSize: bodytext, color: colortext2),
                                   ),
+                                  const SizedBox(
+                                    height: defaultPadding,
+                                  )
                                 ],
                               ),
                             ],
@@ -519,7 +540,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                   const SizedBox(height: defaultPadding),
                                   Text(
-                                    'แสกน QR เพื่อโอนเข้าบัญชี',
+                                    'สแกน QR เพื่อโอนเข้าบัญชี',
                                     style: GoogleFonts.kanit(
                                         fontSize: bodytext, color: colortext1),
                                   ),
@@ -535,6 +556,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: GoogleFonts.kanit(
                                         fontSize: bodytext, color: colortext2),
                                   ),
+                                  const SizedBox(
+                                    height: defaultPadding,
+                                  )
                                 ],
                               ),
                             ],
@@ -777,17 +801,47 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       const SizedBox(height: defaultPadding * 2),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        height: 200,
-                        child: const GoogleMap(
-                          initialCameraPosition: _kInitialPosition,
-                          myLocationEnabled: true,
-                          myLocationButtonEnabled: true,
-                        ),
-                      ),
+                      fluttermap(),
+                      // Container(
+                      //   height: 300,
+                      //   decoration: BoxDecoration(
+                      //     borderRadius: BorderRadius.circular(10),
+                      //   ),
+                      //   child: FlutterMap(
+                      //     options: MapOptions(
+                      //       enableScrollWheel: true,
+                      //       center: latlng.LatLng(18.7960948, 99.0188304),
+                      //       zoom: 16.0,
+                      //     ),
+                      //     layers: [
+                      //       TileLayerOptions(
+                      //           urlTemplate:
+                      //               "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                      //           subdomains: ['a', 'b', 'c']),
+                      //       MarkerLayerOptions(
+                      //         markers: [
+                      //           Marker(
+                      //             width: 80.0,
+                      //             height: 80.0,
+                      //             point: latlng.LatLng(18.7960948, 99.0188304),
+                      //             builder: (ctx) => Container(
+                      //               child: Icon(
+                      //                 Icons.location_on,
+                      //                 color: Colors.red,
+                      //               ),
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       ),
+                      //     ],
+                      //     nonRotatedChildren: [
+                      //       AttributionWidget.defaultWidget(
+                      //         source: 'OpenStreetMap contributors',
+                      //         onSourceTapped: () {},
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),

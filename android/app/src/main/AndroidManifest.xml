@@ -11,8 +11,8 @@
         android:label="ผ้าม่าน"
         android:icon="@mipmap/ic_launcher">
         -----------
-               <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyCmluiAEC4QzpD6-zqKNnTEbTkFJFDo-L4"/>
+               <!-- <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCmluiAEC4QzpD6-zqKNnTEbTkFJFDo-L4"/> -->
         -----------       
         <activity
             android:name=".MainActivity"

@@ -1,10 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+// import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
+import 'package:project_curtain/constants/fluttermap.dart';
 
 class EditCustomer extends StatefulWidget {
   const EditCustomer({Key? key}) : super(key: key);
@@ -14,14 +15,14 @@ class EditCustomer extends StatefulWidget {
 }
 
 class _EditCustomer extends State<EditCustomer> {
-  static const _initialCameraPosition = CameraPosition(
-    target: LatLng(37.77972, -122.431297),
-    zoom: 11.5,
-  );
-  late GoogleMapController _googleMapController;
+  // static const _initialCameraPosition = CameraPosition(
+  //   target: LatLng(37.77972, -122.431297),
+  //   zoom: 11.5,
+  // );
+  // late GoogleMapController _googleMapController;
   @override
   void dispose() {
-    _googleMapController.dispose();
+    // _googleMapController.dispose();
     super.dispose();
   }
 
@@ -838,18 +839,19 @@ class _EditCustomer extends State<EditCustomer> {
                   ),
                 ),
                 const SizedBox(height: defaultPadding),
-                SizedBox(
-                  height: 200,
-                  width: double.infinity,
-                  child: GoogleMap(
-                    myLocationEnabled: true,
-                    myLocationButtonEnabled: true,
-                    zoomControlsEnabled: true,
-                    initialCameraPosition: _initialCameraPosition,
-                    onMapCreated: (controller) =>
-                        _googleMapController = controller,
-                  ),
-                ),
+                fluttermap(),
+                // SizedBox(
+                //   height: 200,
+                //   width: double.infinity,
+                //   child: GoogleMap(
+                //     myLocationEnabled: true,
+                //     myLocationButtonEnabled: true,
+                //     zoomControlsEnabled: true,
+                //     initialCameraPosition: _initialCameraPosition,
+                //     onMapCreated: (controller) =>
+                //         _googleMapController = controller,
+                //   ),
+                // ),
                 const SizedBox(height: defaultPadding * 2),
                 Align(
                   alignment: Alignment.center,

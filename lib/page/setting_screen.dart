@@ -703,15 +703,14 @@ class _SettingScreenState extends State<SettingScreen> {
             child: Container(
               padding: const EdgeInsets.symmetric(
                   vertical: 28, horizontal: defaultPadding),
-              width: MediaQuery.of(context).size.width * 0.4,
-              height: MediaQuery.of(context).size.height * 0.12,
+              width: MediaQuery.of(context).size.width * 0.35,
+              height: MediaQuery.of(context).size.height * 0.22,
               child: Column(
                 children: [
                   Text('ยืนยันจะลบผลงานนี้',
                       style: GoogleFonts.kanit(fontSize: bodytext)),
-                  const SizedBox(height: defaultPadding),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
                         width: 150,
@@ -731,6 +730,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                 fontSize: bodytext, color: colortext1),
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        width: defaultPadding,
                       ),
                       SizedBox(
                         width: 150,

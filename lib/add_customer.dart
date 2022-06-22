@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+// import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
 
 class AddCustomer extends StatefulWidget {
@@ -12,14 +12,14 @@ class AddCustomer extends StatefulWidget {
 }
 
 class _AddCustomerState extends State<AddCustomer> {
-  static const _initialCameraPosition = CameraPosition(
-    target: LatLng(37.77972, -122.431297),
-    zoom: 11.5,
-  );
-  late GoogleMapController _googleMapController;
+  // static const _initialCameraPosition = CameraPosition(
+  //   target: LatLng(37.77972, -122.431297),
+  //   zoom: 11.5,
+  // );
+  // late GoogleMapController _googleMapController;
   @override
   void dispose() {
-    _googleMapController.dispose();
+    // _googleMapController.dispose();
     super.dispose();
   }
 
@@ -44,10 +44,10 @@ class _AddCustomerState extends State<AddCustomer> {
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
-      body: Container(
-        margin: const EdgeInsets.symmetric(
-            horizontal: defaultPadding * 3, vertical: defaultPadding),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.symmetric(
+              horizontal: defaultPadding * 3, vertical: defaultPadding),
           child: Form(
             key: _formKey,
             child: Column(
@@ -837,18 +837,18 @@ class _AddCustomerState extends State<AddCustomer> {
                 ),
                 const SizedBox(height: defaultPadding),
                 // GoogleMap(initialCameraPosition: ),
-                SizedBox(
-                  height: 200,
-                  width: double.infinity,
-                  child: GoogleMap(
-                    myLocationEnabled: true,
-                    myLocationButtonEnabled: true,
-                    zoomControlsEnabled: true,
-                    initialCameraPosition: _initialCameraPosition,
-                    onMapCreated: (controller) =>
-                        _googleMapController = controller,
-                  ),
-                ),
+                // SizedBox(
+                //   height: 200,
+                //   width: double.infinity,
+                //   child: GoogleMap(
+                //     myLocationEnabled: true,
+                //     myLocationButtonEnabled: true,
+                //     zoomControlsEnabled: true,
+                //     initialCameraPosition: _initialCameraPosition,
+                //     onMapCreated: (controller) =>
+                //         _googleMapController = controller,
+                //   ),
+                // ),
                 const SizedBox(height: defaultPadding * 2),
                 Align(
                   alignment: Alignment.center,

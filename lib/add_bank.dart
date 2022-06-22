@@ -52,92 +52,95 @@ class _AddBankState extends State<AddBank> {
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(defaultPadding),
-        margin: EdgeInsets.all(defaultPadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DropdownButtonFormField2(
-              decoration: InputDecoration(
-                isDense: true,
-                contentPadding: EdgeInsets.zero,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(defaultPadding),
+          margin: EdgeInsets.all(defaultPadding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              DropdownButtonFormField2(
+                decoration: InputDecoration(
+                  isDense: true,
+                  contentPadding: EdgeInsets.zero,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                isExpanded: true,
+                hint: Text(
+                  'เลือกธนาคาร',
+                  style:
+                      GoogleFonts.kanit(fontSize: bodytext, color: colortext2),
+                ),
+                icon: const Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.black45,
+                ),
+                iconSize: 30,
+                buttonHeight: 60,
+                buttonPadding: const EdgeInsets.only(left: 20, right: 10),
+                dropdownDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                items: [],
+                // items: genderItems
+                //     .map((item) => DropdownMenuItem<String>(
+                //           value: item,
+                //           child: Text(
+                //             item,
+                //             style: const TextStyle(
+                //               fontSize: 14,
+                //             ),
+                //           ),
+                //         ))
+                //     .toList(),
+                // validator: (value) {
+                //   if (value == null) {
+                //     return 'Please select gender.';
+                //   }
+                // },
+                // onChanged: (value) {
+                //   //Do something when changing the item if you want.
+                // },
+              ),
+              const SizedBox(height: defaultPadding),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'ชื่อบัญชี',
+                  hintStyle:
+                      GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
-              isExpanded: true,
-              hint: Text(
-                'เลือกธนาคาร',
-                style: GoogleFonts.kanit(fontSize: bodytext, color: colortext2),
-              ),
-              icon: const Icon(
-                Icons.arrow_drop_down,
-                color: Colors.black45,
-              ),
-              iconSize: 30,
-              buttonHeight: 60,
-              buttonPadding: const EdgeInsets.only(left: 20, right: 10),
-              dropdownDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              items: [],
-              // items: genderItems
-              //     .map((item) => DropdownMenuItem<String>(
-              //           value: item,
-              //           child: Text(
-              //             item,
-              //             style: const TextStyle(
-              //               fontSize: 14,
-              //             ),
-              //           ),
-              //         ))
-              //     .toList(),
-              // validator: (value) {
-              //   if (value == null) {
-              //     return 'Please select gender.';
-              //   }
-              // },
-              // onChanged: (value) {
-              //   //Do something when changing the item if you want.
-              // },
-            ),
-            const SizedBox(height: defaultPadding),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'ชื่อบัญชี',
-                hintStyle:
-                    GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+              const SizedBox(height: defaultPadding),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'เลขที่บัญชี',
+                  hintStyle:
+                      GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: defaultPadding),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'เลขที่บัญชี',
-                hintStyle:
-                    GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-            ),
-            const SizedBox(height: defaultPadding),
-            TextButton(
-                onPressed: () {
-                  showPopupAddImage();
-                },
-                child: Text(
-                  'เพิ่มรูปภาพ QR รับเงิน',
-                  style: GoogleFonts.kanit(
-                      color: Colors.grey,
-                      fontSize: bodytext,
-                      decoration: TextDecoration.underline),
-                )),
-            const SizedBox(height: defaultPadding),
-          ],
+              const SizedBox(height: defaultPadding),
+              TextButton(
+                  onPressed: () {
+                    showPopupAddImage();
+                  },
+                  child: Text(
+                    'เพิ่มรูปภาพ QR รับเงิน',
+                    style: GoogleFonts.kanit(
+                        color: Colors.grey,
+                        fontSize: bodytext,
+                        decoration: TextDecoration.underline),
+                  )),
+              const SizedBox(height: defaultPadding),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(

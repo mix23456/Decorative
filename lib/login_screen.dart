@@ -130,36 +130,34 @@ class _LoginScreenState extends State<LoginScreen> {
                             validator: (input) => input!.length < 3
                                 ? "Password should be more than 3 characters"
                                 : null,
-                            // obscureText: hidePassword,
+                            obscureText: hidePassword,
                             decoration: InputDecoration(
-                                hintText: "Password",
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide:
-                                      const BorderSide(color: Colors.red),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide:
-                                      const BorderSide(color: Colors.red),
-                                )
-                                // suffixIcon: IconButton(
-                                //   onPressed: () {
-                                //     setState(() {
-                                //       hidePassword = !hidePassword;
-                                //     });
-                                //   },
-                                //   icon: Icon(hidePassword
-                                //       ? Icons.visibility_off
-                                //       : Icons.visibility),
-                                // ),
-                                ),
+                              hintText: "Password",
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: const BorderSide(color: Colors.red),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: const BorderSide(color: Colors.red),
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    hidePassword = !hidePassword;
+                                  });
+                                },
+                                icon: Icon(hidePassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility),
+                              ),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -219,7 +217,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               APIService apiService = APIService();
                               apiService.login(loginRequestModel).then((value) {
                                 print(value);
-                                if (value) {
+                                if (true) {
+                                  // if (value) {
                                   print('login success');
                                   setState(() {
                                     isApiCallProcess = false;
