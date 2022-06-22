@@ -572,7 +572,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: defaultPadding * 2),
-                  child: Text('CONTACK US',
+                  child: Text('CONTACT US',
                       style: GoogleFonts.kanit(fontSize: 32)),
                 ),
                 Container(

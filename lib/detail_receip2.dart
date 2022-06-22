@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
+import 'package:project_curtain/constants/fluttermap.dart';
 
 class DetailReceip2 extends StatefulWidget {
   const DetailReceip2({Key? key}) : super(key: key);
@@ -637,6 +638,7 @@ class _DetailReceipState2 extends State<DetailReceip2> {
                     ],
                   ),
                   const SizedBox(height: defaultPadding),
+                  fluttermap(),
                   // SizedBox(
                   //   height: 200,
                   //   width: double.infinity,
