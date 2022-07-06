@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/detail_receip.dart';
-import 'package:project_curtain/edit_product.dart';
+import 'package:project_curtain/page/edit/edit_product.dart';
 
 class SearchOrder extends StatefulWidget {
   const SearchOrder({Key? key}) : super(key: key);

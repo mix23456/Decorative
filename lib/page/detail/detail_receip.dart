@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/constants/fluttermap.dart';
+import 'package:project_curtain/widget/fluttermap.dart';
 
 class DetailReceip extends StatefulWidget {
   const DetailReceip({Key? key}) : super(key: key);

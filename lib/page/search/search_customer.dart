@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/detail_receip.dart';
-import 'package:project_curtain/edit_customer.dart';
-import 'package:project_curtain/history.dart';
+import 'package:project_curtain/page/edit/edit_customer.dart';
+import 'package:project_curtain/page/history.dart';
 
 class SearchCustomer extends StatefulWidget {
   const SearchCustomer({Key? key}) : super(key: key);

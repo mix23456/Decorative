@@ -1,19 +1,28 @@
 import 'package:badges/badges.dart';
+import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/contack.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/login_screen.dart';
+import 'package:project_curtain/model/model_provider/customers.dart';
+import 'package:project_curtain/page/contact.dart';
 import 'package:project_curtain/page/customer_screen.dart';
 import 'package:project_curtain/page/home_screen.dart';
 import 'package:project_curtain/page/order_screen.dart';
 import 'package:project_curtain/page/product_screen.dart';
 import 'package:project_curtain/page/receipt_screen.dart';
 import 'package:project_curtain/page/setting_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'model/model_provider/order.dart';
+import 'page/login/login_screen.dart';
+
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) => runApp(const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -26,7 +35,30 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: LoginScreen());
+    //---------------------------------Provider--------------
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<Order>(
+            create: (BuildContext context) => Order()),
+        ChangeNotifierProvider<Customers>(
+            create: (BuildContext context) => Customers())
+      ],
+      child: MaterialApp(
+        builder: (context, widget) => ResponsiveWrapper.builder(
+            BouncingScrollWrapper.builder(context, widget!),
+            maxWidth: 1200,
+            minWidth: 450,
+            defaultScale: true,
+            breakpoints: const [
+              ResponsiveBreakpoint.resize(600, name: MOBILE),
+              ResponsiveBreakpoint.autoScale(800, name: TABLET),
+              ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+            ],
+            background: Container(color: const Color(0xFFF5F5F5))),
+        home: const LoginScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
 
     // return const MaterialApp(home: TabsScreen());
   }
@@ -42,7 +74,6 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int _currentIndex = 0;
-  int _counter = 1;
   bool showElevatedButtonBadge = true;
 
   final _homeScreen = GlobalKey<NavigatorState>();
@@ -51,184 +82,166 @@ class _TabsScreenState extends State<TabsScreen> {
   final _receiptScreen = GlobalKey<NavigatorState>();
   final _customerScreen = GlobalKey<NavigatorState>();
   final _settingScreen = GlobalKey<NavigatorState>();
+
+  Order order = Order();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 2,
-        backgroundColor: Colors.grey[300],
-        leading: Image.asset('assets/logos/logo.png'),
-        actions: [
-          Row(
-            children: [
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Contack()));
-                },
-                child: Text(
-                  'ช่องทางการติดต่อ',
-                  style:
-                      GoogleFonts.kanit(color: Colors.grey, fontSize: bodytext),
-                ),
-              ),
-              IconButton(
-                  onPressed: () async {
-                    SharedPreferences prefs =
-                        await SharedPreferences.getInstance();
-                    prefs.remove('token');
-                    Navigator.pushReplacement(
+        appBar: AppBar(
+          elevation: 2,
+          backgroundColor: lightGray,
+          leading: Image.asset('assets/logos/logo.png'),
+          actions: [
+            Row(
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (BuildContext ctx) =>
-                                const LoginScreen()));
+                            builder: (context) => const Contack()));
                   },
-                  icon: const Icon(
-                    Icons.logout,
-                    color: Colors.black,
-                  ))
-            ],
-          ),
-        ],
-      ),
-      body: IndexedStack(
-        index: _currentIndex,
-        children: <Widget>[
-          Navigator(
-            key: _homeScreen,
-            onGenerateRoute: (route) => MaterialPageRoute(
-              settings: route,
-              builder: (context) => const HomeScreen(),
+                  child: Text(
+                    'ช่องทางการติดต่อ',
+                    style:
+                        GoogleFonts.kanit(color: lightGray, fontSize: bodytext),
+                  ),
+                ),
+                IconButton(
+                    onPressed: () async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      prefs.remove('token');
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext ctx) =>
+                                  const LoginScreen()));
+                    },
+                    icon: const Icon(
+                      Icons.logout,
+                      color: lightGray,
+                    ))
+              ],
             ),
-          ),
-          Navigator(
-            key: _productScreen,
-            onGenerateRoute: (route) => MaterialPageRoute(
-              settings: route,
-              builder: (context) => const ProductScreen(),
-            ),
-          ),
-          Navigator(
-            key: _orderScreen,
-            onGenerateRoute: (route) => MaterialPageRoute(
-              settings: route,
-              builder: (context) => const OrderScreen(),
-            ),
-          ),
-          Navigator(
-            key: _receiptScreen,
-            onGenerateRoute: (route) => MaterialPageRoute(
-              settings: route,
-              builder: (context) => const ReceiptScreen(),
-            ),
-          ),
-          Navigator(
-            key: _customerScreen,
-            onGenerateRoute: (route) => MaterialPageRoute(
-              settings: route,
-              builder: (context) => const CustomerScreen(),
-            ),
-          ),
-          Navigator(
-            key: _settingScreen,
-            onGenerateRoute: (route) => MaterialPageRoute(
-              settings: route,
-              builder: (context) => const SettingScreen(),
-            ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        onTap: (val) => _onTap(val, context),
-        backgroundColor: Colors.grey[300],
-        selectedItemColor: Colors.black,
-        selectedLabelStyle: GoogleFonts.kanit(),
-        unselectedLabelStyle: GoogleFonts.kanit(),
-        items: [
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              size: 24,
-            ),
-            label: "HOME",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.all_inbox,
-              size: 24,
-            ),
-            label: "PROSDUCTS",
-          ),
-          BottomNavigationBarItem(
-            icon: Badge(
-              badgeContent: Text(
-                0.toString(),
-              ),
-              showBadge: showElevatedButtonBadge,
-              child: const Icon(
-                Icons.receipt,
-                size: 24,
+          ],
+        ),
+        body: IndexedStack(
+          index: _currentIndex,
+          children: <Widget>[
+            Navigator(
+              key: _homeScreen,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => const HomeScreen(),
               ),
             ),
-            label: "ORDERS",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.receipt_long,
-              size: 24,
+            Navigator(
+              key: _productScreen,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => const ProductScreen(),
+              ),
             ),
-            label: "CHECK",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.people,
-              size: 24,
+            Navigator(
+              key: _orderScreen,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => const OrderScreen(),
+              ),
             ),
-            label: "CUSTOMERS",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings,
-              size: 24,
+            Navigator(
+              key: _receiptScreen,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => const ReceiptScreen(),
+              ),
             ),
-            label: "SETTING",
-          ),
-        ],
-      ),
-    );
+            Navigator(
+              key: _customerScreen,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => const CustomerScreen(),
+              ),
+            ),
+            Navigator(
+              key: _settingScreen,
+              onGenerateRoute: (route) => MaterialPageRoute(
+                settings: route,
+                builder: (context) => const SettingScreen(),
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: CustomNavigationBar(
+          bubbleCurve: Curves.ease,
+          scaleFactor: 0.2,
+          iconSize: 24.0,
+          selectedColor: Colors.black,
+          strokeColor: Colors.black,
+          unSelectedColor: greyiconNavigate,
+          backgroundColor: lightGray,
+          items: [
+            CustomNavigationBarItem(
+              icon: const Icon(Icons.home),
+              title: Text(
+                "HOME",
+                style: GoogleFonts.kanit(
+                    fontSize: navigatetext, color: greyiconNavigate),
+              ),
+            ),
+            CustomNavigationBarItem(
+              icon: const Icon(Icons.all_inbox),
+              title: Text("PRODUCTS",
+                  style: GoogleFonts.kanit(
+                      fontSize: navigatetext, color: greyiconNavigate)),
+            ),
+            CustomNavigationBarItem(
+              icon: Badge(
+                badgeContent: Text(context.watch<Order>().ordercart.toString()),
+                showBadge: isempty(),
+                child: const Icon(
+                  Icons.receipt,
+                ),
+              ),
+              title: Text("ORDERS",
+                  style: GoogleFonts.kanit(
+                      fontSize: navigatetext, color: greyiconNavigate)),
+            ),
+            CustomNavigationBarItem(
+              icon: const Icon(Icons.receipt_long),
+              title: Text("CHECK",
+                  style: GoogleFonts.kanit(
+                      fontSize: navigatetext, color: greyiconNavigate)),
+            ),
+            CustomNavigationBarItem(
+              icon: const Icon(Icons.people),
+              title: Text("CUSTOMERS",
+                  style: GoogleFonts.kanit(
+                      fontSize: navigatetext, color: greyiconNavigate)),
+            ),
+            CustomNavigationBarItem(
+              icon: const Icon(Icons.settings),
+              title: Text("SETTING",
+                  style: GoogleFonts.kanit(
+                      fontSize: navigatetext, color: greyiconNavigate)),
+            ),
+          ],
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+        ));
   }
 
-  void _onTap(int val, BuildContext context) {
-    if (_currentIndex == val) {
-      switch (val) {
-        case 0:
-          _homeScreen.currentState!.popUntil((route) => route.isFirst);
-          break;
-        case 1:
-          _productScreen.currentState!.popUntil((route) => route.isFirst);
-          break;
-        case 2:
-          _orderScreen.currentState!.popUntil((route) => route.isFirst);
-          break;
-        case 3:
-          _receiptScreen.currentState!.popUntil((route) => route.isFirst);
-          break;
-        case 4:
-          _customerScreen.currentState!.popUntil((route) => route.isFirst);
-          break;
-        case 5:
-          _settingScreen.currentState!.popUntil((route) => route.isFirst);
-          break;
-        default:
-      }
+  bool isempty() {
+    if (order.ordercart.toString() == '0') {
+      return showElevatedButtonBadge = false;
     } else {
-      if (mounted) {
-        setState(() {
-          _currentIndex = val;
-        });
-      }
+      return showElevatedButtonBadge = true;
     }
   }
 }

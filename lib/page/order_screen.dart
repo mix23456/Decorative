@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/cart_order.dart';
+import 'package:project_curtain/page/cart_order.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/edit_product.dart';
-import 'package:project_curtain/order_empty.dart';
-import 'package:project_curtain/search_order.dart';
+import 'package:project_curtain/model/model_provider/order.dart';
+import 'package:project_curtain/page/edit/edit_product.dart';
+import 'package:intl/intl.dart';
+import 'package:project_curtain/page/search/search_order.dart';
+import 'package:provider/provider.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({Key? key}) : super(key: key);
@@ -14,13 +16,9 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-  bool checkProd = false;
-  bool checkAll = false;
-  final allChecked = CheckBoxModal(title: 'All Checked');
-  final checkBoxList = [
-    CheckBoxModal(title: '1'),
-    // CheckBoxModal(title: '2'),
-  ];
+  int totalprice = 0;
+  NumberFormat priceformat = NumberFormat.decimalPattern('en_us');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,346 +68,384 @@ class _OrderScreenState extends State<OrderScreen> {
           ),
         ],
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
-        width: double.infinity,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          color: colorWhite,
-          boxShadow: [
-            BoxShadow(color: Colors.grey.withOpacity(0.5), blurRadius: 5),
-          ],
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(defaultPadding),
-                child: Text(
-                  'สินค้าในตะกร้า',
-                  style:
-                      GoogleFonts.kanit(color: colortext1, fontSize: subtitle),
-                ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.only(bottom: defaultPadding / 2),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade200),
-                      borderRadius: BorderRadius.circular(10.0),
+      backgroundColor: Colors.white,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: defaultPadding,
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(
+                horizontal: defaultPadding * 2, vertical: defaultPadding),
+            child: (Order.orderlistmap.isEmpty)
+                ? Center(
+                    child: Text(
+                      'ไม่มีสินค้าในตะกร้า',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.kanit(fontSize: subtitle),
                     ),
-                    child: Column(
-                      children: [
-                        Table(
-                          children: [
-                            TableRow(
+                  )
+                : Text(
+                    'สินค้าในตะกร้า',
+                    style: GoogleFonts.kanit(fontSize: subtitle),
+                  ),
+          ),
+          Flexible(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: context.watch<Order>().ordercart,
+              itemBuilder: (context, index) {
+                return Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: defaultPadding * 2,
+                    vertical: defaultPadding,
+                  ),
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: colorWhite,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.only(
+                                bottom: defaultPadding / 2),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey.shade200),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: Column(
                               children: [
-                                Container(
-                                  padding: const EdgeInsets.only(
-                                    left: 16,
-                                    right: 16,
-                                    top: 16,
-                                    bottom: 16,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(9),
-                                      topRight: Radius.circular(9),
-                                    ),
-                                    border: Border.all(
-                                      color: colorBorder,
-                                    ),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Container(
-                                          child: Text(
-                                            'คุณ แก้ว มาลูน',
-                                            style: GoogleFonts.kanit(
-                                                fontSize: bodytext),
+                                Table(
+                                  children: [
+                                    TableRow(
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.only(
+                                            left: 16,
+                                            right: 16,
+                                            top: 16,
+                                            bottom: 16,
                                           ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Container(
-                                              width: 32,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                color: colortext1,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: colortext2
-                                                        .withOpacity(0.25),
-                                                    blurRadius: 10,
-                                                    offset: const Offset(4, 4),
-                                                  ),
-                                                ],
-                                              ),
-                                              child: IconButton(
-                                                onPressed: () {
-                                                  showPopupRemoveOrder();
-                                                },
-                                                icon: const Icon(
-                                                  Icons.delete_outline,
-                                                  color: colorWhite,
-                                                  size: iconSize,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                const BorderRadius.only(
+                                              topLeft: Radius.circular(9),
+                                              topRight: Radius.circular(9),
+                                            ),
+                                            border: Border.all(
+                                              color: colorBorder,
+                                            ),
+                                          ),
+                                          child: Row(
+                                            children: [
+                                              Expanded(
+                                                child: Text(
+                                                  '${Order.orderlistmap[index]["titlename"]}',
+                                                  style: GoogleFonts.kanit(
+                                                      fontSize: bodytext),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                              Expanded(
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    Container(
+                                                      width: 32,
+                                                      height: 32,
+                                                      decoration: BoxDecoration(
+                                                        color: colortext1,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            color: colortext2
+                                                                .withOpacity(
+                                                                    0.25),
+                                                            blurRadius: 10,
+                                                            offset:
+                                                                const Offset(
+                                                                    4, 4),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      child: IconButton(
+                                                        onPressed: () {
+                                                          showPopupRemoveOrder(
+                                                              index);
+                                                        },
+                                                        icon: const Icon(
+                                                          Icons.delete_outline,
+                                                          color: colorWhite,
+                                                          size: iconSize,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
                                         ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Checkbox(
+                                      value: Order.orderlistmap[index]
+                                                  ['ischeck'] ==
+                                              'true'
+                                          ? true
+                                          : false,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          Order.orderlistmap[index]
+                                                      ['ischeck'] ==
+                                                  'true'
+                                              ? Order.orderlistmap[index]
+                                                  ['ischeck'] = 'false'
+                                              : Order.orderlistmap[index]
+                                                  ['ischeck'] = 'true';
+                                          totalprice = Order.totalprice();
+                                        });
+                                      },
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Table(
+                                        children: [
+                                          TableRow(
+                                            children: [
+                                              SizedBox(
+                                                  width: 179,
+                                                  height: 153,
+                                                  child: Image.asset(
+                                                    '${Order.orderlistmap[index]['image']}',
+                                                    fit: BoxFit.contain,
+                                                  )),
+                                            ],
+                                          )
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    Expanded(
+                                      flex: 3,
+                                      child: Table(
+                                        children: [
+                                          TableRow(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                  left: defaultPadding,
+                                                  right: defaultPadding,
+                                                  top: defaultPadding,
+                                                ),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Text(
+                                                        '${Order.orderlistmap[index]['productname']}',
+                                                        style:
+                                                            GoogleFonts.kanit(
+                                                                color:
+                                                                    colortext1,
+                                                                fontSize:
+                                                                    bodytext),
+                                                      ),
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Container(
+                                                          width: 32,
+                                                          height: 32,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: lightGray,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                color: colortext2
+                                                                    .withOpacity(
+                                                                        0.25),
+                                                                blurRadius: 10,
+                                                                offset:
+                                                                    const Offset(
+                                                                        4, 4),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          child: IconButton(
+                                                            onPressed: () {
+                                                              Navigator.push(
+                                                                  context,
+                                                                  MaterialPageRoute(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              const EditDetailScreen()));
+                                                            },
+                                                            icon: const Icon(
+                                                              Icons
+                                                                  .edit_outlined,
+                                                              color: colortext1,
+                                                              size: iconSize,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          width: 32,
+                                                          height: 32,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: colortext1,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                color: colortext2
+                                                                    .withOpacity(
+                                                                        0.25),
+                                                                blurRadius: 10,
+                                                                offset:
+                                                                    const Offset(
+                                                                        4, 4),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          child: Center(
+                                                            child: IconButton(
+                                                              onPressed: () {
+                                                                showPopupRemoveOrder(
+                                                                    index);
+                                                              },
+                                                              icon: const Icon(
+                                                                Icons
+                                                                    .delete_outline,
+                                                                color:
+                                                                    colorWhite,
+                                                                size: iconSize,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          TableRow(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: defaultPadding,
+                                                    left: defaultPadding),
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                      'รหัสสินค้า ${Order.orderlistmap[index]['productid']}',
+                                                      style: GoogleFonts.kanit(
+                                                          color: colortext1,
+                                                          fontSize: bodytext),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          TableRow(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: defaultPadding,
+                                                    left: defaultPadding),
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                      'สี ${Order.orderlistmap[index]['productcolor']}',
+                                                      style: GoogleFonts.kanit(
+                                                          color: colortext1,
+                                                          fontSize: bodytext),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          TableRow(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: defaultPadding,
+                                                    left: defaultPadding),
+                                                child: Row(
+                                                  children: [
+                                                    Text(
+                                                      'ขนาด ${Order.orderlistmap[index]['productsize']} นิ้ว',
+                                                      style: GoogleFonts.kanit(
+                                                          color: colortext1,
+                                                          fontSize: bodytext),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          TableRow(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: defaultPadding,
+                                                    left: defaultPadding),
+                                                child: Text(
+                                                  'ราคาต่อชิ้น ฿ ${priceformat.format(int.parse(Order.orderlistmap[index]['price'].toString()))} ',
+                                                  style: GoogleFonts.kanit(
+                                                      color: colortext1,
+                                                      fontSize: bodytext),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          TableRow(
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: defaultPadding,
+                                                    bottom: defaultPadding,
+                                                    left: defaultPadding),
+                                                child: Text(
+                                                  'ราคารวม ฿ ${priceformat.format(int.parse(Order.orderlistmap[index]['price'].toString()))}',
+                                                  style: GoogleFonts.kanit(
+                                                      color: Colors.black,
+                                                      fontSize: bodytext),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Checkbox(
-                              value: allChecked.value,
-                              onChanged: (value) {
-                                onAllClicked(allChecked);
-                              },
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Table(
-                                children: [
-                                  TableRow(
-                                    children: [
-                                      Container(
-                                          width: 179,
-                                          height: 153,
-                                          child: Image.asset(
-                                            'assets/images/curtain.png',
-                                            fit: BoxFit.contain,
-                                          )),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 3,
-                              child: Table(
-                                children: [
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: defaultPadding,
-                                          right: defaultPadding,
-                                          top: defaultPadding,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              'ม่านสองชั้น ผ้าทึบหน้าแคบ Acacia',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Container(
-                                                  width: 32,
-                                                  height: 32,
-                                                  decoration: BoxDecoration(
-                                                    color: lightGray,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: colortext2
-                                                            .withOpacity(0.25),
-                                                        blurRadius: 10,
-                                                        offset:
-                                                            const Offset(4, 4),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  child: IconButton(
-                                                    onPressed: () {
-                                                      Navigator.push(
-                                                          context,
-                                                          MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  const EditDetailScreen()));
-                                                    },
-                                                    icon: const Icon(
-                                                      Icons.edit_outlined,
-                                                      color: colortext1,
-                                                      size: iconSize,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Container(
-                                                  width: 32,
-                                                  height: 32,
-                                                  decoration: BoxDecoration(
-                                                    color: colortext1,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: colortext2
-                                                            .withOpacity(0.25),
-                                                        blurRadius: 10,
-                                                        offset:
-                                                            const Offset(4, 4),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  child: Center(
-                                                    child: IconButton(
-                                                      onPressed: () {
-                                                        showPopupRemoveOrder();
-                                                      },
-                                                      icon: const Icon(
-                                                        Icons.delete_outline,
-                                                        color: colorWhite,
-                                                        size: iconSize,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              'รหัสสินค้า ',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            ),
-                                            Text(
-                                              'A01CY04',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              'สี ',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            ),
-                                            Text(
-                                              'CY 228/01',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              'ขนาด ',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            ),
-                                            Text(
-                                              '100 x 200 นิ้ว',
-                                              style: GoogleFonts.kanit(
-                                                  color: colortext1,
-                                                  fontSize: bodytext),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Text(
-                                          'ราคาต่อชิ้น ฿ 400 ',
-                                          style: GoogleFonts.kanit(
-                                              color: colortext1,
-                                              fontSize: bodytext),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  TableRow(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: defaultPadding,
-                                            bottom: defaultPadding,
-                                            left: defaultPadding),
-                                        child: Text(
-                                          'ราคารวม ฿ 400.00',
-                                          style: GoogleFonts.kanit(
-                                              color: Colors.black,
-                                              fontSize: bodytext),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ],
+                );
+              },
+            ),
           ),
-        ),
+        ],
       ),
       bottomNavigationBar: Row(
         children: [
@@ -417,9 +453,12 @@ class _OrderScreenState extends State<OrderScreen> {
             child: Row(
               children: [
                 Checkbox(
-                  value: allChecked.value,
+                  value: Order.isallcheck(),
                   onChanged: (value) {
-                    onAllClicked(allChecked);
+                    setState(() {
+                      Order.allcheck(!Order.isallcheck());
+                      totalprice = Order.totalprice();
+                    });
                   },
                 ),
                 Text(
@@ -437,12 +476,12 @@ class _OrderScreenState extends State<OrderScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  'ราคาทั้งหมด',
+                  '',
                   style:
                       GoogleFonts.kanit(fontSize: bodytext, color: colortext1),
                 ),
                 Text(
-                  '฿ 1,600',
+                  '฿ ${priceformat.format(totalprice)}',
                   style:
                       GoogleFonts.kanit(fontSize: bodytext, color: colorBlack),
                 ),
@@ -451,12 +490,14 @@ class _OrderScreenState extends State<OrderScreen> {
                   color: colortext1,
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const CartOrder(),
-                        ),
-                      );
+                      (Order.orderlistmap.isEmpty)
+                          ? dialog('ไม่มีสินค้าในตะกร้า')
+                          : Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const CartOrder(),
+                              ),
+                            );
                     },
                     child: SizedBox(
                       height: kToolbarHeight,
@@ -470,7 +511,7 @@ class _OrderScreenState extends State<OrderScreen> {
                             style: GoogleFonts.kanit(color: colorWhite),
                           ),
                           Text(
-                            '(4)',
+                            '(${Order.countcheck()})',
                             textAlign: TextAlign.center,
                             style: GoogleFonts.kanit(color: colorWhite),
                           )
@@ -487,31 +528,27 @@ class _OrderScreenState extends State<OrderScreen> {
     );
   }
 
-  onAllClicked(CheckBoxModal ckbItem) {
-    final newValue = !ckbItem.value;
-    setState(() {
-      ckbItem.value = newValue;
-      for (var element in checkBoxList) {
-        element.value = newValue;
-      }
-    });
+  void dialog(String temp) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  temp,
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
   }
 
-  onItemClicked(CheckBoxModal ckbItem) {
-    final newValue = !ckbItem.value;
-    setState(() {
-      ckbItem.value = newValue;
-
-      if (!newValue) {
-        allChecked.value = false;
-      } else {
-        final allListCheck = checkBoxList.every((element) => element.value);
-        allChecked.value = allListCheck;
-      }
-    });
-  }
-
-  void showPopupRemoveOrder() {
+  void showPopupRemoveOrder(int index) {
     showDialog(
         context: context,
         builder: (context) {
@@ -520,82 +557,92 @@ class _OrderScreenState extends State<OrderScreen> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Container(
-              padding: const EdgeInsets.symmetric(
-                  vertical: 28, horizontal: defaultPadding),
-              width: MediaQuery.of(context).size.width * 0.4,
-              height: MediaQuery.of(context).size.height * 0.12,
-              child: Column(
-                children: [
-                  Text('ยืนยันจะลบออเดอร์นี้',
-                      style: GoogleFonts.kanit(fontSize: bodytext)),
-                  const SizedBox(height: defaultPadding),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(
-                        width: 150,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(28),
+              padding: const EdgeInsets.all(8),
+              width: 320,
+              height: 120,
+              child: Expanded(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      width: defaultPadding,
+                      height: defaultPadding,
+                    ),
+                    Text('ยืนยันจะลบออเดอร์นี้',
+                        style: GoogleFonts.kanit(fontSize: bodytext)),
+                    const SizedBox(height: defaultPadding),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: const Color(0xFFD4D4D4),
                             ),
-                            primary: const Color(0xFFD4D4D4),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text(
-                            'ยกเลิก',
-                            style: GoogleFonts.kanit(
-                                fontSize: bodytext, color: colortext1),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'ยกเลิก',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colortext1),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 150,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(28),
+                        SizedBox(
+                          width: 150,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(28),
+                              ),
+                              primary: colortext1,
                             ),
-                            primary: colortext1,
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return Dialog(
-                                    child: Container(
-                                        alignment: Alignment.center,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.25,
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.1,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(20),
-                                        ),
-                                        child: Text(
-                                          'ลบรูปภาพสำเร็จ',
-                                          style: GoogleFonts.kanit(
-                                              fontSize: bodytext),
-                                        )),
-                                  );
-                                });
-                          },
-                          child: Text(
-                            'ยืนยัน',
-                            style: GoogleFonts.kanit(
-                                fontSize: bodytext, color: colorWhite),
+                            onPressed: () {
+                              Navigator.pop(context);
+                              setState(() {
+                                context.read<Order>().removeorder(index);
+                              });
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Dialog(
+                                      child: Container(
+                                          alignment: Alignment.center,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.25,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.1,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                          child: Text(
+                                            'ลบออเดอร์สำเร็จ',
+                                            style: GoogleFonts.kanit(
+                                                fontSize: bodytext),
+                                          )),
+                                    );
+                                  });
+                            },
+                            child: Text(
+                              'ยืนยัน',
+                              style: GoogleFonts.kanit(
+                                  fontSize: bodytext, color: colorWhite),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           );

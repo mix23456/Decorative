@@ -1,13 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/add_bank.dart';
-import 'package:project_curtain/add_user.dart';
-import 'package:project_curtain/edit_bank.dart';
-import 'package:project_curtain/edit_contact_information.dart';
+import 'package:project_curtain/widget/socialmediaicon.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/login_screen.dart';
-import 'package:project_curtain/work.dart';
+import 'package:project_curtain/page/add/add_bank.dart';
+import 'package:project_curtain/page/add/add_user.dart';
+import 'package:project_curtain/page/edit/edit_bank.dart';
+import 'package:project_curtain/page/edit/edit_contact_information.dart';
+import 'package:project_curtain/page/work.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -154,78 +154,104 @@ class _SettingScreenState extends State<SettingScreen> {
                                       Container(
                                         padding: const EdgeInsets.all(
                                             defaultPadding),
-                                        child: Row(
+                                        child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
-                                            Row(
-                                              children: [
-                                                Tab(
-                                                  icon: Image.asset(
-                                                      'assets/logos/facebook_logo.png'),
-                                                  height: 24,
-                                                ),
-                                                const SizedBox(
-                                                    width: defaultPadding / 2),
-                                                Text(
-                                                  'DK decorative',
-                                                  style: GoogleFonts.kanit(
-                                                      fontSize: bodytext,
-                                                      color: colortext2),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Tab(
-                                                  icon: Image.asset(
-                                                      'assets/logos/instagram_logo.png'),
-                                                  height: 24,
-                                                ),
-                                                const SizedBox(
-                                                    width: defaultPadding / 2),
-                                                Text(
-                                                  'DK decorative',
-                                                  style: GoogleFonts.kanit(
-                                                      fontSize: bodytext,
-                                                      color: colortext2),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Tab(
-                                                  icon: Image.asset(
-                                                      'assets/logos/line_logo.png'),
-                                                  height: 24,
-                                                ),
-                                                const SizedBox(
-                                                    width: defaultPadding / 2),
-                                                Text(
-                                                  'DK decorative',
-                                                  style: GoogleFonts.kanit(
-                                                      fontSize: bodytext,
-                                                      color: colortext2),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Tab(
-                                                  icon: Image.asset(
-                                                      'assets/logos/twitter_logo.png'),
-                                                  height: 24,
-                                                ),
-                                                const SizedBox(
-                                                    width: defaultPadding / 2),
-                                                Text(
-                                                  'DK decorative',
-                                                  style: GoogleFonts.kanit(
-                                                      fontSize: bodytext,
-                                                      color: colortext2),
-                                                ),
-                                              ],
-                                            ),
+                                            (MediaQuery.of(context).size.width >
+                                                    600)
+                                                ? Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: const [
+                                                      Socialmediaicon(
+                                                        image:
+                                                            'assets/logos/facebook_logo.png',
+                                                        title: 'DK decorative',
+                                                      ),
+                                                      SizedBox(
+                                                          width:
+                                                              defaultPadding /
+                                                                  2),
+                                                      Socialmediaicon(
+                                                        image:
+                                                            'assets/logos/instagram_logo.png',
+                                                        title: 'DK decorative',
+                                                      ),
+                                                      SizedBox(
+                                                          width:
+                                                              defaultPadding /
+                                                                  2),
+                                                      Socialmediaicon(
+                                                          image:
+                                                              'assets/logos/twitter_logo.png',
+                                                          title:
+                                                              'DK decorative'),
+                                                      SizedBox(
+                                                          width:
+                                                              defaultPadding /
+                                                                  2),
+                                                      Socialmediaicon(
+                                                          image:
+                                                              'assets/logos/line_logo.png',
+                                                          title:
+                                                              'DK decorative')
+                                                    ],
+                                                  )
+                                                : Column(
+                                                    children: [
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: const [
+                                                          Socialmediaicon(
+                                                            image:
+                                                                'assets/logos/facebook_logo.png',
+                                                            title:
+                                                                'DK decorative',
+                                                          ),
+                                                          VerticalDivider(
+                                                            width: 4,
+                                                            thickness: 2,
+                                                            color: Colors.black,
+                                                          ),
+                                                          Socialmediaicon(
+                                                            image:
+                                                                'assets/logos/instagram_logo.png',
+                                                            title:
+                                                                'DK decorative',
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      const SizedBox(
+                                                          height:
+                                                              defaultPadding),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: const [
+                                                          Socialmediaicon(
+                                                              image:
+                                                                  'assets/logos/twitter_logo.png',
+                                                              title:
+                                                                  'DK decorative'),
+                                                          VerticalDivider(
+                                                            width: 4,
+                                                            thickness: 2,
+                                                            color: Colors.black,
+                                                          ),
+                                                          Socialmediaicon(
+                                                              image:
+                                                                  'assets/logos/line_logo.png',
+                                                              title:
+                                                                  'DK decorative')
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
                                           ],
                                         ),
                                       ),

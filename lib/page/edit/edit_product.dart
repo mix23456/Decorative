@@ -3,17 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/formatters/money_input_formatter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/add_customer.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/details_product.dart';
-import 'package:project_curtain/format.dart';
-import 'package:project_curtain/page/customer_screen.dart';
-import 'package:project_curtain/page/home_screen.dart';
-import 'package:project_curtain/page/order_screen.dart';
-import 'package:project_curtain/page/product_screen.dart';
-import 'package:project_curtain/page/receipt_screen.dart';
-import 'package:project_curtain/page/setting_screen.dart';
-import 'package:project_curtain/search_product.dart';
+import 'package:project_curtain/page/add/add_customer.dart';
+import 'package:project_curtain/page/login/format.dart';
+import 'package:project_curtain/page/search/search_product.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
@@ -394,7 +387,7 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                                       ),
                                     ),
                                     Text(
-                                      'เมตร',
+                                      'นิ้ว',
                                       style: GoogleFonts.kanit(
                                           color: colortext2,
                                           fontSize: bodytext),
@@ -507,7 +500,7 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                                     ),
                                     const SizedBox(width: defaultPadding),
                                     Text(
-                                      'เมตร',
+                                      'นิ้ว',
                                       style: GoogleFonts.kanit(
                                           color: colortext2,
                                           fontSize: bodytext),
@@ -515,68 +508,6 @@ class _EditDetailScreenState extends State<EditDetailScreen> {
                                   ],
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: defaultPadding / 2),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text('ราคาผ้าม่าน (บาท) :',
-                                  style: GoogleFonts.kanit(
-                                      color: colortext1, fontSize: bodytext)),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.35,
-                                child: SfSliderTheme(
-                                  data: SfSliderThemeData(
-                                    thumbStrokeWidth: 3,
-                                    thumbStrokeColor: colortext1,
-                                    thumbColor: Colors.white,
-                                  ),
-                                  child: SfSlider(
-                                    min: 0.0,
-                                    max: 100.0,
-                                    value: priceCurtain,
-                                    inactiveColor: colortext2,
-                                    onChanged: (dynamic newValue) {
-                                      setState(() {
-                                        priceCurtain = newValue;
-                                        valueChange();
-                                      });
-                                    },
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                '${priceCurtain.toStringAsFixed(2)}',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                'บาท',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              )
                             ],
                           ),
                         ),

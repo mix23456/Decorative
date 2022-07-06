@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/constants/product_card.dart';
-import 'package:project_curtain/details_product.dart';
+import 'package:project_curtain/widget/product_card.dart';
+import 'package:project_curtain/page/detail/details_product.dart';
 
 class SearchProduct extends StatefulWidget {
   const SearchProduct({Key? key}) : super(key: key);
@@ -60,7 +60,7 @@ class _SearchProductState extends State<SearchProduct> {
                   const Expanded(child: SizedBox())
                 ],
               ),
-              SizedBox(height: defaultPadding),
+              const SizedBox(height: defaultPadding),
               Row(
                 children: [
                   Expanded(

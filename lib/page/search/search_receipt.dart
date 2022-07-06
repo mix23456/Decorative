@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/detail_receip.dart';
+import 'package:project_curtain/page/detail/detail_receip.dart';
 
 class SearchReceipt extends StatefulWidget {
   const SearchReceipt({Key? key}) : super(key: key);

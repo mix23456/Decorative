@@ -1,17 +1,20 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 // import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
+import 'package:project_curtain/widget/fluttermap.dart';
 
-class AddCustomer extends StatefulWidget {
-  const AddCustomer({Key? key}) : super(key: key);
+class EditCustomer extends StatefulWidget {
+  const EditCustomer({Key? key}) : super(key: key);
 
   @override
-  _AddCustomerState createState() => _AddCustomerState();
+  _EditCustomer createState() => _EditCustomer();
 }
 
-class _AddCustomerState extends State<AddCustomer> {
+class _EditCustomer extends State<EditCustomer> {
   // static const _initialCameraPosition = CameraPosition(
   //   target: LatLng(37.77972, -122.431297),
   //   zoom: 11.5,
@@ -37,16 +40,16 @@ class _AddCustomerState extends State<AddCustomer> {
             Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios_new),
-          color: colorBlack,
+          color: Colors.black,
         ),
         title: Text(
-          'เพิ่มข้อมูลลูกค้า',
+          'แก้ไขข้อมูลลูกค้า',
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: const EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               horizontal: defaultPadding * 3, vertical: defaultPadding),
           child: Form(
             key: _formKey,
@@ -836,7 +839,7 @@ class _AddCustomerState extends State<AddCustomer> {
                   ),
                 ),
                 const SizedBox(height: defaultPadding),
-                // GoogleMap(initialCameraPosition: ),
+                fluttermap(),
                 // SizedBox(
                 //   height: 200,
                 //   width: double.infinity,
@@ -883,5 +886,25 @@ class _AddCustomerState extends State<AddCustomer> {
         ),
       ),
     );
+  }
+
+  void showSaveComplete() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'บันทึกข้อมูลสำเร็จ',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
   }
 }

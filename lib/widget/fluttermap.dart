@@ -15,7 +15,7 @@ class _fluttermapState extends State<fluttermap> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: MediaQuery.of(context).size.height / 4.2,
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       child: FlutterMap(
         options: MapOptions(
@@ -33,11 +33,9 @@ class _fluttermapState extends State<fluttermap> {
                 width: 80.0,
                 height: 80.0,
                 point: latlng.LatLng(18.7960948, 99.0188304),
-                builder: (ctx) => Container(
-                  child: Icon(
-                    Icons.location_on,
-                    color: Colors.red,
-                  ),
+                builder: (ctx) => const Icon(
+                  Icons.location_on,
+                  color: Colors.red,
                 ),
               ),
             ],

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/cart_order.dart';
+import 'package:project_curtain/page/cart_order.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/edit_product.dart';
-import 'package:project_curtain/search_order.dart';
+import 'package:project_curtain/page/search/search_order.dart';
 
 class OrderEmptyScreen extends StatefulWidget {
   const OrderEmptyScreen({Key? key}) : super(key: key);
@@ -15,11 +14,7 @@ class OrderEmptyScreen extends StatefulWidget {
 class _OrderEmptyScreenState extends State<OrderEmptyScreen> {
   bool checkProd = false;
   bool checkAll = false;
-  final allChecked = CheckBoxModal(title: 'All Checked');
-  final checkBoxList = [
-    CheckBoxModal(title: '1'),
-    CheckBoxModal(title: '2'),
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,10 +96,8 @@ class _OrderEmptyScreenState extends State<OrderEmptyScreen> {
             child: Row(
               children: [
                 Checkbox(
-                  value: allChecked.value,
-                  onChanged: (value) {
-                    onAllClicked(allChecked);
-                  },
+                  value: true,
+                  onChanged: (value) {},
                 ),
                 Text(
                   'ทั้งหมด',
@@ -169,30 +162,6 @@ class _OrderEmptyScreenState extends State<OrderEmptyScreen> {
         ],
       ),
     );
-  }
-
-  onAllClicked(CheckBoxModal ckbItem) {
-    final newValue = !ckbItem.value;
-    setState(() {
-      ckbItem.value = newValue;
-      checkBoxList.forEach((element) {
-        element.value = newValue;
-      });
-    });
-  }
-
-  onItemClicked(CheckBoxModal ckbItem) {
-    final newValue = !ckbItem.value;
-    setState(() {
-      ckbItem.value = newValue;
-
-      if (!newValue) {
-        allChecked.value = false;
-      } else {
-        final allListCheck = checkBoxList.every((element) => element.value);
-        allChecked.value = allListCheck;
-      }
-    });
   }
 
   void showPopupRemoveOrder() {
@@ -285,10 +254,4 @@ class _OrderEmptyScreenState extends State<OrderEmptyScreen> {
           );
         });
   }
-}
-
-class CheckBoxModal {
-  String title;
-  bool value;
-  CheckBoxModal({required this.title, this.value = false});
 }

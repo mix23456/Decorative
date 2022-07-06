@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:latlong2/latlong.dart' as latlng;
-// import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/constants/fluttermap.dart';
+import 'package:project_curtain/widget/fluttermap.dart';
 
 class Contack extends StatefulWidget {
   const Contack({Key? key}) : super(key: key);
@@ -14,14 +11,8 @@ class Contack extends StatefulWidget {
 }
 
 class _ContackState extends State<Contack> {
-  // static const _initialCameraPosition = CameraPosition(
-  //   target: LatLng(37.77972, -122.431297),
-  //   zoom: 11.5,
-  // );
-  // late GoogleMapController _googleMapController;
   @override
   void dispose() {
-    // _googleMapController.dispose();
     super.dispose();
   }
 

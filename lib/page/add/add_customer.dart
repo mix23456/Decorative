@@ -1,34 +1,59 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-// import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/constants/fluttermap.dart';
+import 'package:project_curtain/widget/fluttermap.dart';
+import 'package:project_curtain/model/model_provider/customers.dart';
+import 'package:project_curtain/widget/fluttermapcontroller.dart';
+import 'package:project_curtain/widget/showdialogsaved.dart';
+import 'package:provider/provider.dart';
 
-class EditCustomer extends StatefulWidget {
-  const EditCustomer({Key? key}) : super(key: key);
+class AddCustomer extends StatefulWidget {
+  const AddCustomer({Key? key}) : super(key: key);
 
   @override
-  _EditCustomer createState() => _EditCustomer();
+  _AddCustomerState createState() => _AddCustomerState();
 }
 
-class _EditCustomer extends State<EditCustomer> {
-  // static const _initialCameraPosition = CameraPosition(
-  //   target: LatLng(37.77972, -122.431297),
-  //   zoom: 11.5,
-  // );
-  // late GoogleMapController _googleMapController;
-  @override
-  void dispose() {
-    // _googleMapController.dispose();
-    super.dispose();
-  }
+class _AddCustomerState extends State<AddCustomer> {
+  List<Map<String, String>> customersset = [
+    {
+      'name': '',
+      'surname': '',
+      'nickname': '',
+      'email': '',
+      'id': '',
+      'corporate': '',
+      'phone': '',
+      'location': '',
+      'subdistict': '',
+      'distict': '',
+      'province': '',
+      'postnumber': '',
+      'lat': '',
+      'long': '',
+      //---------------ที่อยู่ในใบเสร็จ
+      'secondlocation': '',
+      'secondsubdistict': '',
+      'seconddistict': '',
+      'secondprovince': '',
+      'secondpostnumber': '',
+      //----------สถานที่ติดตั้งผ้าม่าน
+      'workname': '',
+      'workphone': '',
+      'worklocation': '',
+      'worksubdistict': '',
+      'workdistict': '',
+      'workprovince': '',
+      'workpostnumber': '',
+      'worklat': '',
+      'worklong': ''
+    }
+  ];
 
   dynamic address = 0;
 
   final _formKey = GlobalKey<FormState>();
+  Map<String, String> temp = {'': ''};
 
   @override
   Widget build(BuildContext context) {
@@ -40,17 +65,17 @@ class _EditCustomer extends State<EditCustomer> {
             Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios_new),
-          color: Colors.black,
+          color: colorBlack,
         ),
         title: Text(
-          'แก้ไขข้อมูลลูกค้า',
+          'เพิ่มข้อมูลลูกค้า',
           style: GoogleFonts.kanit(color: Colors.black, fontSize: subtitle),
         ),
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(
-              horizontal: defaultPadding * 3, vertical: defaultPadding),
+          margin: const EdgeInsets.symmetric(
+              horizontal: defaultPadding, vertical: defaultPadding),
           child: Form(
             key: _formKey,
             child: Column(
@@ -87,6 +112,8 @@ class _EditCustomer extends State<EditCustomer> {
                           ),
                           const SizedBox(height: defaultPadding),
                           TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['name'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'ชื่อ',
                               hintStyle: GoogleFonts.kanit(
@@ -136,6 +163,8 @@ class _EditCustomer extends State<EditCustomer> {
                           ),
                           const SizedBox(height: defaultPadding),
                           TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['surname'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'นามสกุล',
                               hintStyle: GoogleFonts.kanit(
@@ -176,7 +205,9 @@ class _EditCustomer extends State<EditCustomer> {
                             ),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['nickname'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'ชื่อเล่น',
                               hintStyle: GoogleFonts.kanit(
@@ -218,6 +249,8 @@ class _EditCustomer extends State<EditCustomer> {
                           ),
                           const SizedBox(height: defaultPadding),
                           TextFormField(
+                              onSaved: (value) =>
+                                  customersset[0]['email'] = value.toString(),
                               decoration: InputDecoration(
                                 hintText: 'อีเมล',
                                 hintStyle: GoogleFonts.kanit(
@@ -258,7 +291,9 @@ class _EditCustomer extends State<EditCustomer> {
                             ),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['id'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'เลขที่ผู้เสียภาษี',
                               hintStyle: GoogleFonts.kanit(
@@ -286,7 +321,9 @@ class _EditCustomer extends State<EditCustomer> {
                             ),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['corporate'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'บริษัท/สถานที่ทำงาน',
                               hintStyle: GoogleFonts.kanit(
@@ -333,6 +370,8 @@ class _EditCustomer extends State<EditCustomer> {
                           ),
                           const SizedBox(height: defaultPadding),
                           TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['phone'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'เบอร์โทรศัพท์',
                               hintStyle: GoogleFonts.kanit(
@@ -386,6 +425,8 @@ class _EditCustomer extends State<EditCustomer> {
                     ),
                     const SizedBox(height: defaultPadding),
                     TextFormField(
+                      onSaved: (value) =>
+                          customersset[0]['location'] = value.toString(),
                       decoration: InputDecoration(
                         hintText: 'ที่อยู่',
                         hintStyle: GoogleFonts.kanit(
@@ -423,7 +464,9 @@ class _EditCustomer extends State<EditCustomer> {
                             ),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) => customersset[0]['subdistict'] =
+                                value.toString(),
                             decoration: InputDecoration(
                               hintText: 'ตำบล',
                               hintStyle: GoogleFonts.kanit(
@@ -451,7 +494,9 @@ class _EditCustomer extends State<EditCustomer> {
                             ),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['distict'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'อำเภอ',
                               hintStyle: GoogleFonts.kanit(
@@ -498,6 +543,8 @@ class _EditCustomer extends State<EditCustomer> {
                           ),
                           const SizedBox(height: defaultPadding),
                           TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['province'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'จังหวัด',
                               hintStyle: GoogleFonts.kanit(
@@ -547,6 +594,8 @@ class _EditCustomer extends State<EditCustomer> {
                           ),
                           const SizedBox(height: defaultPadding),
                           TextFormField(
+                            onSaved: (value) => customersset[0]['postnumber'] =
+                                value.toString(),
                             decoration: InputDecoration(
                               hintText: 'รหัสไปรษณีย์',
                               hintStyle: GoogleFonts.kanit(
@@ -583,6 +632,7 @@ class _EditCustomer extends State<EditCustomer> {
                     ),
                   ],
                 ),
+                const Divider(),
                 const SizedBox(height: defaultPadding),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -601,7 +651,9 @@ class _EditCustomer extends State<EditCustomer> {
                             ),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['workname'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'ชื่อ',
                               hintStyle: GoogleFonts.kanit(
@@ -629,7 +681,9 @@ class _EditCustomer extends State<EditCustomer> {
                             ),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['workphone'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'เบอร์โทรศัพท์',
                               hintStyle: GoogleFonts.kanit(
@@ -667,6 +721,8 @@ class _EditCustomer extends State<EditCustomer> {
                 ),
                 const SizedBox(height: defaultPadding),
                 TextFormField(
+                  onSaved: (value) =>
+                      customersset[0]['worklocation'] = value.toString(),
                   decoration: InputDecoration(
                     hintText: 'ที่อยู่',
                     hintStyle: GoogleFonts.kanit(
@@ -698,7 +754,9 @@ class _EditCustomer extends State<EditCustomer> {
                             style: GoogleFonts.kanit(fontSize: bodytext),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) => customersset[0]
+                                ['worksubdistick'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'ตำบล',
                               hintStyle: GoogleFonts.kanit(
@@ -722,7 +780,9 @@ class _EditCustomer extends State<EditCustomer> {
                             style: GoogleFonts.kanit(fontSize: bodytext),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) =>
+                                customersset[0]['distick'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'อำเภอ',
                               hintStyle: GoogleFonts.kanit(
@@ -765,6 +825,8 @@ class _EditCustomer extends State<EditCustomer> {
                           ),
                           const SizedBox(height: defaultPadding),
                           TextFormField(
+                            onSaved: (value) => customersset[0]
+                                ['workprovince'] = value.toString(),
                             decoration: InputDecoration(
                               hintText: 'จังหวัด',
                               hintStyle: GoogleFonts.kanit(
@@ -774,13 +836,13 @@ class _EditCustomer extends State<EditCustomer> {
                               ),
                               errorStyle: GoogleFonts.kanit(fontSize: bodytext),
                             ),
-                            // validator: (value) {
-                            //   if (value!.isNotEmpty) {
-                            //     return null;
-                            //   } else {
-                            //     return '';
-                            //   }
-                            // },
+                            validator: (value) {
+                              if (value!.isNotEmpty) {
+                                return null;
+                              } else {
+                                return 'โปรดกรอกจังหวัด';
+                              }
+                            },
                           ),
                         ],
                       ),
@@ -809,7 +871,9 @@ class _EditCustomer extends State<EditCustomer> {
                             ),
                           ),
                           const SizedBox(height: defaultPadding),
-                          TextField(
+                          TextFormField(
+                            onSaved: (value) => customersset[0]['postnumber'] =
+                                value.toString(),
                             decoration: InputDecoration(
                               hintText: 'รหัสไปรษณีย์',
                               hintStyle: GoogleFonts.kanit(
@@ -839,25 +903,13 @@ class _EditCustomer extends State<EditCustomer> {
                   ),
                 ),
                 const SizedBox(height: defaultPadding),
-                fluttermap(),
-                // SizedBox(
-                //   height: 200,
-                //   width: double.infinity,
-                //   child: GoogleMap(
-                //     myLocationEnabled: true,
-                //     myLocationButtonEnabled: true,
-                //     zoomControlsEnabled: true,
-                //     initialCameraPosition: _initialCameraPosition,
-                //     onMapCreated: (controller) =>
-                //         _googleMapController = controller,
-                //   ),
-                // ),
+                const PointToLatLngPage(),
                 const SizedBox(height: defaultPadding * 2),
                 Align(
                   alignment: Alignment.center,
                   child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.20,
-                    height: MediaQuery.of(context).size.height * 0.04,
+                    width: 100,
+                    height: 50,
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                         primary: const Color(0xFF707070),
@@ -866,9 +918,19 @@ class _EditCustomer extends State<EditCustomer> {
                         ),
                       ),
                       onPressed: () {
-                        // showSaveComplete();
                         if (!_formKey.currentState!.validate()) {
                           return;
+                        } else {
+                          _formKey.currentState!.save();
+                          context
+                              .read<Customers>()
+                              .customercreate(customersset);
+
+                          setState(() {
+                            // _formKey.currentState!.reset();
+                            Navigator.pop(context);
+                            showdialog(context);
+                          });
                         }
                       },
                       icon: const Icon(Icons.save),
@@ -886,25 +948,5 @@ class _EditCustomer extends State<EditCustomer> {
         ),
       ),
     );
-  }
-
-  void showSaveComplete() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return Dialog(
-            child: Container(
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width * 0.25,
-                height: MediaQuery.of(context).size.height * 0.1,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  'บันทึกข้อมูลสำเร็จ',
-                  style: GoogleFonts.kanit(fontSize: bodytext),
-                )),
-          );
-        });
   }
 }

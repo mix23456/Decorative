@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/details_product.dart';
-import 'package:project_curtain/constants/product_card.dart';
-import 'package:project_curtain/search_product.dart';
-import 'package:project_curtain/search_result_chick.dart';
-import 'package:project_curtain/search_result_curtain.dart';
+import 'package:project_curtain/widget/product_card.dart';
+import 'package:project_curtain/page/detail/details_product.dart';
+import 'package:project_curtain/page/search/search_product.dart';
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({Key? key}) : super(key: key);
@@ -67,7 +65,7 @@ class _ProductScreenState extends State<ProductScreen> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 3),
+          padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 1.5),
           child: Column(
             children: [
               Row(
@@ -182,6 +180,7 @@ class _ProductScreenState extends State<ProductScreen> {
               ),
               const SizedBox(height: defaultPadding),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Expanded(
                     child: ProductCard(

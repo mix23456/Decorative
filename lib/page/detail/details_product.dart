@@ -3,12 +3,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/formatters/money_input_formatter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_curtain/add_customer.dart';
 import 'package:project_curtain/constants/constants.dart';
-import 'package:project_curtain/format.dart';
-import 'package:project_curtain/search_product.dart';
+import 'package:project_curtain/model/allproduct.dart';
+import 'package:project_curtain/model/model_provider/customers.dart';
+import 'package:project_curtain/model/model_provider/order.dart';
+import 'package:project_curtain/page/add/add_customer.dart';
+import 'package:project_curtain/page/search/search_product.dart';
+import 'package:project_curtain/widget/setupdialogcustomers.dart';
+import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
+import 'package:intl/intl.dart';
 
 class DetailScreen extends StatefulWidget {
   const DetailScreen({key}) : super(key: key);
@@ -16,6 +21,8 @@ class DetailScreen extends StatefulWidget {
   @override
   _DetailScreenState createState() => _DetailScreenState();
 }
+
+NumberFormat priceformat = NumberFormat.decimalPattern('en_us');
 
 final List<String> imgList = [
   'assets/images/detail_product_curtain1.png',
@@ -31,6 +38,8 @@ final List<String> code = [
   'AC01CY04',
   'AC01CY04',
 ];
+
+final List<String> colorcode = ['#707070', '#ABAAAC', '#E9E9E9'];
 
 final List<Color> color = [
   colortext1,
@@ -48,9 +57,20 @@ double widthCurtain = 0;
 double priceCurtain = 0;
 final TextEditingController widthController = TextEditingController();
 final TextEditingController heightController = TextEditingController();
+final TextEditingController textfieldnameController = TextEditingController();
 final CarouselController _controller = CarouselController();
 
+Allproduct allProduct = Allproduct();
+
+List<Map<String, String>> orderset = [
+  {},
+];
+
 class _DetailScreenState extends State<DetailScreen> {
+  String? tempcolor = '#707070';
+  String? tempproductid = 'AC01CY04';
+  String? tempname;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +134,7 @@ class _DetailScreenState extends State<DetailScreen> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
-              horizontal: defaultPadding * 2, vertical: defaultPadding),
+              horizontal: defaultPadding, vertical: defaultPadding),
           child: Column(
             children: [
               GestureDetector(
@@ -164,7 +184,9 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(' ผ้าทึบหน้าแคบ Acacia',
+                              Text(
+                                  allProduct.getproduct[3]['productname']
+                                      .toString(),
                                   style: GoogleFonts.kanit(
                                       color: colortext2, fontSize: bodytext)),
                             ],
@@ -192,10 +214,10 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              ...List.generate(
-                                code.length,
-                                (index) => buildSelectCode(index),
-                              ),
+                              ...List.generate(code.length, (index) {
+                                tempproductid = code[index];
+                                return Expanded(child: buildSelectCode(index));
+                              }),
                             ],
                           ),
                         ),
@@ -221,39 +243,38 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              // ...List.generate(
-                              //   color.length,
-                              //   (index) => buildSelectColor(index),
-                              // ),
                               ...List.generate(
                                   3,
-                                  (index) => GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            selectColor = index;
-                                          });
-                                        },
-                                        child: Container(
-                                          margin:
-                                              const EdgeInsets.only(right: 10),
-                                          height: 33.5,
-                                          width: 148,
-                                          decoration: BoxDecoration(
-                                            color: color[index],
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            border: Border.all(
-                                              color: selectColor == index
-                                                  ? colorBlack
-                                                  : Colors.transparent,
-                                            ),
-                                            boxShadow: const [
-                                              BoxShadow(
-                                                color: colorBgBtn2,
-                                                blurRadius: 5,
-                                                offset: Offset(0, 2),
+                                  (index) => Expanded(
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            tempcolor = colorcode[index];
+                                            setState(() {
+                                              selectColor = index;
+                                            });
+                                          },
+                                          child: Container(
+                                            margin: const EdgeInsets.only(
+                                                right: 10),
+                                            height: 33.5,
+                                            width: 148,
+                                            decoration: BoxDecoration(
+                                              color: color[index],
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              border: Border.all(
+                                                color: selectColor == index
+                                                    ? colorBlack
+                                                    : Colors.transparent,
                                               ),
-                                            ],
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  color: colorBgBtn2,
+                                                  blurRadius: 5,
+                                                  offset: Offset(0, 2),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       )),
@@ -282,7 +303,10 @@ class _DetailScreenState extends State<DetailScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(' ฿400',
+                              Text(
+                                  priceformat.format(int.parse(allProduct
+                                      .getproduct[2]['price']
+                                      .toString())),
                                   style: GoogleFonts.kanit(
                                       color: colortext2, fontSize: bodytext)),
                             ],
@@ -319,7 +343,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                   child: SfSlider(
                                     min: 0.0,
-                                    max: 100.0,
+                                    max: 1000.0,
+                                    stepSize: 50,
                                     value: heightCurtain,
                                     inactiveColor: colortext2,
                                     onChanged: (dynamic newValue) {
@@ -387,7 +412,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                       ),
                                     ),
                                     Text(
-                                      'เมตร',
+                                      'นิ้ว',
                                       style: GoogleFonts.kanit(
                                           color: colortext2,
                                           fontSize: bodytext),
@@ -429,7 +454,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                   child: SfSlider(
                                     min: 0.0,
-                                    max: 100.0,
+                                    max: 1000.0,
+                                    stepSize: 50,
                                     value: widthCurtain,
                                     inactiveColor: colortext2,
                                     onChanged: (dynamic newValue) {
@@ -500,7 +526,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                     ),
                                     const SizedBox(width: defaultPadding),
                                     Text(
-                                      'เมตร',
+                                      'นิ้ว',
                                       style: GoogleFonts.kanit(
                                           color: colortext2,
                                           fontSize: bodytext),
@@ -508,68 +534,6 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ],
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: defaultPadding / 2),
-                    Row(
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text('ราคาผ้าม่าน (บาท) :',
-                                  style: GoogleFonts.kanit(
-                                      color: colortext1, fontSize: bodytext)),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.35,
-                                child: SfSliderTheme(
-                                  data: SfSliderThemeData(
-                                    thumbStrokeWidth: 3,
-                                    thumbStrokeColor: colortext1,
-                                    thumbColor: Colors.white,
-                                  ),
-                                  child: SfSlider(
-                                    min: 0.0,
-                                    max: 100.0,
-                                    value: priceCurtain,
-                                    inactiveColor: colortext2,
-                                    onChanged: (dynamic newValue) {
-                                      setState(() {
-                                        priceCurtain = newValue;
-                                        valueChange();
-                                      });
-                                    },
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                '${priceCurtain.toStringAsFixed(2)}',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              ),
-                              const SizedBox(
-                                width: defaultPadding,
-                              ),
-                              Text(
-                                'บาท',
-                                style: GoogleFonts.kanit(
-                                    color: colortext2, fontSize: bodytext),
-                              )
                             ],
                           ),
                         ),
@@ -687,7 +651,9 @@ class _DetailScreenState extends State<DetailScreen> {
                                           color: colorBlack),
                                     ),
                                     Text(
-                                      '${GoogleSignInApi.formatNumber(result)}',
+                                      priceformat.format(int.parse(allProduct
+                                          .getproduct[2]['price']
+                                          .toString())),
                                       style: GoogleFonts.kanit(
                                           fontSize: subtitle,
                                           color: colorBlack),
@@ -744,8 +710,8 @@ class _DetailScreenState extends State<DetailScreen> {
               child: Container(
                 padding: const EdgeInsets.symmetric(
                     vertical: 28, horizontal: defaultPadding),
-                width: MediaQuery.of(context).size.width * 0.56,
-                height: MediaQuery.of(context).size.height * 0.25,
+                width: 320,
+                height: 210,
                 child: Column(
                   children: [
                     Text('เจ้าของออเดอร์',
@@ -754,34 +720,54 @@ class _DetailScreenState extends State<DetailScreen> {
                     Row(
                       children: [
                         Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'ชื่อลูกค้า',
-                              hintStyle: GoogleFonts.kanit(
-                                  color: Colors.grey, fontSize: bodytext),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
+                          child: GestureDetector(
+                            onTap: showSelectDialogCustomers,
+                            child: Container(
+                                padding: const EdgeInsets.all(12),
+                                alignment: Alignment.centerLeft,
+                                width: 360,
+                                height: 48,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.grey),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(9)),
+                                child: Text(
+                                  context
+                                      .watch<Customers>()
+                                      .getname()
+                                      .toString(),
+                                  style: GoogleFonts.kanit(
+                                      color: (Customers.customerselected ==
+                                              'ชื่อลูกค้า')
+                                          ? Colors.grey
+                                          : Colors.black,
+                                      fontSize: bodytext),
+                                  textAlign: TextAlign.center,
+                                )),
                           ),
                         ),
                         const SizedBox(width: defaultPadding),
-                        ElevatedButton.icon(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const AddCustomer()));
-                          },
-                          icon: const Icon(Icons.add),
-                          label: Text(
-                            'เพิ่ม',
-                            style: GoogleFonts.kanit(fontSize: bodytext),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.black,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                        SizedBox(
+                          height: 48,
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              Customers().setdefaulCustomerselect();
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const AddCustomer()));
+                            },
+                            icon: const Icon(Icons.add),
+                            label: Text(
+                              'เพิ่ม',
+                              style: GoogleFonts.kanit(fontSize: bodytext),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.black,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                             ),
                           ),
                         ),
@@ -789,43 +775,79 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     const SizedBox(height: defaultPadding),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SizedBox(
-                          width: 150,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(28),
+                        Expanded(
+                          child: SizedBox(
+                            width: 150,
+                            height: 48,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(28),
+                                ),
+                                primary: const Color(0xFFD4D4D4),
                               ),
-                              primary: const Color(0xFFD4D4D4),
-                            ),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'ยกเลิก',
-                              style: GoogleFonts.kanit(
-                                  fontSize: bodytext, color: colortext1),
+                              onPressed: () {
+                                Customers().setdefaulCustomerselect();
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                'ยกเลิก',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colortext1),
+                              ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: 150,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(28),
+                        const SizedBox(
+                          width: defaultPadding,
+                        ),
+                        Expanded(
+                          child: SizedBox(
+                            width: 150,
+                            height: 48,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(28),
+                                ),
+                                primary: colortext1,
                               ),
-                              primary: colortext1,
-                            ),
-                            onPressed: () {
-                              showIncressOrderComplete();
-                            },
-                            child: Text(
-                              'ยืนยัน',
-                              style: GoogleFonts.kanit(
-                                  fontSize: bodytext, color: colorWhite),
+                              onPressed: () {
+                                if (Customers.customerselected ==
+                                    'ชื่อลูกค้า') {
+                                  showIncressOrderInComplete();
+                                } else {
+                                  Customers().setdefaulCustomerselect();
+                                  tempname = textfieldnameController.text;
+                                  orderset = [
+                                    {
+                                      'titlename': tempname.toString(),
+                                      'productname': allProduct.getproduct[3]
+                                              ['productname']
+                                          .toString(),
+                                      'productid': tempproductid.toString(),
+                                      'productcolor': tempcolor.toString(),
+                                      'productsize':
+                                          '$widthCurtain x $heightCurtain',
+                                      'price': allProduct.getproduct[2]
+                                          ['price'],
+                                      'image': 'assets/images/curtain.png',
+                                      'ischeck': 'false'
+                                    }
+                                  ];
+                                  setState(() {
+                                    context.read<Order>().ordercreate(orderset);
+                                  });
+                                  showIncressOrderComplete();
+                                }
+                              },
+                              child: Text(
+                                'ยืนยัน',
+                                style: GoogleFonts.kanit(
+                                    fontSize: bodytext, color: colorWhite),
+                              ),
                             ),
                           ),
                         ),
@@ -835,6 +857,38 @@ class _DetailScreenState extends State<DetailScreen> {
                 ),
               ),
             ),
+          );
+        });
+  }
+
+  void showIncressOrderInComplete() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return Dialog(
+            child: Container(
+                alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text(
+                  'กรุณาเพิ่มชื่อลูกค้า',
+                  style: GoogleFonts.kanit(fontSize: bodytext),
+                )),
+          );
+        });
+  }
+
+  void showSelectDialogCustomers() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('ชื่อลูกค้า',
+                style: GoogleFonts.kanit(fontSize: bodytext)),
+            content: setupDialogCustomers(),
           );
         });
   }
@@ -859,27 +913,7 @@ class _DetailScreenState extends State<DetailScreen> {
         });
   }
 
-  // void calculate(double width, double price, double _height) {
-  //   print('width');
-  //   print(width);
-  //   print('_height');
-  //   print(_height);
-  //   print('price');
-  //   print(price);
-  //   double total1 = (((1) * (width * 2.2) / 1) / 0.9) * price;
-  //   double total2 = (((0.35 + _height) * (width * 2.2) / 1.4) / 0.9) * price;
-  //   setState(() {
-  //     result = isChecked ? total2 : total1;
-  //   });
-  // }
-  void calculate(
-      double widthCurtain, double priceCurtain, double heightCurtain) {
-    // print('widthCurtain');
-    // print(widthCurtain);
-    // print('heightCurtain');
-    // print(heightCurtain);
-    // print('priceCurtain');
-    // print(priceCurtain);
+  void calculate(double widthCurtain, double heightCurtain) {
     double total1 = (((1) * (widthCurtain * 2.2) / 1) / 0.9) * priceCurtain;
     double total2 =
         (((0.35 + heightCurtain) * (widthCurtain * 2.2) / 1.4) / 0.9) *
@@ -979,12 +1013,7 @@ class _DetailScreenState extends State<DetailScreen> {
   void valueChange() {
     widthCurtain;
     heightCurtain;
-    priceCurtain;
-    calculate(widthCurtain, priceCurtain, heightCurtain);
-    // double width = double.parse(widthController.value.text);
-    // double price = double.parse(priceController.value.text);
-    // double height = double.parse(heightController.value.text);
-    // calculate(width, price, _height);
+    calculate(widthCurtain, heightCurtain);
   }
 }
 
@@ -994,7 +1023,7 @@ class ImageDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height * 0.5,
         child: Image.asset(imgList[selectImage]),
